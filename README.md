@@ -37,3 +37,11 @@
 * qrcode
 * django-disqus
 * WeasyPrint
+
+## No files
+Those files are not uploaded for security:
+
+* `sandbox/settings/secret.py`
+* `sandbox/settings/production.py`
+* `shop/forms2.py`
+* `card/forms2.py`
