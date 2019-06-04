@@ -1,0 +1,4344 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-29 02:47+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/apps.py:7
+msgid "REST API"
+msgstr "REST API"
+
+#: api/views.py:137
+msgid "Overpaid"
+msgstr "Overpaid"
+
+#: api/views.py:302 api/views.py:321 rabop/forms.py:85 rabop/forms.py:104
+#: rabop/forms.py:406 rabop/forms.py:425 rabop/views.py:1139 shop/utils.py:38
+#: shop/utils.py:58
+msgid " {}: {} ea"
+msgstr " {}: {} ea"
+
+#: banner/apps.py:7 banner/models.py:37 banner/models.py:57
+msgid "banner"
+msgstr "banner"
+
+#: banner/models.py:20 shop/models.py:26 shop/models.py:170
+msgid "enabled"
+msgstr "enabled"
+
+#: banner/models.py:21 shop/models.py:27 shop/models.py:171
+msgid "disabled"
+msgstr "disabled"
+
+#: banner/models.py:25 banner/models.py:66 blog/models.py:39 board/models.py:28
+#: book/models.py:46 bookkeeping/models.py:31 bookkeeping/models.py:60
+#: rakmai/models.py:34 rakmai/models.py:71 rakmai/models.py:116
+msgid "title"
+msgstr "title"
+
+#: banner/models.py:30 banner/models.py:92 blog/models.py:220
+#: board/models.py:148 book/models.py:71 book/models.py:174
+#: rakmai/models.py:225 shop/models.py:247 shop/models.py:695
+msgid "status"
+msgstr "status"
+
+#: banner/models.py:38
+msgid "banners"
+msgstr "banners"
+
+#: banner/models.py:46 rakmai/models.py:19
+msgid "_self"
+msgstr "_self"
+
+#: banner/models.py:47 rakmai/models.py:20
+msgid "blank"
+msgstr "blank"
+
+#: banner/models.py:51
+msgid "visible"
+msgstr "visible"
+
+#: banner/models.py:52 blog/models.py:169
+msgid "hidden"
+msgstr "hidden"
+
+#: banner/models.py:71 rakmai/models.py:40
+msgid "url"
+msgstr "URL"
+
+#: banner/models.py:75 book/models.py:51 rakmai/models.py:77 shop/models.py:115
+#: shop/models.py:224
+msgid "description"
+msgstr "description"
+
+#: banner/models.py:81 rakmai/models.py:53
+msgid "target"
+msgstr "target"
+
+#: banner/models.py:87 shop/models.py:243 shop/models.py:367 shop/models.py:776
+msgid "position"
+msgstr "position"
+
+#: banner/models.py:99 blog/models.py:214 book/models.py:65 shop/models.py:109
+msgid "thumbnail"
+msgstr "thumbnail"
+
+#: banner/models.py:106
+msgid "banner item"
+msgstr "banner item"
+
+#: banner/models.py:107
+msgid "banner items"
+msgstr "banner items"
+
+#: blog/admin.py:14 blog/models.py:100 blog/models.py:253 blog/models.py:295
+msgid "post"
+msgstr "post"
+
+#: blog/admin.py:19
+msgid "Has post"
+msgstr "Has post"
+
+#: blog/admin.py:20
+msgid "No post"
+msgstr "No post"
+
+#: blog/apps.py:7 blog/models.py:84 blog/models.py:149 blog/models.py:174
+msgid "blog"
+msgstr "blog"
+
+#: blog/forms.py:31 blog/models.py:158 blog/models.py:199 board/models.py:72
+#: board/models.py:81 board/models.py:140 book/forms.py:27 book/models.py:57
+#: book/models.py:137 shop/admin.py:54 shop/models.py:161 shop/models.py:237
+#: shop/models.py:734 shop/models.py:769 shop/models.py:817
+msgid "category"
+msgstr "category"
+
+#: blog/forms.py:95 board/forms.py:87
+#: board/templates/board/default/message_confirm_delete.html:57
+#: board/templates/board/default/message_detail.html:43
+#: board/templates/board/default/message_list.html:63
+#: board/templates/board/default/message_my_list.html:63 book/forms.py:57
+#: book/forms.py:142 help/forms.py:53 help/forms.py:91
+msgid "Write"
+msgstr "Write"
+
+#: blog/forms.py:128 board/forms.py:121 book/forms.py:172
+msgid "Maximum number of files exceeded."
+msgstr "Maximum number of files exceeded"
+
+#: blog/forms.py:145 blog/forms.py:149 book/forms.py:179 book/forms.py:183
+#: card/forms.py:24 card/forms.py:28 rabop/forms.py:131 rabop/forms.py:135
+#: rabop/forms.py:225 rabop/forms.py:229 rabop/forms.py:280 rabop/forms.py:284
+#: rabop/forms.py:484 rabop/forms.py:488 rabop/forms.py:520 rabop/forms.py:524
+#: shop/forms.py:50 shop/forms.py:54
+msgid "search word"
+msgstr "search word"
+
+#: blog/models.py:33 board/models.py:116
+msgid "html"
+msgstr "HTML"
+
+#: blog/models.py:34 board/models.py:117
+msgid "markdown"
+msgstr "Markdown"
+
+#: blog/models.py:35 board/models.py:118
+msgid "text"
+msgstr "Text"
+
+#: blog/models.py:44 blog/models.py:115 blog/models.py:180 board/models.py:33
+#: rakmai/models.py:121
+msgid "slug"
+msgstr "slug"
+
+#: blog/models.py:45 blog/models.py:181 board/models.py:34 rakmai/models.py:122
+#: shop/models.py:38 shop/models.py:192
+msgid ""
+"A short label containing only letters, numbers, underscores or hyphens for "
+"URL"
+msgstr ""
+"A short label containing only letters, numbers, underscores or hyphens for "
+"URL"
+
+#: blog/models.py:52 board/models.py:41 shop/models.py:45
+msgid "theme"
+msgstr "theme"
+
+#: blog/models.py:58 board/models.py:165
+msgid "markup"
+msgstr "markup"
+
+#: blog/models.py:64 blog/models.py:232 board/models.py:47
+msgid "allow comments"
+msgstr "Allow comments"
+
+#: blog/models.py:69 board/models.py:52 shop/models.py:82
+msgid "pagination chunk size"
+msgstr "pagination chunk size"
+
+#: blog/models.py:74 board/models.py:57 shop/models.py:87
+msgid "pagination block size"
+msgstr "pagination block size"
+
+#: blog/models.py:79
+msgid "RSS size"
+msgstr "RSS size"
+
+#: blog/models.py:85
+msgid "blogs"
+msgstr "blogs"
+
+#: blog/models.py:93 board/models.py:90 book/models.py:116 rakmai/models.py:152
+msgid "uploaded file"
+msgstr "uploaded file"
+
+#: blog/models.py:108 board/models.py:105 book/models.py:131
+#: rakmai/models.py:163
+msgid "attachment"
+msgstr "attachment"
+
+#: blog/models.py:109 board/models.py:106 book/models.py:132
+#: rakmai/models.py:164
+msgid "attachments"
+msgstr "attachments"
+
+#: blog/models.py:122
+msgid "tag"
+msgstr "tag"
+
+#: blog/models.py:123 blog/models.py:207
+msgid "tags"
+msgstr "tags"
+
+#: blog/models.py:142
+msgid "tagged post"
+msgstr "tagged post"
+
+#: blog/models.py:143
+msgid "tagged posts"
+msgstr "tagged posts"
+
+#: blog/models.py:159 board/models.py:82 book/models.py:138 shop/models.py:162
+msgid "categories"
+msgstr "categories"
+
+#: blog/models.py:167 book/models.py:146
+msgid "draft"
+msgstr "draft"
+
+#: blog/models.py:168 board/models.py:111
+msgid "published"
+msgstr "published"
+
+#: blog/models.py:188
+msgid "excerpt"
+msgstr "excerpt"
+
+#: blog/models.py:189
+msgid "A short description which does not contain HTML tags"
+msgstr "A short description which does not contain HTML tags"
+
+#: blog/models.py:194 board/models.py:135 book/models.py:152 book/models.py:224
+#: rabop/templates/rabop/default/sms_list.html:16 rakmai/models.py:178
+#: shop/models.py:730 shop/models.py:765 shop/models.py:813 shop/models.py:833
+#: shop/models.py:857 shop/models.py:870 shop/models.py:901
+msgid "content"
+msgstr "content"
+
+#: blog/models.py:208
+msgid "A comma-separated list of tags."
+msgstr "A comma-separated list of tags."
+
+#: blog/models.py:227
+msgid "allow code highlighting"
+msgstr "Allow code highlighting"
+
+#: blog/models.py:237
+msgid "published date"
+msgstr "published date"
+
+#: blog/models.py:242 board/models.py:171 book/models.py:95 book/models.py:181
+msgid "view count"
+msgstr "view count"
+
+#: blog/models.py:247 board/models.py:176 book/models.py:186
+#: member/models.py:248 rakmai/models.py:221 shop/models.py:445
+#: shop/models.py:1363
+msgid "IP address"
+msgstr "IP address"
+
+#: blog/models.py:254
+msgid "posts"
+msgstr "posts"
+
+#: blog/models.py:301
+msgid "comment"
+msgstr "comment"
+
+#: blog/models.py:302 blog/templates/blog/default/post_confirm_delete.html:31
+#: blog/templates/blog/default/post_detail.html:29
+#: blog/templates/blog/default/post_list.html:21
+#: blog/templates/blog/default/post_my_detail.html:21
+#: blog/templates/blog/default/post_my_list.html:21
+#: blog/templates/blog/pincoin/post_confirm_delete.html:32
+#: blog/templates/blog/pincoin/post_detail.html:40
+#: blog/templates/blog/pincoin/post_list.html:35
+#: blog/templates/blog/pincoin/post_my_detail.html:36
+#: board/templates/board/default/message_detail.html:19
+msgid "comments"
+msgstr "comments"
+
+#: blog/templates/blog/default/_pagination.html:10
+#: blog/templates/blog/default/_pagination.html:15
+#: blog/templates/blog/pincoin/_pagination.html:10
+#: blog/templates/blog/pincoin/_pagination.html:15
+#: board/templates/board/default/_pagination.html:10
+#: board/templates/board/default/_pagination.html:15
+#: card/templates/card/default/_pagination.html:12
+#: card/templates/card/default/_pagination.html:19
+#: card/templates/card/default/_pagination_order_list.html:13
+#: card/templates/card/default/_pagination_order_list.html:20
+#: card/templates/card/default/home.html:52
+#: help/templates/help/default/_pagination.html:12
+#: help/templates/help/default/_pagination.html:17
+#: rabop/templates/rabop/default/_pagination.html:12
+#: rabop/templates/rabop/default/_pagination.html:19
+#: rabop/templates/rabop/default/_pagination_best_customers.html:12
+#: rabop/templates/rabop/default/_pagination_best_customers.html:19
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:12
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:19
+#: rabop/templates/rabop/default/_pagination_customer_list.html:12
+#: rabop/templates/rabop/default/_pagination_customer_list.html:19
+#: rabop/templates/rabop/default/_pagination_order_list.html:13
+#: rabop/templates/rabop/default/_pagination_order_list.html:20
+#: rabop/templates/rabop/default/_pagination_stock_status.html:12
+#: rabop/templates/rabop/default/_pagination_stock_status.html:19
+#: shop/templates/shop/default/_pagination.html:12
+#: shop/templates/shop/default/_pagination.html:19
+#: shop/templates/shop/default/_pagination_order_list.html:13
+#: shop/templates/shop/default/_pagination_order_list.html:20
+#: shop/templates/shop/default/home.html:67
+msgid "Previous"
+msgstr "Prev"
+
+#: blog/templates/blog/default/_pagination.html:35
+#: blog/templates/blog/default/_pagination.html:40
+#: blog/templates/blog/pincoin/_pagination.html:35
+#: blog/templates/blog/pincoin/_pagination.html:40
+#: board/templates/board/default/_pagination.html:35
+#: board/templates/board/default/_pagination.html:40
+#: card/templates/card/default/_pagination.html:45
+#: card/templates/card/default/_pagination.html:52
+#: card/templates/card/default/_pagination_order_list.html:46
+#: card/templates/card/default/_pagination_order_list.html:53
+#: card/templates/card/default/home.html:56
+#: help/templates/help/default/_pagination.html:42
+#: help/templates/help/default/_pagination.html:47
+#: rabop/templates/rabop/default/_pagination.html:45
+#: rabop/templates/rabop/default/_pagination.html:52
+#: rabop/templates/rabop/default/_pagination_best_customers.html:45
+#: rabop/templates/rabop/default/_pagination_best_customers.html:52
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:45
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:52
+#: rabop/templates/rabop/default/_pagination_customer_list.html:45
+#: rabop/templates/rabop/default/_pagination_customer_list.html:52
+#: rabop/templates/rabop/default/_pagination_order_list.html:46
+#: rabop/templates/rabop/default/_pagination_order_list.html:53
+#: rabop/templates/rabop/default/_pagination_stock_status.html:45
+#: rabop/templates/rabop/default/_pagination_stock_status.html:52
+#: shop/templates/shop/default/_pagination.html:45
+#: shop/templates/shop/default/_pagination.html:52
+#: shop/templates/shop/default/_pagination_order_list.html:46
+#: shop/templates/shop/default/_pagination_order_list.html:53
+#: shop/templates/shop/default/home.html:71
+msgid "Next"
+msgstr "Next"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:24
+msgid "Blog Search"
+msgstr "Blog Search"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:39
+#: board/templates/board/default/board_base.html:23
+msgid "Side Widget"
+msgstr "Side Widget"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:48
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:38
+msgid "Categories"
+msgstr "Categories"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:67
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:77
+msgid "Popular Tags"
+msgstr "Popular Tags"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:74
+#: blog/templates/blog/default/blog_tags.html:14
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:84
+#: blog/templates/blog/pincoin/blog_tags.html:26
+msgid "No Tags Yet."
+msgstr "No Tags Yet."
+
+#: blog/templates/blog/default/blog_base_sidebar.html:82
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:91
+#: board/templates/board/default/board_base.html:32
+msgid "Recent Posts"
+msgstr "Recent Posts"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:91
+#: blog/templates/blog/default/post_list.html:57
+#: blog/templates/blog/default/post_my_list.html:59
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:100
+#: blog/templates/blog/pincoin/post_list.html:66
+#: blog/templates/blog/pincoin/post_my_list.html:51
+msgid "No Posts Yet."
+msgstr "No Posts Yet."
+
+#: blog/templates/blog/default/blog_base_sidebar.html:99
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:108
+msgid "Recent Comments"
+msgstr "Recent Comments"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:107
+msgid "No Comments Yet."
+msgstr "No Comments Yet."
+
+#: blog/templates/blog/default/blog_base_sidebar.html:115
+msgid "Meta"
+msgstr "Meta"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:118
+#: blog/templates/blog/default/post_archive.html:10
+#: blog/templates/blog/pincoin/base.html:124
+#: blog/templates/blog/pincoin/post_archive.html:21
+msgid "Blog Archive"
+msgstr "Blog Archive"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:119
+#: blog/templates/blog/default/post_confirm_delete.html:54
+#: blog/templates/blog/default/post_detail.html:58
+#: blog/templates/blog/default/post_list.html:45
+#: blog/templates/blog/default/post_my_detail.html:50
+#: blog/templates/blog/default/post_my_list.html:47
+#: blog/templates/blog/pincoin/base.html:130
+msgid "Tags"
+msgstr "Tags"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:120
+#: blog/templates/blog/pincoin/base.html:136
+msgid "RSS"
+msgstr "RSS"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:122
+#: rabop/templates/rabop/default/base.html:142
+msgid "Admin"
+msgstr "Admin"
+
+#: blog/templates/blog/default/post_archive.html:15
+#: blog/templates/blog/pincoin/post_archive.html:26
+#, python-format
+msgid "Year - %(year)s"
+msgstr "Year - %(year)s"
+
+#: blog/templates/blog/default/post_archive_day.html:9
+#: blog/templates/blog/pincoin/post_archive_day.html:22
+msgid "N d, Y"
+msgstr "N d, Y"
+
+#: blog/templates/blog/default/post_archive_day.html:9
+#: blog/templates/blog/pincoin/post_archive_day.html:22
+#, python-format
+msgid "Daily Archive %(d)s"
+msgstr "Daily Archive %(d)s"
+
+#: blog/templates/blog/default/post_archive_month.html:9
+#: blog/templates/blog/pincoin/post_archive_month.html:23
+msgid "N, Y"
+msgstr "N, Y"
+
+#: blog/templates/blog/default/post_archive_month.html:9
+#: blog/templates/blog/pincoin/post_archive_month.html:23
+#, python-format
+msgid "Monthly Archive %(m)s"
+msgstr "Monthly Archive %(m)s"
+
+#: blog/templates/blog/default/post_archive_month.html:14
+#: blog/templates/blog/pincoin/post_archive_month.html:29
+msgid "j"
+msgstr "j"
+
+#: blog/templates/blog/default/post_archive_year.html:9
+#: blog/templates/blog/pincoin/post_archive_year.html:22
+#, python-format
+msgid "Yearly Archive %(y)s"
+msgstr "Yearly Archive %(y)s"
+
+#: blog/templates/blog/default/post_confirm_delete.html:17
+#: blog/templates/blog/pincoin/post_confirm_delete.html:18
+#: board/templates/board/default/message_confirm_delete.html:32
+#: book/templates/book/default/book_confirm_delete.html:14
+#: book/templates/book/default/page_confirm_delete.html:15
+#: card/templates/card/default/order_confirm_delete.html:11
+#: card/templates/card/default/order_confirm_hide.html:11
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:11
+#: shop/templates/shop/default/order_confirm_delete.html:11
+#: shop/templates/shop/default/order_confirm_hide.html:11
+msgid "Are you sure to delete?"
+msgstr "Are you sure to delete?"
+
+#: blog/templates/blog/default/post_confirm_delete.html:19
+#: blog/templates/blog/default/post_detail.html:36
+#: blog/templates/blog/default/post_my_detail.html:28
+#: blog/templates/blog/pincoin/post_confirm_delete.html:20
+#: blog/templates/blog/pincoin/post_detail.html:47
+#: blog/templates/blog/pincoin/post_my_detail.html:42
+#: board/templates/board/default/message_confirm_delete.html:34
+#: board/templates/board/default/message_detail.html:29
+#: board/templates/board/default/message_detail.html:50
+#: book/templates/book/default/book_confirm_delete.html:16
+#: book/templates/book/default/page_confirm_delete.html:17
+#: card/templates/card/default/order_confirm_delete.html:13
+#: card/templates/card/default/order_confirm_hide.html:14
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:13
+#: rabop/templates/rabop/default/order_detail.html:533
+#: shop/templates/shop/default/order_confirm_delete.html:13
+#: shop/templates/shop/default/order_confirm_hide.html:14
+msgid "Delete"
+msgstr "Delete"
+
+#: blog/templates/blog/default/post_confirm_delete.html:32
+#: blog/templates/blog/default/post_detail.html:30
+#: blog/templates/blog/default/post_list.html:22
+#: blog/templates/blog/default/post_my_detail.html:22
+#: blog/templates/blog/default/post_my_list.html:22
+#: blog/templates/blog/pincoin/post_confirm_delete.html:33
+#: blog/templates/blog/pincoin/post_detail.html:42
+#: blog/templates/blog/pincoin/post_list.html:37
+#: blog/templates/blog/pincoin/post_my_detail.html:37
+#: blog/templates/blog/pincoin/post_my_list.html:19
+#: board/templates/board/default/message_detail.html:20
+msgid "views"
+msgstr "views"
+
+#: blog/templates/blog/default/post_confirm_delete.html:69
+#: blog/templates/blog/default/post_detail.html:539
+#: blog/templates/blog/default/post_my_detail.html:91
+#: blog/templates/blog/pincoin/post_confirm_delete.html:71
+#: blog/templates/blog/pincoin/post_detail.html:171
+msgid "Comments are now allowed."
+msgstr "Comments are now allowed."
+
+#: blog/templates/blog/default/post_detail.html:34
+#: blog/templates/blog/default/post_my_detail.html:26
+#: blog/templates/blog/pincoin/base.html:110
+#: blog/templates/blog/pincoin/post_detail.html:45
+#: blog/templates/blog/pincoin/post_my_detail.html:40
+#: board/templates/board/default/message_confirm_delete.html:23
+#: board/templates/board/default/message_detail.html:25
+#: board/templates/board/default/message_detail.html:47
+#: book/templates/book/default/base.html:101
+#: rabop/templates/rabop/default/customer_detail.html:29
+msgid "Edit"
+msgstr "Edit"
+
+#: blog/templates/blog/default/post_detail.html:68
+#: blog/templates/blog/default/post_my_detail.html:60
+#: blog/templates/blog/pincoin/post_detail.html:137
+#: blog/templates/blog/pincoin/post_my_detail.html:92
+msgid "Related Posts"
+msgstr "Related Posts"
+
+#: blog/templates/blog/default/post_detail.html:95
+msgid "Leave a Comment"
+msgstr "Leave a Comment"
+
+#: blog/templates/blog/default/post_list.html:39
+#: blog/templates/blog/default/post_my_list.html:41
+#: blog/templates/blog/pincoin/post_list.html:47
+#: blog/templates/blog/pincoin/post_my_list.html:32
+msgid "Read More"
+msgstr "Read More"
+
+#: blog/templates/blog/pincoin/base.html:15
+#: blog/templates/blog/pincoin/base.html:28
+#: blog/templates/blog/pincoin/base.html:85
+#: book/templates/book/default/base.html:14
+#: book/templates/book/default/base.html:29
+#: book/templates/book/default/base.html:87
+#: card/templates/card/default/base.html:14
+#: card/templates/card/default/base.html:29
+#: rabop/templates/rabop/default/base.html:15
+#: shop/templates/shop/default/base.html:14
+#: shop/templates/shop/default/base.html:29
+msgid "PINCOIN"
+msgstr "PINCOIN"
+
+#: blog/templates/blog/pincoin/base.html:85
+#: blog/templates/blog/pincoin/base.html:118
+#: book/templates/book/default/base.html:87
+#: book/templates/book/default/base.html:109
+msgid "To Shop"
+msgstr "To Shop"
+
+#: blog/templates/blog/pincoin/base.html:91
+#: blog/templates/blog/pincoin/base.html:156
+#: book/templates/book/default/base.html:129
+msgid "About"
+msgstr "About"
+
+#: blog/templates/blog/pincoin/base.html:104
+#: book/templates/book/default/base.html:95
+#: card/templates/card/default/base.html:89
+#: card/templates/card/default/base.html:155
+#: shop/templates/shop/default/base.html:89
+#: shop/templates/shop/default/base.html:155
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: blog/templates/blog/pincoin/base.html:150
+#: book/templates/book/default/base.html:123
+msgid "To Home"
+msgstr "Home"
+
+#: blog/templates/blog/pincoin/base.html:222
+#: book/templates/book/default/base.html:179
+#: card/templates/card/default/base.html:316
+#: shop/templates/shop/default/base.html:358
+msgid "User Guide"
+msgstr "User Guide"
+
+#: blog/templates/blog/pincoin/base.html:227
+#: book/templates/book/default/base.html:184
+#: card/templates/card/default/base.html:321 help/views.py:119
+#: shop/templates/shop/default/base.html:363
+msgid "Frequently Asked Questions"
+msgstr "FAQ"
+
+#: blog/templates/blog/pincoin/base.html:232
+#: book/templates/book/default/base.html:189
+#: card/templates/card/default/base.html:326
+#: help/templates/help/default/_tabs.html:18
+#: help/templates/help/default/home.html:20
+#: shop/templates/shop/default/base.html:368
+msgid "Q&amp;A"
+msgstr "Q&amp;A"
+
+#: blog/templates/blog/pincoin/base.html:237
+#: book/templates/book/default/base.html:194
+#: card/templates/card/default/base.html:331
+#: member/templates/member/account/signup.html:14
+#: member/templates/member/account/terms.html:11
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:249
+#: shop/templates/shop/default/base.html:373
+msgid "Terms and Conditions"
+msgstr "Terms &amp; Conditions"
+
+#: blog/templates/blog/pincoin/base.html:242
+#: book/templates/book/default/base.html:199
+#: card/templates/card/default/base.html:336
+#: member/templates/member/account/privacy.html:11
+#: member/templates/member/account/signup.html:31
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:258
+#: shop/templates/shop/default/base.html:378
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: blog/templates/blog/pincoin/base.html:247
+#: book/templates/book/default/base.html:204
+#: card/templates/card/default/base.html:346
+#: rabop/templates/rabop/default/base.html:151
+#: shop/templates/shop/default/base.html:388
+msgid "Blog"
+msgstr "Blog"
+
+#: blog/templates/blog/pincoin/base.html:252
+#: book/templates/book/default/base.html:209
+#: card/templates/card/default/base.html:351
+#: rabop/templates/rabop/default/base.html:154
+#: shop/templates/shop/default/base.html:393
+msgid "TechNote"
+msgstr "TechNote"
+
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:58
+msgid "Pincoin Products"
+msgstr "Pincoin Products"
+
+#: blog/templates/blog/pincoin/post_detail.html:80
+#: blog/templates/blog/pincoin/post_my_detail.html:71
+#: book/templates/book/default/page_detail.html:110
+#: book/templates/book/default/page_my_detail.html:86
+#: card/templates/card/default/product_detail.html:282
+#: shop/templates/shop/default/product_detail.html:286
+msgid "Close"
+msgstr "Close"
+
+#: blog/templates/blog/pincoin/post_my_list.html:61
+msgid "Write a new post"
+msgstr "Write a new post"
+
+#: blog/views.py:88
+msgid "{} Blog Posts"
+msgstr "{} Blog Posts"
+
+#: blog/views.py:129
+msgid "{} My Blog Posts"
+msgstr "{} My Blog Posts"
+
+#: blog/views.py:143
+msgid "{} Write Post"
+msgstr "{} Write Post"
+
+#: blog/views.py:198
+msgid "{} Edit Post - {}"
+msgstr "{} Edit Post - {}"
+
+#: blog/views.py:253
+msgid "{} Delete Post - {}"
+msgstr "{} Delete Post - {}"
+
+#: blog/views.py:281
+msgid "{} Blog Posts By Categories"
+msgstr "{} Blog Posts by Categories"
+
+#: blog/views.py:303
+msgid "{} Blog Posts By Tags"
+msgstr "{} Blog Posts by Tags"
+
+#: blog/views.py:325
+msgid "{} Blog Tags"
+msgstr "{} Blog Tags"
+
+#: blog/views.py:334
+msgid "Blog RSS"
+msgstr "Blog RSS"
+
+#: blog/views.py:336
+msgid "Blog Recent Posts"
+msgstr "Blog Recent Posts"
+
+#: blog/views.py:364
+msgid "{} Blog Archive"
+msgstr "{} Blog Archive"
+
+#: blog/views.py:385
+msgid "{} Blog Yearly Archive"
+msgstr "{} Blog Yearly Archive"
+
+#: blog/views.py:405
+msgid "{} Blog Monthly Archive"
+msgstr "{} Blog Monthly Archive"
+
+#: blog/views.py:425
+msgid "{} Blog Daily Archive"
+msgstr "{} Blog Daily Archive"
+
+#: board/admin.py:39 board/models.py:97 board/models.py:182
+#: member/models.py:305
+msgid "message"
+msgstr "message"
+
+#: board/admin.py:44
+msgid "Has message"
+msgstr "Has message"
+
+#: board/admin.py:45 card/templates/card/default/home.html:198
+#: help/templates/help/default/faq_list.html:43
+#: help/templates/help/default/notice_list.html:44
+#: shop/templates/shop/default/home.html:207
+msgid "No message"
+msgstr "No message"
+
+#: board/apps.py:7 board/models.py:62 board/models.py:123
+msgid "board"
+msgstr "board"
+
+#: board/forms.py:24
+msgid "Search Fields"
+msgstr "Search Fields"
+
+#: board/forms.py:32 board/templates/board/default/message_list.html:22
+#: board/templates/board/default/message_my_list.html:22
+msgid "Title"
+msgstr "Title"
+
+#: board/forms.py:33
+msgid "Content"
+msgstr "Content"
+
+#: board/forms.py:34
+msgid "Title+Content"
+msgstr "Title+Content"
+
+#: board/forms.py:35
+msgid "Nickname"
+msgstr "Nickname"
+
+#: board/forms.py:42 board/forms.py:46
+#: board/templates/board/default/message_list.html:75
+#: board/templates/board/default/message_my_list.html:75
+#: rakmai/templates/rakmai/base.html:69 rakmai/templates/rakmai/base.html:70
+msgid "Search"
+msgstr "Search"
+
+#: board/models.py:63
+msgid "boards"
+msgstr "boards"
+
+#: board/models.py:112
+msgid "moderated"
+msgstr "moderated"
+
+#: board/models.py:129
+msgid "nickname"
+msgstr "nickname"
+
+#: board/models.py:155
+msgid "secret"
+msgstr "secret"
+
+#: board/models.py:160
+msgid "sticky"
+msgstr "sticky"
+
+#: board/models.py:183
+msgid "messages"
+msgstr "messages"
+
+#: board/templates/board/default/board_base.html:41
+#: board/templates/board/default/message_list.html:50
+#: board/templates/board/default/message_my_list.html:50
+msgid "No Messages Yet."
+msgstr "No Messages Yet."
+
+#: board/templates/board/default/message_confirm_delete.html:50
+#: board/templates/board/default/message_detail.html:40 help/forms.py:53
+#: help/forms.py:91 help/templates/help/default/notice_detail.html:48
+#: help/templates/help/default/question_detail.html:67
+#: help/templates/help/default/testimonials_detail.html:82
+#: rabop/templates/rabop/default/customer_detail.html:343
+#: rabop/templates/rabop/default/legacy_customer_detail.html:110
+#: rabop/templates/rabop/default/naver_order_create.html:119
+#: rabop/templates/rabop/default/naver_order_detail.html:185
+#: rabop/templates/rabop/default/order_detail.html:550
+#: rabop/templates/rabop/default/order_send_errors.html:11
+#: rabop/templates/rabop/default/question_detail.html:91
+#: rabop/templates/rabop/default/sms_send.html:11
+msgid "List"
+msgstr "List"
+
+#: board/templates/board/default/message_list.html:21
+#: board/templates/board/default/message_my_list.html:21
+#: rabop/templates/rabop/default/best_customers_report.html:28
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:28
+#: rabop/templates/rabop/default/best_sellers_report.html:28
+#: rabop/templates/rabop/default/daily_payments_report.html:103
+#: rabop/templates/rabop/default/daily_sales_report.html:52
+#: rabop/templates/rabop/default/monthly_sales_report.html:52
+msgid "No."
+msgstr "No."
+
+#: board/templates/board/default/message_list.html:23
+#: board/templates/board/default/message_my_list.html:23
+msgid "Author"
+msgstr "Author"
+
+#: board/templates/board/default/message_list.html:24
+#: board/templates/board/default/message_my_list.html:24
+msgid "Views"
+msgstr "Views"
+
+#: board/templates/board/default/message_list.html:25
+#: board/templates/board/default/message_my_list.html:25
+msgid "At"
+msgstr "At"
+
+#: book/admin.py:17 book/models.py:123 book/models.py:197 book/models.py:213
+msgid "page"
+msgstr "page"
+
+#: book/admin.py:22
+msgid "Has page"
+msgstr "Has page"
+
+#: book/admin.py:23
+msgid "No page"
+msgstr "No page"
+
+#: book/apps.py:7 book/models.py:107 book/models.py:157
+msgid "book"
+msgstr "book"
+
+#: book/forms.py:91 book/models.py:165 rakmai/models.py:25 rakmai/models.py:107
+#: rakmai/models.py:183 shop/models.py:502
+msgid "parent"
+msgstr "parent"
+
+#: book/models.py:32 book/models.py:147
+msgid "public"
+msgstr "public"
+
+#: book/models.py:33 book/models.py:148
+msgid "private"
+msgstr "private"
+
+#: book/models.py:37
+msgid "BY"
+msgstr "BY"
+
+#: book/models.py:38
+msgid "BY-SA"
+msgstr "BY-SA"
+
+#: book/models.py:39
+msgid "BY-ND"
+msgstr "BY-ND"
+
+#: book/models.py:40
+msgid "BY-NC"
+msgstr "BY-NC"
+
+#: book/models.py:41
+msgid "BY-NC-SA"
+msgstr "BY-NC-SA"
+
+#: book/models.py:42
+msgid "BY-NC-ND"
+msgstr "BY-NC-ND"
+
+#: book/models.py:78
+msgid "license"
+msgstr "license"
+
+#: book/models.py:86 rakmai/models.py:92 rakmai/models.py:193
+msgid "owner"
+msgstr "owner"
+
+#: book/models.py:100 book/models.py:190
+msgid "updated date"
+msgstr "updated date"
+
+#: book/models.py:108
+msgid "books"
+msgstr "books"
+
+#: book/models.py:198
+msgid "pages"
+msgstr "pages"
+
+#: book/models.py:220 rakmai/models.py:209
+msgid "email address"
+msgstr "email address"
+
+#: book/models.py:228 book/models.py:229
+msgid "feedback"
+msgstr "feedback"
+
+#: book/tasks.py:10
+msgid "You've got feedback. : {}"
+msgstr "You've got feedback : {}"
+
+#: book/templates/book/default/book_base_my_sidebar.html:29
+#: book/templates/book/default/book_base_sidebar.html:29
+msgid "TOC"
+msgstr "TOC"
+
+#: book/templates/book/default/book_detail.html:32
+#: book/templates/book/default/book_my_detail.html:45
+#: book/templates/book/default/page_detail.html:42
+#: book/templates/book/default/page_my_detail.html:38
+msgid "Last Modified"
+msgstr "Last Modified"
+
+#: book/templates/book/default/book_detail.html:33
+#: book/templates/book/default/book_my_detail.html:46
+msgid "License"
+msgstr "License"
+
+#: book/templates/book/default/book_detail.html:46
+#: book/templates/book/default/book_my_detail.html:58
+#: book/templates/book/default/page_detail.html:64
+#: book/templates/book/default/page_my_detail.html:60
+msgid "Next Page"
+msgstr "Next Page"
+
+#: book/templates/book/default/book_my_detail.html:14
+msgid "Edit Book"
+msgstr "Edit Book"
+
+#: book/templates/book/default/book_my_detail.html:17
+msgid "Delete Book"
+msgstr "Delete Book"
+
+#: book/templates/book/default/book_my_detail.html:20
+#: book/templates/book/default/page_my_detail.html:27
+msgid "Write Page"
+msgstr "Write Page"
+
+#: book/templates/book/default/book_my_list.html:43 book/views.py:200
+msgid "Write New Book"
+msgstr "Write New Book"
+
+#: book/templates/book/default/page_detail.html:51
+#: book/templates/book/default/page_detail.html:57
+#: book/templates/book/default/page_my_detail.html:47
+#: book/templates/book/default/page_my_detail.html:53
+msgid "Previous Page"
+msgstr "Previous Page"
+
+#: book/templates/book/default/page_detail.html:94
+#: book/templates/book/default/page_my_detail.html:70
+msgid "Top"
+msgstr "Top"
+
+#: book/templates/book/default/page_list.html:7
+#: book/templates/book/default/page_my_list.html:7
+msgid "Search Results"
+msgstr "Search Results"
+
+#: book/templates/book/default/page_list.html:13
+#: book/templates/book/default/page_my_list.html:13
+msgid "No results"
+msgstr "No results"
+
+#: book/templates/book/default/page_my_detail.html:21
+msgid "Edit Page"
+msgstr "Edit Page"
+
+#: book/templates/book/default/page_my_detail.html:24
+msgid "Delete Page"
+msgstr "Delete Page"
+
+#: book/views.py:49 book/views.py:98
+msgid "Book List"
+msgstr "Tech note"
+
+#: book/views.py:166 book/views.py:447
+msgid "Search Results - {}"
+msgstr "Search Results - {}"
+
+#: book/views.py:232
+msgid "Edit Book - {}"
+msgstr "Edit Book - {}"
+
+#: book/views.py:262
+msgid "Delete Book - {}"
+msgstr "Delete Book - {}"
+
+#: book/views.py:279
+msgid "Write New Page"
+msgstr "Write New Page"
+
+#: book/views.py:335
+msgid "Edit Page - {}"
+msgstr "Edit Page - {}"
+
+#: book/views.py:388
+msgid "Delete Page - {}"
+msgstr "Delete Page - {}"
+
+#: bookkeeping/apps.py:7
+msgid "bookkeeping"
+msgstr "bookkeeping"
+
+#: bookkeeping/models.py:11
+msgid "transaction pending"
+msgstr "transaction pending"
+
+#: bookkeeping/models.py:12
+msgid "transaction complete"
+msgstr "transaction complete"
+
+#: bookkeeping/models.py:13
+msgid "transaction revoked"
+msgstr "transaction revoked"
+
+#: bookkeeping/models.py:17
+msgid "slip status"
+msgstr "slip status"
+
+#: bookkeeping/models.py:24
+msgid "transaction amount"
+msgstr "transaction amount"
+
+#: bookkeeping/models.py:37
+msgid "slip remarks"
+msgstr "slip remarks"
+
+#: bookkeeping/models.py:47
+msgid "bank account"
+msgstr "bank account"
+
+#: bookkeeping/models.py:48
+msgid "credit card"
+msgstr "credit card"
+
+#: bookkeeping/models.py:49
+msgid "debit card"
+msgstr "debit card"
+
+#: bookkeeping/models.py:53
+msgid "account type"
+msgstr "account type"
+
+#: bookkeeping/models.py:65
+msgid "account active"
+msgstr "account active"
+
+#: bookkeeping/models.py:70
+msgid "bookkeeping account"
+msgstr "bookkeeping account"
+
+#: bookkeeping/models.py:71
+msgid "bookkeeping accounts"
+msgstr "bookkeeping accounts"
+
+#: bookkeeping/models.py:79
+msgid "purchase"
+msgstr "purchase"
+
+#: bookkeeping/models.py:80
+msgid "refund"
+msgstr "refund"
+
+#: bookkeeping/models.py:81
+msgid "refund overdrawn"
+msgstr "refund overdrawn"
+
+#: bookkeeping/models.py:82
+msgid "expense"
+msgstr "expense"
+
+#: bookkeeping/models.py:83
+msgid "salary"
+msgstr "salary"
+
+#: bookkeeping/models.py:87
+msgid "withdrawal type"
+msgstr "withdrawal type"
+
+#: bookkeeping/models.py:95 bookkeeping/models.py:130 shop/models.py:543
+msgid "account"
+msgstr "account"
+
+#: bookkeeping/models.py:102 bookkeeping/models.py:137
+msgid "completed date"
+msgstr "completed date"
+
+#: bookkeeping/models.py:107
+msgid "withdrawal slip"
+msgstr "withdrawal slip"
+
+#: bookkeeping/models.py:108
+msgid "withdrawal slips"
+msgstr "withdrawal slips"
+
+#: bookkeeping/models.py:116
+msgid "unidentified"
+msgstr "unidentified"
+
+#: bookkeeping/models.py:117
+msgid "identified"
+msgstr "identified"
+
+#: bookkeeping/models.py:118
+msgid "overdrawn deposit"
+msgstr "overdrawn deposit"
+
+#: bookkeeping/models.py:122
+msgid "deposit type"
+msgstr "deposit type"
+
+#: bookkeeping/models.py:142
+msgid "unidentified deposit slip"
+msgstr "unidentified deposit slip"
+
+#: bookkeeping/models.py:143
+msgid "unidentified deposit slips"
+msgstr "unidentified deposit slips"
+
+#: card/apps.py:7
+msgid "Card mall"
+msgstr "Card mall"
+
+#: card/forms.py:53 shop/forms.py:79
+msgid "I agree to Commercial Law."
+msgstr "I agree to Commercial Law."
+
+#: card/forms.py:54 shop/forms.py:80
+msgid "Do you agree to buy items in your cart?"
+msgstr "Do you agree to buy items in your cart?"
+
+#: card/forms.py:58 shop/forms.py:84
+msgid "I purchase by myself on my own purpose."
+msgstr "I purchase by myself on my own purpose."
+
+#: card/forms.py:59 shop/forms.py:85
+msgid "It is 100 percent fraud if you are asked to buy the codes."
+msgstr "It is 100% fraud if you are asked to buy the codes."
+
+#: card/forms.py:65 rabop/templates/rabop/default/daily_payments_report.html:16
+#: rabop/templates/rabop/default/daily_payments_report.html:128
+#: shop/models.py:380
+msgid "Credit Card"
+msgstr "Credit Card"
+
+#: card/forms.py:89 shop/forms.py:115
+msgid "Empty cart! Please, put items in your cart."
+msgstr "Empty cart! Please, put items in your cart."
+
+#: card/forms.py:128 shop/forms.py:193
+msgid "You have access log within {} hrs."
+msgstr "You have access log within {} hrs."
+
+#: card/forms.py:139 shop/forms.py:204
+msgid "Delete order first before the new order."
+msgstr "Delete order first before the new order."
+
+#: card/forms.py:158
+msgid "Under 20, You cannot buy more than 150,000 KRW."
+msgstr "Under 20, You cannot buy more than 150,000 KRW."
+
+#: card/forms.py:189 shop/forms.py:255
+msgid "Complete cellphone verification."
+msgstr "Complete cellphone verification."
+
+#: card/forms.py:195 shop/forms.py:261
+msgid "You cannot buy culture more than {} KRW."
+msgstr "You cannot buy culture more than {} KRW."
+
+#: card/forms.py:202 card/forms.py:215 card/forms.py:228 card/forms.py:276
+#: card/forms.py:283 card/forms.py:327 card/forms.py:334 card/forms.py:377
+#: card/forms.py:384 shop/forms.py:268 shop/forms.py:281 shop/forms.py:294
+#: shop/forms.py:342 shop/forms.py:349 shop/forms.py:393 shop/forms.py:400
+#: shop/forms.py:443 shop/forms.py:450
+msgid "Complete document verification."
+msgstr "Complete document verification."
+
+#: card/forms.py:208 shop/forms.py:274
+msgid "You cannot buy google more than {} KRW."
+msgstr "You cannot buy google more than {} KRW."
+
+#: card/forms.py:221 shop/forms.py:287
+msgid "You cannot buy more than {} KRW."
+msgstr "You cannot buy more than {} KRW."
+
+#: card/forms.py:257 shop/forms.py:323
+msgid "Activate your account by cellphone verification."
+msgstr "Activate your account by cellphone verification."
+
+#: card/forms.py:266 shop/forms.py:332
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"You cannot buy culture more than {} KRW within 48 hrs from the first order "
+"date."
+
+#: card/forms.py:290 shop/forms.py:356
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"You cannot buy culture more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+
+#: card/forms.py:300 card/forms.py:351 card/forms.py:401 shop/forms.py:366
+#: shop/forms.py:417 shop/forms.py:467
+msgid "You may order 1 hour after last purchase."
+msgstr "You may order 1 hour after last purchase."
+
+#: card/forms.py:308 card/forms.py:359 card/forms.py:418 shop/forms.py:374
+#: shop/forms.py:425 shop/forms.py:484
+msgid "Complete document verification at night."
+msgstr "Complete document verification at night."
+
+#: card/forms.py:317 shop/forms.py:383
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"You cannot buy google more than {} KRW within 48 hrs from the first order "
+"date."
+
+#: card/forms.py:341 shop/forms.py:407
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"You cannot buy google more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+
+#: card/forms.py:367 shop/forms.py:433
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs from the first order date."
+msgstr ""
+"You cannot buy more than {} KRW within 48 hrs from the first order date."
+
+#: card/forms.py:391 shop/forms.py:457
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
+"for 2 months."
+msgstr ""
+"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
+"for 2 months."
+
+#: card/forms.py:411 shop/forms.py:477
+msgid "You cannot buy more than the maximum of your past order amount."
+msgstr "You cannot buy more than the maximum of your past order amount."
+
+#: card/forms.py:432 shop/forms.py:498
+msgid "Over amount for auto-send during night time"
+msgstr "Over amount for auto-send during night time"
+
+#: card/forms.py:453 rabop/templates/rabop/default/naver_order_detail.html:90
+#: rabop/templates/rabop/default/order_detail.html:392 shop/forms.py:520
+#: shop/models.py:496 shop/models.py:1101
+msgid "order message"
+msgstr "order message"
+
+#: card/forms.py:454 shop/forms.py:521
+msgid "Your bank account and your full name"
+msgstr ""
+"Please, leave your bank account and full name if you transferred your money."
+
+#: card/templates/card/default/base.html:97
+#: card/templates/card/default/base.html:163
+#: shop/templates/shop/default/base.html:97
+#: shop/templates/shop/default/base.html:163
+msgid "Sign in"
+msgstr "Sign in"
+
+#: card/templates/card/default/base.html:103
+#: card/templates/card/default/base.html:169
+#: member/templates/member/account/login.html:120
+#: member/templates/member/account/signup.html:172
+#: member/templates/member/socialaccount/signup.html:158 member/views.py:109
+#: member/views.py:231 shop/templates/shop/default/base.html:103
+#: shop/templates/shop/default/base.html:169
+msgid "Sign up"
+msgstr "Sign up"
+
+#: card/templates/card/default/base.html:110
+#: card/templates/card/default/base.html:189
+#: shop/templates/shop/default/base.html:110
+#: shop/templates/shop/default/base.html:189
+msgid "Orders"
+msgstr "Orders"
+
+#: card/templates/card/default/base.html:116
+#: card/templates/card/default/base.html:195 card/views.py:204
+#: shop/templates/shop/default/base.html:116
+#: shop/templates/shop/default/base.html:195 shop/views.py:200
+msgid "Cart"
+msgstr "Cart"
+
+#: card/templates/card/default/base.html:130
+#: card/templates/card/default/base.html:209
+#: shop/templates/shop/default/base.html:130
+#: shop/templates/shop/default/base.html:209
+#: shop/templates/shop/default/paypal_success.html:29
+msgid "Help"
+msgstr "Help"
+
+#: card/templates/card/default/base.html:137
+#: card/templates/card/default/base.html:176
+#: card/templates/card/default/cart.html:183
+#: card/templates/card/default/cart.html:235
+#: card/templates/card/default/order_list.html:18
+#: card/templates/card/default/product_detail.html:212
+#: shop/templates/shop/default/base.html:137
+#: shop/templates/shop/default/base.html:176
+#: shop/templates/shop/default/cart.html:180
+#: shop/templates/shop/default/cart.html:241
+#: shop/templates/shop/default/order_detail.html:159
+#: shop/templates/shop/default/order_detail.html:299
+#: shop/templates/shop/default/order_list.html:18
+#: shop/templates/shop/default/product_detail.html:212
+msgid "My Page"
+msgstr "My Page"
+
+#: card/templates/card/default/base.html:143
+#: card/templates/card/default/base.html:182
+#: member/templates/member/account/logout.html:11
+#: rabop/templates/rabop/default/base.html:205
+#: shop/templates/shop/default/base.html:143
+#: shop/templates/shop/default/base.html:182
+msgid "Sign out"
+msgstr "Sign out"
+
+#: card/templates/card/default/base.html:150
+msgid "PINCOIN CARD"
+msgstr "PINCOIN CARD"
+
+#: card/templates/card/default/base.html:213
+#: card/templates/card/default/order_detail.html:181
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:31
+#: rabop/templates/rabop/default/best_sellers_report.html:31
+#: shop/templates/shop/default/base.html:213
+#: shop/templates/shop/default/order_detail.html:361
+msgid "Voucher"
+msgstr "Voucher"
+
+#: card/templates/card/default/base.html:341
+#: shop/templates/shop/default/order_list.html:57
+msgid "Main Mall"
+msgstr "Main Mall"
+
+#: card/templates/card/default/cart.html:23
+#: shop/templates/shop/default/cart.html:23
+msgid "Cart / Checkout"
+msgstr "Cart / Checkout"
+
+#: card/templates/card/default/cart.html:26
+#: shop/templates/shop/default/cart.html:26
+msgid "Empty Cart"
+msgstr "Empty Cart"
+
+#: card/templates/card/default/cart.html:86
+#: shop/templates/shop/default/cart.html:86
+msgid "Total Amount"
+msgstr "Total Amount"
+
+#: card/templates/card/default/cart.html:93
+#: shop/templates/shop/default/cart.html:93
+msgid "No Items in cart"
+msgstr "No Items in cart"
+
+#: card/templates/card/default/cart.html:105
+#: rabop/templates/rabop/default/daily_payments_report.html:43
+#: rabop/templates/rabop/default/daily_payments_report.html:80
+#: rabop/templates/rabop/default/daily_payments_report.html:106
+#: shop/templates/shop/default/cart.html:105
+msgid "Payment Method"
+msgstr "Payment Method"
+
+#: card/templates/card/default/cart.html:179
+#: shop/templates/shop/default/cart.html:176
+msgid "Attention in cart"
+msgstr "Attention"
+
+#: card/templates/card/default/cart.html:223
+#: shop/templates/shop/default/cart.html:229
+msgid "Checkout"
+msgstr "Checkout"
+
+#: card/templates/card/default/cart.html:231
+#: shop/templates/shop/default/cart.html:237
+#: shop/templates/shop/default/order_detail.html:285
+msgid "Attention"
+msgstr "Attention"
+
+#: card/templates/card/default/email/customer_question.html:2 help/views.py:203
+#: shop/templates/shop/default/email/customer_question.html:2
+msgid "Customer Question"
+msgstr "Customer Question"
+
+#: card/templates/card/default/email/customer_question.html:7
+#: card/templates/card/default/email/order_complete.html:7
+#: card/templates/card/default/email/order_paypal_voided.html:7
+#: card/templates/card/default/email/order_refunded.html:7
+#: card/templates/card/default/email/order_sent.html:7
+#: card/templates/card/default/email/question_answer.html:7
+#: card/templates/card/default/order_confirm_delete.html:22
+#: card/templates/card/default/order_confirm_hide.html:23
+#: card/templates/card/default/order_detail.html:17
+#: card/templates/card/default/order_list.html:56
+#: card/templates/card/default/refund_create.html:22 help/admin.py:118
+#: rabop/forms.py:211 rabop/forms.py:268
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:22
+#: rabop/templates/rabop/default/naver_order_detail.html:14
+#: rabop/templates/rabop/default/naver_order_list.html:43
+#: rabop/templates/rabop/default/order_detail.html:15
+#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:189
+#: shop/admin.py:216 shop/admin.py:728 shop/admin.py:744 shop/admin.py:804
+#: shop/admin.py:820 shop/models.py:411 shop/models.py:1049
+#: shop/templates/shop/default/email/customer_question.html:7
+#: shop/templates/shop/default/email/order_complete.html:7
+#: shop/templates/shop/default/email/order_paypal_voided.html:7
+#: shop/templates/shop/default/email/order_refunded.html:7
+#: shop/templates/shop/default/email/order_sent.html:7
+#: shop/templates/shop/default/email/question_answer.html:7
+#: shop/templates/shop/default/order_confirm_delete.html:22
+#: shop/templates/shop/default/order_confirm_hide.html:23
+#: shop/templates/shop/default/order_detail.html:16
+#: shop/templates/shop/default/order_list.html:62
+#: shop/templates/shop/default/refund_create.html:22
+msgid "order no"
+msgstr "Order No."
+
+#: card/templates/card/default/email/order_complete.html:3
+#: shop/templates/shop/default/email/order_complete.html:3
+msgid "Order Complete"
+msgstr "Order Complete"
+
+#: card/templates/card/default/email/order_complete.html:13
+#: card/templates/card/default/email/order_paypal_voided.html:13
+#: card/templates/card/default/email/order_refunded.html:13
+#: card/templates/card/default/email/order_sent.html:13
+#: card/templates/card/default/order_confirm_delete.html:45
+#: card/templates/card/default/order_confirm_hide.html:46
+#: card/templates/card/default/order_detail.html:74
+#: card/templates/card/default/order_list.html:65
+#: card/templates/card/default/refund_create.html:59
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:45
+#: rabop/templates/rabop/default/naver_order_detail.html:73
+#: rabop/templates/rabop/default/naver_order_list.html:58
+#: rabop/templates/rabop/default/order_detail.html:241
+#: rabop/templates/rabop/default/order_list.html:58
+#: shop/templates/shop/default/email/order_complete.html:13
+#: shop/templates/shop/default/email/order_paypal_voided.html:13
+#: shop/templates/shop/default/email/order_refunded.html:13
+#: shop/templates/shop/default/email/order_sent.html:13
+#: shop/templates/shop/default/order_confirm_delete.html:45
+#: shop/templates/shop/default/order_confirm_hide.html:46
+#: shop/templates/shop/default/order_detail.html:73
+#: shop/templates/shop/default/order_list.html:71
+#: shop/templates/shop/default/refund_create.html:59
+msgid "Order Date/Time"
+msgstr "Order Date/Time"
+
+#: card/templates/card/default/email/order_complete.html:16
+#: card/templates/card/default/email/order_paypal_voided.html:16
+#: card/templates/card/default/email/order_refunded.html:16
+#: card/templates/card/default/email/order_sent.html:16
+#: card/templates/card/default/order_confirm_delete.html:37
+#: card/templates/card/default/order_confirm_hide.html:38
+#: card/templates/card/default/order_detail.html:66
+#: card/templates/card/default/order_list.html:62
+#: card/templates/card/default/refund_create.html:51
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:37
+#: rabop/templates/rabop/default/naver_order_detail.html:58
+#: rabop/templates/rabop/default/naver_order_list.html:52
+#: rabop/templates/rabop/default/order_detail.html:226
+#: rabop/templates/rabop/default/order_list.html:52 shop/models.py:449
+#: shop/models.py:1066 shop/templates/shop/default/email/order_complete.html:16
+#: shop/templates/shop/default/email/order_paypal_voided.html:16
+#: shop/templates/shop/default/email/order_refunded.html:16
+#: shop/templates/shop/default/email/order_sent.html:16
+#: shop/templates/shop/default/order_confirm_delete.html:37
+#: shop/templates/shop/default/order_confirm_hide.html:38
+#: shop/templates/shop/default/order_detail.html:65
+#: shop/templates/shop/default/order_list.html:68
+#: shop/templates/shop/default/refund_create.html:51
+msgid "payment method"
+msgstr "Payment Method"
+
+#: card/templates/card/default/email/order_complete.html:22
+#: card/templates/card/default/email/order_paypal_voided.html:22
+#: card/templates/card/default/email/order_refunded.html:22
+#: card/templates/card/default/email/order_sent.html:22
+#: card/templates/card/default/order_confirm_delete.html:55
+#: card/templates/card/default/order_confirm_hide.html:56
+#: card/templates/card/default/order_detail.html:84
+#: card/templates/card/default/refund_create.html:69
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:55
+#: rabop/templates/rabop/default/naver_order_detail.html:103
+#: rabop/templates/rabop/default/order_detail.html:415
+#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:236
+#: shop/admin.py:707 shop/admin.py:749 shop/admin.py:825 shop/models.py:180
+#: shop/models.py:579 shop/models.py:1018 shop/models.py:1123
+#: shop/templates/shop/default/email/order_complete.html:22
+#: shop/templates/shop/default/email/order_paypal_voided.html:22
+#: shop/templates/shop/default/email/order_refunded.html:22
+#: shop/templates/shop/default/email/order_sent.html:22
+#: shop/templates/shop/default/order_confirm_delete.html:55
+#: shop/templates/shop/default/order_confirm_hide.html:56
+#: shop/templates/shop/default/order_detail.html:83
+#: shop/templates/shop/default/refund_create.html:69
+msgid "product name"
+msgstr "product name"
+
+#: card/templates/card/default/email/order_complete.html:23
+#: card/templates/card/default/email/order_paypal_voided.html:23
+#: card/templates/card/default/email/order_refunded.html:23
+#: card/templates/card/default/email/order_sent.html:23
+#: card/templates/card/default/order_confirm_delete.html:58
+#: card/templates/card/default/order_confirm_hide.html:59
+#: card/templates/card/default/order_detail.html:87
+#: card/templates/card/default/refund_create.html:72
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:58
+#: rabop/templates/rabop/default/naver_order_detail.html:106
+#: rabop/templates/rabop/default/order_detail.html:418 shop/models.py:610
+#: shop/models.py:1154 shop/templates/shop/default/email/order_complete.html:23
+#: shop/templates/shop/default/email/order_paypal_voided.html:23
+#: shop/templates/shop/default/email/order_refunded.html:23
+#: shop/templates/shop/default/email/order_sent.html:23
+#: shop/templates/shop/default/order_confirm_delete.html:58
+#: shop/templates/shop/default/order_confirm_hide.html:59
+#: shop/templates/shop/default/order_detail.html:86
+#: shop/templates/shop/default/refund_create.html:72
+msgid "quantity"
+msgstr "quantity"
+
+#: card/templates/card/default/email/order_complete.html:24
+#: card/templates/card/default/email/order_paypal_voided.html:24
+#: card/templates/card/default/email/order_refunded.html:24
+#: card/templates/card/default/email/order_sent.html:24
+#: card/templates/card/default/order_confirm_delete.html:61
+#: card/templates/card/default/order_confirm_hide.html:62
+#: card/templates/card/default/order_detail.html:90
+#: card/templates/card/default/refund_create.html:75
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:61
+#: rabop/templates/rabop/default/naver_order_detail.html:109
+#: rabop/templates/rabop/default/order_detail.html:421
+#: shop/templates/shop/default/email/order_complete.html:24
+#: shop/templates/shop/default/email/order_paypal_voided.html:24
+#: shop/templates/shop/default/email/order_refunded.html:24
+#: shop/templates/shop/default/email/order_sent.html:24
+#: shop/templates/shop/default/order_confirm_delete.html:61
+#: shop/templates/shop/default/order_confirm_hide.html:62
+#: shop/templates/shop/default/order_detail.html:89
+#: shop/templates/shop/default/refund_create.html:75
+msgid "unit price"
+msgstr "unit price"
+
+#: card/templates/card/default/email/order_complete.html:25
+#: card/templates/card/default/email/order_paypal_voided.html:25
+#: card/templates/card/default/email/order_refunded.html:25
+#: card/templates/card/default/email/order_sent.html:25
+#: card/templates/card/default/order_confirm_delete.html:64
+#: card/templates/card/default/order_confirm_hide.html:65
+#: card/templates/card/default/order_detail.html:93
+#: card/templates/card/default/refund_create.html:78
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:64
+#: rabop/templates/rabop/default/naver_order_detail.html:112
+#: rabop/templates/rabop/default/order_detail.html:424
+#: shop/templates/shop/default/email/order_complete.html:25
+#: shop/templates/shop/default/email/order_paypal_voided.html:25
+#: shop/templates/shop/default/email/order_refunded.html:25
+#: shop/templates/shop/default/email/order_sent.html:25
+#: shop/templates/shop/default/order_confirm_delete.html:64
+#: shop/templates/shop/default/order_confirm_hide.html:65
+#: shop/templates/shop/default/order_detail.html:92
+#: shop/templates/shop/default/refund_create.html:78
+msgid "subtotal"
+msgstr "subtotal"
+
+#: card/templates/card/default/email/order_complete.html:37
+#: card/templates/card/default/email/order_paypal_voided.html:37
+#: card/templates/card/default/email/order_refunded.html:37
+#: card/templates/card/default/email/order_sent.html:37
+#: card/templates/card/default/order_confirm_delete.html:85
+#: card/templates/card/default/order_confirm_hide.html:86
+#: card/templates/card/default/order_detail.html:114
+#: card/templates/card/default/order_list.html:68
+#: card/templates/card/default/refund_create.html:99
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:85
+#: rabop/templates/rabop/default/naver_order_detail.html:81
+#: rabop/templates/rabop/default/naver_order_list.html:55
+#: rabop/templates/rabop/default/order_detail.html:285
+#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:627
+#: shop/admin.py:783 shop/models.py:484 shop/models.py:1094
+#: shop/templates/shop/default/email/order_complete.html:37
+#: shop/templates/shop/default/email/order_paypal_voided.html:37
+#: shop/templates/shop/default/email/order_refunded.html:37
+#: shop/templates/shop/default/email/order_sent.html:37
+#: shop/templates/shop/default/order_confirm_delete.html:85
+#: shop/templates/shop/default/order_confirm_hide.html:86
+#: shop/templates/shop/default/order_detail.html:113
+#: shop/templates/shop/default/order_list.html:74
+#: shop/templates/shop/default/refund_create.html:99
+msgid "total price"
+msgstr "Total Price"
+
+#: card/templates/card/default/email/order_paypal_voided.html:3
+#: shop/templates/shop/default/email/order_paypal_voided.html:3
+msgid "Order Voided"
+msgstr "Order Voided"
+
+#: card/templates/card/default/email/order_refunded.html:3
+#: shop/templates/shop/default/email/order_refunded.html:3
+msgid "Order refunded"
+msgstr "Order refunded"
+
+#: card/templates/card/default/email/order_sent.html:3
+#: shop/templates/shop/default/email/order_sent.html:3
+msgid "Order Shipped"
+msgstr "Order Shipped"
+
+#: card/templates/card/default/email/question_answer.html:2
+#: shop/templates/shop/default/email/question_answer.html:2
+msgid "Question Answer"
+msgstr "question answer"
+
+#: card/templates/card/default/error.html:2
+#: rabop/templates/rabop/default/error.html:2
+#: shop/templates/shop/default/error.html:2
+msgid "Please try again soon. We're sorry for the inconvenience."
+msgstr "Please try again soon. We're sorry for the inconvenience."
+
+#: card/templates/card/default/home.html:62
+msgid "All Card Products"
+msgstr "All Products"
+
+#: card/templates/card/default/home.html:89
+#: shop/templates/shop/default/home.html:98
+msgid "Up to"
+msgstr "Up to"
+
+#: card/templates/card/default/home.html:172
+#: help/templates/help/default/_tabs.html:12
+#: help/templates/help/default/home.html:15
+#: help/templates/help/default/home.html:27 help/views.py:64
+#: shop/templates/shop/default/home.html:181
+msgid "Notice"
+msgstr "Notice"
+
+#: card/templates/card/default/home.html:206
+#: help/templates/help/default/testimonials_detail.html:29
+#: help/templates/help/default/testimonials_list.html:28 help/views.py:230
+#: help/views.py:275 shop/templates/shop/default/home.html:215
+msgid "Testimonials"
+msgstr "Testimonials"
+
+#: card/templates/card/default/home.html:224
+#: help/templates/help/default/testimonials_list.html:50
+#: shop/templates/shop/default/home.html:233
+msgid "No testimonial"
+msgstr "No testimonial"
+
+#: card/templates/card/default/home.html:232
+#: shop/templates/shop/default/home.html:241
+msgid "Best Sellers"
+msgstr "Best Sellers"
+
+#: card/templates/card/default/home.html:282
+#: card/templates/card/default/product_detail.html:162
+#: card/templates/card/default/product_list.html:78
+#: shop/templates/shop/default/home.html:293
+#: shop/templates/shop/default/product_detail.html:162
+#: shop/templates/shop/default/product_list.html:78
+msgid "Add to Cart"
+msgstr "Add to Cart"
+
+#: card/templates/card/default/home.html:287
+#: card/templates/card/default/product_detail.html:186
+#: card/templates/card/default/product_list.html:83
+#: shop/templates/shop/default/home.html:298
+#: shop/templates/shop/default/product_detail.html:186
+#: shop/templates/shop/default/product_list.html:83
+msgid "Sold out"
+msgstr "Sold out"
+
+#: card/templates/card/default/home.html:330
+#: card/templates/card/default/product_detail.html:298
+#: card/templates/card/default/product_list.html:149
+#: shop/templates/shop/default/home.html:341
+#: shop/templates/shop/default/product_detail.html:302
+#: shop/templates/shop/default/product_list.html:149
+msgid "You have items in cart."
+msgstr "You have items in cart."
+
+#: card/templates/card/default/order_confirm_delete.html:21
+#: card/templates/card/default/order_confirm_hide.html:22
+#: card/templates/card/default/order_detail.html:15
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:21
+#: rabop/views.py:132 shop/templates/shop/default/order_confirm_delete.html:21
+#: shop/templates/shop/default/order_confirm_hide.html:22
+#: shop/templates/shop/default/order_detail.html:14
+msgid "Order Details"
+msgstr "Order Details"
+
+#: card/templates/card/default/order_confirm_delete.html:29
+#: card/templates/card/default/order_confirm_hide.html:30
+#: card/templates/card/default/order_detail.html:28
+#: card/templates/card/default/order_list.html:59
+#: card/templates/card/default/refund_create.html:33
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:29
+#: rabop/templates/rabop/default/naver_order_detail.html:40
+#: rabop/templates/rabop/default/naver_order_list.html:49
+#: rabop/templates/rabop/default/order_detail.html:190
+#: rabop/templates/rabop/default/order_list.html:49 shop/models.py:462
+#: shop/models.py:1079 shop/templates/shop/default/order_confirm_delete.html:29
+#: shop/templates/shop/default/order_confirm_hide.html:30
+#: shop/templates/shop/default/order_detail.html:27
+#: shop/templates/shop/default/order_list.html:65
+#: shop/templates/shop/default/refund_create.html:33
+msgid "order status"
+msgstr "Order Status"
+
+#: card/templates/card/default/order_confirm_delete.html:97
+#: card/templates/card/default/order_confirm_hide.html:98
+#: card/templates/card/default/order_detail.html:236
+#: rabop/templates/rabop/default/customer_detail.html:338
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:97
+#: rabop/templates/rabop/default/order_detail.html:23
+#: shop/templates/shop/default/order_confirm_delete.html:97
+#: shop/templates/shop/default/order_confirm_hide.html:98
+#: shop/templates/shop/default/order_detail.html:417
+#: shop/templates/shop/default/paypal_success.html:37
+msgid "Order List"
+msgstr "Order List"
+
+#: card/templates/card/default/order_confirm_hide.html:12
+#: shop/templates/shop/default/order_confirm_hide.html:12
+msgid "Your order will be deleted if you click the following button."
+msgstr "Your order will be deleted if you click the following button."
+
+#: card/templates/card/default/order_detail.html:47
+#: shop/templates/shop/default/order_detail.html:46
+msgid "related order"
+msgstr "related order"
+
+#: card/templates/card/default/order_detail.html:163
+#: shop/templates/shop/default/order_detail.html:273
+msgid "Pay Now"
+msgstr "Pay Now"
+
+#: card/templates/card/default/order_detail.html:174
+#: card/templates/card/default/refund_create.html:140
+#: rabop/templates/rabop/default/naver_order_detail.html:142
+#: rabop/templates/rabop/default/order_detail.html:479
+#: shop/templates/shop/default/order_detail.html:354
+#: shop/templates/shop/default/refund_create.html:159
+msgid "Voucher Code List"
+msgstr "Voucher Code List"
+
+#: card/templates/card/default/order_detail.html:184
+#: shop/templates/shop/default/order_detail.html:364
+msgid "Voucher Code"
+msgstr "Voucher Code"
+
+#: card/templates/card/default/order_detail.html:205
+#: rabop/templates/rabop/default/naver_order_detail.html:215
+#: shop/templates/shop/default/order_detail.html:385
+msgid "Revoked"
+msgstr "Revoked"
+
+#: card/templates/card/default/order_detail.html:217
+#: shop/templates/shop/default/order_detail.html:397
+msgid "Charge"
+msgstr "Charge"
+
+#: card/templates/card/default/order_detail.html:247
+#: shop/templates/shop/default/order_detail.html:428
+msgid "Confirm Order"
+msgstr "Confirm Order"
+
+#: card/templates/card/default/order_detail.html:258
+#: shop/templates/shop/default/order_detail.html:439
+msgid "Order Again"
+msgstr "Order Again"
+
+#: card/templates/card/default/order_detail.html:269
+#: card/templates/card/default/refund_create.html:210
+#: shop/templates/shop/default/order_detail.html:308
+#: shop/templates/shop/default/order_detail.html:450
+#: shop/templates/shop/default/refund_create.html:229
+msgid "Refund Payment"
+msgstr "Refund"
+
+#: card/templates/card/default/order_detail.html:279
+#: rabop/templates/rabop/default/naver_order_detail.html:198
+#: shop/templates/shop/default/order_detail.html:325
+#: shop/templates/shop/default/order_detail.html:460
+msgid "Delete Order"
+msgstr "Delete Order"
+
+#: card/templates/card/default/order_detail.html:289
+#: card/templates/card/default/order_receipt.html:71
+#: card/templates/card/default/order_receipt.html:77
+#: shop/templates/shop/default/order_detail.html:470
+#: shop/templates/shop/default/order_receipt.html:71
+#: shop/templates/shop/default/order_receipt.html:77
+msgid "Transaction Detail Report"
+msgstr "Transaction Detail Report"
+
+#: card/templates/card/default/order_detail.html:297
+#: shop/templates/shop/default/order_detail.html:478
+msgid "Hide Order"
+msgstr "Delete Order"
+
+#: card/templates/card/default/order_list.html:50 card/views.py:420
+#: shop/templates/shop/default/order_list.html:56
+#: shop/templates/shop/default/paypal_success.html:24 shop/views.py:404
+msgid "Order History"
+msgstr "Order History"
+
+#: card/templates/card/default/order_list.html:51
+#: shop/templates/shop/default/base.html:383
+msgid "Card Mall"
+msgstr "Card Mall"
+
+#: card/templates/card/default/order_list.html:106
+#: rabop/templates/rabop/default/naver_order_list.html:107
+#: rabop/templates/rabop/default/order_list.html:124
+#: shop/templates/shop/default/order_list.html:112
+msgid "No Orders Yet"
+msgstr "No Orders Yet."
+
+#: card/templates/card/default/order_list.html:129
+#: shop/templates/shop/default/order_list.html:135
+msgid "Latest Login History"
+msgstr "Latest Login History"
+
+#: card/templates/card/default/order_list.html:153
+#: shop/templates/shop/default/order_list.html:159
+msgid "No login logs"
+msgstr "No login logs"
+
+#: card/templates/card/default/order_list.html:162
+#: shop/templates/shop/default/order_list.html:168
+msgid "Latest Customer Questions"
+msgstr "Latest Customer Questions"
+
+#: card/templates/card/default/order_list.html:171
+#: help/templates/help/default/question_detail.html:16
+#: help/templates/help/default/question_list.html:18
+#: rabop/templates/rabop/default/question_detail.html:41
+#: rabop/templates/rabop/default/question_list.html:57
+#: shop/templates/shop/default/order_list.html:177
+msgid "Answered"
+msgstr "Answered"
+
+#: card/templates/card/default/order_list.html:173
+#: help/templates/help/default/question_detail.html:18
+#: help/templates/help/default/question_list.html:20
+#: rabop/templates/rabop/default/question_detail.html:43
+#: rabop/templates/rabop/default/question_list.html:59
+#: shop/templates/shop/default/order_list.html:179
+msgid "Unanswered"
+msgstr "Unanswered"
+
+#: card/templates/card/default/order_list.html:181
+#: help/templates/help/default/question_detail.html:26
+#: help/templates/help/default/question_list.html:28
+#: rabop/templates/rabop/default/question_detail.html:51
+#: rabop/templates/rabop/default/question_list.html:67
+#: shop/templates/shop/default/order_list.html:187
+msgid "Order #"
+msgstr "Order #"
+
+#: card/templates/card/default/order_list.html:198
+#: help/templates/help/default/question_list.html:45
+#: rabop/templates/rabop/default/question_list.html:84
+#: shop/templates/shop/default/order_list.html:204
+msgid "No question"
+msgstr "No question"
+
+#: card/templates/card/default/product_detail.html:27
+#: shop/templates/shop/default/product_detail.html:27
+msgid "Home"
+msgstr "Home"
+
+#: card/templates/card/default/product_detail.html:44
+#: shop/templates/shop/default/product_detail.html:44
+msgid "Product Details"
+msgstr "Product Details"
+
+#: card/templates/card/default/product_detail.html:50
+#: shop/templates/shop/default/product_detail.html:50
+msgid "Additional Information"
+msgstr "Additional Information"
+
+#: card/templates/card/default/product_detail.html:69
+#: shop/templates/shop/default/product_detail.html:69
+msgid "voucher details"
+msgstr "Voucher Details"
+
+#: card/templates/card/default/product_detail.html:73
+#: card/templates/card/default/product_list.html:113
+#: shop/templates/shop/default/product_detail.html:73
+#: shop/templates/shop/default/product_list.html:113
+msgid "Share on SNS"
+msgstr "Share on SNS"
+
+#: card/templates/card/default/product_detail.html:117
+#: shop/templates/shop/default/product_detail.html:117
+msgid "List Price"
+msgstr "List Price"
+
+#: card/templates/card/default/product_detail.html:121
+#: shop/templates/shop/default/product_detail.html:121
+msgid "Selling Price"
+msgstr "Selling Price"
+
+#: card/templates/card/default/product_detail.html:125
+#: shop/templates/shop/default/product_detail.html:125
+msgid "Discount Rate"
+msgstr "Discount Rate"
+
+#: card/templates/card/default/product_detail.html:139
+#: card/templates/card/default/product_detail.html:167 rabop/forms.py:346
+#: shop/templates/shop/default/product_detail.html:139
+#: shop/templates/shop/default/product_detail.html:167
+msgid "Quantity"
+msgstr "Quantity"
+
+#: card/templates/card/default/product_detail.html:262
+#: shop/templates/shop/default/product_detail.html:266
+msgid "Learn More"
+msgstr "Learn More"
+
+#: card/templates/card/default/product_list.html:93
+#: shop/templates/shop/default/product_list.html:93
+msgid "No products"
+msgstr "No products"
+
+#: card/templates/card/default/refund_create.html:20
+#: shop/templates/shop/default/refund_create.html:20
+msgid "Refund Order Details"
+msgstr "Refund Order Details"
+
+#: card/templates/card/default/refund_create.html:197
+#: shop/templates/shop/default/refund_create.html:216
+msgid "Refund message"
+msgstr "Message"
+
+#: card/views.py:50 shop/views.py:56
+msgid "1st online shop"
+msgstr "1st online shop"
+
+#: card/views.py:98 shop/views.py:181
+msgid "Products By Categories {}"
+msgstr "Products By Categories {}"
+
+#: card/views.py:146 shop/views.py:95
+msgid "Products"
+msgstr "products"
+
+#: card/views.py:257 card/views.py:722 shop/admin.py:355 shop/views.py:253
+#: shop/views.py:696
+msgid "No language set"
+msgstr "No language set"
+
+#: card/views.py:281 shop/views.py:283
+msgid "[site] Order complete: {}"
+msgstr "[PINCOIN] Order complete: {}"
+
+#: card/views.py:449 shop/views.py:431
+msgid "Order Details - {}"
+msgstr "Order Details - {}"
+
+#: card/views.py:655 shop/views.py:635
+msgid "Refund Payment - {}"
+msgstr "Refund Payment - {}"
+
+#: card/views.py:847
+msgid "Failure: credit card 1"
+msgstr "Failure: credit card 1"
+
+#: card/views.py:853
+msgid "Failure: credit card 2"
+msgstr "Failure: credit card 2"
+
+#: card/views.py:858
+msgid "Failure: credit card 3"
+msgstr "Failure: credit card 3"
+
+#: help/admin.py:14 help/admin.py:19
+msgid "No Answer"
+msgstr "No Answer"
+
+#: help/admin.py:80 member/admin.py:31
+#: member/templates/member/account/profile.html:121
+#: member/templates/member/account/signup.html:103
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:274
+#: rabop/templates/rabop/default/customer_detail.html:14
+msgid "Profile"
+msgstr "Profile"
+
+#: help/admin.py:85 shop/models.py:824
+msgid "customer question"
+msgstr "customer question"
+
+#: help/admin.py:127 member/admin.py:68 member/models.py:198
+#: member/templates/member/account/profile.html:182
+#: rabop/templates/rabop/default/customer_detail.html:20
+#: rabop/templates/rabop/default/legacy_customer_detail.html:19
+#: shop/admin.py:914
+msgid "Full name"
+msgstr "Full name"
+
+#: help/admin.py:132 member/models.py:44 rabop/forms.py:118 rabop/forms.py:212
+#: rabop/forms.py:269 rabop/forms.py:508
+#: rabop/templates/rabop/default/customer_detail.html:111
+#: rabop/templates/rabop/default/customer_list.html:33
+#: rabop/templates/rabop/default/legacy_customer_detail.html:35
+#: rabop/templates/rabop/default/legacy_customer_list.html:33
+#: rabop/templates/rabop/default/naver_order_detail.html:32
+#: rabop/templates/rabop/default/order_detail.html:91 shop/admin.py:537
+#: shop/models.py:51 shop/models.py:944 shop/models.py:1061
+msgid "phone number"
+msgstr "phone number"
+
+#: help/admin.py:142 member/admin.py:49 member/models.py:57 shop/admin.py:557
+msgid "phone verified"
+msgstr "phone verified"
+
+#: help/admin.py:150 member/models.py:69
+#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:565
+msgid "document verified"
+msgstr "document verified"
+
+#: help/apps.py:7
+msgid "help"
+msgstr "help"
+
+#: help/forms.py:110 rabop/forms.py:185
+msgid "Post Answer"
+msgstr "Post Answer"
+
+#: help/templates/help/default/_tabs.html:6
+#: help/templates/help/default/home.html:10
+#: help/templates/help/default/home.html:86
+msgid "FAQ"
+msgstr "FAQ"
+
+#: help/templates/help/default/home.html:80
+msgid "Read Notice more"
+msgstr "Read Notice More"
+
+#: help/templates/help/default/home.html:139
+msgid "Read FAQ more."
+msgstr "Read FAQ More"
+
+#: help/templates/help/default/question_create.html:19
+#: help/templates/help/default/question_list.html:54
+msgid "Ask a question"
+msgstr "Ask a question"
+
+#: help/templates/help/default/testimonials_create.html:24
+#: help/templates/help/default/testimonials_list.html:60
+msgid "Write a testimonial"
+msgstr "Write a testimonial"
+
+#: help/views.py:91
+msgid "Notice : "
+msgstr "Notice : "
+
+#: help/views.py:142 help/views.py:161 help/views.py:176
+#: rabop/templates/rabop/default/base.html:67 rabop/views.py:764
+#: rabop/views.py:799
+msgid "Customer Questions"
+msgstr "Customer Questions"
+
+#: help/views.py:257
+msgid "Testimonials : "
+msgstr "Testimonials : "
+
+#: help/views.py:333 rabop/views.py:828
+msgid "No giftcard"
+msgstr "No giftcard"
+
+#: member/adapters.py:30
+msgid "Your email domain is not allowed."
+msgstr "Your email domain is not allowed."
+
+#: member/admin.py:27
+msgid "Account"
+msgstr "Account"
+
+#: member/apps.py:7
+msgid "member"
+msgstr "member"
+
+#: member/forms.py:9 member/forms2.py:277
+#: rabop/templates/rabop/default/best_customers_report.html:34
+#: shop/models.py:934
+msgid "first name"
+msgstr "first name"
+
+#: member/forms.py:15 member/forms2.py:284
+#: rabop/templates/rabop/default/best_customers_report.html:31
+#: shop/models.py:929
+msgid "last name"
+msgstr "last name"
+
+#: member/forms.py:32
+msgid "I agree to Terms and Conditions."
+msgstr "I agree to Terms and Conditions."
+
+#: member/forms.py:36
+msgid "I agree to Privacy Policy."
+msgstr "I agree to Privacy Policy."
+
+#: member/forms.py:40
+msgid "This is my name."
+msgstr "This is my name."
+
+#: member/forms.py:50
+msgid "You will sign in using this email."
+msgstr "You will sign in using this email."
+
+#: member/forms.py:51
+msgid "Screen username"
+msgstr "Screen username"
+
+#: member/forms.py:52 member/forms2.py:287
+msgid "Last name"
+msgstr "Last name"
+
+#: member/forms.py:53 member/forms2.py:280
+msgid "First name"
+msgstr "First name"
+
+#: member/forms2.py:55 member/forms2.py:109
+msgid "Invalid reCAPTCHA. Please try again."
+msgstr "Invalid reCAPTCHA. Please try again."
+
+#: member/forms2.py:60
+msgid "You haven't logged for a while."
+msgstr "You haven't logged for a while."
+
+#: member/forms2.py:90
+msgid "Reset My Password"
+msgstr "Reset My Password"
+
+#: member/forms2.py:139 member/forms2.py:194
+#: member/templates/member/account/password_change.html:11
+#: member/templates/member/account/password_reset_from_key.html:17
+#: member/templates/member/account/password_reset_from_key_done.html:10
+#: member/templates/member/account/profile.html:204
+msgid "Change Password"
+msgstr "Change Password"
+
+#: member/forms2.py:164
+msgid "Add E-mail"
+msgstr "Add E-mail"
+
+#: member/forms2.py:221 member/templates/member/account/password_set.html:11
+msgid "Set Password"
+msgstr "Set Password"
+
+#: member/forms2.py:230 member/models.py:79 member/models.py:224
+#: rabop/templates/rabop/default/customer_detail.html:232
+msgid "photo ID"
+msgstr "photo ID"
+
+#: member/forms2.py:231 member/forms2.py:236
+msgid "Max: 4MB"
+msgstr "Max: 4MB"
+
+#: member/forms2.py:233
+msgid "Please either submit a Photo ID or check the clear checkbox, not both."
+msgstr "Please either submit a Photo ID or check the clear checkbox, not both."
+
+#: member/forms2.py:235 member/models.py:85 member/models.py:233
+#: rabop/templates/rabop/default/customer_detail.html:246
+msgid "bank account or debit/credit card"
+msgstr "bank account or debit/credit card"
+
+#: member/forms2.py:238
+msgid ""
+"Please either submit a Card image or check the clear checkbox, not both."
+msgstr ""
+"Please either submit a Card image or check the clear checkbox, not both."
+
+#: member/forms2.py:254
+msgid "Document Submit"
+msgstr "Document Submit"
+
+#: member/forms2.py:271
+msgid "I really would like to unregister."
+msgstr "I really would like to unregister."
+
+#: member/forms2.py:302 member/templates/member/account/name_change.html:25
+#: member/templates/member/account/profile.html:35
+#: member/templates/member/account/profile.html:209 member/views.py:464
+msgid "Change Your Name"
+msgstr "Change Your Name"
+
+#: member/models.py:23
+msgid "cellphone unverified"
+msgstr "cellphone verified"
+
+#: member/models.py:24
+msgid "cellphone verified"
+msgstr "cellphone verified"
+
+#: member/models.py:25
+msgid "cellphone revoked"
+msgstr "cellphone revoked"
+
+#: member/models.py:29 member/models.py:261
+msgid "female"
+msgstr "female"
+
+#: member/models.py:30 member/models.py:262
+msgid "male"
+msgstr "male"
+
+#: member/models.py:34 member/models.py:266
+msgid "foreign"
+msgstr "foreign"
+
+#: member/models.py:35 member/models.py:169 member/models.py:267
+#: member/models.py:347
+msgid "domestic"
+msgstr "domestic"
+
+#: member/models.py:51 rabop/templates/rabop/default/customer_detail.html:121
+msgid "address"
+msgstr "address"
+
+#: member/models.py:62
+msgid "cellphone verified status"
+msgstr "cellphone verified status"
+
+#: member/models.py:74 rabop/templates/rabop/default/customer_detail.html:216
+#: rabop/templates/rabop/default/order_detail.html:174
+msgid "allow order"
+msgstr "allow order"
+
+#: member/models.py:91 rabop/templates/rabop/default/customer_detail.html:280
+#: rabop/templates/rabop/default/legacy_customer_detail.html:61
+#: rabop/templates/rabop/default/order_detail.html:271 shop/admin.py:570
+#: shop/models.py:974
+msgid "total order count"
+msgstr "total order count"
+
+#: member/models.py:96
+msgid "first purchased date"
+msgstr "first purchased date"
+
+#: member/models.py:101 rabop/templates/rabop/default/customer_detail.html:268
+#: rabop/templates/rabop/default/legacy_customer_detail.html:53
+#: rabop/templates/rabop/default/order_detail.html:258 shop/admin.py:575
+#: shop/models.py:969
+msgid "last purchased date"
+msgstr "last purchased date"
+
+#: member/models.py:106 rabop/templates/rabop/default/customer_detail.html:199
+#: rabop/templates/rabop/default/order_detail.html:157
+msgid "not purchased for months"
+msgstr "not purchased for months"
+
+#: member/models.py:111
+msgid "re-purchased date"
+msgstr "re-purchased date"
+
+#: member/models.py:116 rabop/templates/rabop/default/customer_detail.html:310
+#: rabop/templates/rabop/default/legacy_customer_detail.html:81
+#: rabop/templates/rabop/default/order_detail.html:327 shop/admin.py:580
+#: shop/models.py:986
+msgid "max price"
+msgstr "max price"
+
+#: member/models.py:123 shop/models.py:477 shop/models.py:1087
+msgid "total list price"
+msgstr "total list price"
+
+#: member/models.py:130
+msgid "total selling price"
+msgstr "total selling price"
+
+#: member/models.py:137 rabop/templates/rabop/default/customer_detail.html:318
+#: rabop/templates/rabop/default/legacy_customer_detail.html:89
+#: rabop/templates/rabop/default/order_detail.html:335 shop/admin.py:585
+#: shop/models.py:993
+msgid "average price"
+msgstr "average price"
+
+#: member/models.py:144 shop/models.py:1441
+msgid "mileage"
+msgstr "mileage"
+
+#: member/models.py:151 rabop/templates/rabop/default/customer_detail.html:326
+#: rabop/templates/rabop/default/order_detail.html:402
+msgid "user memo"
+msgstr "user memo"
+
+#: member/models.py:156 member/models.py:334
+msgid "date of birth"
+msgstr "date of birth"
+
+#: member/models.py:162 member/models.py:340
+msgid "gender"
+msgstr "gender"
+
+#: member/models.py:176 member/models.py:354
+msgid "telecom"
+msgstr "telecom"
+
+#: member/models.py:182
+msgid "profile"
+msgstr "profile"
+
+#: member/models.py:183
+msgid "profiles"
+msgstr "profiles"
+
+#: member/models.py:204 member/templates/member/account/email_confirm.html:19
+#: member/templates/member/account/profile.html:174
+#: rabop/templates/rabop/default/customer_detail.html:69
+#: rabop/templates/rabop/default/legacy_customer_detail.html:27
+#: rabop/templates/rabop/default/order_detail.html:71
+msgid "E-mail"
+msgstr "E-mail"
+
+#: member/models.py:215 rabop/templates/rabop/default/customer_detail.html:260
+#: rabop/templates/rabop/default/legacy_customer_detail.html:45
+#: rabop/templates/rabop/default/order_detail.html:249 shop/admin.py:547
+#: shop/models.py:939
+msgid "date joined"
+msgstr "date joined"
+
+#: member/models.py:239 member/models.py:278 shop/models.py:419
+#: shop/models.py:1426
+msgid "user"
+msgstr "user"
+
+#: member/models.py:252
+msgid "login log"
+msgstr "login log"
+
+#: member/models.py:253
+msgid "login logs"
+msgstr "login logs"
+
+#: member/models.py:271
+msgid "token"
+msgstr "token"
+
+#: member/models.py:287 shop/admin.py:669 shop/admin.py:754 shop/admin.py:830
+#: shop/models.py:330
+msgid "code"
+msgstr "code"
+
+#: member/models.py:293
+msgid "reason"
+msgstr "reason"
+
+#: member/models.py:299
+msgid "result code"
+msgstr "result code"
+
+#: member/models.py:311 shop/models.py:456 shop/models.py:1073
+msgid "transaction id"
+msgstr "transaction id"
+
+#: member/models.py:317
+msgid "di"
+msgstr "DI"
+
+#: member/models.py:323
+msgid "ci"
+msgstr "CI"
+
+#: member/models.py:328 rabop/forms.py:117 rabop/forms.py:210
+#: rabop/forms.py:267 rabop/forms.py:507
+#: rabop/templates/rabop/default/customer_list.html:27
+#: rabop/templates/rabop/default/legacy_customer_list.html:27
+#: rabop/templates/rabop/default/naver_order_detail.html:24
+#: rabop/templates/rabop/default/naver_order_list.html:46
+#: rabop/templates/rabop/default/order_detail.html:29
+#: rabop/templates/rabop/default/order_list.html:46 shop/models.py:429
+#: shop/models.py:1056
+msgid "fullname"
+msgstr "fullname"
+
+#: member/models.py:360 member/models.py:381
+msgid "cellphone"
+msgstr "cellphone"
+
+#: member/models.py:366
+msgid "return_message"
+msgstr "return_message"
+
+#: member/models.py:372
+msgid "phone verification log"
+msgstr "phone verification log"
+
+#: member/models.py:373
+msgid "phone verification logs"
+msgstr "phone verification logs"
+
+#: member/models.py:387
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:13
+msgid "sent datetime"
+msgstr "sent datetime"
+
+#: member/models.py:393 member/models.py:394 member/models.py:420
+msgid "MMS"
+msgstr "MMS"
+
+#: member/models.py:402
+msgid "txt"
+msgstr "txt"
+
+#: member/models.py:403
+msgid "jpg"
+msgstr "jpg"
+
+#: member/models.py:404
+msgid "png"
+msgstr "png"
+
+#: member/models.py:408
+msgid "mime type"
+msgstr "MIME type"
+
+#: member/models.py:415
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:10
+msgid "data"
+msgstr "data"
+
+#: member/templates/member/account/account_inactive.html:10 member/views.py:184
+msgid "Account Inactive"
+msgstr "Account Inactive"
+
+#: member/templates/member/account/account_inactive.html:12
+msgid "This account is inactive."
+msgstr "This account is inactive."
+
+#: member/templates/member/account/document_confirm.html:19
+#: member/templates/member/account/profile.html:62 member/views.py:403
+#: rabop/templates/rabop/default/customer_detail.html:169
+#: rabop/templates/rabop/default/order_detail.html:141
+msgid "Document Verification"
+msgstr "Document Verification"
+
+#: member/templates/member/account/document_confirm.html:42
+msgid "Information"
+msgstr "Information"
+
+#: member/templates/member/account/email.html:11
+msgid "E-mail Addresses"
+msgstr "E-mail address"
+
+#: member/templates/member/account/email.html:15
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "The following e-mail addresses are associated with your account:"
+
+#: member/templates/member/account/email.html:32
+msgid "Verified"
+msgstr "Verified"
+
+#: member/templates/member/account/email.html:34
+msgid "Unverified"
+msgstr "Unverified"
+
+#: member/templates/member/account/email.html:37
+msgid "Primary"
+msgstr "Primary"
+
+#: member/templates/member/account/email.html:44
+msgid "Make Primary"
+msgstr "Make Primary"
+
+#: member/templates/member/account/email.html:46
+msgid "Re-send Verification"
+msgstr "Re-send Verification"
+
+#: member/templates/member/account/email.html:48
+msgid "Remove"
+msgstr "Remove"
+
+#: member/templates/member/account/email.html:54
+msgid "Warning:"
+msgstr "Warning:"
+
+#: member/templates/member/account/email.html:55
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: member/templates/member/account/email.html:59
+msgid "Add E-mail Address"
+msgstr "Add E-mail Address"
+
+#: member/templates/member/account/email.html:71
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Do you really want to remove the selected e-mail address?"
+
+#: member/templates/member/account/email/document_verified.html:2
+msgid "Documents have been uploaded for verification."
+msgstr "Documents have been uploaded for verification."
+
+#: member/templates/member/account/email/email_confirmation_message.html:3
+#, python-format
+msgid ""
+"\n"
+"    <p>\n"
+"        Hello from PINCOIN!\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        You're receiving this e-mail because user %(user_display)s has given "
+"yours as an e-mail address to connect\n"
+"        their account.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        To confirm this is correct, go to %(activate_url)s\n"
+"    </p>\n"
+msgstr ""
+"\n"
+"    <p>\n"
+"        Hello from PINCOIN!\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        You're receiving this e-mail because user %(user_display)s has given "
+"yours as an e-mail address to connect\n"
+"        their account.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        To confirm this is correct, go to %(activate_url)s\n"
+"    </p>\n"
+
+#: member/templates/member/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "Please Confirm Your E-mail Address"
+
+#: member/templates/member/account/email/password_reset_key_message.html:3
+msgid ""
+"\n"
+"    <p>Hello from PINCOIN!</p>\n"
+"    <p>\n"
+"        You're receiving this e-mail because you or someone else has "
+"requested a password for your user account.\n"
+"        It can be safely ignored if you did not request a password reset. "
+"Click the link below to reset your password.\n"
+"    </p>\n"
+msgstr ""
+"\n"
+"    <p>Hello from PINCOIN!</p>\n"
+"    <p>\n"
+"        You're receiving this e-mail because you or someone else has "
+"requested a password for your user account.\n"
+"        It can be safely ignored if you did not request a password reset. "
+"Click the link below to reset your password.\n"
+"    </p>\n"
+
+#: member/templates/member/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "Password Reset E-mail"
+
+#: member/templates/member/account/email/phone_verified.html:2
+msgid "Phone has been verified"
+msgstr "Phone has been verified"
+
+#: member/templates/member/account/email_confirm.html:11
+msgid "Confirm E-mail Address"
+msgstr "Confirm E-mail Address"
+
+#: member/templates/member/account/email_confirm.html:16
+#: member/templates/member/account/profile.html:166
+#: rabop/templates/rabop/default/customer_detail.html:61
+#: rabop/templates/rabop/default/order_detail.html:63
+msgid "Username"
+msgstr "Username"
+
+#: member/templates/member/account/email_confirm.html:23
+msgid "Please, complete your registration."
+msgstr "Please, complete your registration."
+
+#: member/templates/member/account/email_confirm.html:24
+msgid "You have to get verified in My Page."
+msgstr "You have to get verified in My Page."
+
+#: member/templates/member/account/email_confirm.html:30
+msgid "Confirm"
+msgstr "Confirm"
+
+#: member/templates/member/account/email_confirm.html:36
+msgid "This e-mail confirmation link expired or is invalid."
+msgstr "This e-mail confirmation link expired or is invalid."
+
+#: member/templates/member/account/email_confirm.html:37
+msgid "Please issue a new e-mail confirmation request:"
+msgstr "Please issue a new e-mail confirmation request:"
+
+#: member/templates/member/account/forms/document_clearable_file_input.html:8
+msgid "Remove uploaded image"
+msgstr "Remove uploaded image"
+
+#: member/templates/member/account/login.html:77
+msgid "Sign In"
+msgstr "Sign In"
+
+#: member/templates/member/account/login.html:84
+msgid "Loigin with SNS"
+msgstr "Sign in with SNS"
+
+#: member/templates/member/account/login.html:115
+msgid "Forgot Password?"
+msgstr "Forgot Password?"
+
+#: member/templates/member/account/logout.html:13
+msgid "Are you sure you want to sign out?"
+msgstr "Are you sure you want to sign out?"
+
+#: member/templates/member/account/logout.html:23
+msgid "Sign Out"
+msgstr "Sign Out"
+
+#: member/templates/member/account/password_reset.html:16
+msgid "Forgotten your password?"
+msgstr "Forgot your password?"
+
+#: member/templates/member/account/password_reset.html:24
+msgid ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset it."
+msgstr ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset it."
+
+#: member/templates/member/account/password_reset_done.html:15
+#: member/views.py:119 member/views.py:138
+msgid "Password Reset"
+msgstr "Password Reset"
+
+#: member/templates/member/account/password_reset_done.html:17
+msgid "We have sent you an e-mail for password reset."
+msgstr "We have sent you an e-mail for password reset."
+
+#: member/templates/member/account/password_reset_done.html:18
+#: member/templates/member/account/verification_sent.html:14
+msgid "Please contact us if you do not receive it within a few minutes."
+msgstr "Please contact us if you do not receive it within a few minutes."
+
+#: member/templates/member/account/password_reset_from_key.html:12
+msgid "Bad Token"
+msgstr "Bad Token"
+
+#: member/templates/member/account/password_reset_from_key.html:38
+#: member/templates/member/account/password_reset_from_key_done.html:12
+msgid "Your password is now changed."
+msgstr "Your password is now changed."
+
+#: member/templates/member/account/phone_confirm.html:10
+#: member/templates/member/account/profile.html:41 member/views.py:355
+#: rabop/templates/rabop/default/customer_detail.html:129
+#: rabop/templates/rabop/default/order_detail.html:101
+msgid "Phone Verification"
+msgstr "Phone Verification"
+
+#: member/templates/member/account/phone_confirm.html:15
+msgid "Return to My Page"
+msgstr "Return to My Page"
+
+#: member/templates/member/account/profile.html:17 shop/models.py:751
+#: shop/models.py:790
+msgid "Verification"
+msgstr "Verification"
+
+#: member/templates/member/account/profile.html:56
+#: member/templates/member/account/profile.html:76
+#: rabop/templates/rabop/default/customer_detail.html:98
+#: rabop/templates/rabop/default/customer_detail.html:191
+#: rabop/templates/rabop/default/order_detail.html:556
+#: shop/templates/admin/shop/order_change_form.html:10
+msgid "Verify"
+msgstr "Verify"
+
+#: member/templates/member/account/profile.html:127
+msgid "Language"
+msgstr "Language"
+
+#: member/templates/member/account/profile.html:147
+msgid "Currency"
+msgstr "Currency"
+
+#: member/templates/member/account/profile.html:194 member/views.py:240
+msgid "Connect with SNS accounts"
+msgstr "Connect with SNS accounts"
+
+#: member/templates/member/account/profile.html:199
+msgid "Change Primary E-mail Address"
+msgstr "Change Primary E-mail Address"
+
+#: member/templates/member/account/profile.html:217
+#: member/templates/member/account/unregister.html:11
+#: member/templates/member/account/unregister.html:42 member/views.py:425
+msgid "Unregister"
+msgstr "Unregister"
+
+#: member/templates/member/account/signup.html:51
+#: member/templates/member/socialaccount/signup.html:60
+msgid "Account Info"
+msgstr "Account Info"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr "Note"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "you are already logged in as %(user_display)s."
+
+#: member/templates/member/account/verification_sent.html:10
+msgid "Verify Your E-mail Address"
+msgstr "Verify Your E-mail Address"
+
+#: member/templates/member/account/verification_sent.html:12
+msgid "We have sent an e-mail to you for verification."
+msgstr "We have sent an e-mail to you for verification."
+
+#: member/templates/member/account/verification_sent.html:13
+msgid "Follow the link provided to finalize the signup process."
+msgstr "Follow the link provided to finalize the signup process."
+
+#: member/templates/member/socialaccount/authentication_error.html:11
+#: member/views.py:222
+msgid "Social Network Login Failure"
+msgstr "Social Network Login Failure"
+
+#: member/templates/member/socialaccount/authentication_error.html:14
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr ""
+"An error occurred while attempting to login via your social network account."
+
+#: member/templates/member/socialaccount/connections.html:12
+msgid "Account Connections"
+msgstr "Account Connections"
+
+#: member/templates/member/socialaccount/connections.html:16
+msgid ""
+"\n"
+"                                    You can sign in to your account using "
+"any of the following third party accounts:\n"
+"                                "
+msgstr ""
+"\n"
+"                                    You can sign in to your account using "
+"any of the following third party accounts:\n"
+"                                "
+
+#: member/templates/member/socialaccount/connections.html:41
+msgid "Disconnect"
+msgstr "Disconnect"
+
+#: member/templates/member/socialaccount/connections.html:47
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+"You currently have no social network accounts connected to this account."
+
+#: member/templates/member/socialaccount/connections.html:52
+msgid "Add a 3rd Party Account"
+msgstr "Add a 3rd Party Account"
+
+#: member/templates/member/socialaccount/login_cancelled.html:5
+#: member/views.py:213
+msgid "Login Cancelled"
+msgstr "Login Cancelled"
+
+#: member/templates/member/socialaccount/login_cancelled.html:9
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
+"\">sign in</a>."
+msgstr ""
+
+#: member/templates/member/socialaccount/signup.html:14
+#, python-format
+msgid ""
+"\n"
+"                            You are about to use your %(provider_name)s "
+"account to login to PINCOIN.\n"
+"                        "
+msgstr ""
+"\n"
+"                            You are about to use your %(provider_name)s "
+"account to login to PINCOIN.\n"
+"                        "
+
+#: member/views.py:90
+msgid "Login"
+msgstr "Login"
+
+#: member/views.py:100
+msgid "Logout"
+msgstr "Logout"
+
+#: member/views.py:128 member/views.py:147
+msgid "Password Reset Done"
+msgstr "Password Reset Done"
+
+#: member/views.py:156
+msgid "Email Verification Sent"
+msgstr "Email Verification Sent"
+
+#: member/views.py:165
+msgid "Confirm Email Request"
+msgstr "Confirm E-mail Request"
+
+#: member/views.py:175
+msgid "Email Management"
+msgstr "Email Management"
+
+#: member/views.py:194
+msgid "Password Change"
+msgstr "Password Change"
+
+#: member/views.py:204
+msgid "Password Set"
+msgstr "Password Set"
+
+#: member/views.py:315
+msgid "Phone verification was done."
+msgstr "Phone verification was done."
+
+#: member/views.py:335
+msgid "Phone Verification {}"
+msgstr "Phone Verification {}"
+
+#: member/views.py:339
+msgid "Your name does not match the phone owner."
+msgstr "Your name does not match the phone owner"
+
+#: member/views.py:341
+msgid "Illegal access: token mismatch"
+msgstr "Illegal access: token mismatch"
+
+#: member/views.py:343
+msgid "You have verified within 48 hours."
+msgstr "You have verified within 48 hours."
+
+#: member/views.py:347
+msgid "Illegal access: no record"
+msgstr "Illegal access: no record"
+
+#: member/views.py:349
+msgid "Illegal access: no session"
+msgstr "Illegal access: no session"
+
+#: member/views.py:393
+msgid "Document Verification {} {} {}"
+msgstr "Document Verification {} {} {}"
+
+#: rabop/apps.py:7 rabop/views.py:58 templates/admin/base.html:4
+msgid "rabop"
+msgstr "rabop"
+
+#: rabop/forms.py:33
+msgid "Add Payment"
+msgstr "Add Payment"
+
+#: rabop/forms.py:89 rabop/forms.py:410 shop/utils.py:42
+msgid "Out of stock! {}"
+msgstr "Out of stock! {}"
+
+#: rabop/forms.py:108 rabop/forms.py:429 shop/utils.py:62
+msgid "Already sent! {}"
+msgstr "Already sent! {}"
+
+#: rabop/forms.py:119 rabop/forms.py:213 rabop/forms.py:509
+#: rabop/templates/rabop/default/customer_list.html:30
+#: rabop/templates/rabop/default/legacy_customer_list.html:30
+msgid "Email"
+msgstr "Email"
+
+#: rabop/forms.py:120 rabop/forms.py:214
+msgid "user id"
+msgstr "user id"
+
+#: rabop/forms.py:153 rabop/forms.py:571
+msgid "Template answer"
+msgstr "Template answer"
+
+#: rabop/forms.py:155 rabop/forms.py:573
+msgid "-----"
+msgstr "-----"
+
+#: rabop/forms.py:156
+msgid "01. 입금10분 이내 재촉"
+msgstr "01. 입금10분 이내 재촉"
+
+#: rabop/forms.py:157
+msgid "02. 발송지연"
+msgstr "02. 발송지연"
+
+#: rabop/forms.py:158
+msgid "03. 처리완료"
+msgstr "03. 처리완료"
+
+#: rabop/forms.py:159
+msgid "04. 이름 정정 요청"
+msgstr "04. 이름 정정 요청"
+
+#: rabop/forms.py:160
+msgid "05. 주문자 입금자 이름 불일치"
+msgstr "05. 주문자 입금자 이름 불일치"
+
+#: rabop/forms.py:161
+msgid "06. 교환/환불 안내"
+msgstr "06. 교환/환불 안내"
+
+#: rabop/forms.py:162
+msgid "07. 페이팔 무효 안내"
+msgstr "07. 페이팔 무효 안내"
+
+#: rabop/forms.py:163
+msgid "08. 초과입금"
+msgstr "08. 초과입금"
+
+#: rabop/forms.py:164
+msgid "09. 감사합니다."
+msgstr "09. 감사합니다."
+
+#: rabop/forms.py:175
+msgid "Send a giftcard."
+msgstr "Send a giftcard"
+
+#: rabop/forms.py:321 rabop/forms.py:564
+#: rabop/templates/rabop/default/sms_list.html:13 shop/models.py:894
+msgid "to phone number"
+msgstr "to phone number"
+
+#: rabop/forms.py:324 rabop/forms.py:567
+msgid "Not a valid phone number"
+msgstr "Not a valid phone number"
+
+#: rabop/forms.py:328
+msgid "voucher amount"
+msgstr "voucher amount"
+
+#: rabop/forms.py:359 rabop/templates/rabop/default/naver_order_list.html:114
+msgid "Naver Order Create"
+msgstr "Add Naver Order"
+
+#: rabop/forms.py:438
+msgid "Google Card"
+msgstr "Google Card"
+
+#: rabop/forms.py:439
+msgid "Nexon Card"
+msgstr "Nexon Card"
+
+#: rabop/forms.py:440
+msgid "Funny Card"
+msgstr "Funny Card"
+
+#: rabop/forms.py:441
+msgid "Munhwa Card"
+msgstr "Munhwa Card"
+
+#: rabop/forms.py:442
+msgid "Book and Life"
+msgstr "Book and Life"
+
+#: rabop/forms.py:443
+msgid "Smart Munhwa"
+msgstr "Smart Munhwa"
+
+#: rabop/forms.py:444
+msgid "Happy Money"
+msgstr "Happy Money"
+
+#: rabop/forms.py:445
+msgid "Egg Money"
+msgstr "Egg Money"
+
+#: rabop/forms.py:446
+msgid "Teencash"
+msgstr "Teencash"
+
+#: rabop/forms.py:447
+msgid "Oncash"
+msgstr "Oncash"
+
+#: rabop/forms.py:448
+msgid "N Coin"
+msgstr "N Coin"
+
+#: rabop/forms.py:449
+msgid "WoW Cash"
+msgstr "Wow Cash"
+
+#: rabop/forms.py:450
+msgid "Itemmania"
+msgstr "Itemmania"
+
+#: rabop/forms.py:451
+msgid "itemBay"
+msgstr "itemBay"
+
+#: rabop/forms.py:472 shop/models.py:645 shop/models.py:684 shop/models.py:1189
+msgid "voucher code"
+msgstr "voucher code"
+
+#: rabop/forms.py:473
+msgid "id"
+msgstr "id"
+
+#: rabop/forms.py:543
+#: rabop/templates/rabop/default/best_customers_report.html:37
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:34
+#: rabop/templates/rabop/default/best_sellers_report.html:34
+msgid "Order Total"
+msgstr "Order Total"
+
+#: rabop/forms.py:544
+#: rabop/templates/rabop/default/best_customers_report.html:40
+#: rabop/templates/rabop/default/best_sellers_report.html:37
+#: rabop/templates/rabop/default/daily_payments_report.html:112
+#: rabop/templates/rabop/default/daily_sales_report.html:61
+msgid "Order Count"
+msgstr "Order Count"
+
+#: rabop/forms.py:574
+msgid "01. [핀코인]"
+msgstr "01. [핀코인]"
+
+#: rabop/forms.py:575
+msgid "02. 신분증 사진 요청"
+msgstr "02. 신분증 사진 요청"
+
+#: rabop/forms.py:576
+msgid "03. 통장/카드사진 요청"
+msgstr "03. 통장/카드사진 요청"
+
+#: rabop/forms.py:577
+msgid "04. 실물 통장/카드사진 요청"
+msgstr "04. 실물 통장/카드사진 요청"
+
+#: rabop/forms.py:578
+msgid "05. 이름 정정 요청"
+msgstr "05. 이름 정정 요청"
+
+#: rabop/forms.py:579
+msgid "06. 인증명의 불일치"
+msgstr "06. 인증명의 불일치"
+
+#: rabop/forms.py:580
+msgid "07. 환불안내"
+msgstr "07. 환불안내"
+
+#: rabop/forms.py:581
+msgid "08. 재주문 요청"
+msgstr "08. 재주문 요청"
+
+#: rabop/forms.py:599 rabop/templates/rabop/default/sms_list.html:47
+msgid "Send short message"
+msgstr "Send SMS"
+
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:919
+msgid "PINCOIN administration"
+msgstr "PINCOIN administration"
+
+#: rabop/templates/rabop/default/base.html:53 rabop/views.py:103
+msgid "Pincoin Customer Orders"
+msgstr "Pincoin Customer Orders"
+
+#: rabop/templates/rabop/default/base.html:60 rabop/views.py:475
+msgid "Naver Customer Orders"
+msgstr "Naver Customer Orders"
+
+#: rabop/templates/rabop/default/base.html:75
+msgid "Customer Management"
+msgstr "Customers"
+
+#: rabop/templates/rabop/default/base.html:79
+msgid "New Customers"
+msgstr "New Customers"
+
+#: rabop/templates/rabop/default/base.html:82
+#: rabop/templates/rabop/default/customer_detail.html:348 rabop/views.py:1424
+#: shop/models.py:952
+msgid "legacy customers"
+msgstr "legacy customers"
+
+#: rabop/templates/rabop/default/base.html:85 rabop/views.py:1026
+msgid "SMS Log"
+msgstr "SMS Log"
+
+#: rabop/templates/rabop/default/base.html:94
+msgid "Stock Management"
+msgstr "Stock"
+
+#: rabop/templates/rabop/default/base.html:98
+msgid "Remaining Quantities"
+msgstr "Quantities"
+
+#: rabop/templates/rabop/default/base.html:101
+#: rabop/templates/rabop/default/order_send_errors.html:19
+#: rabop/templates/rabop/default/stock_status.html:65
+#: shop/templates/admin/import_export/voucher_change_list_import_item.html:6
+msgid "Stock Bulk Upload"
+msgstr "Stock Bulk Upload"
+
+#: rabop/templates/rabop/default/base.html:110
+msgid "Sales Management"
+msgstr "Sales"
+
+#: rabop/templates/rabop/default/base.html:114
+msgid "Daily Sales"
+msgstr "Daily"
+
+#: rabop/templates/rabop/default/base.html:117
+msgid "Monthly Sales"
+msgstr "Monthly"
+
+#: rabop/templates/rabop/default/base.html:120
+msgid "Best Sellers by Category"
+msgstr "Best Sellers by Category"
+
+#: rabop/templates/rabop/default/base.html:123 rabop/views.py:1300
+#: rabop/views.py:1350
+msgid "Best Sellers Report"
+msgstr "Best Sellers Report"
+
+#: rabop/templates/rabop/default/base.html:126
+#: rabop/templates/rabop/default/daily_payments_report.html:24
+#: rabop/templates/rabop/default/daily_payments_report.html:61
+#: rabop/views.py:1390
+msgid "Daily Payments Report"
+msgstr "Daily Payments Report"
+
+#: rabop/templates/rabop/default/base.html:129
+msgid "Best Customers"
+msgstr "Best Customers"
+
+#: rabop/templates/rabop/default/base.html:138
+msgid "Move"
+msgstr "Go"
+
+#: rabop/templates/rabop/default/base.html:145
+msgid "Main Store"
+msgstr "Main Store"
+
+#: rabop/templates/rabop/default/base.html:148
+msgid "Card Store"
+msgstr "Card Store"
+
+#: rabop/templates/rabop/default/base.html:157
+msgid "I'mport"
+msgstr "I'mport"
+
+#: rabop/templates/rabop/default/base.html:160
+msgid "Danal Partner Center"
+msgstr "Danal Partner Center"
+
+#: rabop/templates/rabop/default/base.html:163
+msgid "Naver Shopping Partner Zone"
+msgstr "Naver Shopping Partner Zone"
+
+#: rabop/templates/rabop/default/base.html:166
+msgid "Naver Smart Store"
+msgstr "Naver Smart Store"
+
+#: rabop/templates/rabop/default/base.html:169
+msgid "Naver Search Ad"
+msgstr "Naver Search Ad"
+
+#: rabop/templates/rabop/default/base.html:172
+msgid "Gmail"
+msgstr "Gmail"
+
+#: rabop/templates/rabop/default/base.html:176
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+#: rabop/templates/rabop/default/base.html:179
+msgid "Analytics"
+msgstr "Analytics"
+
+#: rabop/templates/rabop/default/base.html:182
+msgid "Ads"
+msgstr "Google Ads"
+
+#: rabop/templates/rabop/default/base.html:185
+msgid "Adsense"
+msgstr "Adsense"
+
+#: rabop/templates/rabop/default/base.html:188
+msgid "ALIGO"
+msgstr "ALIGO"
+
+#: rabop/templates/rabop/default/base.html:191
+msgid "mailgun"
+msgstr "mailgun"
+
+#: rabop/templates/rabop/default/base.html:194
+msgid "VULTR"
+msgstr "VULTR"
+
+#: rabop/templates/rabop/default/base.html:197
+msgid "Disqus"
+msgstr "Disqus"
+
+#: rabop/templates/rabop/default/best_customers_report.html:14
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:14
+#: rabop/templates/rabop/default/best_sellers_report.html:14
+#: rabop/templates/rabop/default/naver_order_list.html:29
+#: rabop/templates/rabop/default/order_list.html:29
+#: rabop/templates/rabop/default/stock_status.html:13
+msgid "all"
+msgstr "All"
+
+#: rabop/templates/rabop/default/best_customers_report.html:64
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:52
+#: rabop/templates/rabop/default/best_sellers_report.html:58
+#: rabop/templates/rabop/default/daily_payments_report.html:141
+#: rabop/templates/rabop/default/daily_sales_report.html:82
+#: rabop/templates/rabop/default/monthly_sales_report.html:76
+msgid "No Sales Report Yet"
+msgstr "No Sales Report Yet"
+
+#: rabop/templates/rabop/default/customer_detail.html:77
+msgid "Email Verification"
+msgstr "Email Verification"
+
+#: rabop/templates/rabop/default/customer_detail.html:88
+#: rabop/templates/rabop/default/customer_detail.html:180
+#: rabop/templates/rabop/default/order_detail.html:565
+#: shop/templates/admin/shop/order_change_form.html:14
+msgid "Unverify"
+msgstr "Unverify"
+
+#: rabop/templates/rabop/default/customer_detail.html:240
+#: rabop/templates/rabop/default/customer_detail.html:254
+msgid "No Image"
+msgstr "No Image"
+
+#: rabop/templates/rabop/default/customer_detail.html:274
+#: rabop/templates/rabop/default/customer_detail.html:284
+#: rabop/templates/rabop/default/order_detail.html:265
+#: rabop/templates/rabop/default/order_detail.html:275
+msgid "No order record"
+msgstr "No order record"
+
+#: rabop/templates/rabop/default/customer_detail.html:294
+#: rabop/templates/rabop/default/order_detail.html:299
+msgid "one day total"
+msgstr "24H total"
+
+#: rabop/templates/rabop/default/customer_detail.html:302
+#: rabop/templates/rabop/default/legacy_customer_detail.html:69
+#: rabop/templates/rabop/default/order_detail.html:313 shop/admin.py:603
+#: shop/models.py:979
+msgid "last total"
+msgstr "last total"
+
+#: rabop/templates/rabop/default/customer_list.html:72
+#: rabop/templates/rabop/default/legacy_customer_list.html:55
+msgid "No Customers Yet"
+msgstr "No Customers Yet."
+
+#: rabop/templates/rabop/default/daily_payments_report.html:13
+#: rabop/templates/rabop/default/daily_payments_report.html:122
+#: shop/forms.py:91 shop/models.py:377 shop/models.py:1032
+#: shop/templates/shop/default/order_detail.html:128
+msgid "Bank Transfer"
+msgstr "Bank Transfer"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:14
+#: rabop/templates/rabop/default/daily_payments_report.html:124
+#: shop/forms.py:92 shop/models.py:378
+#: shop/templates/shop/default/order_detail.html:201
+msgid "Escrow (KB)"
+msgstr "Escrow (KB)"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:15
+#: rabop/templates/rabop/default/daily_payments_report.html:126
+#: shop/forms.py:93 shop/models.py:379 shop/models.py:531
+#: shop/templates/shop/default/order_detail.html:223
+msgid "PayPal"
+msgstr "PayPal"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:109
+#: rabop/templates/rabop/default/daily_sales_report.html:32
+#: rabop/templates/rabop/default/daily_sales_report.html:58
+#: rabop/templates/rabop/default/monthly_sales_report.html:32
+#: rabop/templates/rabop/default/monthly_sales_report.html:58
+msgid "Amount"
+msgstr "Amount"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:18 rabop/views.py:1214
+msgid "Daily Sales Report"
+msgstr "Daily Sales Report"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:36
+#: rabop/templates/rabop/default/monthly_sales_report.html:36
+msgid "Sales"
+msgstr "Sales"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:55
+msgid "Date"
+msgstr "Date"
+
+#: rabop/templates/rabop/default/legacy_customer_detail.html:13
+#: rabop/views.py:1447 shop/models.py:951
+msgid "legacy customer"
+msgstr "legacy customer"
+
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:34
+msgid "No MMS Yet"
+msgstr "No MMS Yet."
+
+#: rabop/templates/rabop/default/monthly_sales_report.html:18
+#: rabop/views.py:1178
+msgid "Monthly Sales Report"
+msgstr "Monthly Sales Report"
+
+#: rabop/templates/rabop/default/monthly_sales_report.html:55
+msgid "Month"
+msgstr "Month"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:172
+#: rabop/templates/rabop/default/order_detail.html:509
+msgid "[Error] Revoke Now"
+msgstr "[Error] Revoke Now"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:191
+#: rabop/templates/rabop/default/order_detail.html:574
+#: shop/templates/admin/shop/order_change_form.html:15
+msgid "Send"
+msgstr "Send"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:206
+msgid "Resend SMS"
+msgstr "Resend SMS"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:224
+#: rabop/templates/rabop/default/order_detail.html:583
+#: shop/templates/admin/shop/order_change_form.html:19
+msgid "Refunded"
+msgstr "Refunded"
+
+#: rabop/templates/rabop/default/order_detail.html:79
+msgid "SNS Accounts"
+msgstr "SNS Accounts"
+
+#: rabop/templates/rabop/default/order_detail.html:343 shop/admin.py:622
+msgid "last login count"
+msgstr "last login count"
+
+#: rabop/templates/rabop/default/order_detail.html:358 shop/admin.py:643
+#: shop/admin.py:893
+msgid "country"
+msgstr "country"
+
+#: rabop/templates/rabop/default/order_detail.html:371 shop/models.py:440
+msgid "accept-language"
+msgstr "accept-language"
+
+#: rabop/templates/rabop/default/order_detail.html:383 shop/models.py:435
+#: shop/models.py:1411
+msgid "user-agent"
+msgstr "user-agent"
+
+#: rabop/templates/rabop/default/order_detail.html:459 shop/models.py:1024
+msgid "legacy order products"
+msgstr "legacy order products"
+
+#: rabop/templates/rabop/default/order_send_errors.html:15
+msgid "Previous Order Details"
+msgstr "Previous Order Details"
+
+#: rabop/templates/rabop/default/order_send_errors.html:23
+#: rabop/templates/rabop/default/stock_status.html:69
+msgid "Add Voucher"
+msgstr "Add Voucher"
+
+#: rabop/templates/rabop/default/question_detail.html:34
+#: rabop/templates/rabop/default/question_list.html:50
+msgid "unregistered"
+msgstr "unregistered"
+
+#: rabop/templates/rabop/default/sms_list.html:10 shop/models.py:887
+msgid "from phone number"
+msgstr "from phone number"
+
+#: rabop/templates/rabop/default/sms_list.html:19
+msgid "created"
+msgstr "created time"
+
+#: rabop/templates/rabop/default/sms_list.html:40
+msgid "No SMS Message Yet"
+msgstr "No SMS Message Yet."
+
+#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:275
+#: shop/models.py:206 shop/models.py:603 shop/models.py:1147
+msgid "selling price"
+msgstr "selling price"
+
+#: rabop/templates/rabop/default/stock_status.html:35
+msgid "current quantity"
+msgstr "current quantity"
+
+#: rabop/templates/rabop/default/stock_status.html:57
+msgid "No Vouchers Yet"
+msgstr "No Vouchers Yet."
+
+#: rabop/views.py:388 shop/utils.py:122
+msgid "[site] Order shipped: {}"
+msgstr "[PINCOIN] Order shipped: {}"
+
+#: rabop/views.py:400 shop/utils.py:134
+msgid "You've got your vouchers."
+msgstr "You've got your vouchers."
+
+#: rabop/views.py:410 rabop/views.py:617
+msgid "send error"
+msgstr "send error"
+
+#: rabop/views.py:434
+msgid "[site] Order refunded: {}"
+msgstr "[PINCOIN] Order refunded: {}"
+
+#: rabop/views.py:499
+msgid "Naver Order Details"
+msgstr "Naver Order Details"
+
+#: rabop/views.py:839
+msgid "[site] Question Answer"
+msgstr "[PINCOIN] Question Answer"
+
+#: rabop/views.py:850
+msgid "You've got a question answer."
+msgstr "You've got a question answer."
+
+#: rabop/views.py:892
+msgid "Customers"
+msgstr "Customers"
+
+#: rabop/views.py:918
+msgid "Customer"
+msgstr "Customer"
+
+#: rabop/views.py:1082
+msgid "Stock Status"
+msgstr "Stock Status"
+
+#: rabop/views.py:1110
+msgid "stock bulk upload"
+msgstr "stock bulk upload"
+
+#: rabop/views.py:1129
+msgid "Duplicated voucher code"
+msgstr "Duplicated voucher code"
+
+#: rabop/views.py:1255
+msgid "Best Customers Report"
+msgstr "Best Customers Report"
+
+#: rabop/views.py:1469
+msgid "Customer MMS"
+msgstr "Customer MMS"
+
+#: rakmai/apps.py:7
+msgid "rakmai"
+msgstr "rakmai"
+
+#: rakmai/forms.py:18
+msgid "Invalid file type"
+msgstr "Invalid file type"
+
+#: rakmai/forms.py:25
+msgid "File type is not supported"
+msgstr "File type is not supported"
+
+#: rakmai/forms.py:28
+msgid "Please keep filesize under {}. Current filesize {}"
+msgstr "Please keep filesize under {}. Current filesize {}"
+
+#: rakmai/models.py:14
+msgid "equals"
+msgstr "equals"
+
+#: rakmai/models.py:15
+msgid "startswith"
+msgstr "startswith"
+
+#: rakmai/models.py:36
+msgid ""
+"Site menu item title. Can contain template variables E.g.: {{ mytitle }}"
+msgstr ""
+"Site menu item title. Can contain template variables E.g.: {{ mytitle }}"
+
+#: rakmai/models.py:43
+msgid "Exact URL or URL pattern"
+msgstr "Exact URL or URL pattern"
+
+#: rakmai/models.py:47
+msgid "match"
+msgstr "match"
+
+#: rakmai/models.py:59
+msgid "menu item"
+msgstr "menu item"
+
+#: rakmai/models.py:60
+msgid "menu items"
+msgstr "menu items"
+
+#: rakmai/models.py:73
+msgid "The page title as you'd like it to be seen by the public"
+msgstr "The page title as you'd like it to be seen by the public"
+
+#: rakmai/models.py:79
+msgid ""
+"A short description not longer than 155 characters. Don't use double quotes."
+msgstr ""
+"A short description not longer than 155 characters. Don't use double quotes."
+
+#: rakmai/models.py:84
+msgid "keywords"
+msgstr "keywords"
+
+#: rakmai/models.py:86
+msgid "A comma-separated list of keywords. Don't use double quotes."
+msgstr "A comma-separated list of keywords. Don't use double quotes."
+
+#: rakmai/models.py:140
+msgid "file name"
+msgstr "file name"
+
+#: rakmai/models.py:145
+msgid "public identifier"
+msgstr "public identifier"
+
+#: rakmai/models.py:157
+msgid "created time"
+msgstr "created time"
+
+#: rakmai/models.py:172
+msgid "approved"
+msgstr "approved"
+
+#: rakmai/models.py:173
+msgid "flagged"
+msgstr "flagged"
+
+#: rakmai/models.py:174
+msgid "deleted"
+msgstr "deleted"
+
+#: rakmai/models.py:202
+msgid "username"
+msgstr "name"
+
+#: rakmai/models.py:215
+msgid "website URL"
+msgstr "website URL"
+
+#: rakmai/models.py:243
+msgid "site id"
+msgstr "site id"
+
+#: rakmai/models.py:247
+msgid "Google Analytics UA-ID"
+msgstr "Google Analytics UA-ID"
+
+#: rakmai/models.py:254
+msgid "Google Service"
+msgstr "Google Service"
+
+#: rakmai/models.py:255
+msgid "Google Services"
+msgstr "Google Services"
+
+#: sandbox/settings/local.py:21
+msgid "Korean"
+msgstr "Korean"
+
+#: sandbox/settings/local.py:22
+msgid "English"
+msgstr "English"
+
+#: shop/admin.py:36 shop/admin.py:41
+msgid "Removed Order"
+msgstr "Removed Order"
+
+#: shop/admin.py:85 shop/models.py:200 shop/models.py:596 shop/models.py:1140
+msgid "list price"
+msgstr "list price"
+
+#: shop/admin.py:179 shop/admin.py:206 shop/admin.py:234
+msgid "(save and continue editing to create a link)"
+msgstr "(save and continue editing to create a link)"
+
+#: shop/admin.py:181 shop/admin.py:208 shop/models.py:637 shop/models.py:702
+#: shop/models.py:1181
+msgid "voucher"
+msgstr "voucher"
+
+#: shop/admin.py:280 shop/models.py:217
+msgid "Payment Gateway selling price"
+msgstr "PG selling price"
+
+#: shop/admin.py:309
+msgid "Order Info"
+msgstr "Order Info"
+
+#: shop/admin.py:315
+msgid "Transaction Verification"
+msgstr "Transaction Verification"
+
+#: shop/admin.py:675 shop/admin.py:686 shop/admin.py:697
+msgid "1 voucher was"
+msgstr "1 voucher was"
+
+#: shop/admin.py:677 shop/admin.py:688 shop/admin.py:699
+msgid "{} vouchers were"
+msgstr "{} vouchers were"
+
+#: shop/admin.py:678
+msgid "{} successfully marked as purchased."
+msgstr "{} successfully marked as purchased."
+
+#: shop/admin.py:680
+msgid "Mark selected vouchers as purchased"
+msgstr "Mark selected vouchers as purchased"
+
+#: shop/admin.py:689
+msgid "{} successfully marked as sold."
+msgstr "{} successfully marked as sold."
+
+#: shop/admin.py:691
+msgid "Mark selected vouchers as sold"
+msgstr "Mark selected vouchers as sold"
+
+#: shop/admin.py:700
+msgid "{} successfully marked as revoked."
+msgstr "{} successfully marked as revoked."
+
+#: shop/admin.py:702
+msgid "Mark selected vouchers as revoked"
+msgstr "Mark selected vouchers as revoked"
+
+#: shop/admin.py:898
+msgid "IP Address Count"
+msgstr "Count"
+
+#: shop/admin.py:917 shop/admin.py:918
+msgid "PINCOIN admin"
+msgstr "PINCOIN admin"
+
+#: shop/apps.py:7
+msgid "shop"
+msgstr "shop"
+
+#: shop/forms.py:26 shop/models.py:125
+msgid "discount rate"
+msgstr "discount rate"
+
+#: shop/forms.py:148
+msgid "You have to buy more than {} KRW."
+msgstr "You have to buy more than {} KRW."
+
+#: shop/forms.py:158
+msgid "PayPal is not allowed in Korea."
+msgstr "PayPal is not allowed in Korea."
+
+#: shop/forms.py:165
+msgid "You cannot buy more than 150,000 KRW."
+msgstr "You cannot buy more than 150,000 KRW."
+
+#: shop/forms.py:181
+msgid "Complete document verification with Korean Photo ID."
+msgstr "Complete document verification with Korean Photo ID."
+
+#: shop/forms.py:223
+msgid "Under 18, You cannot buy more than 150,000 KRW."
+msgstr "Under 18, You cannot buy more than 150,000 KRW."
+
+#: shop/forms.py:562
+msgid "You cannot refund at night."
+msgstr "You cannot refund at night."
+
+#: shop/helpers.py:18
+msgid "CartItem quantity={} price={}"
+msgstr "CartItem quantity={} price={}"
+
+#: shop/models.py:28
+msgid "maintenance"
+msgstr "maintenance"
+
+#: shop/models.py:32
+msgid "store name"
+msgstr "store name"
+
+#: shop/models.py:37
+msgid "store code"
+msgstr "store code"
+
+#: shop/models.py:58
+msgid "phone number1"
+msgstr "phone number1"
+
+#: shop/models.py:65
+msgid "kakao ID"
+msgstr "Kakao ID"
+
+#: shop/models.py:72
+msgid "bank accounts"
+msgstr "bank accounts"
+
+#: shop/models.py:77
+msgid "escrow"
+msgstr "escrow"
+
+#: shop/models.py:92 shop/models.py:102 shop/models.py:230 shop/models.py:338
+#: shop/models.py:724 shop/models.py:759 shop/models.py:798 shop/models.py:851
+msgid "store"
+msgstr "store"
+
+#: shop/models.py:93
+msgid "stores"
+msgstr "stores"
+
+#: shop/models.py:120
+msgid "description1"
+msgstr "description1"
+
+#: shop/models.py:131 shop/models.py:212
+msgid "Payment Gateway"
+msgstr "Payment Gateway"
+
+#: shop/models.py:136
+msgid "PG discount rate"
+msgstr "discount rate"
+
+#: shop/models.py:143
+msgid "Naver Search Tag"
+msgstr "Naver Search Tag"
+
+#: shop/models.py:149
+msgid "Naver Brand Name"
+msgstr "Naver Brand Name"
+
+#: shop/models.py:155
+msgid "Naver Maker Name"
+msgstr "Naver Maker Name"
+
+#: shop/models.py:175
+msgid "sold out"
+msgstr "sold out"
+
+#: shop/models.py:176
+msgid "in stock"
+msgstr "in stock"
+
+#: shop/models.py:185 shop/models.py:584 shop/models.py:1128
+msgid "product subtitle"
+msgstr "product subtitle"
+
+#: shop/models.py:191 shop/models.py:590 shop/models.py:1134
+msgid "product code"
+msgstr "product code"
+
+#: shop/models.py:254
+msgid "stock"
+msgstr "stock"
+
+#: shop/models.py:261
+msgid "minimum stock level"
+msgstr "minimum stock level"
+
+#: shop/models.py:266
+msgid "review comment count"
+msgstr "review count"
+
+#: shop/models.py:271
+msgid "review comment count(PG)"
+msgstr "review count(PG)"
+
+#: shop/models.py:276
+msgid "Naver Shopping Partner Zone Status"
+msgstr "Partner Zone Status"
+
+#: shop/models.py:281
+msgid "Naver Shopping Partner Zone Product Name"
+msgstr "Partner Zone Product Name"
+
+#: shop/models.py:287
+msgid "Naver Shopping Partner Zone Product Name (PG)"
+msgstr "Partner Zone Product Name(PG)"
+
+#: shop/models.py:293
+msgid "Naver Attributes"
+msgstr "Naver Attributes"
+
+#: shop/models.py:301 shop/models.py:354 shop/models.py:677
+msgid "product"
+msgstr "product"
+
+#: shop/models.py:302
+msgid "products"
+msgstr "products"
+
+#: shop/models.py:325
+msgid "name"
+msgstr "name"
+
+#: shop/models.py:344 shop/models.py:361
+msgid "product list"
+msgstr "product list"
+
+#: shop/models.py:345
+msgid "product lists"
+msgstr "product lists"
+
+#: shop/models.py:371 shop/models.py:372
+msgid "product list membership"
+msgstr "product list membership"
+
+#: shop/models.py:381
+msgid "Bank Transfer (PG)"
+msgstr "Bank Transfer (PG)"
+
+#: shop/models.py:382
+msgid "Virtual Account"
+msgstr "Virtual Account"
+
+#: shop/models.py:391 shop/models.py:1037
+#: shop/templates/shop/default/order_detail.html:314
+msgid "payment pending"
+msgstr "payment pending"
+
+#: shop/models.py:392 shop/models.py:1038
+#: shop/templates/shop/default/order_detail.html:332
+msgid "payment completed"
+msgstr "payment completed"
+
+#: shop/models.py:393 shop/models.py:1039
+#: shop/templates/shop/default/order_detail.html:291
+msgid "under review"
+msgstr "under review"
+
+#: shop/models.py:394 shop/models.py:1040
+#: shop/templates/shop/default/order_detail.html:339
+msgid "payment verified"
+msgstr "payment verified"
+
+#: shop/models.py:395 shop/models.py:1041
+msgid "shipped"
+msgstr "shipped"
+
+#: shop/models.py:396 shop/models.py:1042
+msgid "refund requested"
+msgstr "refund requested"
+
+#: shop/models.py:397 shop/models.py:1043
+msgid "refund pending"
+msgstr "refund pending"
+
+#: shop/models.py:398 shop/models.py:399 shop/models.py:1044
+msgid "refunded"
+msgstr "refunded"
+
+#: shop/models.py:400 shop/models.py:1045
+msgid "voided"
+msgstr "voided"
+
+#: shop/models.py:404
+msgid "Hidden"
+msgstr "Hidden"
+
+#: shop/models.py:405
+msgid "Visible"
+msgstr "Visible"
+
+#: shop/models.py:469
+msgid "visible status"
+msgstr "visible status"
+
+#: shop/models.py:491
+msgid "currency"
+msgstr "currency"
+
+#: shop/models.py:510
+msgid "suspicious"
+msgstr "suspicious transaction"
+
+#: shop/models.py:517
+msgid "pincoin order"
+msgstr "Pincoin order"
+
+#: shop/models.py:518
+msgid "pincoin orders"
+msgstr "Pincoin orders"
+
+#: shop/models.py:526
+msgid "KOOKMIN BANK"
+msgstr "KOOKMIN BANK"
+
+#: shop/models.py:527
+msgid "NONGHYUP BANK"
+msgstr "NONGHYUP BANK"
+
+#: shop/models.py:528
+msgid "SHINHAN BANK"
+msgstr "SHINHAN BANK"
+
+#: shop/models.py:529
+msgid "WOORI BANK"
+msgstr "WOORI BANK"
+
+#: shop/models.py:530
+msgid "IBK BANK"
+msgstr "IBK BANK"
+
+#: shop/models.py:536 shop/models.py:572 shop/models.py:805 shop/models.py:1116
+#: shop/models.py:1433
+msgid "order"
+msgstr "order"
+
+#: shop/models.py:550
+msgid "amount"
+msgstr "amount"
+
+#: shop/models.py:556
+msgid "received date"
+msgstr "received date"
+
+#: shop/models.py:560
+msgid "order payment"
+msgstr "order payment"
+
+#: shop/models.py:561
+msgid "order payments"
+msgstr "order payments"
+
+#: shop/models.py:619 shop/models.py:629 shop/models.py:1173
+msgid "order product"
+msgstr "order product"
+
+#: shop/models.py:620
+msgid "order products"
+msgstr "order products"
+
+#: shop/models.py:650 shop/models.py:672 shop/models.py:1194
+msgid "revoked"
+msgstr "발권취소"
+
+#: shop/models.py:655 shop/models.py:689 shop/models.py:1199
+msgid "voucher remarks"
+msgstr "voucher remarks"
+
+#: shop/models.py:661
+msgid "order voucher code"
+msgstr "order voucher code"
+
+#: shop/models.py:662
+msgid "order voucher codes"
+msgstr "order voucher codes"
+
+#: shop/models.py:670
+msgid "purchased"
+msgstr "purchased"
+
+#: shop/models.py:671
+msgid "sold"
+msgstr "sold"
+
+#: shop/models.py:703
+msgid "vouchers"
+msgstr "vouchers"
+
+#: shop/models.py:717
+msgid "Common"
+msgstr "Common"
+
+#: shop/models.py:718
+msgid "Game Event"
+msgstr "Game Event"
+
+#: shop/models.py:719
+msgid "Price Policy"
+msgstr "Price Policy"
+
+#: shop/models.py:741 shop/models.py:742
+msgid "notice"
+msgstr "notice"
+
+#: shop/models.py:750 shop/models.py:789
+msgid "Registration"
+msgstr "Registration"
+
+#: shop/models.py:752 shop/models.py:791
+msgid "Order/Stock"
+msgstr "Order/Stock"
+
+#: shop/models.py:753 shop/models.py:792
+msgid "Payment"
+msgstr "Payment"
+
+#: shop/models.py:754
+msgid "Delivery"
+msgstr "Delivery"
+
+#: shop/models.py:780
+msgid "frequently asked question"
+msgstr "frequently asked question"
+
+#: shop/models.py:781
+msgid "frequently asked questions"
+msgstr "frequently asked questions"
+
+#: shop/models.py:793
+msgid "Late Delivery"
+msgstr "Late Delivery"
+
+#: shop/models.py:825
+msgid "customer questions"
+msgstr "customer questions"
+
+#: shop/models.py:838
+msgid "question"
+msgstr "question"
+
+#: shop/models.py:844
+msgid "question answer"
+msgstr "question answer"
+
+#: shop/models.py:845
+msgid "question answers"
+msgstr "question answers"
+
+#: shop/models.py:861 shop/models.py:862 shop/models.py:875
+msgid "testimonials"
+msgstr "testimonials"
+
+#: shop/models.py:881
+msgid "testimonials answer"
+msgstr "testimonials answer"
+
+#: shop/models.py:882
+msgid "testimonials answers"
+msgstr "testimonials answers"
+
+#: shop/models.py:905
+msgid "success"
+msgstr "success"
+
+#: shop/models.py:910
+msgid "short message"
+msgstr "short message"
+
+#: shop/models.py:911
+msgid "short messages"
+msgstr "short messages"
+
+#: shop/models.py:919 shop/models.py:961 shop/models.py:1010
+msgid "customer id"
+msgstr "customer id"
+
+#: shop/models.py:924
+msgid "email"
+msgstr "email"
+
+#: shop/models.py:1000
+msgid "legacy order"
+msgstr "legacy order"
+
+#: shop/models.py:1001
+msgid "legacy orders"
+msgstr "legacy orders"
+
+#: shop/models.py:1023
+msgid "legacy order product"
+msgstr "legacy order product"
+
+#: shop/models.py:1106
+msgid "naver order"
+msgstr "naver order"
+
+#: shop/models.py:1107
+msgid "naver orders"
+msgstr "naver orders"
+
+#: shop/models.py:1163
+msgid "naver order product"
+msgstr "naver order product"
+
+#: shop/models.py:1164
+msgid "naver order products"
+msgstr "naver order products"
+
+#: shop/models.py:1205
+msgid "naver order voucher code"
+msgstr "naver order voucher code"
+
+#: shop/models.py:1206
+msgid "naver order voucher codes"
+msgstr "naver order voucher codes"
+
+#: shop/models.py:1368
+msgid "campaign type"
+msgstr "campaign type"
+
+#: shop/models.py:1375
+msgid "media"
+msgstr "media"
+
+#: shop/models.py:1382
+msgid "ad query"
+msgstr "ad query"
+
+#: shop/models.py:1387
+msgid "ad rank"
+msgstr "ad rank"
+
+#: shop/models.py:1391
+msgid "ad group ID"
+msgstr "ad group ID"
+
+#: shop/models.py:1396
+msgid "ad ID"
+msgstr "ad ID"
+
+#: shop/models.py:1401
+msgid "ad keyword ID"
+msgstr "ad keyword ID"
+
+#: shop/models.py:1406
+msgid "ad keyword"
+msgstr "ad keyword"
+
+#: shop/models.py:1416
+msgid "naver advertisement log"
+msgstr "naver advertisement log"
+
+#: shop/models.py:1417
+msgid "naver advertisement logs"
+msgstr "naver advertisement logs"
+
+#: shop/models.py:1448
+msgid "mileage memo"
+msgstr "memo"
+
+#: shop/models.py:1453
+msgid "mileage log"
+msgstr "mileage log"
+
+#: shop/models.py:1454
+msgid "mileage logs"
+msgstr "mileage logs"
+
+#: shop/templates/admin/import_export/voucher_change_list_import_item.html:5
+msgid "Import"
+msgstr "Import"
+
+#: shop/templates/admin/shop/order_change_form.html:6
+msgid "Go Back"
+msgstr "Go Back"
+
+#: shop/templates/admin/shop/order_change_form.html:7
+msgid "Save and continue editing"
+msgstr "Save and continue editing"
+
+#: shop/templates/shop/default/base.html:150
+msgid "PINCOIN MAIN"
+msgstr "PINCOIN MAIN"
+
+#: shop/templates/shop/default/base.html:260
+msgid "Game Info"
+msgstr "Game Info"
+
+#: shop/templates/shop/default/base.html:264
+#: shop/templates/shop/default/gamemeca_ranking.html:17
+msgid "Game Ranking"
+msgstr "Game Raking"
+
+#: shop/templates/shop/default/base.html:267 shop/views.py:925
+msgid "Game Latest News"
+msgstr "Game Latest News"
+
+#: shop/templates/shop/default/base.html:270 shop/views.py:929
+msgid "Game Top News"
+msgstr "Game Top News"
+
+#: shop/templates/shop/default/base.html:273 shop/views.py:927
+msgid "Game Headline News"
+msgstr "Game Headline News"
+
+#: shop/templates/shop/default/base.html:276 shop/views.py:931
+msgid "Game Featured News"
+msgstr "Game Featured News"
+
+#: shop/templates/shop/default/base.html:279 shop/views.py:935
+msgid "Game Preview"
+msgstr "Game Preview"
+
+#: shop/templates/shop/default/base.html:282 shop/views.py:933
+msgid "Game Review"
+msgstr "Game Review"
+
+#: shop/templates/shop/default/home.html:77
+msgid "All Products"
+msgstr "All Products"
+
+#: shop/templates/shop/default/order_detail.html:214
+msgid "Pay Escrow"
+msgstr "Pay Escrow"
+
+#: shop/templates/shop/default/order_detail.html:266
+msgid "It may take a few minutes for us to get notified by PayPal."
+msgstr "It may take a few minutes for us to get notified by PayPal."
+
+#: shop/templates/shop/default/order_detail.html:267
+msgid "You don't have to pay again if you received payment email from PayPal."
+msgstr "You don't have to pay again if you received payment email from PayPal."
+
+#: shop/templates/shop/default/paypal_success.html:11
+msgid "Payment Completed"
+msgstr "Payment Completed"
+
+#: shop/templates/shop/default/paypal_success.html:13
+msgid "It may take a few minutes for your order to get notified by PayPal."
+msgstr "It may take a few minutes for your order to get notified by PayPal."
+
+#: shop/templates/shop/default/paypal_success.html:14
+msgid "Your payment will be completed only if you have"
+msgstr "Your payment will be completed only if you have"
+
+#: shop/templates/shop/default/paypal_success.html:16
+msgid "a verified PayPal account"
+msgstr "a verified PayPal account"
+
+#: shop/templates/shop/default/paypal_success.html:17
+msgid "an instant payment"
+msgstr "an instant payment"
+
+#: shop/templates/shop/default/paypal_success.html:18
+msgid "the same email address as PayPal account"
+msgstr "the same email address as PayPal account"
+
+#: shop/templates/shop/default/paypal_success.html:20
+msgid ""
+"Otherwise, your payment will be refunded within 30 minutes during business "
+"hours."
+msgstr ""
+"Otherwise, your payment will be refunded within 30 minutes during business "
+"hours."
+
+#: shop/templates/shop/default/paypal_success.html:33
+msgid "Thank you for shopping with us online!"
+msgstr "Thank you for shopping with us online!"
+
+#: shop/views.py:775
+msgid "Invalid Content-Type"
+msgstr "Invalid Content-Type"
+
+#: shop/views.py:831
+msgid "PayPal Completed"
+msgstr "PayPal Completed"
+
+#: shop/views.py:855
+msgid "[site] Order voided: {}"
+msgstr "[PINCOIN] Order voided: {}"
+
+#: shop/views.py:883
+msgid "Game ranking"
+msgstr "Game ranking"
+
+#~ msgid "PayPal Voided"
+#~ msgstr "PayPal Voided"

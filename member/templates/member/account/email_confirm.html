@@ -1,0 +1,46 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load account %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Confirm E-mail Address" %}</h4>
+                    <div class="card-body">
+                        {% if confirmation %}
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    {% trans "Username" %}: {{ confirmation.email_address.user }}
+                                </li>
+                                <li class="mb-2">
+                                    {% trans "E-mail" %}: {{ confirmation.email_address.email }}
+                                </li>
+                            </ul>
+                            <div class="alert alert-warning">
+                                <p>{% trans "Please, complete your registration." %}</p>
+                                <p class="mb-0">{% trans "You have to get verified in My Page." %}</p>
+                            </div>
+                            <hr>
+                            <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                                {% csrf_token %}
+                                <button class="btn btn-lg btn-block btn-primary" type="submit">
+                                    {% trans 'Confirm' %}
+                                </button>
+                            </form>
+                        {% else %}
+                            {% url 'account_email' as email_url %}
+                            <p class="lead">
+                                {% trans "This e-mail confirmation link expired or is invalid." %}
+                                {% trans "Please issue a new e-mail confirmation request:" %}
+                                <a href="{{ email_url }}"></a>.
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

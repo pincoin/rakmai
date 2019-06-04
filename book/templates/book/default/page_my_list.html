@@ -1,0 +1,17 @@
+{% extends "./book_base_my_sidebar.html" %}
+
+{% load i18n %}
+
+{% block entry %}
+    <div class="col-md-9 page">
+        <h4 class="mt-4">{% trans "Search Results" %}</h4>
+        <hr/>
+        <ul>
+            {% for page in pages %}
+                <li class="my-3"><a href="{% url 'book:page-my-detail' book.id page.id %}">{{ page.title }}</a></li>
+            {% empty %}
+                <li>{% trans "No results" %}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

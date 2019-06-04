@@ -1,0 +1,378 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load shop_tags %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="container pb-4">
+        <div class="row mt-0 mt-md-3">
+            <div class="col">
+                <div class="card rounded-2">
+                    <div class="card-header text-center">
+                        <h4>{% trans "Order Details" %}</h4>
+                        <small>
+                            {% trans "order no" %}:
+                            <span class="text-monospace">
+                                {{ order.order_no }}
+                            </span>
+                        </small>
+                    </div>
+                    <div class="card-body pb-0">
+                        <div class="row">
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right pt-1 mb-2">
+                                        <span class="text-muted">{% trans "order status" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                                            <span class="btn btn-sm btn-outline-dark mb-1 mt-0">
+                                        {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                                            <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                                        {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                                            <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                                        {% else %}
+                                            <span class="btn btn-sm btn-outline-danger mb-1 mt-0">
+                                        {% endif %}
+                                        {{ order.get_status_display }}
+                                        </span>
+                                    </div>
+                                </li>
+                                {% if show_related_order %}
+                                    <li class="row mb-2">
+                                        <div class="col-md-5 d-none d-md-block text-right">
+                                            <span class="text-muted">{% trans "related order" %}</span>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7 text-monospace">
+                                            {% if order.parent %}
+                                                <a href="{% url 'card:order-detail' store.code order.parent.order_no %}">
+                                                    {{ order.parent.order_no|truncatechars:13 }}
+                                                </a>
+                                            {% else %}
+                                                {% for child in order.children.all %}
+                                                    <a href="{% url 'card:order-detail' store.code child.order_no %}">
+                                                        {{ child.order_no|truncatechars:13 }}
+                                                    </a>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endif %}
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right">
+                                        <span class="text-muted">{% trans "payment method" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {{ order.get_payment_method_display }}
+                                    </div>
+                                </li>
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right">
+                                        <span class="text-muted">{% trans "Order Date/Time" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {{ order.created|date:"Y-m-d H:i" }}
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-6 col-md-4">
+                                        <span class="text-muted">{% trans "product name" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-2 text-md-right">
+                                        <span class="text-muted">{% trans "quantity" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-3 text-right">
+                                        <span class="text-muted">{% trans "unit price" %}</span>
+                                    </div>
+                                    <div class="d-none d-md-block col-md-3 text-right">
+                                        <span class="text-muted">{% trans "subtotal" %}</span>
+                                    </div>
+                                </li>
+                                {% for product in order.products.all %}
+                                    <li class="row mb-3">
+                                        <div class="col-5 col-md-4">
+                                            {{ product.name }} {{ product.subtitle }}
+                                        </div>
+                                        <div class="col-2 col-md-2 text-monospace text-right">
+                                            {{ product.quantity }}
+                                        </div>
+                                        <div class="col-5 col-md-3 text-monospace text-right">
+                                            {{ product.selling_price|currency:order.currency }}
+                                        </div>
+                                        <div class="d-none d-md-block col-md-3 text-monospace text-right">
+                                            {{ product.subtotal|currency:order.currency }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                <li class="row mb-2">
+                                    <div class="offset-3 col-4 offset-md-7 col-md-2 text-right">
+                                        {% trans "total price" %}
+                                    </div>
+                                    <div class="col-5 col-md-3 text-monospace text-right">
+                                        <strong>{{ order.total_selling_price|currency:order.currency }}</strong>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                    <div class="card rounded-2 mt-4">
+                        <div class="card-header text-center">
+                            <h4>{{ order.get_payment_method_display }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="mb-2 mb-md-3">
+                                        다음 질문 중 하나라도 해당하는 경우 결제하지 말고 즉시 경찰서에 신고하시기 바랍니다.
+                                    </h6>
+                                    <ul class="alert alert-warning">
+                                        <li class="ml-3 mb-1 mb-md-2 font-weight-bold">
+                                            다른 사람으로부터 상품권 구매로 일부 또는 전체 금액을 입금 받기로 했습니까?
+                                        </li>
+                                        <li class="ml-3 mb-1 mb-md-2">
+                                            상품권 일부 또는 전체를 대리구매하여 카카오톡 등 메신저로 다른 사람에게 주기로 했습니까?
+                                        </li>
+                                        <li class="ml-3 mb-1 mb-md-2">
+                                            네이트온/카카오톡 등 메신저에서 지인이 급한 돈이 필요하다고 상품권을 요구했습니까?
+                                        </li>
+                                        <li class="ml-3 mb-1 mb-md-2">
+                                            중고나라 또는 번개장터에서 물품대금을 현금 대신 상품권으로 요구 받았습니까?
+                                        </li>
+                                        <li class="ml-3">
+                                            본인이 직접 게임 또는 쇼핑에 사용하기 위한 목적이 아닙니까?
+                                        </li>
+                                    </ul>
+                                    <div class="alert alert-danger">
+                                        <p class="mb-2"><strong>1시간</strong> 이내에 결제를 완료해주시기 바랍니다.</p>
+                                        <p class="mb-0">결제하지 않은 주문은 1시간 경과 후 자동 삭제됩니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-block btn-lg btn-primary" onclick="requestPay();">
+                                        <i class="fas fa-credit-card"></i>
+                                        {% trans "Pay Now" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if show_voucher_list and order.products.first.codes.count %}
+                    <div class="card rounded-2 mt-4">
+                        <div class="card-header text-center">
+                            <h5>{% trans "Voucher Code List" %}</h5>
+                        </div>
+                        <div class="card-body py-0">
+                            <div class="row">
+                                <ul class="col list-unstyled mb-0">
+                                    <li class="row p-2 d-none d-md-flex">
+                                        <div class="col-12 col-md-3">
+                                            <span class="text-muted">{% trans "Voucher" %}</span>
+                                        </div>
+                                        <div class="col-12 col-md-5">
+                                            <span class="text-muted">{% trans "Voucher Code" %}</span>
+                                        </div>
+                                    </li>
+                                    {% for product in order.products.all %}
+                                        {% for voucher in product.codes.all %}
+                                            {% if forloop.counter <= product.quantity %}
+                                                <li class="row py-3 px-2
+                                                    {% if forloop.counter != 1 or forloop.parentloop.counter != 1 %}
+                                                        border-top
+                                                    {% endif %}">
+                                                    <div class="col-12 col-md-3">
+                                                        <small>
+                                                            [{{ forloop.parentloop.counter }}-{{ forloop.counter }}]
+                                                        </small>
+                                                        {{ product.name }}
+                                                        {{ product.subtitle }}
+                                                    </div>
+                                                    <div class="col-12 col-md-5">
+                                                        <span class="text-monospace">
+                                                            {% if voucher.revoked %}
+                                                                <span class="text-muted">
+                                                                    {% trans "Revoked" %}
+                                                                </span>
+                                                            {% else %}
+                                                                {{ voucher.code }}
+                                                                {{ voucher.remarks }}
+                                                            {% endif %}
+                                                        </span>
+                                                    </div>
+
+                                                    {% if '구글' in product.name and not voucher.revoked %}
+                                                        <div class="col-12 col-md-4">
+                                                            <a href="https://play.google.com/store?code={{ voucher.code|cut:" "|cut:"-" }}">
+                                                                {% trans "Charge" %}
+                                                            </a>
+                                                        </div>
+                                                    {% endif %}
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <hr>
+                <div class="row mb-3">
+                    <div class="col">
+                        <a class="btn btn-block btn-lg btn-outline-dark"
+                           href="{% url 'card:order-list' store.code %}?page={{ request.GET.page }}">
+                            <i class="fas fa-list"></i>
+                            {% trans "Order List" %}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% if show_confirm_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-info"
+                               href="{% url 'help:question-create-order' store.code order.order_no %}">
+                                <i class="fas fa-check"></i><br>
+                                {% trans "Confirm Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_hide_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <form action="{% url 'card:order-again' store.code order.order_no %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-block btn-lg btn-outline-info" type="submit">
+                                    <i class="fas fa-file-upload"></i><br>
+                                    {% trans "Order Again" %}
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    {% if show_refund_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'card:refund-create' store.code order.order_no %}">
+                                <i class="fas fa-calculator"></i><br>
+                                {% trans "Refund Payment" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_delete_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'card:order-delete' store.code order.order_no %}">
+                                <i class="fas fa-trash-alt"></i><br>
+                                {% trans "Delete Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_hide_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-success"
+                               href="{% url 'card:order-receipt' store.code order.order_no %}">
+                                <i class="fas fa-receipt"></i><br>
+                                {% trans "Transaction Detail Report" %}
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'card:order-hide' store.code order.order_no %}">
+                                <i class="fas fa-trash-alt"></i><br>
+                                {% trans "Hide Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if show_refund_order_button %}
+                    <div class="card rounded-2">
+                        <div class="card-body pb-0">
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="pl-2 detail-notice">
+                                        <li>
+                                            <strong class="text-secondary">환불 가능 기간</strong>
+                                            <p class="mt-2">
+                                                고객님께서 상품권을 받으신 경우
+                                                해당 상품권을 사용하지 않은 경우에 한하여
+                                                <span class="text-danger">3일 이내</span>에만 교환 또는 환불 요청 가능합니다.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <strong class="text-secondary">환불 처리 기간</strong>
+                                            <p>
+                                                상품권을 받기 전이라도 고객님의 교환 또는 환불 요청이 있은 날로부터
+                                                <span class="text-danger">은행 영업일 기준으로 3~4일 이내</span>에 처리됩니다.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {% if order.status == order.STATUS_CHOICES.payment_pending %}
+        <script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+        <script>
+            IMP.init("{{ iamport_user_code }}");
+
+            function requestPay() {
+                IMP.request_pay({
+                    pg: "danal_tpay",
+                    pay_method: "card",
+                    merchant_uid: "{{ order.order_no }}",
+                    name: "상품권구매",
+                    amount: {{ order.total_selling_price|stringformat:'d' }},
+                    tax_free: 0,
+                    buyer_email: "{{ order.user.email }}",
+                    buyer_name: "{{ order.fullname }}",
+                    buyer_tel: "{{ order.user.profile.phone }}"
+                }, function (rsp) {
+                    if (rsp.success) {
+                        $.ajax({
+                            url: "{{ iamport_callback_url }}",
+                            type: 'post',
+                            dataType: 'json',
+                            data: {
+                                imp_uid: rsp.imp_uid,
+                                merchant_uid: rsp.merchant_uid,
+                                paid_amount: rsp.paid_amount,
+                                apply_num: rsp.apply_num
+                            }
+                        }).done(function (data, textStatus, jqXHR) {
+                            if (textStatus === 'success') {
+                                location.reload();
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            alert("결제에 실패하였습니다.");
+                        });
+                    } else {
+                        alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+                    }
+                });
+            }
+        </script>
+    {% endif %}
+{% endblock %}

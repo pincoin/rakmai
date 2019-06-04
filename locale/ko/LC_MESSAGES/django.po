@@ -1,0 +1,4353 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-29 02:47+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: api/apps.py:7
+msgid "REST API"
+msgstr "REST API"
+
+#: api/views.py:137
+msgid "Overpaid"
+msgstr "초과입금"
+
+#: api/views.py:302 api/views.py:321 rabop/forms.py:85 rabop/forms.py:104
+#: rabop/forms.py:406 rabop/forms.py:425 rabop/views.py:1139 shop/utils.py:38
+#: shop/utils.py:58
+msgid " {}: {} ea"
+msgstr " {}: {}장"
+
+#: banner/apps.py:7 banner/models.py:37 banner/models.py:57
+msgid "banner"
+msgstr "배너"
+
+#: banner/models.py:20 shop/models.py:26 shop/models.py:170
+msgid "enabled"
+msgstr "사용"
+
+#: banner/models.py:21 shop/models.py:27 shop/models.py:171
+msgid "disabled"
+msgstr "사용안함"
+
+#: banner/models.py:25 banner/models.py:66 blog/models.py:39 board/models.py:28
+#: book/models.py:46 bookkeeping/models.py:31 bookkeeping/models.py:60
+#: rakmai/models.py:34 rakmai/models.py:71 rakmai/models.py:116
+msgid "title"
+msgstr "제목"
+
+#: banner/models.py:30 banner/models.py:92 blog/models.py:220
+#: board/models.py:148 book/models.py:71 book/models.py:174
+#: rakmai/models.py:225 shop/models.py:247 shop/models.py:695
+msgid "status"
+msgstr "상태"
+
+#: banner/models.py:38
+msgid "banners"
+msgstr "배너"
+
+#: banner/models.py:46 rakmai/models.py:19
+msgid "_self"
+msgstr "기본값"
+
+#: banner/models.py:47 rakmai/models.py:20
+msgid "blank"
+msgstr "새창열기"
+
+#: banner/models.py:51
+msgid "visible"
+msgstr "보이기"
+
+#: banner/models.py:52 blog/models.py:169
+msgid "hidden"
+msgstr "숨김"
+
+#: banner/models.py:71 rakmai/models.py:40
+msgid "url"
+msgstr "URL"
+
+#: banner/models.py:75 book/models.py:51 rakmai/models.py:77 shop/models.py:115
+#: shop/models.py:224
+msgid "description"
+msgstr "설명"
+
+#: banner/models.py:81 rakmai/models.py:53
+msgid "target"
+msgstr "열기 옵션"
+
+#: banner/models.py:87 shop/models.py:243 shop/models.py:367 shop/models.py:776
+msgid "position"
+msgstr "위치"
+
+#: banner/models.py:99 blog/models.py:214 book/models.py:65 shop/models.py:109
+msgid "thumbnail"
+msgstr "썸네일"
+
+#: banner/models.py:106
+msgid "banner item"
+msgstr "배너 항목"
+
+#: banner/models.py:107
+msgid "banner items"
+msgstr "배너 항목"
+
+#: blog/admin.py:14 blog/models.py:100 blog/models.py:253 blog/models.py:295
+msgid "post"
+msgstr "게시물"
+
+#: blog/admin.py:19
+msgid "Has post"
+msgstr "게시물 있음"
+
+#: blog/admin.py:20
+msgid "No post"
+msgstr "게시물 없음"
+
+#: blog/apps.py:7 blog/models.py:84 blog/models.py:149 blog/models.py:174
+msgid "blog"
+msgstr "블로그"
+
+#: blog/forms.py:31 blog/models.py:158 blog/models.py:199 board/models.py:72
+#: board/models.py:81 board/models.py:140 book/forms.py:27 book/models.py:57
+#: book/models.py:137 shop/admin.py:54 shop/models.py:161 shop/models.py:237
+#: shop/models.py:734 shop/models.py:769 shop/models.py:817
+msgid "category"
+msgstr "분류"
+
+#: blog/forms.py:95 board/forms.py:87
+#: board/templates/board/default/message_confirm_delete.html:57
+#: board/templates/board/default/message_detail.html:43
+#: board/templates/board/default/message_list.html:63
+#: board/templates/board/default/message_my_list.html:63 book/forms.py:57
+#: book/forms.py:142 help/forms.py:53 help/forms.py:91
+msgid "Write"
+msgstr "쓰기"
+
+#: blog/forms.py:128 board/forms.py:121 book/forms.py:172
+msgid "Maximum number of files exceeded."
+msgstr "파일 갯수 초과"
+
+#: blog/forms.py:145 blog/forms.py:149 book/forms.py:179 book/forms.py:183
+#: card/forms.py:24 card/forms.py:28 rabop/forms.py:131 rabop/forms.py:135
+#: rabop/forms.py:225 rabop/forms.py:229 rabop/forms.py:280 rabop/forms.py:284
+#: rabop/forms.py:484 rabop/forms.py:488 rabop/forms.py:520 rabop/forms.py:524
+#: shop/forms.py:50 shop/forms.py:54
+msgid "search word"
+msgstr "검색"
+
+#: blog/models.py:33 board/models.py:116
+msgid "html"
+msgstr "HTML"
+
+#: blog/models.py:34 board/models.py:117
+msgid "markdown"
+msgstr "마크다운"
+
+#: blog/models.py:35 board/models.py:118
+msgid "text"
+msgstr "텍스트"
+
+#: blog/models.py:44 blog/models.py:115 blog/models.py:180 board/models.py:33
+#: rakmai/models.py:121
+msgid "slug"
+msgstr "슬러그"
+
+#: blog/models.py:45 blog/models.py:181 board/models.py:34 rakmai/models.py:122
+#: shop/models.py:38 shop/models.py:192
+msgid ""
+"A short label containing only letters, numbers, underscores or hyphens for "
+"URL"
+msgstr "문자 또는 숫자, 밑줄, 하이픈으로 이루어진 간단한 URL 문자열"
+
+#: blog/models.py:52 board/models.py:41 shop/models.py:45
+msgid "theme"
+msgstr "테마"
+
+#: blog/models.py:58 board/models.py:165
+msgid "markup"
+msgstr "마크업"
+
+#: blog/models.py:64 blog/models.py:232 board/models.py:47
+msgid "allow comments"
+msgstr "댓글 허용"
+
+#: blog/models.py:69 board/models.py:52 shop/models.py:82
+msgid "pagination chunk size"
+msgstr "목록 수"
+
+#: blog/models.py:74 board/models.py:57 shop/models.py:87
+msgid "pagination block size"
+msgstr "페이지 수"
+
+#: blog/models.py:79
+msgid "RSS size"
+msgstr "RSS 개"
+
+#: blog/models.py:85
+msgid "blogs"
+msgstr "블로그"
+
+#: blog/models.py:93 board/models.py:90 book/models.py:116 rakmai/models.py:152
+msgid "uploaded file"
+msgstr "업로드 파일"
+
+#: blog/models.py:108 board/models.py:105 book/models.py:131
+#: rakmai/models.py:163
+msgid "attachment"
+msgstr "첨부파일"
+
+#: blog/models.py:109 board/models.py:106 book/models.py:132
+#: rakmai/models.py:164
+msgid "attachments"
+msgstr "첨부파일"
+
+#: blog/models.py:122
+msgid "tag"
+msgstr "태그"
+
+#: blog/models.py:123 blog/models.py:207
+msgid "tags"
+msgstr "태그"
+
+#: blog/models.py:142
+msgid "tagged post"
+msgstr "태그 있는 게시물"
+
+#: blog/models.py:143
+msgid "tagged posts"
+msgstr "태그 있는 게시물"
+
+#: blog/models.py:159 board/models.py:82 book/models.py:138 shop/models.py:162
+msgid "categories"
+msgstr "분류"
+
+#: blog/models.py:167 book/models.py:146
+msgid "draft"
+msgstr "초안"
+
+#: blog/models.py:168 board/models.py:111
+msgid "published"
+msgstr "발행됨"
+
+#: blog/models.py:188
+msgid "excerpt"
+msgstr "게시물 요약"
+
+#: blog/models.py:189
+msgid "A short description which does not contain HTML tags"
+msgstr "HTML 미포함 짧은 설명"
+
+#: blog/models.py:194 board/models.py:135 book/models.py:152 book/models.py:224
+#: rabop/templates/rabop/default/sms_list.html:16 rakmai/models.py:178
+#: shop/models.py:730 shop/models.py:765 shop/models.py:813 shop/models.py:833
+#: shop/models.py:857 shop/models.py:870 shop/models.py:901
+msgid "content"
+msgstr "본문"
+
+#: blog/models.py:208
+msgid "A comma-separated list of tags."
+msgstr "띄어쓰기 없이 콤마로 연결, 따옴표로 닫고 띄어쓰기할 것"
+
+#: blog/models.py:227
+msgid "allow code highlighting"
+msgstr "코드 하이라이트"
+
+#: blog/models.py:237
+msgid "published date"
+msgstr "발행일시"
+
+#: blog/models.py:242 board/models.py:171 book/models.py:95 book/models.py:181
+msgid "view count"
+msgstr "조회수"
+
+#: blog/models.py:247 board/models.py:176 book/models.py:186
+#: member/models.py:248 rakmai/models.py:221 shop/models.py:445
+#: shop/models.py:1363
+msgid "IP address"
+msgstr "IP 주소"
+
+#: blog/models.py:254
+msgid "posts"
+msgstr "게시물"
+
+#: blog/models.py:301
+msgid "comment"
+msgstr "댓글"
+
+#: blog/models.py:302 blog/templates/blog/default/post_confirm_delete.html:31
+#: blog/templates/blog/default/post_detail.html:29
+#: blog/templates/blog/default/post_list.html:21
+#: blog/templates/blog/default/post_my_detail.html:21
+#: blog/templates/blog/default/post_my_list.html:21
+#: blog/templates/blog/pincoin/post_confirm_delete.html:32
+#: blog/templates/blog/pincoin/post_detail.html:40
+#: blog/templates/blog/pincoin/post_list.html:35
+#: blog/templates/blog/pincoin/post_my_detail.html:36
+#: board/templates/board/default/message_detail.html:19
+msgid "comments"
+msgstr "댓글"
+
+#: blog/templates/blog/default/_pagination.html:10
+#: blog/templates/blog/default/_pagination.html:15
+#: blog/templates/blog/pincoin/_pagination.html:10
+#: blog/templates/blog/pincoin/_pagination.html:15
+#: board/templates/board/default/_pagination.html:10
+#: board/templates/board/default/_pagination.html:15
+#: card/templates/card/default/_pagination.html:12
+#: card/templates/card/default/_pagination.html:19
+#: card/templates/card/default/_pagination_order_list.html:13
+#: card/templates/card/default/_pagination_order_list.html:20
+#: card/templates/card/default/home.html:52
+#: help/templates/help/default/_pagination.html:12
+#: help/templates/help/default/_pagination.html:17
+#: rabop/templates/rabop/default/_pagination.html:12
+#: rabop/templates/rabop/default/_pagination.html:19
+#: rabop/templates/rabop/default/_pagination_best_customers.html:12
+#: rabop/templates/rabop/default/_pagination_best_customers.html:19
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:12
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:19
+#: rabop/templates/rabop/default/_pagination_customer_list.html:12
+#: rabop/templates/rabop/default/_pagination_customer_list.html:19
+#: rabop/templates/rabop/default/_pagination_order_list.html:13
+#: rabop/templates/rabop/default/_pagination_order_list.html:20
+#: rabop/templates/rabop/default/_pagination_stock_status.html:12
+#: rabop/templates/rabop/default/_pagination_stock_status.html:19
+#: shop/templates/shop/default/_pagination.html:12
+#: shop/templates/shop/default/_pagination.html:19
+#: shop/templates/shop/default/_pagination_order_list.html:13
+#: shop/templates/shop/default/_pagination_order_list.html:20
+#: shop/templates/shop/default/home.html:67
+msgid "Previous"
+msgstr "이전"
+
+#: blog/templates/blog/default/_pagination.html:35
+#: blog/templates/blog/default/_pagination.html:40
+#: blog/templates/blog/pincoin/_pagination.html:35
+#: blog/templates/blog/pincoin/_pagination.html:40
+#: board/templates/board/default/_pagination.html:35
+#: board/templates/board/default/_pagination.html:40
+#: card/templates/card/default/_pagination.html:45
+#: card/templates/card/default/_pagination.html:52
+#: card/templates/card/default/_pagination_order_list.html:46
+#: card/templates/card/default/_pagination_order_list.html:53
+#: card/templates/card/default/home.html:56
+#: help/templates/help/default/_pagination.html:42
+#: help/templates/help/default/_pagination.html:47
+#: rabop/templates/rabop/default/_pagination.html:45
+#: rabop/templates/rabop/default/_pagination.html:52
+#: rabop/templates/rabop/default/_pagination_best_customers.html:45
+#: rabop/templates/rabop/default/_pagination_best_customers.html:52
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:45
+#: rabop/templates/rabop/default/_pagination_best_sellers.html:52
+#: rabop/templates/rabop/default/_pagination_customer_list.html:45
+#: rabop/templates/rabop/default/_pagination_customer_list.html:52
+#: rabop/templates/rabop/default/_pagination_order_list.html:46
+#: rabop/templates/rabop/default/_pagination_order_list.html:53
+#: rabop/templates/rabop/default/_pagination_stock_status.html:45
+#: rabop/templates/rabop/default/_pagination_stock_status.html:52
+#: shop/templates/shop/default/_pagination.html:45
+#: shop/templates/shop/default/_pagination.html:52
+#: shop/templates/shop/default/_pagination_order_list.html:46
+#: shop/templates/shop/default/_pagination_order_list.html:53
+#: shop/templates/shop/default/home.html:71
+msgid "Next"
+msgstr "다음"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:24
+msgid "Blog Search"
+msgstr "블로그 검색"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:39
+#: board/templates/board/default/board_base.html:23
+msgid "Side Widget"
+msgstr "사이드 위젯"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:48
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:38
+msgid "Categories"
+msgstr "분류"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:67
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:77
+msgid "Popular Tags"
+msgstr "인기 태그"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:74
+#: blog/templates/blog/default/blog_tags.html:14
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:84
+#: blog/templates/blog/pincoin/blog_tags.html:26
+msgid "No Tags Yet."
+msgstr "태그 없음"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:82
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:91
+#: board/templates/board/default/board_base.html:32
+msgid "Recent Posts"
+msgstr "최근 게시물"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:91
+#: blog/templates/blog/default/post_list.html:57
+#: blog/templates/blog/default/post_my_list.html:59
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:100
+#: blog/templates/blog/pincoin/post_list.html:66
+#: blog/templates/blog/pincoin/post_my_list.html:51
+msgid "No Posts Yet."
+msgstr "게시물 없음"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:99
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:108
+msgid "Recent Comments"
+msgstr "최근 댓글"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:107
+msgid "No Comments Yet."
+msgstr "댓글 없음"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:115
+msgid "Meta"
+msgstr "Meta"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:118
+#: blog/templates/blog/default/post_archive.html:10
+#: blog/templates/blog/pincoin/base.html:124
+#: blog/templates/blog/pincoin/post_archive.html:21
+msgid "Blog Archive"
+msgstr "글모음"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:119
+#: blog/templates/blog/default/post_confirm_delete.html:54
+#: blog/templates/blog/default/post_detail.html:58
+#: blog/templates/blog/default/post_list.html:45
+#: blog/templates/blog/default/post_my_detail.html:50
+#: blog/templates/blog/default/post_my_list.html:47
+#: blog/templates/blog/pincoin/base.html:130
+msgid "Tags"
+msgstr "태그"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:120
+#: blog/templates/blog/pincoin/base.html:136
+msgid "RSS"
+msgstr "RSS"
+
+#: blog/templates/blog/default/blog_base_sidebar.html:122
+#: rabop/templates/rabop/default/base.html:142
+msgid "Admin"
+msgstr "어드민"
+
+#: blog/templates/blog/default/post_archive.html:15
+#: blog/templates/blog/pincoin/post_archive.html:26
+#, python-format
+msgid "Year - %(year)s"
+msgstr "%(year)s년"
+
+#: blog/templates/blog/default/post_archive_day.html:9
+#: blog/templates/blog/pincoin/post_archive_day.html:22
+msgid "N d, Y"
+msgstr "Y년 N d"
+
+#: blog/templates/blog/default/post_archive_day.html:9
+#: blog/templates/blog/pincoin/post_archive_day.html:22
+#, python-format
+msgid "Daily Archive %(d)s"
+msgstr "%(d)s일 글모음"
+
+#: blog/templates/blog/default/post_archive_month.html:9
+#: blog/templates/blog/pincoin/post_archive_month.html:23
+msgid "N, Y"
+msgstr "Y년 N"
+
+#: blog/templates/blog/default/post_archive_month.html:9
+#: blog/templates/blog/pincoin/post_archive_month.html:23
+#, python-format
+msgid "Monthly Archive %(m)s"
+msgstr "%(m)s 글모음"
+
+#: blog/templates/blog/default/post_archive_month.html:14
+#: blog/templates/blog/pincoin/post_archive_month.html:29
+msgid "j"
+msgstr "j일"
+
+#: blog/templates/blog/default/post_archive_year.html:9
+#: blog/templates/blog/pincoin/post_archive_year.html:22
+#, python-format
+msgid "Yearly Archive %(y)s"
+msgstr "%(y)s년 글모음"
+
+#: blog/templates/blog/default/post_confirm_delete.html:17
+#: blog/templates/blog/pincoin/post_confirm_delete.html:18
+#: board/templates/board/default/message_confirm_delete.html:32
+#: book/templates/book/default/book_confirm_delete.html:14
+#: book/templates/book/default/page_confirm_delete.html:15
+#: card/templates/card/default/order_confirm_delete.html:11
+#: card/templates/card/default/order_confirm_hide.html:11
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:11
+#: shop/templates/shop/default/order_confirm_delete.html:11
+#: shop/templates/shop/default/order_confirm_hide.html:11
+msgid "Are you sure to delete?"
+msgstr "정말로 삭제할까요?"
+
+#: blog/templates/blog/default/post_confirm_delete.html:19
+#: blog/templates/blog/default/post_detail.html:36
+#: blog/templates/blog/default/post_my_detail.html:28
+#: blog/templates/blog/pincoin/post_confirm_delete.html:20
+#: blog/templates/blog/pincoin/post_detail.html:47
+#: blog/templates/blog/pincoin/post_my_detail.html:42
+#: board/templates/board/default/message_confirm_delete.html:34
+#: board/templates/board/default/message_detail.html:29
+#: board/templates/board/default/message_detail.html:50
+#: book/templates/book/default/book_confirm_delete.html:16
+#: book/templates/book/default/page_confirm_delete.html:17
+#: card/templates/card/default/order_confirm_delete.html:13
+#: card/templates/card/default/order_confirm_hide.html:14
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:13
+#: rabop/templates/rabop/default/order_detail.html:533
+#: shop/templates/shop/default/order_confirm_delete.html:13
+#: shop/templates/shop/default/order_confirm_hide.html:14
+msgid "Delete"
+msgstr "삭제"
+
+#: blog/templates/blog/default/post_confirm_delete.html:32
+#: blog/templates/blog/default/post_detail.html:30
+#: blog/templates/blog/default/post_list.html:22
+#: blog/templates/blog/default/post_my_detail.html:22
+#: blog/templates/blog/default/post_my_list.html:22
+#: blog/templates/blog/pincoin/post_confirm_delete.html:33
+#: blog/templates/blog/pincoin/post_detail.html:42
+#: blog/templates/blog/pincoin/post_list.html:37
+#: blog/templates/blog/pincoin/post_my_detail.html:37
+#: blog/templates/blog/pincoin/post_my_list.html:19
+#: board/templates/board/default/message_detail.html:20
+msgid "views"
+msgstr "회"
+
+#: blog/templates/blog/default/post_confirm_delete.html:69
+#: blog/templates/blog/default/post_detail.html:539
+#: blog/templates/blog/default/post_my_detail.html:91
+#: blog/templates/blog/pincoin/post_confirm_delete.html:71
+#: blog/templates/blog/pincoin/post_detail.html:171
+msgid "Comments are now allowed."
+msgstr "댓글을 달 수 없는 게시물입니다."
+
+#: blog/templates/blog/default/post_detail.html:34
+#: blog/templates/blog/default/post_my_detail.html:26
+#: blog/templates/blog/pincoin/base.html:110
+#: blog/templates/blog/pincoin/post_detail.html:45
+#: blog/templates/blog/pincoin/post_my_detail.html:40
+#: board/templates/board/default/message_confirm_delete.html:23
+#: board/templates/board/default/message_detail.html:25
+#: board/templates/board/default/message_detail.html:47
+#: book/templates/book/default/base.html:101
+#: rabop/templates/rabop/default/customer_detail.html:29
+msgid "Edit"
+msgstr "수정"
+
+#: blog/templates/blog/default/post_detail.html:68
+#: blog/templates/blog/default/post_my_detail.html:60
+#: blog/templates/blog/pincoin/post_detail.html:137
+#: blog/templates/blog/pincoin/post_my_detail.html:92
+msgid "Related Posts"
+msgstr "관련 게시물"
+
+#: blog/templates/blog/default/post_detail.html:95
+msgid "Leave a Comment"
+msgstr "댓글 남기기"
+
+#: blog/templates/blog/default/post_list.html:39
+#: blog/templates/blog/default/post_my_list.html:41
+#: blog/templates/blog/pincoin/post_list.html:47
+#: blog/templates/blog/pincoin/post_my_list.html:32
+msgid "Read More"
+msgstr "더보기"
+
+#: blog/templates/blog/pincoin/base.html:15
+#: blog/templates/blog/pincoin/base.html:28
+#: blog/templates/blog/pincoin/base.html:85
+#: book/templates/book/default/base.html:14
+#: book/templates/book/default/base.html:29
+#: book/templates/book/default/base.html:87
+#: card/templates/card/default/base.html:14
+#: card/templates/card/default/base.html:29
+#: rabop/templates/rabop/default/base.html:15
+#: shop/templates/shop/default/base.html:14
+#: shop/templates/shop/default/base.html:29
+msgid "PINCOIN"
+msgstr "핀코인"
+
+#: blog/templates/blog/pincoin/base.html:85
+#: blog/templates/blog/pincoin/base.html:118
+#: book/templates/book/default/base.html:87
+#: book/templates/book/default/base.html:109
+msgid "To Shop"
+msgstr "쇼핑몰"
+
+#: blog/templates/blog/pincoin/base.html:91
+#: blog/templates/blog/pincoin/base.html:156
+#: book/templates/book/default/base.html:129
+msgid "About"
+msgstr "소개"
+
+#: blog/templates/blog/pincoin/base.html:104
+#: book/templates/book/default/base.html:95
+#: card/templates/card/default/base.html:89
+#: card/templates/card/default/base.html:155
+#: shop/templates/shop/default/base.html:89
+#: shop/templates/shop/default/base.html:155
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: blog/templates/blog/pincoin/base.html:150
+#: book/templates/book/default/base.html:123
+msgid "To Home"
+msgstr "처음으로"
+
+#: blog/templates/blog/pincoin/base.html:222
+#: book/templates/book/default/base.html:179
+#: card/templates/card/default/base.html:316
+#: shop/templates/shop/default/base.html:358
+msgid "User Guide"
+msgstr "이용안내"
+
+#: blog/templates/blog/pincoin/base.html:227
+#: book/templates/book/default/base.html:184
+#: card/templates/card/default/base.html:321 help/views.py:119
+#: shop/templates/shop/default/base.html:363
+msgid "Frequently Asked Questions"
+msgstr "자주 묻는 질문"
+
+#: blog/templates/blog/pincoin/base.html:232
+#: book/templates/book/default/base.html:189
+#: card/templates/card/default/base.html:326
+#: help/templates/help/default/_tabs.html:18
+#: help/templates/help/default/home.html:20
+#: shop/templates/shop/default/base.html:368
+msgid "Q&amp;A"
+msgstr "문의하기"
+
+#: blog/templates/blog/pincoin/base.html:237
+#: book/templates/book/default/base.html:194
+#: card/templates/card/default/base.html:331
+#: member/templates/member/account/signup.html:14
+#: member/templates/member/account/terms.html:11
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:249
+#: shop/templates/shop/default/base.html:373
+msgid "Terms and Conditions"
+msgstr "이용약관"
+
+#: blog/templates/blog/pincoin/base.html:242
+#: book/templates/book/default/base.html:199
+#: card/templates/card/default/base.html:336
+#: member/templates/member/account/privacy.html:11
+#: member/templates/member/account/signup.html:31
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:258
+#: shop/templates/shop/default/base.html:378
+msgid "Privacy Policy"
+msgstr "개인정보 처리방침"
+
+#: blog/templates/blog/pincoin/base.html:247
+#: book/templates/book/default/base.html:204
+#: card/templates/card/default/base.html:346
+#: rabop/templates/rabop/default/base.html:151
+#: shop/templates/shop/default/base.html:388
+msgid "Blog"
+msgstr "블로그"
+
+#: blog/templates/blog/pincoin/base.html:252
+#: book/templates/book/default/base.html:209
+#: card/templates/card/default/base.html:351
+#: rabop/templates/rabop/default/base.html:154
+#: shop/templates/shop/default/base.html:393
+msgid "TechNote"
+msgstr "기술문서"
+
+#: blog/templates/blog/pincoin/blog_base_sidebar.html:58
+msgid "Pincoin Products"
+msgstr "오늘의 최저가 상품권"
+
+#: blog/templates/blog/pincoin/post_detail.html:80
+#: blog/templates/blog/pincoin/post_my_detail.html:71
+#: book/templates/book/default/page_detail.html:110
+#: book/templates/book/default/page_my_detail.html:86
+#: card/templates/card/default/product_detail.html:282
+#: shop/templates/shop/default/product_detail.html:286
+msgid "Close"
+msgstr "닫기"
+
+#: blog/templates/blog/pincoin/post_my_list.html:61
+msgid "Write a new post"
+msgstr "새 게시물 작성"
+
+#: blog/views.py:88
+msgid "{} Blog Posts"
+msgstr "{} 게시물"
+
+#: blog/views.py:129
+msgid "{} My Blog Posts"
+msgstr "{} 내 게시물"
+
+#: blog/views.py:143
+msgid "{} Write Post"
+msgstr "{} 새글쓰기"
+
+#: blog/views.py:198
+msgid "{} Edit Post - {}"
+msgstr "{} 게시물 수정 - {}"
+
+#: blog/views.py:253
+msgid "{} Delete Post - {}"
+msgstr "{} 게시물 삭제 - {}"
+
+#: blog/views.py:281
+msgid "{} Blog Posts By Categories"
+msgstr "{} 카테고리별 게시물"
+
+#: blog/views.py:303
+msgid "{} Blog Posts By Tags"
+msgstr "{} 태그별 게시물"
+
+#: blog/views.py:325
+msgid "{} Blog Tags"
+msgstr "{} 태그"
+
+#: blog/views.py:334
+msgid "Blog RSS"
+msgstr "블로그 RSS"
+
+#: blog/views.py:336
+msgid "Blog Recent Posts"
+msgstr "최신 게시물"
+
+#: blog/views.py:364
+msgid "{} Blog Archive"
+msgstr "{} 글모음"
+
+#: blog/views.py:385
+msgid "{} Blog Yearly Archive"
+msgstr "{} 연도별 글모음"
+
+#: blog/views.py:405
+msgid "{} Blog Monthly Archive"
+msgstr "{} 월별 글모음"
+
+#: blog/views.py:425
+msgid "{} Blog Daily Archive"
+msgstr "{} 일일 글모음"
+
+#: board/admin.py:39 board/models.py:97 board/models.py:182
+#: member/models.py:305
+msgid "message"
+msgstr "게시물"
+
+#: board/admin.py:44
+msgid "Has message"
+msgstr "게시물 있음"
+
+#: board/admin.py:45 card/templates/card/default/home.html:198
+#: help/templates/help/default/faq_list.html:43
+#: help/templates/help/default/notice_list.html:44
+#: shop/templates/shop/default/home.html:207
+msgid "No message"
+msgstr "게시물 없음"
+
+#: board/apps.py:7 board/models.py:62 board/models.py:123
+msgid "board"
+msgstr "게시판"
+
+#: board/forms.py:24
+msgid "Search Fields"
+msgstr "검색 필드"
+
+#: board/forms.py:32 board/templates/board/default/message_list.html:22
+#: board/templates/board/default/message_my_list.html:22
+msgid "Title"
+msgstr "제목"
+
+#: board/forms.py:33
+msgid "Content"
+msgstr "본문"
+
+#: board/forms.py:34
+msgid "Title+Content"
+msgstr "제목+본문"
+
+#: board/forms.py:35
+msgid "Nickname"
+msgstr "닉네임"
+
+#: board/forms.py:42 board/forms.py:46
+#: board/templates/board/default/message_list.html:75
+#: board/templates/board/default/message_my_list.html:75
+#: rakmai/templates/rakmai/base.html:69 rakmai/templates/rakmai/base.html:70
+msgid "Search"
+msgstr "검색"
+
+#: board/models.py:63
+msgid "boards"
+msgstr "게시판"
+
+#: board/models.py:112
+msgid "moderated"
+msgstr "제재됨"
+
+#: board/models.py:129
+msgid "nickname"
+msgstr "닉네임"
+
+#: board/models.py:155
+msgid "secret"
+msgstr "비밀글"
+
+#: board/models.py:160
+msgid "sticky"
+msgstr "공지사항"
+
+#: board/models.py:183
+msgid "messages"
+msgstr "게시물"
+
+#: board/templates/board/default/board_base.html:41
+#: board/templates/board/default/message_list.html:50
+#: board/templates/board/default/message_my_list.html:50
+msgid "No Messages Yet."
+msgstr "게시물 없음"
+
+#: board/templates/board/default/message_confirm_delete.html:50
+#: board/templates/board/default/message_detail.html:40 help/forms.py:53
+#: help/forms.py:91 help/templates/help/default/notice_detail.html:48
+#: help/templates/help/default/question_detail.html:67
+#: help/templates/help/default/testimonials_detail.html:82
+#: rabop/templates/rabop/default/customer_detail.html:343
+#: rabop/templates/rabop/default/legacy_customer_detail.html:110
+#: rabop/templates/rabop/default/naver_order_create.html:119
+#: rabop/templates/rabop/default/naver_order_detail.html:185
+#: rabop/templates/rabop/default/order_detail.html:550
+#: rabop/templates/rabop/default/order_send_errors.html:11
+#: rabop/templates/rabop/default/question_detail.html:91
+#: rabop/templates/rabop/default/sms_send.html:11
+msgid "List"
+msgstr "목록"
+
+#: board/templates/board/default/message_list.html:21
+#: board/templates/board/default/message_my_list.html:21
+#: rabop/templates/rabop/default/best_customers_report.html:28
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:28
+#: rabop/templates/rabop/default/best_sellers_report.html:28
+#: rabop/templates/rabop/default/daily_payments_report.html:103
+#: rabop/templates/rabop/default/daily_sales_report.html:52
+#: rabop/templates/rabop/default/monthly_sales_report.html:52
+msgid "No."
+msgstr "번호"
+
+#: board/templates/board/default/message_list.html:23
+#: board/templates/board/default/message_my_list.html:23
+msgid "Author"
+msgstr "글쓴이"
+
+#: board/templates/board/default/message_list.html:24
+#: board/templates/board/default/message_my_list.html:24
+msgid "Views"
+msgstr "조회"
+
+#: board/templates/board/default/message_list.html:25
+#: board/templates/board/default/message_my_list.html:25
+msgid "At"
+msgstr "작성일"
+
+#: book/admin.py:17 book/models.py:123 book/models.py:197 book/models.py:213
+msgid "page"
+msgstr "페이지"
+
+#: book/admin.py:22
+msgid "Has page"
+msgstr "페이지 있음"
+
+#: book/admin.py:23
+msgid "No page"
+msgstr "페이지 없음"
+
+#: book/apps.py:7 book/models.py:107 book/models.py:157
+msgid "book"
+msgstr "책"
+
+#: book/forms.py:91 book/models.py:165 rakmai/models.py:25 rakmai/models.py:107
+#: rakmai/models.py:183 shop/models.py:502
+msgid "parent"
+msgstr "부모"
+
+#: book/models.py:32 book/models.py:147
+msgid "public"
+msgstr "공개"
+
+#: book/models.py:33 book/models.py:148
+msgid "private"
+msgstr "비공개"
+
+#: book/models.py:37
+msgid "BY"
+msgstr "저작자표시"
+
+#: book/models.py:38
+msgid "BY-SA"
+msgstr "저작자표시-동일조건변경허락"
+
+#: book/models.py:39
+msgid "BY-ND"
+msgstr "저작자표시-변경금지"
+
+#: book/models.py:40
+msgid "BY-NC"
+msgstr "저작자표시-비영리"
+
+#: book/models.py:41
+msgid "BY-NC-SA"
+msgstr "저작자표시-비영리-동일조건변경허락"
+
+#: book/models.py:42
+msgid "BY-NC-ND"
+msgstr "저작자표시-비영리-변경금지"
+
+#: book/models.py:78
+msgid "license"
+msgstr "라이선스"
+
+#: book/models.py:86 rakmai/models.py:92 rakmai/models.py:193
+msgid "owner"
+msgstr "소유자"
+
+#: book/models.py:100 book/models.py:190
+msgid "updated date"
+msgstr "수정일"
+
+#: book/models.py:108
+msgid "books"
+msgstr "책"
+
+#: book/models.py:198
+msgid "pages"
+msgstr "페이지"
+
+#: book/models.py:220 rakmai/models.py:209
+msgid "email address"
+msgstr "이메일 주소"
+
+#: book/models.py:228 book/models.py:229
+msgid "feedback"
+msgstr "피드백"
+
+#: book/tasks.py:10
+msgid "You've got feedback. : {}"
+msgstr "피드백이 있습니다. : {}"
+
+#: book/templates/book/default/book_base_my_sidebar.html:29
+#: book/templates/book/default/book_base_sidebar.html:29
+msgid "TOC"
+msgstr "목차"
+
+#: book/templates/book/default/book_detail.html:32
+#: book/templates/book/default/book_my_detail.html:45
+#: book/templates/book/default/page_detail.html:42
+#: book/templates/book/default/page_my_detail.html:38
+msgid "Last Modified"
+msgstr "최종 수정일시"
+
+#: book/templates/book/default/book_detail.html:33
+#: book/templates/book/default/book_my_detail.html:46
+msgid "License"
+msgstr "라이선스"
+
+#: book/templates/book/default/book_detail.html:46
+#: book/templates/book/default/book_my_detail.html:58
+#: book/templates/book/default/page_detail.html:64
+#: book/templates/book/default/page_my_detail.html:60
+msgid "Next Page"
+msgstr "다음 글"
+
+#: book/templates/book/default/book_my_detail.html:14
+msgid "Edit Book"
+msgstr "책 수정"
+
+#: book/templates/book/default/book_my_detail.html:17
+msgid "Delete Book"
+msgstr "책 삭제"
+
+#: book/templates/book/default/book_my_detail.html:20
+#: book/templates/book/default/page_my_detail.html:27
+msgid "Write Page"
+msgstr "페이지 추가"
+
+#: book/templates/book/default/book_my_list.html:43 book/views.py:200
+msgid "Write New Book"
+msgstr "새 책 쓰기"
+
+#: book/templates/book/default/page_detail.html:51
+#: book/templates/book/default/page_detail.html:57
+#: book/templates/book/default/page_my_detail.html:47
+#: book/templates/book/default/page_my_detail.html:53
+msgid "Previous Page"
+msgstr "이전 글"
+
+#: book/templates/book/default/page_detail.html:94
+#: book/templates/book/default/page_my_detail.html:70
+msgid "Top"
+msgstr "맨위로"
+
+#: book/templates/book/default/page_list.html:7
+#: book/templates/book/default/page_my_list.html:7
+msgid "Search Results"
+msgstr "검색 결과"
+
+#: book/templates/book/default/page_list.html:13
+#: book/templates/book/default/page_my_list.html:13
+msgid "No results"
+msgstr "결과 없음"
+
+#: book/templates/book/default/page_my_detail.html:21
+msgid "Edit Page"
+msgstr "페이지 수정"
+
+#: book/templates/book/default/page_my_detail.html:24
+msgid "Delete Page"
+msgstr "페이지 삭제"
+
+#: book/views.py:49 book/views.py:98
+msgid "Book List"
+msgstr "기술문서"
+
+#: book/views.py:166 book/views.py:447
+msgid "Search Results - {}"
+msgstr "검색 결과 - {}"
+
+#: book/views.py:232
+msgid "Edit Book - {}"
+msgstr "책 수정 - {}"
+
+#: book/views.py:262
+msgid "Delete Book - {}"
+msgstr "책 삭제 - {}"
+
+#: book/views.py:279
+msgid "Write New Page"
+msgstr "새 페이지 작성"
+
+#: book/views.py:335
+msgid "Edit Page - {}"
+msgstr "페이지 수정 - {}"
+
+#: book/views.py:388
+msgid "Delete Page - {}"
+msgstr "페이지 삭제 - {}"
+
+#: bookkeeping/apps.py:7
+msgid "bookkeeping"
+msgstr "회계장부"
+
+#: bookkeeping/models.py:11
+msgid "transaction pending"
+msgstr "미확정 거래"
+
+#: bookkeeping/models.py:12
+msgid "transaction complete"
+msgstr "거래 완료"
+
+#: bookkeeping/models.py:13
+msgid "transaction revoked"
+msgstr "거래 취소"
+
+#: bookkeeping/models.py:17
+msgid "slip status"
+msgstr "전표 상태"
+
+#: bookkeeping/models.py:24
+msgid "transaction amount"
+msgstr "거래금액"
+
+#: bookkeeping/models.py:37
+msgid "slip remarks"
+msgstr "전표 적요"
+
+#: bookkeeping/models.py:47
+msgid "bank account"
+msgstr "은행계좌"
+
+#: bookkeeping/models.py:48
+msgid "credit card"
+msgstr "신용카드"
+
+#: bookkeeping/models.py:49
+msgid "debit card"
+msgstr "체크카드"
+
+#: bookkeeping/models.py:53
+msgid "account type"
+msgstr "계좌종류"
+
+#: bookkeeping/models.py:65
+msgid "account active"
+msgstr "사용여부"
+
+#: bookkeeping/models.py:70
+msgid "bookkeeping account"
+msgstr "계좌"
+
+#: bookkeeping/models.py:71
+msgid "bookkeeping accounts"
+msgstr "계좌"
+
+#: bookkeeping/models.py:79
+msgid "purchase"
+msgstr "매입"
+
+#: bookkeeping/models.py:80
+msgid "refund"
+msgstr "환불"
+
+#: bookkeeping/models.py:81
+msgid "refund overdrawn"
+msgstr "초과입금환불"
+
+#: bookkeeping/models.py:82
+msgid "expense"
+msgstr "비용"
+
+#: bookkeeping/models.py:83
+msgid "salary"
+msgstr "급여"
+
+#: bookkeeping/models.py:87
+msgid "withdrawal type"
+msgstr "출금 유형"
+
+#: bookkeeping/models.py:95 bookkeeping/models.py:130 shop/models.py:543
+msgid "account"
+msgstr "계좌"
+
+#: bookkeeping/models.py:102 bookkeeping/models.py:137
+msgid "completed date"
+msgstr "처리일시"
+
+#: bookkeeping/models.py:107
+msgid "withdrawal slip"
+msgstr "출금 전표"
+
+#: bookkeeping/models.py:108
+msgid "withdrawal slips"
+msgstr "출금 전표"
+
+#: bookkeeping/models.py:116
+msgid "unidentified"
+msgstr "미확인"
+
+#: bookkeeping/models.py:117
+msgid "identified"
+msgstr "확인완료"
+
+#: bookkeeping/models.py:118
+msgid "overdrawn deposit"
+msgstr "초과입금"
+
+#: bookkeeping/models.py:122
+msgid "deposit type"
+msgstr "입금 유형"
+
+#: bookkeeping/models.py:142
+msgid "unidentified deposit slip"
+msgstr "미확인 입금"
+
+#: bookkeeping/models.py:143
+msgid "unidentified deposit slips"
+msgstr "미확인 입금"
+
+#: card/apps.py:7
+msgid "Card mall"
+msgstr "카드몰"
+
+#: card/forms.py:53 shop/forms.py:79
+msgid "I agree to Commercial Law."
+msgstr "구매를 동의합니다. (전자상거래법 제 8조 제2항)"
+
+#: card/forms.py:54 shop/forms.py:80
+msgid "Do you agree to buy items in your cart?"
+msgstr ""
+"주문하실 상품, 가격, 배송정보, 할인정보 등을 확인하였으며, 구매에 동의합니다."
+
+#: card/forms.py:58 shop/forms.py:84
+msgid "I purchase by myself on my own purpose."
+msgstr "본인 사용 목적으로 상품권을 구매합니다."
+
+#: card/forms.py:59 shop/forms.py:85
+msgid "It is 100 percent fraud if you are asked to buy the codes."
+msgstr ""
+"대리구매 알바 또는 상품권 할인(페이백)을 미끼로 다른 사람이 상품권 구매를 요"
+"구했다면 100% 사기입니다."
+
+#: card/forms.py:65 rabop/templates/rabop/default/daily_payments_report.html:16
+#: rabop/templates/rabop/default/daily_payments_report.html:128
+#: shop/models.py:380
+msgid "Credit Card"
+msgstr "신용카드"
+
+#: card/forms.py:89 shop/forms.py:115
+msgid "Empty cart! Please, put items in your cart."
+msgstr "주문하실 상품권을 장바구니에 담은 후 주문완료바랍니다."
+
+#: card/forms.py:128 shop/forms.py:193
+msgid "You have access log within {} hrs."
+msgstr "{}시간 이내에 동일 IP 주소 접속으로 주문할 수 없습니다."
+
+#: card/forms.py:139 shop/forms.py:204
+msgid "Delete order first before the new order."
+msgstr ""
+"입금확인중 주문을 먼저 취소하시고 새로운 주문을 완료해주세요. 중복주문으로 자"
+"동발송 오류가 발생할 수 있습니다."
+
+#: card/forms.py:158
+msgid "Under 20, You cannot buy more than 150,000 KRW."
+msgstr "만20세 미만은 한달에 15만원까지만 주문 가능합니다."
+
+#: card/forms.py:189 shop/forms.py:255
+msgid "Complete cellphone verification."
+msgstr "마이페이지에서 휴대폰본인인증 먼저 완료해주세요."
+
+#: card/forms.py:195 shop/forms.py:261
+msgid "You cannot buy culture more than {} KRW."
+msgstr ""
+"신규고객은 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화상품"
+"권 주문 가능합니다."
+
+#: card/forms.py:202 card/forms.py:215 card/forms.py:228 card/forms.py:276
+#: card/forms.py:283 card/forms.py:327 card/forms.py:334 card/forms.py:377
+#: card/forms.py:384 shop/forms.py:268 shop/forms.py:281 shop/forms.py:294
+#: shop/forms.py:342 shop/forms.py:349 shop/forms.py:393 shop/forms.py:400
+#: shop/forms.py:443 shop/forms.py:450
+msgid "Complete document verification."
+msgstr ""
+"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전9시~익"
+"일새벽1시)"
+
+#: card/forms.py:208 shop/forms.py:274
+msgid "You cannot buy google more than {} KRW."
+msgstr "신규고객은 구글기프트카드 50만원까지만 주문 가능합니다."
+
+#: card/forms.py:221 shop/forms.py:287
+msgid "You cannot buy more than {} KRW."
+msgstr "신규고객은 50만원까지만 주문 가능합니다."
+
+#: card/forms.py:257 shop/forms.py:323
+msgid "Activate your account by cellphone verification."
+msgstr ""
+"휴면계정 활성화를 위해 마이페이지에서 다시 휴대폰본인인증 완료해주세요."
+
+#: card/forms.py:266 shop/forms.py:332
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"첫 구매 후 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화상품"
+"권 주문 가능합니다."
+
+#: card/forms.py:290 shop/forms.py:356
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 20만원까"
+"지만 문화상품권, 해피머니, 도서문화상품권 주문 가능합니다."
+
+#: card/forms.py:300 card/forms.py:351 card/forms.py:401 shop/forms.py:366
+#: shop/forms.py:417 shop/forms.py:467
+msgid "You may order 1 hour after last purchase."
+msgstr ""
+"금융사고 방지를 위해 마지막 주문으로부터 1시간 경과 후 재주문 가능합니다."
+
+#: card/forms.py:308 card/forms.py:359 card/forms.py:418 shop/forms.py:374
+#: shop/forms.py:425 shop/forms.py:484
+msgid "Complete document verification at night."
+msgstr ""
+"기존 고객님도 새벽시간 자동발권은 마이페이지에서 서류본인인증을 완료해야 합니"
+"다. (관리자 확인 시간: 오전9시)"
+
+#: card/forms.py:317 shop/forms.py:383
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"첫 구매 후 48시간 동안 하루에 50만원까지만 구글기프트카드 주문 가능합니다."
+
+#: card/forms.py:341 shop/forms.py:407
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 50만원까"
+"지만 구글기프트카드 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니"
+"다.)"
+
+#: card/forms.py:367 shop/forms.py:433
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs from the first order date."
+msgstr "첫 구매 후 48시간 동안 하루에 50만원까지만 주문 가능합니다."
+
+#: card/forms.py:391 shop/forms.py:457
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
+"for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 50만원까"
+"지만 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니다.)"
+
+#: card/forms.py:411 shop/forms.py:477
+msgid "You cannot buy more than the maximum of your past order amount."
+msgstr "영업시간 외에 과거 최대구매액을 초과하여 구매할 수 없습니다."
+
+#: card/forms.py:432 shop/forms.py:498
+msgid "Over amount for auto-send during night time"
+msgstr ""
+"영업시간 외에 20만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 14"
+"일 초과, 마지막 구매 30일 미만"
+
+#: card/forms.py:453 rabop/templates/rabop/default/naver_order_detail.html:90
+#: rabop/templates/rabop/default/order_detail.html:392 shop/forms.py:520
+#: shop/models.py:496 shop/models.py:1101
+msgid "order message"
+msgstr "주문 메시지"
+
+#: card/forms.py:454 shop/forms.py:521
+msgid "Your bank account and your full name"
+msgstr "환불 받으실 은행 이름과 계좌번호, 입금주를 적어주세요."
+
+#: card/templates/card/default/base.html:97
+#: card/templates/card/default/base.html:163
+#: shop/templates/shop/default/base.html:97
+#: shop/templates/shop/default/base.html:163
+msgid "Sign in"
+msgstr "로그인"
+
+#: card/templates/card/default/base.html:103
+#: card/templates/card/default/base.html:169
+#: member/templates/member/account/login.html:120
+#: member/templates/member/account/signup.html:172
+#: member/templates/member/socialaccount/signup.html:158 member/views.py:109
+#: member/views.py:231 shop/templates/shop/default/base.html:103
+#: shop/templates/shop/default/base.html:169
+msgid "Sign up"
+msgstr "회원가입"
+
+#: card/templates/card/default/base.html:110
+#: card/templates/card/default/base.html:189
+#: shop/templates/shop/default/base.html:110
+#: shop/templates/shop/default/base.html:189
+msgid "Orders"
+msgstr "주문/발송"
+
+#: card/templates/card/default/base.html:116
+#: card/templates/card/default/base.html:195 card/views.py:204
+#: shop/templates/shop/default/base.html:116
+#: shop/templates/shop/default/base.html:195 shop/views.py:200
+msgid "Cart"
+msgstr "장바구니"
+
+#: card/templates/card/default/base.html:130
+#: card/templates/card/default/base.html:209
+#: shop/templates/shop/default/base.html:130
+#: shop/templates/shop/default/base.html:209
+#: shop/templates/shop/default/paypal_success.html:29
+msgid "Help"
+msgstr "고객센터"
+
+#: card/templates/card/default/base.html:137
+#: card/templates/card/default/base.html:176
+#: card/templates/card/default/cart.html:183
+#: card/templates/card/default/cart.html:235
+#: card/templates/card/default/order_list.html:18
+#: card/templates/card/default/product_detail.html:212
+#: shop/templates/shop/default/base.html:137
+#: shop/templates/shop/default/base.html:176
+#: shop/templates/shop/default/cart.html:180
+#: shop/templates/shop/default/cart.html:241
+#: shop/templates/shop/default/order_detail.html:159
+#: shop/templates/shop/default/order_detail.html:299
+#: shop/templates/shop/default/order_list.html:18
+#: shop/templates/shop/default/product_detail.html:212
+msgid "My Page"
+msgstr "마이페이지"
+
+#: card/templates/card/default/base.html:143
+#: card/templates/card/default/base.html:182
+#: member/templates/member/account/logout.html:11
+#: rabop/templates/rabop/default/base.html:205
+#: shop/templates/shop/default/base.html:143
+#: shop/templates/shop/default/base.html:182
+msgid "Sign out"
+msgstr "로그아웃"
+
+#: card/templates/card/default/base.html:150
+msgid "PINCOIN CARD"
+msgstr "핀코인 카드몰"
+
+#: card/templates/card/default/base.html:213
+#: card/templates/card/default/order_detail.html:181
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:31
+#: rabop/templates/rabop/default/best_sellers_report.html:31
+#: shop/templates/shop/default/base.html:213
+#: shop/templates/shop/default/order_detail.html:361
+msgid "Voucher"
+msgstr "상품권"
+
+#: card/templates/card/default/base.html:341
+#: shop/templates/shop/default/order_list.html:57
+msgid "Main Mall"
+msgstr "대표몰"
+
+#: card/templates/card/default/cart.html:23
+#: shop/templates/shop/default/cart.html:23
+msgid "Cart / Checkout"
+msgstr "장바구니 / 주문결제"
+
+#: card/templates/card/default/cart.html:26
+#: shop/templates/shop/default/cart.html:26
+msgid "Empty Cart"
+msgstr "비우기"
+
+#: card/templates/card/default/cart.html:86
+#: shop/templates/shop/default/cart.html:86
+msgid "Total Amount"
+msgstr "합계 금액"
+
+#: card/templates/card/default/cart.html:93
+#: shop/templates/shop/default/cart.html:93
+msgid "No Items in cart"
+msgstr "장바구니가 비었습니다."
+
+#: card/templates/card/default/cart.html:105
+#: rabop/templates/rabop/default/daily_payments_report.html:43
+#: rabop/templates/rabop/default/daily_payments_report.html:80
+#: rabop/templates/rabop/default/daily_payments_report.html:106
+#: shop/templates/shop/default/cart.html:105
+msgid "Payment Method"
+msgstr "입금 / 결제수단"
+
+#: card/templates/card/default/cart.html:179
+#: shop/templates/shop/default/cart.html:176
+msgid "Attention in cart"
+msgstr "첫 주문 시 주의사항"
+
+#: card/templates/card/default/cart.html:223
+#: shop/templates/shop/default/cart.html:229
+msgid "Checkout"
+msgstr "주문완료"
+
+#: card/templates/card/default/cart.html:231
+#: shop/templates/shop/default/cart.html:237
+#: shop/templates/shop/default/order_detail.html:285
+msgid "Attention"
+msgstr "주의사항"
+
+#: card/templates/card/default/email/customer_question.html:2 help/views.py:203
+#: shop/templates/shop/default/email/customer_question.html:2
+msgid "Customer Question"
+msgstr "고객 문의"
+
+#: card/templates/card/default/email/customer_question.html:7
+#: card/templates/card/default/email/order_complete.html:7
+#: card/templates/card/default/email/order_paypal_voided.html:7
+#: card/templates/card/default/email/order_refunded.html:7
+#: card/templates/card/default/email/order_sent.html:7
+#: card/templates/card/default/email/question_answer.html:7
+#: card/templates/card/default/order_confirm_delete.html:22
+#: card/templates/card/default/order_confirm_hide.html:23
+#: card/templates/card/default/order_detail.html:17
+#: card/templates/card/default/order_list.html:56
+#: card/templates/card/default/refund_create.html:22 help/admin.py:118
+#: rabop/forms.py:211 rabop/forms.py:268
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:22
+#: rabop/templates/rabop/default/naver_order_detail.html:14
+#: rabop/templates/rabop/default/naver_order_list.html:43
+#: rabop/templates/rabop/default/order_detail.html:15
+#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:189
+#: shop/admin.py:216 shop/admin.py:728 shop/admin.py:744 shop/admin.py:804
+#: shop/admin.py:820 shop/models.py:411 shop/models.py:1049
+#: shop/templates/shop/default/email/customer_question.html:7
+#: shop/templates/shop/default/email/order_complete.html:7
+#: shop/templates/shop/default/email/order_paypal_voided.html:7
+#: shop/templates/shop/default/email/order_refunded.html:7
+#: shop/templates/shop/default/email/order_sent.html:7
+#: shop/templates/shop/default/email/question_answer.html:7
+#: shop/templates/shop/default/order_confirm_delete.html:22
+#: shop/templates/shop/default/order_confirm_hide.html:23
+#: shop/templates/shop/default/order_detail.html:16
+#: shop/templates/shop/default/order_list.html:62
+#: shop/templates/shop/default/refund_create.html:22
+msgid "order no"
+msgstr "주문번호"
+
+#: card/templates/card/default/email/order_complete.html:3
+#: shop/templates/shop/default/email/order_complete.html:3
+msgid "Order Complete"
+msgstr "주문완료"
+
+#: card/templates/card/default/email/order_complete.html:13
+#: card/templates/card/default/email/order_paypal_voided.html:13
+#: card/templates/card/default/email/order_refunded.html:13
+#: card/templates/card/default/email/order_sent.html:13
+#: card/templates/card/default/order_confirm_delete.html:45
+#: card/templates/card/default/order_confirm_hide.html:46
+#: card/templates/card/default/order_detail.html:74
+#: card/templates/card/default/order_list.html:65
+#: card/templates/card/default/refund_create.html:59
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:45
+#: rabop/templates/rabop/default/naver_order_detail.html:73
+#: rabop/templates/rabop/default/naver_order_list.html:58
+#: rabop/templates/rabop/default/order_detail.html:241
+#: rabop/templates/rabop/default/order_list.html:58
+#: shop/templates/shop/default/email/order_complete.html:13
+#: shop/templates/shop/default/email/order_paypal_voided.html:13
+#: shop/templates/shop/default/email/order_refunded.html:13
+#: shop/templates/shop/default/email/order_sent.html:13
+#: shop/templates/shop/default/order_confirm_delete.html:45
+#: shop/templates/shop/default/order_confirm_hide.html:46
+#: shop/templates/shop/default/order_detail.html:73
+#: shop/templates/shop/default/order_list.html:71
+#: shop/templates/shop/default/refund_create.html:59
+msgid "Order Date/Time"
+msgstr "주문일시"
+
+#: card/templates/card/default/email/order_complete.html:16
+#: card/templates/card/default/email/order_paypal_voided.html:16
+#: card/templates/card/default/email/order_refunded.html:16
+#: card/templates/card/default/email/order_sent.html:16
+#: card/templates/card/default/order_confirm_delete.html:37
+#: card/templates/card/default/order_confirm_hide.html:38
+#: card/templates/card/default/order_detail.html:66
+#: card/templates/card/default/order_list.html:62
+#: card/templates/card/default/refund_create.html:51
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:37
+#: rabop/templates/rabop/default/naver_order_detail.html:58
+#: rabop/templates/rabop/default/naver_order_list.html:52
+#: rabop/templates/rabop/default/order_detail.html:226
+#: rabop/templates/rabop/default/order_list.html:52 shop/models.py:449
+#: shop/models.py:1066 shop/templates/shop/default/email/order_complete.html:16
+#: shop/templates/shop/default/email/order_paypal_voided.html:16
+#: shop/templates/shop/default/email/order_refunded.html:16
+#: shop/templates/shop/default/email/order_sent.html:16
+#: shop/templates/shop/default/order_confirm_delete.html:37
+#: shop/templates/shop/default/order_confirm_hide.html:38
+#: shop/templates/shop/default/order_detail.html:65
+#: shop/templates/shop/default/order_list.html:68
+#: shop/templates/shop/default/refund_create.html:51
+msgid "payment method"
+msgstr "입금 / 결제수단"
+
+#: card/templates/card/default/email/order_complete.html:22
+#: card/templates/card/default/email/order_paypal_voided.html:22
+#: card/templates/card/default/email/order_refunded.html:22
+#: card/templates/card/default/email/order_sent.html:22
+#: card/templates/card/default/order_confirm_delete.html:55
+#: card/templates/card/default/order_confirm_hide.html:56
+#: card/templates/card/default/order_detail.html:84
+#: card/templates/card/default/refund_create.html:69
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:55
+#: rabop/templates/rabop/default/naver_order_detail.html:103
+#: rabop/templates/rabop/default/order_detail.html:415
+#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:236
+#: shop/admin.py:707 shop/admin.py:749 shop/admin.py:825 shop/models.py:180
+#: shop/models.py:579 shop/models.py:1018 shop/models.py:1123
+#: shop/templates/shop/default/email/order_complete.html:22
+#: shop/templates/shop/default/email/order_paypal_voided.html:22
+#: shop/templates/shop/default/email/order_refunded.html:22
+#: shop/templates/shop/default/email/order_sent.html:22
+#: shop/templates/shop/default/order_confirm_delete.html:55
+#: shop/templates/shop/default/order_confirm_hide.html:56
+#: shop/templates/shop/default/order_detail.html:83
+#: shop/templates/shop/default/refund_create.html:69
+msgid "product name"
+msgstr "상품 이름"
+
+#: card/templates/card/default/email/order_complete.html:23
+#: card/templates/card/default/email/order_paypal_voided.html:23
+#: card/templates/card/default/email/order_refunded.html:23
+#: card/templates/card/default/email/order_sent.html:23
+#: card/templates/card/default/order_confirm_delete.html:58
+#: card/templates/card/default/order_confirm_hide.html:59
+#: card/templates/card/default/order_detail.html:87
+#: card/templates/card/default/refund_create.html:72
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:58
+#: rabop/templates/rabop/default/naver_order_detail.html:106
+#: rabop/templates/rabop/default/order_detail.html:418 shop/models.py:610
+#: shop/models.py:1154 shop/templates/shop/default/email/order_complete.html:23
+#: shop/templates/shop/default/email/order_paypal_voided.html:23
+#: shop/templates/shop/default/email/order_refunded.html:23
+#: shop/templates/shop/default/email/order_sent.html:23
+#: shop/templates/shop/default/order_confirm_delete.html:58
+#: shop/templates/shop/default/order_confirm_hide.html:59
+#: shop/templates/shop/default/order_detail.html:86
+#: shop/templates/shop/default/refund_create.html:72
+msgid "quantity"
+msgstr "수량"
+
+#: card/templates/card/default/email/order_complete.html:24
+#: card/templates/card/default/email/order_paypal_voided.html:24
+#: card/templates/card/default/email/order_refunded.html:24
+#: card/templates/card/default/email/order_sent.html:24
+#: card/templates/card/default/order_confirm_delete.html:61
+#: card/templates/card/default/order_confirm_hide.html:62
+#: card/templates/card/default/order_detail.html:90
+#: card/templates/card/default/refund_create.html:75
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:61
+#: rabop/templates/rabop/default/naver_order_detail.html:109
+#: rabop/templates/rabop/default/order_detail.html:421
+#: shop/templates/shop/default/email/order_complete.html:24
+#: shop/templates/shop/default/email/order_paypal_voided.html:24
+#: shop/templates/shop/default/email/order_refunded.html:24
+#: shop/templates/shop/default/email/order_sent.html:24
+#: shop/templates/shop/default/order_confirm_delete.html:61
+#: shop/templates/shop/default/order_confirm_hide.html:62
+#: shop/templates/shop/default/order_detail.html:89
+#: shop/templates/shop/default/refund_create.html:75
+msgid "unit price"
+msgstr "단가"
+
+#: card/templates/card/default/email/order_complete.html:25
+#: card/templates/card/default/email/order_paypal_voided.html:25
+#: card/templates/card/default/email/order_refunded.html:25
+#: card/templates/card/default/email/order_sent.html:25
+#: card/templates/card/default/order_confirm_delete.html:64
+#: card/templates/card/default/order_confirm_hide.html:65
+#: card/templates/card/default/order_detail.html:93
+#: card/templates/card/default/refund_create.html:78
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:64
+#: rabop/templates/rabop/default/naver_order_detail.html:112
+#: rabop/templates/rabop/default/order_detail.html:424
+#: shop/templates/shop/default/email/order_complete.html:25
+#: shop/templates/shop/default/email/order_paypal_voided.html:25
+#: shop/templates/shop/default/email/order_refunded.html:25
+#: shop/templates/shop/default/email/order_sent.html:25
+#: shop/templates/shop/default/order_confirm_delete.html:64
+#: shop/templates/shop/default/order_confirm_hide.html:65
+#: shop/templates/shop/default/order_detail.html:92
+#: shop/templates/shop/default/refund_create.html:78
+msgid "subtotal"
+msgstr "부분합계"
+
+#: card/templates/card/default/email/order_complete.html:37
+#: card/templates/card/default/email/order_paypal_voided.html:37
+#: card/templates/card/default/email/order_refunded.html:37
+#: card/templates/card/default/email/order_sent.html:37
+#: card/templates/card/default/order_confirm_delete.html:85
+#: card/templates/card/default/order_confirm_hide.html:86
+#: card/templates/card/default/order_detail.html:114
+#: card/templates/card/default/order_list.html:68
+#: card/templates/card/default/refund_create.html:99
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:85
+#: rabop/templates/rabop/default/naver_order_detail.html:81
+#: rabop/templates/rabop/default/naver_order_list.html:55
+#: rabop/templates/rabop/default/order_detail.html:285
+#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:627
+#: shop/admin.py:783 shop/models.py:484 shop/models.py:1094
+#: shop/templates/shop/default/email/order_complete.html:37
+#: shop/templates/shop/default/email/order_paypal_voided.html:37
+#: shop/templates/shop/default/email/order_refunded.html:37
+#: shop/templates/shop/default/email/order_sent.html:37
+#: shop/templates/shop/default/order_confirm_delete.html:85
+#: shop/templates/shop/default/order_confirm_hide.html:86
+#: shop/templates/shop/default/order_detail.html:113
+#: shop/templates/shop/default/order_list.html:74
+#: shop/templates/shop/default/refund_create.html:99
+msgid "total price"
+msgstr "합계금액"
+
+#: card/templates/card/default/email/order_paypal_voided.html:3
+#: shop/templates/shop/default/email/order_paypal_voided.html:3
+msgid "Order Voided"
+msgstr "주문무효"
+
+#: card/templates/card/default/email/order_refunded.html:3
+#: shop/templates/shop/default/email/order_refunded.html:3
+msgid "Order refunded"
+msgstr "환불완료"
+
+#: card/templates/card/default/email/order_sent.html:3
+#: shop/templates/shop/default/email/order_sent.html:3
+msgid "Order Shipped"
+msgstr "발송완료"
+
+#: card/templates/card/default/email/question_answer.html:2
+#: shop/templates/shop/default/email/question_answer.html:2
+msgid "Question Answer"
+msgstr "문의 답변"
+
+#: card/templates/card/default/error.html:2
+#: rabop/templates/rabop/default/error.html:2
+#: shop/templates/shop/default/error.html:2
+msgid "Please try again soon. We're sorry for the inconvenience."
+msgstr "불편을 드려 죄송합니다. 다시 해보시기 바랍니다."
+
+#: card/templates/card/default/home.html:62
+msgid "All Card Products"
+msgstr "카드 결제 상품권"
+
+#: card/templates/card/default/home.html:89
+#: shop/templates/shop/default/home.html:98
+msgid "Up to"
+msgstr "최대"
+
+#: card/templates/card/default/home.html:172
+#: help/templates/help/default/_tabs.html:12
+#: help/templates/help/default/home.html:15
+#: help/templates/help/default/home.html:27 help/views.py:64
+#: shop/templates/shop/default/home.html:181
+msgid "Notice"
+msgstr "공지사항"
+
+#: card/templates/card/default/home.html:206
+#: help/templates/help/default/testimonials_detail.html:29
+#: help/templates/help/default/testimonials_list.html:28 help/views.py:230
+#: help/views.py:275 shop/templates/shop/default/home.html:215
+msgid "Testimonials"
+msgstr "핀코인 이용후기"
+
+#: card/templates/card/default/home.html:224
+#: help/templates/help/default/testimonials_list.html:50
+#: shop/templates/shop/default/home.html:233
+msgid "No testimonial"
+msgstr "후기가 없습니다."
+
+#: card/templates/card/default/home.html:232
+#: shop/templates/shop/default/home.html:241
+msgid "Best Sellers"
+msgstr "베스트셀러"
+
+#: card/templates/card/default/home.html:282
+#: card/templates/card/default/product_detail.html:162
+#: card/templates/card/default/product_list.html:78
+#: shop/templates/shop/default/home.html:293
+#: shop/templates/shop/default/product_detail.html:162
+#: shop/templates/shop/default/product_list.html:78
+msgid "Add to Cart"
+msgstr "담기"
+
+#: card/templates/card/default/home.html:287
+#: card/templates/card/default/product_detail.html:186
+#: card/templates/card/default/product_list.html:83
+#: shop/templates/shop/default/home.html:298
+#: shop/templates/shop/default/product_detail.html:186
+#: shop/templates/shop/default/product_list.html:83
+msgid "Sold out"
+msgstr "품절"
+
+#: card/templates/card/default/home.html:330
+#: card/templates/card/default/product_detail.html:298
+#: card/templates/card/default/product_list.html:149
+#: shop/templates/shop/default/home.html:341
+#: shop/templates/shop/default/product_detail.html:302
+#: shop/templates/shop/default/product_list.html:149
+msgid "You have items in cart."
+msgstr "장바구니에 상품을 담았습니다."
+
+#: card/templates/card/default/order_confirm_delete.html:21
+#: card/templates/card/default/order_confirm_hide.html:22
+#: card/templates/card/default/order_detail.html:15
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:21
+#: rabop/views.py:132 shop/templates/shop/default/order_confirm_delete.html:21
+#: shop/templates/shop/default/order_confirm_hide.html:22
+#: shop/templates/shop/default/order_detail.html:14
+msgid "Order Details"
+msgstr "주문내역 상세보기"
+
+#: card/templates/card/default/order_confirm_delete.html:29
+#: card/templates/card/default/order_confirm_hide.html:30
+#: card/templates/card/default/order_detail.html:28
+#: card/templates/card/default/order_list.html:59
+#: card/templates/card/default/refund_create.html:33
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:29
+#: rabop/templates/rabop/default/naver_order_detail.html:40
+#: rabop/templates/rabop/default/naver_order_list.html:49
+#: rabop/templates/rabop/default/order_detail.html:190
+#: rabop/templates/rabop/default/order_list.html:49 shop/models.py:462
+#: shop/models.py:1079 shop/templates/shop/default/order_confirm_delete.html:29
+#: shop/templates/shop/default/order_confirm_hide.html:30
+#: shop/templates/shop/default/order_detail.html:27
+#: shop/templates/shop/default/order_list.html:65
+#: shop/templates/shop/default/refund_create.html:33
+msgid "order status"
+msgstr "주문상태"
+
+#: card/templates/card/default/order_confirm_delete.html:97
+#: card/templates/card/default/order_confirm_hide.html:98
+#: card/templates/card/default/order_detail.html:236
+#: rabop/templates/rabop/default/customer_detail.html:338
+#: rabop/templates/rabop/default/naver_order_confirm_delete.html:97
+#: rabop/templates/rabop/default/order_detail.html:23
+#: shop/templates/shop/default/order_confirm_delete.html:97
+#: shop/templates/shop/default/order_confirm_hide.html:98
+#: shop/templates/shop/default/order_detail.html:417
+#: shop/templates/shop/default/paypal_success.html:37
+msgid "Order List"
+msgstr "주문목록"
+
+#: card/templates/card/default/order_confirm_hide.html:12
+#: shop/templates/shop/default/order_confirm_hide.html:12
+msgid "Your order will be deleted if you click the following button."
+msgstr "반드시 상품권 사용을 완료하신 경우에만 주문을 삭제하세요."
+
+#: card/templates/card/default/order_detail.html:47
+#: shop/templates/shop/default/order_detail.html:46
+msgid "related order"
+msgstr "관련주문"
+
+#: card/templates/card/default/order_detail.html:163
+#: shop/templates/shop/default/order_detail.html:273
+msgid "Pay Now"
+msgstr "결제하기"
+
+#: card/templates/card/default/order_detail.html:174
+#: card/templates/card/default/refund_create.html:140
+#: rabop/templates/rabop/default/naver_order_detail.html:142
+#: rabop/templates/rabop/default/order_detail.html:479
+#: shop/templates/shop/default/order_detail.html:354
+#: shop/templates/shop/default/refund_create.html:159
+msgid "Voucher Code List"
+msgstr "상품권 발송 내역"
+
+#: card/templates/card/default/order_detail.html:184
+#: shop/templates/shop/default/order_detail.html:364
+msgid "Voucher Code"
+msgstr "상품권 핀번호"
+
+#: card/templates/card/default/order_detail.html:205
+#: rabop/templates/rabop/default/naver_order_detail.html:215
+#: shop/templates/shop/default/order_detail.html:385
+msgid "Revoked"
+msgstr "발권취소"
+
+#: card/templates/card/default/order_detail.html:217
+#: shop/templates/shop/default/order_detail.html:397
+msgid "Charge"
+msgstr "간편충전"
+
+#: card/templates/card/default/order_detail.html:247
+#: shop/templates/shop/default/order_detail.html:428
+msgid "Confirm Order"
+msgstr "주문 문의"
+
+#: card/templates/card/default/order_detail.html:258
+#: shop/templates/shop/default/order_detail.html:439
+msgid "Order Again"
+msgstr "그대로 재주문"
+
+#: card/templates/card/default/order_detail.html:269
+#: card/templates/card/default/refund_create.html:210
+#: shop/templates/shop/default/order_detail.html:308
+#: shop/templates/shop/default/order_detail.html:450
+#: shop/templates/shop/default/refund_create.html:229
+msgid "Refund Payment"
+msgstr "환불요청"
+
+#: card/templates/card/default/order_detail.html:279
+#: rabop/templates/rabop/default/naver_order_detail.html:198
+#: shop/templates/shop/default/order_detail.html:325
+#: shop/templates/shop/default/order_detail.html:460
+msgid "Delete Order"
+msgstr "주문취소"
+
+#: card/templates/card/default/order_detail.html:289
+#: card/templates/card/default/order_receipt.html:71
+#: card/templates/card/default/order_receipt.html:77
+#: shop/templates/shop/default/order_detail.html:470
+#: shop/templates/shop/default/order_receipt.html:71
+#: shop/templates/shop/default/order_receipt.html:77
+msgid "Transaction Detail Report"
+msgstr "거래명세서"
+
+#: card/templates/card/default/order_detail.html:297
+#: shop/templates/shop/default/order_detail.html:478
+msgid "Hide Order"
+msgstr "주문삭제"
+
+#: card/templates/card/default/order_list.html:50 card/views.py:420
+#: shop/templates/shop/default/order_list.html:56
+#: shop/templates/shop/default/paypal_success.html:24 shop/views.py:404
+msgid "Order History"
+msgstr "주문 및 발송 내역"
+
+#: card/templates/card/default/order_list.html:51
+#: shop/templates/shop/default/base.html:383
+msgid "Card Mall"
+msgstr "카드몰"
+
+#: card/templates/card/default/order_list.html:106
+#: rabop/templates/rabop/default/naver_order_list.html:107
+#: rabop/templates/rabop/default/order_list.html:124
+#: shop/templates/shop/default/order_list.html:112
+msgid "No Orders Yet"
+msgstr "주문 없음"
+
+#: card/templates/card/default/order_list.html:129
+#: shop/templates/shop/default/order_list.html:135
+msgid "Latest Login History"
+msgstr "최근 로그인 이력"
+
+#: card/templates/card/default/order_list.html:153
+#: shop/templates/shop/default/order_list.html:159
+msgid "No login logs"
+msgstr "로그인한 적 없음"
+
+#: card/templates/card/default/order_list.html:162
+#: shop/templates/shop/default/order_list.html:168
+msgid "Latest Customer Questions"
+msgstr "최근 문의 내역"
+
+#: card/templates/card/default/order_list.html:171
+#: help/templates/help/default/question_detail.html:16
+#: help/templates/help/default/question_list.html:18
+#: rabop/templates/rabop/default/question_detail.html:41
+#: rabop/templates/rabop/default/question_list.html:57
+#: shop/templates/shop/default/order_list.html:177
+msgid "Answered"
+msgstr "답변있음"
+
+#: card/templates/card/default/order_list.html:173
+#: help/templates/help/default/question_detail.html:18
+#: help/templates/help/default/question_list.html:20
+#: rabop/templates/rabop/default/question_detail.html:43
+#: rabop/templates/rabop/default/question_list.html:59
+#: shop/templates/shop/default/order_list.html:179
+msgid "Unanswered"
+msgstr "답변대기중"
+
+#: card/templates/card/default/order_list.html:181
+#: help/templates/help/default/question_detail.html:26
+#: help/templates/help/default/question_list.html:28
+#: rabop/templates/rabop/default/question_detail.html:51
+#: rabop/templates/rabop/default/question_list.html:67
+#: shop/templates/shop/default/order_list.html:187
+msgid "Order #"
+msgstr "관련주문"
+
+#: card/templates/card/default/order_list.html:198
+#: help/templates/help/default/question_list.html:45
+#: rabop/templates/rabop/default/question_list.html:84
+#: shop/templates/shop/default/order_list.html:204
+msgid "No question"
+msgstr "문의 내역이 없습니다."
+
+#: card/templates/card/default/product_detail.html:27
+#: shop/templates/shop/default/product_detail.html:27
+msgid "Home"
+msgstr "홈"
+
+#: card/templates/card/default/product_detail.html:44
+#: shop/templates/shop/default/product_detail.html:44
+msgid "Product Details"
+msgstr "상세설명"
+
+#: card/templates/card/default/product_detail.html:50
+#: shop/templates/shop/default/product_detail.html:50
+msgid "Additional Information"
+msgstr "추가정보"
+
+#: card/templates/card/default/product_detail.html:69
+#: shop/templates/shop/default/product_detail.html:69
+msgid "voucher details"
+msgstr "상품권 안내"
+
+#: card/templates/card/default/product_detail.html:73
+#: card/templates/card/default/product_list.html:113
+#: shop/templates/shop/default/product_detail.html:73
+#: shop/templates/shop/default/product_list.html:113
+msgid "Share on SNS"
+msgstr "SNS 공유하기"
+
+#: card/templates/card/default/product_detail.html:117
+#: shop/templates/shop/default/product_detail.html:117
+msgid "List Price"
+msgstr "정가"
+
+#: card/templates/card/default/product_detail.html:121
+#: shop/templates/shop/default/product_detail.html:121
+msgid "Selling Price"
+msgstr "판매가"
+
+#: card/templates/card/default/product_detail.html:125
+#: shop/templates/shop/default/product_detail.html:125
+msgid "Discount Rate"
+msgstr "할인율"
+
+#: card/templates/card/default/product_detail.html:139
+#: card/templates/card/default/product_detail.html:167 rabop/forms.py:346
+#: shop/templates/shop/default/product_detail.html:139
+#: shop/templates/shop/default/product_detail.html:167
+msgid "Quantity"
+msgstr "수량"
+
+#: card/templates/card/default/product_detail.html:262
+#: shop/templates/shop/default/product_detail.html:266
+msgid "Learn More"
+msgstr "알아보기"
+
+#: card/templates/card/default/product_list.html:93
+#: shop/templates/shop/default/product_list.html:93
+msgid "No products"
+msgstr "상품이 없습니다."
+
+#: card/templates/card/default/refund_create.html:20
+#: shop/templates/shop/default/refund_create.html:20
+msgid "Refund Order Details"
+msgstr "환불요청 주문"
+
+#: card/templates/card/default/refund_create.html:197
+#: shop/templates/shop/default/refund_create.html:216
+msgid "Refund message"
+msgstr "메시지"
+
+#: card/views.py:50 shop/views.py:56
+msgid "1st online shop"
+msgstr "대한민국 1등 온라인상품권쇼핑몰"
+
+#: card/views.py:98 shop/views.py:181
+msgid "Products By Categories {}"
+msgstr "{}"
+
+#: card/views.py:146 shop/views.py:95
+msgid "Products"
+msgstr "상품"
+
+#: card/views.py:257 card/views.py:722 shop/admin.py:355 shop/views.py:253
+#: shop/views.py:696
+msgid "No language set"
+msgstr "브라우저 언어 지정 안함"
+
+#: card/views.py:281 shop/views.py:283
+msgid "[site] Order complete: {}"
+msgstr "[핀코인] 주문완료: {}"
+
+#: card/views.py:449 shop/views.py:431
+msgid "Order Details - {}"
+msgstr "주문 - {}"
+
+#: card/views.py:655 shop/views.py:635
+msgid "Refund Payment - {}"
+msgstr "환불요청 - {}"
+
+#: card/views.py:847
+msgid "Failure: credit card 1"
+msgstr "신용카드 결제 발송 실패"
+
+#: card/views.py:853
+msgid "Failure: credit card 2"
+msgstr "신용카드 결제 금애 불일치"
+
+#: card/views.py:858
+msgid "Failure: credit card 3"
+msgstr "신용카드 결제 명의 불일치"
+
+#: help/admin.py:14 help/admin.py:19
+msgid "No Answer"
+msgstr "답변없음"
+
+#: help/admin.py:80 member/admin.py:31
+#: member/templates/member/account/profile.html:121
+#: member/templates/member/account/signup.html:103
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:274
+#: rabop/templates/rabop/default/customer_detail.html:14
+msgid "Profile"
+msgstr "회원 개인정보"
+
+#: help/admin.py:85 shop/models.py:824
+msgid "customer question"
+msgstr "고객문의"
+
+#: help/admin.py:127 member/admin.py:68 member/models.py:198
+#: member/templates/member/account/profile.html:182
+#: rabop/templates/rabop/default/customer_detail.html:20
+#: rabop/templates/rabop/default/legacy_customer_detail.html:19
+#: shop/admin.py:914
+msgid "Full name"
+msgstr "본명"
+
+#: help/admin.py:132 member/models.py:44 rabop/forms.py:118 rabop/forms.py:212
+#: rabop/forms.py:269 rabop/forms.py:508
+#: rabop/templates/rabop/default/customer_detail.html:111
+#: rabop/templates/rabop/default/customer_list.html:33
+#: rabop/templates/rabop/default/legacy_customer_detail.html:35
+#: rabop/templates/rabop/default/legacy_customer_list.html:33
+#: rabop/templates/rabop/default/naver_order_detail.html:32
+#: rabop/templates/rabop/default/order_detail.html:91 shop/admin.py:537
+#: shop/models.py:51 shop/models.py:944 shop/models.py:1061
+msgid "phone number"
+msgstr "전화번호"
+
+#: help/admin.py:142 member/admin.py:49 member/models.py:57 shop/admin.py:557
+msgid "phone verified"
+msgstr "휴대폰 인증"
+
+#: help/admin.py:150 member/models.py:69
+#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:565
+msgid "document verified"
+msgstr "서류 인증"
+
+#: help/apps.py:7
+msgid "help"
+msgstr "고객센터"
+
+#: help/forms.py:110 rabop/forms.py:185
+msgid "Post Answer"
+msgstr "답변 작성"
+
+#: help/templates/help/default/_tabs.html:6
+#: help/templates/help/default/home.html:10
+#: help/templates/help/default/home.html:86
+msgid "FAQ"
+msgstr "자주 묻는 질문"
+
+#: help/templates/help/default/home.html:80
+msgid "Read Notice more"
+msgstr "공지사항 더 보기"
+
+#: help/templates/help/default/home.html:139
+msgid "Read FAQ more."
+msgstr "자주 묻는 질문 더 보기"
+
+#: help/templates/help/default/question_create.html:19
+#: help/templates/help/default/question_list.html:54
+msgid "Ask a question"
+msgstr "문의하기"
+
+#: help/templates/help/default/testimonials_create.html:24
+#: help/templates/help/default/testimonials_list.html:60
+msgid "Write a testimonial"
+msgstr "이용후기 이벤트 참여"
+
+#: help/views.py:91
+msgid "Notice : "
+msgstr "공지사항 : "
+
+#: help/views.py:142 help/views.py:161 help/views.py:176
+#: rabop/templates/rabop/default/base.html:67 rabop/views.py:764
+#: rabop/views.py:799
+msgid "Customer Questions"
+msgstr "고객문의"
+
+#: help/views.py:257
+msgid "Testimonials : "
+msgstr "이용후기 : "
+
+#: help/views.py:333 rabop/views.py:828
+msgid "No giftcard"
+msgstr "해피머니1천원권 재고없음"
+
+#: member/adapters.py:30
+msgid "Your email domain is not allowed."
+msgstr "가입할 수 없는 이메일 도메인입니다."
+
+#: member/admin.py:27
+msgid "Account"
+msgstr "계정"
+
+#: member/apps.py:7
+msgid "member"
+msgstr "회원"
+
+#: member/forms.py:9 member/forms2.py:277
+#: rabop/templates/rabop/default/best_customers_report.html:34
+#: shop/models.py:934
+msgid "first name"
+msgstr "이름"
+
+#: member/forms.py:15 member/forms2.py:284
+#: rabop/templates/rabop/default/best_customers_report.html:31
+#: shop/models.py:929
+msgid "last name"
+msgstr "성"
+
+#: member/forms.py:32
+msgid "I agree to Terms and Conditions."
+msgstr "이용약관에 동의합니다."
+
+#: member/forms.py:36
+msgid "I agree to Privacy Policy."
+msgstr "개인정보 처리방침에 동의합니다."
+
+#: member/forms.py:40
+msgid "This is my name."
+msgstr "이름을 올바르게 입력했습니다."
+
+#: member/forms.py:50
+msgid "You will sign in using this email."
+msgstr "로그인할 때 쓰는 이메일 주소입니다."
+
+#: member/forms.py:51
+msgid "Screen username"
+msgstr "사이트에서 사용되는 아이디입니다."
+
+#: member/forms.py:52 member/forms2.py:287
+msgid "Last name"
+msgstr "성(姓) - 남/녀를 구별하는 성별이 아닙니다. (예: 홍)"
+
+#: member/forms.py:53 member/forms2.py:280
+msgid "First name"
+msgstr "이름 - 성을 빼고 이름만 입력해주세요. (예: 길동)"
+
+#: member/forms2.py:55 member/forms2.py:109
+msgid "Invalid reCAPTCHA. Please try again."
+msgstr "'로봇이 아닙니다'를 체크하세요."
+
+#: member/forms2.py:60
+msgid "You haven't logged for a while."
+msgstr "로그인 보안 강화를 위해 '로봇이 아닙니다'를 체크하세요."
+
+#: member/forms2.py:90
+msgid "Reset My Password"
+msgstr "내 비밀번호 초기화"
+
+#: member/forms2.py:139 member/forms2.py:194
+#: member/templates/member/account/password_change.html:11
+#: member/templates/member/account/password_reset_from_key.html:17
+#: member/templates/member/account/password_reset_from_key_done.html:10
+#: member/templates/member/account/profile.html:204
+msgid "Change Password"
+msgstr "비밀번호 변경"
+
+#: member/forms2.py:164
+msgid "Add E-mail"
+msgstr "이메일 추가"
+
+#: member/forms2.py:221 member/templates/member/account/password_set.html:11
+msgid "Set Password"
+msgstr "비밀번호 설정"
+
+#: member/forms2.py:230 member/models.py:79 member/models.py:224
+#: rabop/templates/rabop/default/customer_detail.html:232
+msgid "photo ID"
+msgstr "신분증 사진"
+
+#: member/forms2.py:231 member/forms2.py:236
+msgid "Max: 4MB"
+msgstr "최대: 4MB"
+
+#: member/forms2.py:233
+msgid "Please either submit a Photo ID or check the clear checkbox, not both."
+msgstr ""
+"신분증 사진 \"기존 이미지 삭제\" 체크하고 아래 \"서류 제출\" 버튼을 먼저 클릭"
+"해주세요. 그리고나서 다시 새로 업로드 해주세요."
+
+#: member/forms2.py:235 member/models.py:85 member/models.py:233
+#: rabop/templates/rabop/default/customer_detail.html:246
+msgid "bank account or debit/credit card"
+msgstr "통장 또는 카드 사진"
+
+#: member/forms2.py:238
+msgid ""
+"Please either submit a Card image or check the clear checkbox, not both."
+msgstr ""
+"통장 또는 카드 사진 \"기존 이미지 삭제\" 체크하고 아래 \"서류 제출\" 버튼을 "
+"먼저 클릭해주세요. 그리고 다시 새로 업로드 해주세요."
+
+#: member/forms2.py:254
+msgid "Document Submit"
+msgstr "서류 제출"
+
+#: member/forms2.py:271
+msgid "I really would like to unregister."
+msgstr "핀코인 사이트 회원을 탈퇴합니다."
+
+#: member/forms2.py:302 member/templates/member/account/name_change.html:25
+#: member/templates/member/account/profile.html:35
+#: member/templates/member/account/profile.html:209 member/views.py:464
+msgid "Change Your Name"
+msgstr "이름 변경"
+
+#: member/models.py:23
+msgid "cellphone unverified"
+msgstr "인증미완료"
+
+#: member/models.py:24
+msgid "cellphone verified"
+msgstr "인증완료"
+
+#: member/models.py:25
+msgid "cellphone revoked"
+msgstr "인증취소"
+
+#: member/models.py:29 member/models.py:261
+msgid "female"
+msgstr "여자"
+
+#: member/models.py:30 member/models.py:262
+msgid "male"
+msgstr "남자"
+
+#: member/models.py:34 member/models.py:266
+msgid "foreign"
+msgstr "외국인"
+
+#: member/models.py:35 member/models.py:169 member/models.py:267
+#: member/models.py:347
+msgid "domestic"
+msgstr "내국인"
+
+#: member/models.py:51 rabop/templates/rabop/default/customer_detail.html:121
+msgid "address"
+msgstr "주소"
+
+#: member/models.py:62
+msgid "cellphone verified status"
+msgstr "휴대폰 인증"
+
+#: member/models.py:74 rabop/templates/rabop/default/customer_detail.html:216
+#: rabop/templates/rabop/default/order_detail.html:174
+msgid "allow order"
+msgstr "무조건 주문 허용"
+
+#: member/models.py:91 rabop/templates/rabop/default/customer_detail.html:280
+#: rabop/templates/rabop/default/legacy_customer_detail.html:61
+#: rabop/templates/rabop/default/order_detail.html:271 shop/admin.py:570
+#: shop/models.py:974
+msgid "total order count"
+msgstr "전체 주문횟수"
+
+#: member/models.py:96
+msgid "first purchased date"
+msgstr "첫 구매일시"
+
+#: member/models.py:101 rabop/templates/rabop/default/customer_detail.html:268
+#: rabop/templates/rabop/default/legacy_customer_detail.html:53
+#: rabop/templates/rabop/default/order_detail.html:258 shop/admin.py:575
+#: shop/models.py:969
+msgid "last purchased date"
+msgstr "마지막 구매일시"
+
+#: member/models.py:106 rabop/templates/rabop/default/customer_detail.html:199
+#: rabop/templates/rabop/default/order_detail.html:157
+msgid "not purchased for months"
+msgstr "장기미구매"
+
+#: member/models.py:111
+msgid "re-purchased date"
+msgstr "재구매일시"
+
+#: member/models.py:116 rabop/templates/rabop/default/customer_detail.html:310
+#: rabop/templates/rabop/default/legacy_customer_detail.html:81
+#: rabop/templates/rabop/default/order_detail.html:327 shop/admin.py:580
+#: shop/models.py:986
+msgid "max price"
+msgstr "최대 결제액"
+
+#: member/models.py:123 shop/models.py:477 shop/models.py:1087
+msgid "total list price"
+msgstr "액면가 합계금액"
+
+#: member/models.py:130
+msgid "total selling price"
+msgstr "판매가 합계금액"
+
+#: member/models.py:137 rabop/templates/rabop/default/customer_detail.html:318
+#: rabop/templates/rabop/default/legacy_customer_detail.html:89
+#: rabop/templates/rabop/default/order_detail.html:335 shop/admin.py:585
+#: shop/models.py:993
+msgid "average price"
+msgstr "평균 결제액"
+
+#: member/models.py:144 shop/models.py:1441
+msgid "mileage"
+msgstr "마일리지"
+
+#: member/models.py:151 rabop/templates/rabop/default/customer_detail.html:326
+#: rabop/templates/rabop/default/order_detail.html:402
+msgid "user memo"
+msgstr "고객 정보 메모"
+
+#: member/models.py:156 member/models.py:334
+msgid "date of birth"
+msgstr "생년월일"
+
+#: member/models.py:162 member/models.py:340
+msgid "gender"
+msgstr "성별"
+
+#: member/models.py:176 member/models.py:354
+msgid "telecom"
+msgstr "통신사"
+
+#: member/models.py:182
+msgid "profile"
+msgstr "프로필"
+
+#: member/models.py:183
+msgid "profiles"
+msgstr "프로필"
+
+#: member/models.py:204 member/templates/member/account/email_confirm.html:19
+#: member/templates/member/account/profile.html:174
+#: rabop/templates/rabop/default/customer_detail.html:69
+#: rabop/templates/rabop/default/legacy_customer_detail.html:27
+#: rabop/templates/rabop/default/order_detail.html:71
+msgid "E-mail"
+msgstr "이메일"
+
+#: member/models.py:215 rabop/templates/rabop/default/customer_detail.html:260
+#: rabop/templates/rabop/default/legacy_customer_detail.html:45
+#: rabop/templates/rabop/default/order_detail.html:249 shop/admin.py:547
+#: shop/models.py:939
+msgid "date joined"
+msgstr "가입일시"
+
+#: member/models.py:239 member/models.py:278 shop/models.py:419
+#: shop/models.py:1426
+msgid "user"
+msgstr "사용자"
+
+#: member/models.py:252
+msgid "login log"
+msgstr "로그인 IP 로그"
+
+#: member/models.py:253
+msgid "login logs"
+msgstr "로그인 IP 로그"
+
+#: member/models.py:271
+msgid "token"
+msgstr "토큰"
+
+#: member/models.py:287 shop/admin.py:669 shop/admin.py:754 shop/admin.py:830
+#: shop/models.py:330
+msgid "code"
+msgstr "코드"
+
+#: member/models.py:293
+msgid "reason"
+msgstr "사유"
+
+#: member/models.py:299
+msgid "result code"
+msgstr "상품 코드"
+
+#: member/models.py:311 shop/models.py:456 shop/models.py:1073
+msgid "transaction id"
+msgstr "트랜잭션 아이디"
+
+#: member/models.py:317
+msgid "di"
+msgstr "DI 고유값"
+
+#: member/models.py:323
+msgid "ci"
+msgstr "CI 고유값"
+
+#: member/models.py:328 rabop/forms.py:117 rabop/forms.py:210
+#: rabop/forms.py:267 rabop/forms.py:507
+#: rabop/templates/rabop/default/customer_list.html:27
+#: rabop/templates/rabop/default/legacy_customer_list.html:27
+#: rabop/templates/rabop/default/naver_order_detail.html:24
+#: rabop/templates/rabop/default/naver_order_list.html:46
+#: rabop/templates/rabop/default/order_detail.html:29
+#: rabop/templates/rabop/default/order_list.html:46 shop/models.py:429
+#: shop/models.py:1056
+msgid "fullname"
+msgstr "본명"
+
+#: member/models.py:360 member/models.py:381
+msgid "cellphone"
+msgstr "휴대전화"
+
+#: member/models.py:366
+msgid "return_message"
+msgstr "리턴 메시지"
+
+#: member/models.py:372
+msgid "phone verification log"
+msgstr "휴대폰 본인 인증"
+
+#: member/models.py:373
+msgid "phone verification logs"
+msgstr "휴대폰 본인 인증"
+
+#: member/models.py:387
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:13
+msgid "sent datetime"
+msgstr "보낸시각"
+
+#: member/models.py:393 member/models.py:394 member/models.py:420
+msgid "MMS"
+msgstr "MMS"
+
+#: member/models.py:402
+msgid "txt"
+msgstr "txt"
+
+#: member/models.py:403
+msgid "jpg"
+msgstr "jpg"
+
+#: member/models.py:404
+msgid "png"
+msgstr "png"
+
+#: member/models.py:408
+msgid "mime type"
+msgstr "파일형식"
+
+#: member/models.py:415
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:10
+msgid "data"
+msgstr "데이터"
+
+#: member/templates/member/account/account_inactive.html:10 member/views.py:184
+msgid "Account Inactive"
+msgstr "비활성화 계정"
+
+#: member/templates/member/account/account_inactive.html:12
+msgid "This account is inactive."
+msgstr "비활성화된 계정입니다."
+
+#: member/templates/member/account/document_confirm.html:19
+#: member/templates/member/account/profile.html:62 member/views.py:403
+#: rabop/templates/rabop/default/customer_detail.html:169
+#: rabop/templates/rabop/default/order_detail.html:141
+msgid "Document Verification"
+msgstr "서류 본인 인증"
+
+#: member/templates/member/account/document_confirm.html:42
+msgid "Information"
+msgstr "안내사항"
+
+#: member/templates/member/account/email.html:11
+msgid "E-mail Addresses"
+msgstr "이메일 주소 관리"
+
+#: member/templates/member/account/email.html:15
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "등록한 이메일 주소 목록"
+
+#: member/templates/member/account/email.html:32
+msgid "Verified"
+msgstr "인증완료"
+
+#: member/templates/member/account/email.html:34
+msgid "Unverified"
+msgstr "미인증"
+
+#: member/templates/member/account/email.html:37
+msgid "Primary"
+msgstr "기본"
+
+#: member/templates/member/account/email.html:44
+msgid "Make Primary"
+msgstr "기본 메일 설정"
+
+#: member/templates/member/account/email.html:46
+msgid "Re-send Verification"
+msgstr "인증 재발송"
+
+#: member/templates/member/account/email.html:48
+msgid "Remove"
+msgstr "삭제"
+
+#: member/templates/member/account/email.html:54
+msgid "Warning:"
+msgstr "경고:"
+
+#: member/templates/member/account/email.html:55
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"아직 이메일 주소를 올바르게 설정하지 않았습니다. 여러 가지 알림과 비밀번호 초"
+"기화 등을 제공 받으려면 이메일 주소를 올바르게 설정해야 합니다."
+
+#: member/templates/member/account/email.html:59
+msgid "Add E-mail Address"
+msgstr "새 이메일 주소 추가"
+
+#: member/templates/member/account/email.html:71
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "선택한 이메일 주소를 정말로 삭제할까요?"
+
+#: member/templates/member/account/email/document_verified.html:2
+msgid "Documents have been uploaded for verification."
+msgstr "서류 본인 인증 자료 제출"
+
+#: member/templates/member/account/email/email_confirmation_message.html:3
+#, python-format
+msgid ""
+"\n"
+"    <p>\n"
+"        Hello from PINCOIN!\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        You're receiving this e-mail because user %(user_display)s has given "
+"yours as an e-mail address to connect\n"
+"        their account.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        To confirm this is correct, go to %(activate_url)s\n"
+"    </p>\n"
+msgstr ""
+"\n"
+"    <p>\n"
+"        안녕하세요. 핀코인입니다.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        아래 링크를 클릭하시면 %(user_display)s님의 회원가입이 완료됩니다.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        회원가입 완료: %(activate_url)s\n"
+"    </p>\n"
+
+#: member/templates/member/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "이메일 주소를 인증하세요."
+
+#: member/templates/member/account/email/password_reset_key_message.html:3
+msgid ""
+"\n"
+"    <p>Hello from PINCOIN!</p>\n"
+"    <p>\n"
+"        You're receiving this e-mail because you or someone else has "
+"requested a password for your user account.\n"
+"        It can be safely ignored if you did not request a password reset. "
+"Click the link below to reset your password.\n"
+"    </p>\n"
+msgstr ""
+"\n"
+"    <p>안녕하세요. 핀코인입니다.</p>\n"
+"    <p>\n"
+"        비밀번호 초기화 요청을 하셔서 발송된 이메일입니다.\n"
+"        만약 고객님께서 직접 비밀번호 초기화를 요청하지 않은 경우 이 메일은 "
+"무시하셔도 좋습니다. 단, 해킹 위험으로 고객님의 기본 이메일 주소 변경을 부탁"
+"드립니다.\n"
+"    </p>\n"
+
+#: member/templates/member/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "비밀번호 초기화 안내 이메일"
+
+#: member/templates/member/account/email/phone_verified.html:2
+msgid "Phone has been verified"
+msgstr "휴대폰 인증 완료"
+
+#: member/templates/member/account/email_confirm.html:11
+msgid "Confirm E-mail Address"
+msgstr "이메일 주소를 인증합니다."
+
+#: member/templates/member/account/email_confirm.html:16
+#: member/templates/member/account/profile.html:166
+#: rabop/templates/rabop/default/customer_detail.html:61
+#: rabop/templates/rabop/default/order_detail.html:63
+msgid "Username"
+msgstr "아이디"
+
+#: member/templates/member/account/email_confirm.html:23
+msgid "Please, complete your registration."
+msgstr "회원가입을 완료합니다."
+
+#: member/templates/member/account/email_confirm.html:24
+msgid "You have to get verified in My Page."
+msgstr "반드시 마이페이지에서 본인인증을 완료해야 합니다."
+
+#: member/templates/member/account/email_confirm.html:30
+msgid "Confirm"
+msgstr "확인"
+
+#: member/templates/member/account/email_confirm.html:36
+msgid "This e-mail confirmation link expired or is invalid."
+msgstr "이 이메일 인증 링크는 만료되었거나 올바르지 않습니다."
+
+#: member/templates/member/account/email_confirm.html:37
+msgid "Please issue a new e-mail confirmation request:"
+msgstr "이메일 인증 요청을 위해 다음 링크를 클릭하세요."
+
+#: member/templates/member/account/forms/document_clearable_file_input.html:8
+msgid "Remove uploaded image"
+msgstr "기존 이미지 삭제"
+
+#: member/templates/member/account/login.html:77
+msgid "Sign In"
+msgstr "로그인"
+
+#: member/templates/member/account/login.html:84
+msgid "Loigin with SNS"
+msgstr "SNS 간편 로그인"
+
+#: member/templates/member/account/login.html:115
+msgid "Forgot Password?"
+msgstr "비밀번호 찾기"
+
+#: member/templates/member/account/logout.html:13
+msgid "Are you sure you want to sign out?"
+msgstr "정말로 로그아웃할까요?"
+
+#: member/templates/member/account/logout.html:23
+msgid "Sign Out"
+msgstr "로그아웃"
+
+#: member/templates/member/account/password_reset.html:16
+msgid "Forgotten your password?"
+msgstr "비밀번호를 잊으셨나요?"
+
+#: member/templates/member/account/password_reset.html:24
+msgid ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset it."
+msgstr "가입하신 이메일 주소로 비밀번호 초기화를 위한 이메일을 발송합니다."
+
+#: member/templates/member/account/password_reset_done.html:15
+#: member/views.py:119 member/views.py:138
+msgid "Password Reset"
+msgstr "비밀번호 초기화"
+
+#: member/templates/member/account/password_reset_done.html:17
+msgid "We have sent you an e-mail for password reset."
+msgstr "비밀번호 초기화 이메일을 발송했습니다."
+
+#: member/templates/member/account/password_reset_done.html:18
+#: member/templates/member/account/verification_sent.html:14
+msgid "Please contact us if you do not receive it within a few minutes."
+msgstr "10분 후에도 메일을 받지 못하면 help@pincoin.co.kr로 연락바랍니다."
+
+#: member/templates/member/account/password_reset_from_key.html:12
+msgid "Bad Token"
+msgstr "잘못된 토큰"
+
+#: member/templates/member/account/password_reset_from_key.html:38
+#: member/templates/member/account/password_reset_from_key_done.html:12
+msgid "Your password is now changed."
+msgstr "비밀번호를 변경했습니다."
+
+#: member/templates/member/account/phone_confirm.html:10
+#: member/templates/member/account/profile.html:41 member/views.py:355
+#: rabop/templates/rabop/default/customer_detail.html:129
+#: rabop/templates/rabop/default/order_detail.html:101
+msgid "Phone Verification"
+msgstr "휴대폰 본인 인증"
+
+#: member/templates/member/account/phone_confirm.html:15
+msgid "Return to My Page"
+msgstr "마이페이지로 돌아가기"
+
+#: member/templates/member/account/profile.html:17 shop/models.py:751
+#: shop/models.py:790
+msgid "Verification"
+msgstr "본인 인증"
+
+#: member/templates/member/account/profile.html:56
+#: member/templates/member/account/profile.html:76
+#: rabop/templates/rabop/default/customer_detail.html:98
+#: rabop/templates/rabop/default/customer_detail.html:191
+#: rabop/templates/rabop/default/order_detail.html:556
+#: shop/templates/admin/shop/order_change_form.html:10
+msgid "Verify"
+msgstr "인증하기"
+
+#: member/templates/member/account/profile.html:127
+msgid "Language"
+msgstr "언어"
+
+#: member/templates/member/account/profile.html:147
+msgid "Currency"
+msgstr "통화"
+
+#: member/templates/member/account/profile.html:194 member/views.py:240
+msgid "Connect with SNS accounts"
+msgstr "SNS 계정 연동"
+
+#: member/templates/member/account/profile.html:199
+msgid "Change Primary E-mail Address"
+msgstr "이메일 변경"
+
+#: member/templates/member/account/profile.html:217
+#: member/templates/member/account/unregister.html:11
+#: member/templates/member/account/unregister.html:42 member/views.py:425
+msgid "Unregister"
+msgstr "회원탈퇴"
+
+#: member/templates/member/account/signup.html:51
+#: member/templates/member/socialaccount/signup.html:60
+msgid "Account Info"
+msgstr "로그인 계정정보"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr "참고"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "%(user_display)s님으로 이미 로그인했습니다."
+
+#: member/templates/member/account/verification_sent.html:10
+msgid "Verify Your E-mail Address"
+msgstr "회원가입을 완료하려면 이메일을 인증하세요."
+
+#: member/templates/member/account/verification_sent.html:12
+msgid "We have sent an e-mail to you for verification."
+msgstr "회원가입 확인 이메일을 발송했습니다."
+
+#: member/templates/member/account/verification_sent.html:13
+msgid "Follow the link provided to finalize the signup process."
+msgstr "받으신 이메일 안에 링크를 클릭해 회원가입을 완료바랍니다."
+
+#: member/templates/member/socialaccount/authentication_error.html:11
+#: member/views.py:222
+msgid "Social Network Login Failure"
+msgstr "SNS 로그인 실패"
+
+#: member/templates/member/socialaccount/authentication_error.html:14
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr "SNS 로그인하지 못했습니다."
+
+#: member/templates/member/socialaccount/connections.html:12
+msgid "Account Connections"
+msgstr "SNS 계정 연동"
+
+#: member/templates/member/socialaccount/connections.html:16
+msgid ""
+"\n"
+"                                    You can sign in to your account using "
+"any of the following third party accounts:\n"
+"                                "
+msgstr ""
+"\n"
+"다음 SNS 계정으로 핀코인에 더 쉽게 로그인할 수 있습니다.\n"
+"                        "
+
+#: member/templates/member/socialaccount/connections.html:41
+msgid "Disconnect"
+msgstr "연결해제"
+
+#: member/templates/member/socialaccount/connections.html:47
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr "SNS 계정을 연동하지 않았습니다."
+
+#: member/templates/member/socialaccount/connections.html:52
+msgid "Add a 3rd Party Account"
+msgstr "SNS 계정 연동 추가"
+
+#: member/templates/member/socialaccount/login_cancelled.html:5
+#: member/views.py:213
+msgid "Login Cancelled"
+msgstr "로그인 취소됨"
+
+#: member/templates/member/socialaccount/login_cancelled.html:9
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
+"\">sign in</a>."
+msgstr ""
+
+#: member/templates/member/socialaccount/signup.html:14
+#, python-format
+msgid ""
+"\n"
+"                            You are about to use your %(provider_name)s "
+"account to login to PINCOIN.\n"
+"                        "
+msgstr ""
+"\n"
+"%(provider_name)s을 통해 핀코인에 로그인합니다.\n"
+"                        "
+
+#: member/views.py:90
+msgid "Login"
+msgstr "로그인"
+
+#: member/views.py:100
+msgid "Logout"
+msgstr "로그아웃"
+
+#: member/views.py:128 member/views.py:147
+msgid "Password Reset Done"
+msgstr "비밀번호 설정 완료"
+
+#: member/views.py:156
+msgid "Email Verification Sent"
+msgstr "인증 이메일 발송"
+
+#: member/views.py:165
+msgid "Confirm Email Request"
+msgstr "인증 이메일 요청"
+
+#: member/views.py:175
+msgid "Email Management"
+msgstr "이메일 관리"
+
+#: member/views.py:194
+msgid "Password Change"
+msgstr "비밀번호 변경"
+
+#: member/views.py:204
+msgid "Password Set"
+msgstr "비밀번호 설정"
+
+#: member/views.py:315
+msgid "Phone verification was done."
+msgstr "휴대폰 본인 인증을 완료했습니다."
+
+#: member/views.py:335
+msgid "Phone Verification {}"
+msgstr "휴대폰인증 {}"
+
+#: member/views.py:339
+msgid "Your name does not match the phone owner."
+msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
+
+#: member/views.py:341
+msgid "Illegal access: token mismatch"
+msgstr "잘못된 접근: 토큰 불일치"
+
+#: member/views.py:343
+msgid "You have verified within 48 hours."
+msgstr "48시간 이후 휴대폰인증 완료바랍니다."
+
+#: member/views.py:347
+msgid "Illegal access: no record"
+msgstr "잘못된 접근: 인증 실패"
+
+#: member/views.py:349
+msgid "Illegal access: no session"
+msgstr "잘못된 접근: 세션 없음"
+
+#: member/views.py:393
+msgid "Document Verification {} {} {}"
+msgstr "서류인증 {} {} {}"
+
+#: rabop/apps.py:7 rabop/views.py:58 templates/admin/base.html:4
+msgid "rabop"
+msgstr "백엔드"
+
+#: rabop/forms.py:33
+msgid "Add Payment"
+msgstr "입금내역 추가"
+
+#: rabop/forms.py:89 rabop/forms.py:410 shop/utils.py:42
+msgid "Out of stock! {}"
+msgstr "재고부족! {}"
+
+#: rabop/forms.py:108 rabop/forms.py:429 shop/utils.py:62
+msgid "Already sent! {}"
+msgstr "이미 발송되었습니다! {}"
+
+#: rabop/forms.py:119 rabop/forms.py:213 rabop/forms.py:509
+#: rabop/templates/rabop/default/customer_list.html:30
+#: rabop/templates/rabop/default/legacy_customer_list.html:30
+msgid "Email"
+msgstr "이메일"
+
+#: rabop/forms.py:120 rabop/forms.py:214
+msgid "user id"
+msgstr "사용자 ID"
+
+#: rabop/forms.py:153 rabop/forms.py:571
+msgid "Template answer"
+msgstr "답변 템플릿"
+
+#: rabop/forms.py:155 rabop/forms.py:573
+msgid "-----"
+msgstr "----"
+
+#: rabop/forms.py:156
+msgid "01. 입금10분 이내 재촉"
+msgstr "01. 입금10분 이내 재촉"
+
+#: rabop/forms.py:157
+msgid "02. 발송지연"
+msgstr "02. 발송지연"
+
+#: rabop/forms.py:158
+msgid "03. 처리완료"
+msgstr "03. 처리완료"
+
+#: rabop/forms.py:159
+msgid "04. 이름 정정 요청"
+msgstr "04. 이름 정정 요청"
+
+#: rabop/forms.py:160
+msgid "05. 주문자 입금자 이름 불일치"
+msgstr "05. 주문자 입금자 이름 불일치"
+
+#: rabop/forms.py:161
+msgid "06. 교환/환불 안내"
+msgstr "06. 교환/환불 안내"
+
+#: rabop/forms.py:162
+msgid "07. 페이팔 무효 안내"
+msgstr "07. 페이팔 무효 안내"
+
+#: rabop/forms.py:163
+msgid "08. 초과입금"
+msgstr "08. 초과입금"
+
+#: rabop/forms.py:164
+msgid "09. 감사합니다."
+msgstr "09. 감사합니다."
+
+#: rabop/forms.py:175
+msgid "Send a giftcard."
+msgstr "해피머니1천원권 발송"
+
+#: rabop/forms.py:321 rabop/forms.py:564
+#: rabop/templates/rabop/default/sms_list.html:13 shop/models.py:894
+msgid "to phone number"
+msgstr "수신번호"
+
+#: rabop/forms.py:324 rabop/forms.py:567
+msgid "Not a valid phone number"
+msgstr "잘못된 전화번호 형식"
+
+#: rabop/forms.py:328
+msgid "voucher amount"
+msgstr "금액권종"
+
+#: rabop/forms.py:359 rabop/templates/rabop/default/naver_order_list.html:114
+msgid "Naver Order Create"
+msgstr "네이버 주문 추가"
+
+#: rabop/forms.py:438
+msgid "Google Card"
+msgstr "구글기프트카드"
+
+#: rabop/forms.py:439
+msgid "Nexon Card"
+msgstr "넥슨카드"
+
+#: rabop/forms.py:440
+msgid "Funny Card"
+msgstr "퍼니카드"
+
+#: rabop/forms.py:441
+msgid "Munhwa Card"
+msgstr "문화상품권"
+
+#: rabop/forms.py:442
+msgid "Book and Life"
+msgstr "도서문화상품권"
+
+#: rabop/forms.py:443
+msgid "Smart Munhwa"
+msgstr "스마트문화상품권"
+
+#: rabop/forms.py:444
+msgid "Happy Money"
+msgstr "해피머니"
+
+#: rabop/forms.py:445
+msgid "Egg Money"
+msgstr "에그머니"
+
+#: rabop/forms.py:446
+msgid "Teencash"
+msgstr "틴캐시"
+
+#: rabop/forms.py:447
+msgid "Oncash"
+msgstr "온캐시"
+
+#: rabop/forms.py:448
+msgid "N Coin"
+msgstr "엔코인"
+
+#: rabop/forms.py:449
+msgid "WoW Cash"
+msgstr "와우캐시"
+
+#: rabop/forms.py:450
+msgid "Itemmania"
+msgstr "매니아선불쿠폰"
+
+#: rabop/forms.py:451
+msgid "itemBay"
+msgstr "아이템베이선불쿠폰"
+
+#: rabop/forms.py:472 shop/models.py:645 shop/models.py:684 shop/models.py:1189
+msgid "voucher code"
+msgstr "상품권 핀번호"
+
+#: rabop/forms.py:473
+msgid "id"
+msgstr "id"
+
+#: rabop/forms.py:543
+#: rabop/templates/rabop/default/best_customers_report.html:37
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:34
+#: rabop/templates/rabop/default/best_sellers_report.html:34
+msgid "Order Total"
+msgstr "주문금액"
+
+#: rabop/forms.py:544
+#: rabop/templates/rabop/default/best_customers_report.html:40
+#: rabop/templates/rabop/default/best_sellers_report.html:37
+#: rabop/templates/rabop/default/daily_payments_report.html:112
+#: rabop/templates/rabop/default/daily_sales_report.html:61
+msgid "Order Count"
+msgstr "주문횟수"
+
+#: rabop/forms.py:574
+msgid "01. [핀코인]"
+msgstr "01. [핀코인]"
+
+#: rabop/forms.py:575
+msgid "02. 신분증 사진 요청"
+msgstr "02. 신분증 사진 요청"
+
+#: rabop/forms.py:576
+msgid "03. 통장/카드사진 요청"
+msgstr "03. 통장/카드사진 요청"
+
+#: rabop/forms.py:577
+msgid "04. 실물 통장/카드사진 요청"
+msgstr "04. 실물 통장/카드사진 요청"
+
+#: rabop/forms.py:578
+msgid "05. 이름 정정 요청"
+msgstr "05. 이름 정정 요청"
+
+#: rabop/forms.py:579
+msgid "06. 인증명의 불일치"
+msgstr "06. 인증명의 불일치"
+
+#: rabop/forms.py:580
+msgid "07. 환불안내"
+msgstr "07. 환불안내"
+
+#: rabop/forms.py:581
+msgid "08. 재주문 요청"
+msgstr "08. 재주문 요청"
+
+#: rabop/forms.py:599 rabop/templates/rabop/default/sms_list.html:47
+msgid "Send short message"
+msgstr "SMS 발송"
+
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:919
+msgid "PINCOIN administration"
+msgstr "핀코인 관리자"
+
+#: rabop/templates/rabop/default/base.html:53 rabop/views.py:103
+msgid "Pincoin Customer Orders"
+msgstr "핀코인 주문"
+
+#: rabop/templates/rabop/default/base.html:60 rabop/views.py:475
+msgid "Naver Customer Orders"
+msgstr "네이버 주문"
+
+#: rabop/templates/rabop/default/base.html:75
+msgid "Customer Management"
+msgstr "고객관리"
+
+#: rabop/templates/rabop/default/base.html:79
+msgid "New Customers"
+msgstr "신규고객"
+
+#: rabop/templates/rabop/default/base.html:82
+#: rabop/templates/rabop/default/customer_detail.html:348 rabop/views.py:1424
+#: shop/models.py:952
+msgid "legacy customers"
+msgstr "기존고객"
+
+#: rabop/templates/rabop/default/base.html:85 rabop/views.py:1026
+msgid "SMS Log"
+msgstr "SMS 내역"
+
+#: rabop/templates/rabop/default/base.html:94
+msgid "Stock Management"
+msgstr "재고관리"
+
+#: rabop/templates/rabop/default/base.html:98
+msgid "Remaining Quantities"
+msgstr "잔여수량"
+
+#: rabop/templates/rabop/default/base.html:101
+#: rabop/templates/rabop/default/order_send_errors.html:19
+#: rabop/templates/rabop/default/stock_status.html:65
+#: shop/templates/admin/import_export/voucher_change_list_import_item.html:6
+msgid "Stock Bulk Upload"
+msgstr "일괄등록"
+
+#: rabop/templates/rabop/default/base.html:110
+msgid "Sales Management"
+msgstr "매출관리"
+
+#: rabop/templates/rabop/default/base.html:114
+msgid "Daily Sales"
+msgstr "일일매출"
+
+#: rabop/templates/rabop/default/base.html:117
+msgid "Monthly Sales"
+msgstr "월간매출"
+
+#: rabop/templates/rabop/default/base.html:120
+msgid "Best Sellers by Category"
+msgstr "베스트셀러(제품군)"
+
+#: rabop/templates/rabop/default/base.html:123 rabop/views.py:1300
+#: rabop/views.py:1350
+msgid "Best Sellers Report"
+msgstr "베스트셀러 보고서"
+
+#: rabop/templates/rabop/default/base.html:126
+#: rabop/templates/rabop/default/daily_payments_report.html:24
+#: rabop/templates/rabop/default/daily_payments_report.html:61
+#: rabop/views.py:1390
+msgid "Daily Payments Report"
+msgstr "결제수단별 일일매출"
+
+#: rabop/templates/rabop/default/base.html:129
+msgid "Best Customers"
+msgstr "우수고객"
+
+#: rabop/templates/rabop/default/base.html:138
+msgid "Move"
+msgstr "이동"
+
+#: rabop/templates/rabop/default/base.html:145
+msgid "Main Store"
+msgstr "대표몰"
+
+#: rabop/templates/rabop/default/base.html:148
+msgid "Card Store"
+msgstr "카드몰"
+
+#: rabop/templates/rabop/default/base.html:157
+msgid "I'mport"
+msgstr "아임포트"
+
+#: rabop/templates/rabop/default/base.html:160
+msgid "Danal Partner Center"
+msgstr "다날 파트너센터"
+
+#: rabop/templates/rabop/default/base.html:163
+msgid "Naver Shopping Partner Zone"
+msgstr "네이버 쇼핑파트너존"
+
+#: rabop/templates/rabop/default/base.html:166
+msgid "Naver Smart Store"
+msgstr "네이버 스마트스토어"
+
+#: rabop/templates/rabop/default/base.html:169
+msgid "Naver Search Ad"
+msgstr "네이버 키워드광고"
+
+#: rabop/templates/rabop/default/base.html:172
+msgid "Gmail"
+msgstr "지메일"
+
+#: rabop/templates/rabop/default/base.html:176
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+#: rabop/templates/rabop/default/base.html:179
+msgid "Analytics"
+msgstr "애널리틱스"
+
+#: rabop/templates/rabop/default/base.html:182
+msgid "Ads"
+msgstr "애드워즈"
+
+#: rabop/templates/rabop/default/base.html:185
+msgid "Adsense"
+msgstr "애드센스"
+
+#: rabop/templates/rabop/default/base.html:188
+msgid "ALIGO"
+msgstr "알리고"
+
+#: rabop/templates/rabop/default/base.html:191
+msgid "mailgun"
+msgstr "mailgun"
+
+#: rabop/templates/rabop/default/base.html:194
+msgid "VULTR"
+msgstr "VULTR"
+
+#: rabop/templates/rabop/default/base.html:197
+msgid "Disqus"
+msgstr "Disqus"
+
+#: rabop/templates/rabop/default/best_customers_report.html:14
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:14
+#: rabop/templates/rabop/default/best_sellers_report.html:14
+#: rabop/templates/rabop/default/naver_order_list.html:29
+#: rabop/templates/rabop/default/order_list.html:29
+#: rabop/templates/rabop/default/stock_status.html:13
+msgid "all"
+msgstr "전체목록"
+
+#: rabop/templates/rabop/default/best_customers_report.html:64
+#: rabop/templates/rabop/default/best_sellers_by_category_report.html:52
+#: rabop/templates/rabop/default/best_sellers_report.html:58
+#: rabop/templates/rabop/default/daily_payments_report.html:141
+#: rabop/templates/rabop/default/daily_sales_report.html:82
+#: rabop/templates/rabop/default/monthly_sales_report.html:76
+msgid "No Sales Report Yet"
+msgstr "매출 없음"
+
+#: rabop/templates/rabop/default/customer_detail.html:77
+msgid "Email Verification"
+msgstr "이메일 인증"
+
+#: rabop/templates/rabop/default/customer_detail.html:88
+#: rabop/templates/rabop/default/customer_detail.html:180
+#: rabop/templates/rabop/default/order_detail.html:565
+#: shop/templates/admin/shop/order_change_form.html:14
+msgid "Unverify"
+msgstr "인증해제"
+
+#: rabop/templates/rabop/default/customer_detail.html:240
+#: rabop/templates/rabop/default/customer_detail.html:254
+msgid "No Image"
+msgstr "이미지 없음"
+
+#: rabop/templates/rabop/default/customer_detail.html:274
+#: rabop/templates/rabop/default/customer_detail.html:284
+#: rabop/templates/rabop/default/order_detail.html:265
+#: rabop/templates/rabop/default/order_detail.html:275
+msgid "No order record"
+msgstr "주문한 적 없음"
+
+#: rabop/templates/rabop/default/customer_detail.html:294
+#: rabop/templates/rabop/default/order_detail.html:299
+msgid "one day total"
+msgstr "24시간 결제누적액"
+
+#: rabop/templates/rabop/default/customer_detail.html:302
+#: rabop/templates/rabop/default/legacy_customer_detail.html:69
+#: rabop/templates/rabop/default/order_detail.html:313 shop/admin.py:603
+#: shop/models.py:979
+msgid "last total"
+msgstr "30일 결제누적액"
+
+#: rabop/templates/rabop/default/customer_list.html:72
+#: rabop/templates/rabop/default/legacy_customer_list.html:55
+msgid "No Customers Yet"
+msgstr "가입 고객 없음"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:13
+#: rabop/templates/rabop/default/daily_payments_report.html:122
+#: shop/forms.py:91 shop/models.py:377 shop/models.py:1032
+#: shop/templates/shop/default/order_detail.html:128
+msgid "Bank Transfer"
+msgstr "계좌이체 / 무통장입금"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:14
+#: rabop/templates/rabop/default/daily_payments_report.html:124
+#: shop/forms.py:92 shop/models.py:378
+#: shop/templates/shop/default/order_detail.html:201
+msgid "Escrow (KB)"
+msgstr "에스크로 (KB)"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:15
+#: rabop/templates/rabop/default/daily_payments_report.html:126
+#: shop/forms.py:93 shop/models.py:379 shop/models.py:531
+#: shop/templates/shop/default/order_detail.html:223
+msgid "PayPal"
+msgstr "페이팔 (PayPal)"
+
+#: rabop/templates/rabop/default/daily_payments_report.html:109
+#: rabop/templates/rabop/default/daily_sales_report.html:32
+#: rabop/templates/rabop/default/daily_sales_report.html:58
+#: rabop/templates/rabop/default/monthly_sales_report.html:32
+#: rabop/templates/rabop/default/monthly_sales_report.html:58
+msgid "Amount"
+msgstr "금액"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:18 rabop/views.py:1214
+msgid "Daily Sales Report"
+msgstr "일일 매출 보고서"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:36
+#: rabop/templates/rabop/default/monthly_sales_report.html:36
+msgid "Sales"
+msgstr "매출"
+
+#: rabop/templates/rabop/default/daily_sales_report.html:55
+msgid "Date"
+msgstr "일자"
+
+#: rabop/templates/rabop/default/legacy_customer_detail.html:13
+#: rabop/views.py:1447 shop/models.py:951
+msgid "legacy customer"
+msgstr "기존 고객"
+
+#: rabop/templates/rabop/default/legacy_customer_mms_list.html:34
+msgid "No MMS Yet"
+msgstr "MMS 없음"
+
+#: rabop/templates/rabop/default/monthly_sales_report.html:18
+#: rabop/views.py:1178
+msgid "Monthly Sales Report"
+msgstr "월간 매출 보고서"
+
+#: rabop/templates/rabop/default/monthly_sales_report.html:55
+msgid "Month"
+msgstr "월"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:172
+#: rabop/templates/rabop/default/order_detail.html:509
+msgid "[Error] Revoke Now"
+msgstr "[에러] 판매취소"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:191
+#: rabop/templates/rabop/default/order_detail.html:574
+#: shop/templates/admin/shop/order_change_form.html:15
+msgid "Send"
+msgstr "보내기"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:206
+msgid "Resend SMS"
+msgstr "SMS 재발송"
+
+#: rabop/templates/rabop/default/naver_order_detail.html:224
+#: rabop/templates/rabop/default/order_detail.html:583
+#: shop/templates/admin/shop/order_change_form.html:19
+msgid "Refunded"
+msgstr "환불완료"
+
+#: rabop/templates/rabop/default/order_detail.html:79
+msgid "SNS Accounts"
+msgstr "연동 SNS"
+
+#: rabop/templates/rabop/default/order_detail.html:343 shop/admin.py:622
+msgid "last login count"
+msgstr "최근 동일 IP 접속"
+
+#: rabop/templates/rabop/default/order_detail.html:358 shop/admin.py:643
+#: shop/admin.py:893
+msgid "country"
+msgstr "국가"
+
+#: rabop/templates/rabop/default/order_detail.html:371 shop/models.py:440
+msgid "accept-language"
+msgstr "accept-language"
+
+#: rabop/templates/rabop/default/order_detail.html:383 shop/models.py:435
+#: shop/models.py:1411
+msgid "user-agent"
+msgstr "user-agent"
+
+#: rabop/templates/rabop/default/order_detail.html:459 shop/models.py:1024
+msgid "legacy order products"
+msgstr "기존 주문 상품"
+
+#: rabop/templates/rabop/default/order_send_errors.html:15
+msgid "Previous Order Details"
+msgstr "이전 주문 상세내역"
+
+#: rabop/templates/rabop/default/order_send_errors.html:23
+#: rabop/templates/rabop/default/stock_status.html:69
+msgid "Add Voucher"
+msgstr "개별등록"
+
+#: rabop/templates/rabop/default/question_detail.html:34
+#: rabop/templates/rabop/default/question_list.html:50
+msgid "unregistered"
+msgstr "탈퇴회원"
+
+#: rabop/templates/rabop/default/sms_list.html:10 shop/models.py:887
+msgid "from phone number"
+msgstr "발신번호"
+
+#: rabop/templates/rabop/default/sms_list.html:19
+msgid "created"
+msgstr "생성일시"
+
+#: rabop/templates/rabop/default/sms_list.html:40
+msgid "No SMS Message Yet"
+msgstr "메시지 없음"
+
+#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:275
+#: shop/models.py:206 shop/models.py:603 shop/models.py:1147
+msgid "selling price"
+msgstr "판매가"
+
+#: rabop/templates/rabop/default/stock_status.html:35
+msgid "current quantity"
+msgstr "현재수량"
+
+#: rabop/templates/rabop/default/stock_status.html:57
+msgid "No Vouchers Yet"
+msgstr "상품권 없음"
+
+#: rabop/views.py:388 shop/utils.py:122
+msgid "[site] Order shipped: {}"
+msgstr "[핀코인] 발송완료: {}"
+
+#: rabop/views.py:400 shop/utils.py:134
+msgid "You've got your vouchers."
+msgstr ""
+"[핀코인] [발권처리완료] 주문/발송 내역 페이지에서 상품권 번호 확인하세요."
+
+#: rabop/views.py:410 rabop/views.py:617
+msgid "send error"
+msgstr "발송 오류"
+
+#: rabop/views.py:434
+msgid "[site] Order refunded: {}"
+msgstr "[핀코인] 환불완료: {}"
+
+#: rabop/views.py:499
+msgid "Naver Order Details"
+msgstr "네이버 주문내역 상세보기"
+
+#: rabop/views.py:839
+msgid "[site] Question Answer"
+msgstr "[핀코인] 고객님의 문의내용 답변입니다."
+
+#: rabop/views.py:850
+msgid "You've got a question answer."
+msgstr "[핀코인] [문의답변완료] 고객문의 페이지에서 답변 확인하세요."
+
+#: rabop/views.py:892
+msgid "Customers"
+msgstr "고객 관리"
+
+#: rabop/views.py:918
+msgid "Customer"
+msgstr "고객 관리"
+
+#: rabop/views.py:1082
+msgid "Stock Status"
+msgstr "상품권 재고현황"
+
+#: rabop/views.py:1110
+msgid "stock bulk upload"
+msgstr "일괄 등록"
+
+#: rabop/views.py:1129
+msgid "Duplicated voucher code"
+msgstr "상품권 핀번호 중복"
+
+#: rabop/views.py:1255
+msgid "Best Customers Report"
+msgstr "우수고객 보고서"
+
+#: rabop/views.py:1469
+msgid "Customer MMS"
+msgstr "고객 MMS"
+
+#: rakmai/apps.py:7
+msgid "rakmai"
+msgstr "rakmai"
+
+#: rakmai/forms.py:18
+msgid "Invalid file type"
+msgstr "올바르지 않은 파일형식"
+
+#: rakmai/forms.py:25
+msgid "File type is not supported"
+msgstr "지원하지 않는 파일형식"
+
+#: rakmai/forms.py:28
+msgid "Please keep filesize under {}. Current filesize {}"
+msgstr "파일 사이즈는 {} 보다 클 수 없습니다. 현재 {}"
+
+#: rakmai/models.py:14
+msgid "equals"
+msgstr "일치"
+
+#: rakmai/models.py:15
+msgid "startswith"
+msgstr "시작"
+
+#: rakmai/models.py:36
+msgid ""
+"Site menu item title. Can contain template variables E.g.: {{ mytitle }}"
+msgstr "사이트 메뉴 이름 {{ mytitle }} 같은 템플릿 변수 포함 가능"
+
+#: rakmai/models.py:43
+msgid "Exact URL or URL pattern"
+msgstr "정확한 URL 또는 URL 패턴"
+
+#: rakmai/models.py:47
+msgid "match"
+msgstr "매칭"
+
+#: rakmai/models.py:59
+msgid "menu item"
+msgstr "메뉴"
+
+#: rakmai/models.py:60
+msgid "menu items"
+msgstr "메뉴"
+
+#: rakmai/models.py:73
+msgid "The page title as you'd like it to be seen by the public"
+msgstr "발행 게시물 제목"
+
+#: rakmai/models.py:79
+msgid ""
+"A short description not longer than 155 characters. Don't use double quotes."
+msgstr "155자 이내 짧은 설명, 따옴표는 입력하지 말 것"
+
+#: rakmai/models.py:84
+msgid "keywords"
+msgstr "키워드"
+
+#: rakmai/models.py:86
+msgid "A comma-separated list of keywords. Don't use double quotes."
+msgstr "띄어쓰기 없이 콤마로 연결, 따옴표는 입력하지 말 것"
+
+#: rakmai/models.py:140
+msgid "file name"
+msgstr "파일이름"
+
+#: rakmai/models.py:145
+msgid "public identifier"
+msgstr "공개식별자"
+
+#: rakmai/models.py:157
+msgid "created time"
+msgstr "생성일시"
+
+#: rakmai/models.py:172
+msgid "approved"
+msgstr "승인됨"
+
+#: rakmai/models.py:173
+msgid "flagged"
+msgstr "경고 댓글"
+
+#: rakmai/models.py:174
+msgid "deleted"
+msgstr "삭제"
+
+#: rakmai/models.py:202
+msgid "username"
+msgstr "이름"
+
+#: rakmai/models.py:215
+msgid "website URL"
+msgstr "홈페이지 주소"
+
+#: rakmai/models.py:243
+msgid "site id"
+msgstr "사이트 ID"
+
+#: rakmai/models.py:247
+msgid "Google Analytics UA-ID"
+msgstr "구글 애널리틱스 UA-ID"
+
+#: rakmai/models.py:254
+msgid "Google Service"
+msgstr "구글 제품"
+
+#: rakmai/models.py:255
+msgid "Google Services"
+msgstr "구글 제품"
+
+#: sandbox/settings/local.py:21
+msgid "Korean"
+msgstr "한국어"
+
+#: sandbox/settings/local.py:22
+msgid "English"
+msgstr "영어"
+
+#: shop/admin.py:36 shop/admin.py:41
+msgid "Removed Order"
+msgstr "삭제된 주문"
+
+#: shop/admin.py:85 shop/models.py:200 shop/models.py:596 shop/models.py:1140
+msgid "list price"
+msgstr "정가"
+
+#: shop/admin.py:179 shop/admin.py:206 shop/admin.py:234
+msgid "(save and continue editing to create a link)"
+msgstr "저장 후 계속 수정"
+
+#: shop/admin.py:181 shop/admin.py:208 shop/models.py:637 shop/models.py:702
+#: shop/models.py:1181
+msgid "voucher"
+msgstr "상품권"
+
+#: shop/admin.py:280 shop/models.py:217
+msgid "Payment Gateway selling price"
+msgstr "PG 판매가"
+
+#: shop/admin.py:309
+msgid "Order Info"
+msgstr "주문 정보"
+
+#: shop/admin.py:315
+msgid "Transaction Verification"
+msgstr "거래 검증"
+
+#: shop/admin.py:675 shop/admin.py:686 shop/admin.py:697
+msgid "1 voucher was"
+msgstr "상품권 1장"
+
+#: shop/admin.py:677 shop/admin.py:688 shop/admin.py:699
+msgid "{} vouchers were"
+msgstr "상품권 {}장"
+
+#: shop/admin.py:678
+msgid "{} successfully marked as purchased."
+msgstr "을 매입 상태로 변경했습니다."
+
+#: shop/admin.py:680
+msgid "Mark selected vouchers as purchased"
+msgstr "선택한 상품권을 매입 상태로 변경합니다."
+
+#: shop/admin.py:689
+msgid "{} successfully marked as sold."
+msgstr "을 판매 상태로 변경했습니다."
+
+#: shop/admin.py:691
+msgid "Mark selected vouchers as sold"
+msgstr "선택한 상품권을 판매 상태로 변경합니다."
+
+#: shop/admin.py:700
+msgid "{} successfully marked as revoked."
+msgstr "을 발권취소 상태로 변경했습니다."
+
+#: shop/admin.py:702
+msgid "Mark selected vouchers as revoked"
+msgstr "선택한 상품권을 발권취소 상태로 변경합니다."
+
+#: shop/admin.py:898
+msgid "IP Address Count"
+msgstr "횟수"
+
+#: shop/admin.py:917 shop/admin.py:918
+msgid "PINCOIN admin"
+msgstr "핀코인 관리자"
+
+#: shop/apps.py:7
+msgid "shop"
+msgstr "상점"
+
+#: shop/forms.py:26 shop/models.py:125
+msgid "discount rate"
+msgstr "할인율"
+
+#: shop/forms.py:148
+msgid "You have to buy more than {} KRW."
+msgstr "페이팔 결제 시 {}원 이상 결제해야 합니다."
+
+#: shop/forms.py:158
+msgid "PayPal is not allowed in Korea."
+msgstr "페이팔은 해외 거주 고객만 이용 가능합니다."
+
+#: shop/forms.py:165
+msgid "You cannot buy more than 150,000 KRW."
+msgstr "한화 15만원까지만 주문 가능합니다."
+
+#: shop/forms.py:181
+msgid "Complete document verification with Korean Photo ID."
+msgstr ""
+"마이페이지에서 \"한국 신분증\"으로 서류본인인증 먼저 완료해주세요. (관리자 확"
+"인 시간: 오전9시~익일새벽1시)"
+
+#: shop/forms.py:223
+msgid "Under 18, You cannot buy more than 150,000 KRW."
+msgstr "만18세 미만은 한달에 15만원까지만 주문 가능합니다."
+
+#: shop/forms.py:562
+msgid "You cannot refund at night."
+msgstr "환불요청은 오전9시 이후 가능합니다."
+
+#: shop/helpers.py:18
+msgid "CartItem quantity={} price={}"
+msgstr "항목 quantity={} price={}"
+
+#: shop/models.py:28
+msgid "maintenance"
+msgstr "시스템 점검"
+
+#: shop/models.py:32
+msgid "store name"
+msgstr "상점 이름"
+
+#: shop/models.py:37
+msgid "store code"
+msgstr "상점 코드"
+
+#: shop/models.py:58
+msgid "phone number1"
+msgstr "전화번호1"
+
+#: shop/models.py:65
+msgid "kakao ID"
+msgstr "카카오 ID"
+
+#: shop/models.py:72
+msgid "bank accounts"
+msgstr "은행계좌"
+
+#: shop/models.py:77
+msgid "escrow"
+msgstr "에스크로"
+
+#: shop/models.py:92 shop/models.py:102 shop/models.py:230 shop/models.py:338
+#: shop/models.py:724 shop/models.py:759 shop/models.py:798 shop/models.py:851
+msgid "store"
+msgstr "상점"
+
+#: shop/models.py:93
+msgid "stores"
+msgstr "상점"
+
+#: shop/models.py:120
+msgid "description1"
+msgstr "설명1"
+
+#: shop/models.py:131 shop/models.py:212
+msgid "Payment Gateway"
+msgstr "PG 등록"
+
+#: shop/models.py:136
+msgid "PG discount rate"
+msgstr "PG 할인율"
+
+#: shop/models.py:143
+msgid "Naver Search Tag"
+msgstr "네이버 검색태그"
+
+#: shop/models.py:149
+msgid "Naver Brand Name"
+msgstr "네이버 브랜드명"
+
+#: shop/models.py:155
+msgid "Naver Maker Name"
+msgstr "네이버 제조사명"
+
+#: shop/models.py:175
+msgid "sold out"
+msgstr "품절"
+
+#: shop/models.py:176
+msgid "in stock"
+msgstr "재고있음"
+
+#: shop/models.py:185 shop/models.py:584 shop/models.py:1128
+msgid "product subtitle"
+msgstr "상품 부제"
+
+#: shop/models.py:191 shop/models.py:590 shop/models.py:1134
+msgid "product code"
+msgstr "상품 코드"
+
+#: shop/models.py:254
+msgid "stock"
+msgstr "재고"
+
+#: shop/models.py:261
+msgid "minimum stock level"
+msgstr "최소재고수량"
+
+#: shop/models.py:266
+msgid "review comment count"
+msgstr "후기개수"
+
+#: shop/models.py:271
+msgid "review comment count(PG)"
+msgstr "후기개수(PG)"
+
+#: shop/models.py:276
+msgid "Naver Shopping Partner Zone Status"
+msgstr "쇼핑파트너존 등록"
+
+#: shop/models.py:281
+msgid "Naver Shopping Partner Zone Product Name"
+msgstr "쇼핑파트너존 상품이름"
+
+#: shop/models.py:287
+msgid "Naver Shopping Partner Zone Product Name (PG)"
+msgstr "쇼핑파트너존 상품이름(PG)"
+
+#: shop/models.py:293
+msgid "Naver Attributes"
+msgstr "네이버 상품속성"
+
+#: shop/models.py:301 shop/models.py:354 shop/models.py:677
+msgid "product"
+msgstr "상품"
+
+#: shop/models.py:302
+msgid "products"
+msgstr "상품"
+
+#: shop/models.py:325
+msgid "name"
+msgstr "이름"
+
+#: shop/models.py:344 shop/models.py:361
+msgid "product list"
+msgstr "상품 묶음"
+
+#: shop/models.py:345
+msgid "product lists"
+msgstr "상품 묶음"
+
+#: shop/models.py:371 shop/models.py:372
+msgid "product list membership"
+msgstr "상품 묶음 내역"
+
+#: shop/models.py:381
+msgid "Bank Transfer (PG)"
+msgstr "계좌이체"
+
+#: shop/models.py:382
+msgid "Virtual Account"
+msgstr "가상계좌"
+
+#: shop/models.py:391 shop/models.py:1037
+#: shop/templates/shop/default/order_detail.html:314
+msgid "payment pending"
+msgstr "입금확인중"
+
+#: shop/models.py:392 shop/models.py:1038
+#: shop/templates/shop/default/order_detail.html:332
+msgid "payment completed"
+msgstr "입금완료"
+
+#: shop/models.py:393 shop/models.py:1039
+#: shop/templates/shop/default/order_detail.html:291
+msgid "under review"
+msgstr "인증심사중"
+
+#: shop/models.py:394 shop/models.py:1040
+#: shop/templates/shop/default/order_detail.html:339
+msgid "payment verified"
+msgstr "입금인증완료"
+
+#: shop/models.py:395 shop/models.py:1041
+msgid "shipped"
+msgstr "발송완료"
+
+#: shop/models.py:396 shop/models.py:1042
+msgid "refund requested"
+msgstr "환불요청"
+
+#: shop/models.py:397 shop/models.py:1043
+msgid "refund pending"
+msgstr "환불대기"
+
+#: shop/models.py:398 shop/models.py:399 shop/models.py:1044
+msgid "refunded"
+msgstr "환불완료"
+
+#: shop/models.py:400 shop/models.py:1045
+msgid "voided"
+msgstr "주문무효"
+
+#: shop/models.py:404
+msgid "Hidden"
+msgstr "숨김"
+
+#: shop/models.py:405
+msgid "Visible"
+msgstr "보이기"
+
+#: shop/models.py:469
+msgid "visible status"
+msgstr "보이기"
+
+#: shop/models.py:491
+msgid "currency"
+msgstr "통화"
+
+#: shop/models.py:510
+msgid "suspicious"
+msgstr "의심거래"
+
+#: shop/models.py:517
+msgid "pincoin order"
+msgstr "핀코인 주문"
+
+#: shop/models.py:518
+msgid "pincoin orders"
+msgstr "핀코인 주문"
+
+#: shop/models.py:526
+msgid "KOOKMIN BANK"
+msgstr "국민"
+
+#: shop/models.py:527
+msgid "NONGHYUP BANK"
+msgstr "농협"
+
+#: shop/models.py:528
+msgid "SHINHAN BANK"
+msgstr "신한"
+
+#: shop/models.py:529
+msgid "WOORI BANK"
+msgstr "우리"
+
+#: shop/models.py:530
+msgid "IBK BANK"
+msgstr "기업"
+
+#: shop/models.py:536 shop/models.py:572 shop/models.py:805 shop/models.py:1116
+#: shop/models.py:1433
+msgid "order"
+msgstr "고객 주문"
+
+#: shop/models.py:550
+msgid "amount"
+msgstr "금액"
+
+#: shop/models.py:556
+msgid "received date"
+msgstr "입금일시"
+
+#: shop/models.py:560
+msgid "order payment"
+msgstr "주문결제"
+
+#: shop/models.py:561
+msgid "order payments"
+msgstr "주문결제"
+
+#: shop/models.py:619 shop/models.py:629 shop/models.py:1173
+msgid "order product"
+msgstr "핀코인 상품권 주문내역"
+
+#: shop/models.py:620
+msgid "order products"
+msgstr "핀코인 상품권 주문내역"
+
+#: shop/models.py:650 shop/models.py:672 shop/models.py:1194
+msgid "revoked"
+msgstr "발권취소"
+
+#: shop/models.py:655 shop/models.py:689 shop/models.py:1199
+msgid "voucher remarks"
+msgstr "발행일/비밀번호"
+
+#: shop/models.py:661
+msgid "order voucher code"
+msgstr "핀코인 상품권 발송내역"
+
+#: shop/models.py:662
+msgid "order voucher codes"
+msgstr "핀코인 상품권 발송내역"
+
+#: shop/models.py:670
+msgid "purchased"
+msgstr "매입"
+
+#: shop/models.py:671
+msgid "sold"
+msgstr "판매"
+
+#: shop/models.py:703
+msgid "vouchers"
+msgstr "상품권 재고"
+
+#: shop/models.py:717
+msgid "Common"
+msgstr "일반"
+
+#: shop/models.py:718
+msgid "Game Event"
+msgstr "행사"
+
+#: shop/models.py:719
+msgid "Price Policy"
+msgstr "가격"
+
+#: shop/models.py:741 shop/models.py:742
+msgid "notice"
+msgstr "공지사항"
+
+#: shop/models.py:750 shop/models.py:789
+msgid "Registration"
+msgstr "가입/탈퇴"
+
+#: shop/models.py:752 shop/models.py:791
+msgid "Order/Stock"
+msgstr "주문/재고"
+
+#: shop/models.py:753 shop/models.py:792
+msgid "Payment"
+msgstr "입금/결제"
+
+#: shop/models.py:754
+msgid "Delivery"
+msgstr "발송/오류"
+
+#: shop/models.py:780
+msgid "frequently asked question"
+msgstr "자주 묻는 질문"
+
+#: shop/models.py:781
+msgid "frequently asked questions"
+msgstr "자주 묻는 질문"
+
+#: shop/models.py:793
+msgid "Late Delivery"
+msgstr "발송 지연"
+
+#: shop/models.py:825
+msgid "customer questions"
+msgstr "고객 문의"
+
+#: shop/models.py:838
+msgid "question"
+msgstr "문의"
+
+#: shop/models.py:844
+msgid "question answer"
+msgstr "문의 답변"
+
+#: shop/models.py:845
+msgid "question answers"
+msgstr "문의 답변"
+
+#: shop/models.py:861 shop/models.py:862 shop/models.py:875
+msgid "testimonials"
+msgstr "이용후기"
+
+#: shop/models.py:881
+msgid "testimonials answer"
+msgstr "후기 답변"
+
+#: shop/models.py:882
+msgid "testimonials answers"
+msgstr "후기 답변"
+
+#: shop/models.py:905
+msgid "success"
+msgstr "성공"
+
+#: shop/models.py:910
+msgid "short message"
+msgstr "단문 메시지"
+
+#: shop/models.py:911
+msgid "short messages"
+msgstr "단문 메시지"
+
+#: shop/models.py:919 shop/models.py:961 shop/models.py:1010
+msgid "customer id"
+msgstr "고객 ID"
+
+#: shop/models.py:924
+msgid "email"
+msgstr "이메일"
+
+#: shop/models.py:1000
+msgid "legacy order"
+msgstr "기존 주문"
+
+#: shop/models.py:1001
+msgid "legacy orders"
+msgstr "기존 주문"
+
+#: shop/models.py:1023
+msgid "legacy order product"
+msgstr "기존 주문 상품"
+
+#: shop/models.py:1106
+msgid "naver order"
+msgstr "네이버 주문"
+
+#: shop/models.py:1107
+msgid "naver orders"
+msgstr "네이버 주문"
+
+#: shop/models.py:1163
+msgid "naver order product"
+msgstr "네이버 상품권 주문내역"
+
+#: shop/models.py:1164
+msgid "naver order products"
+msgstr "네이버 상품권 주문내역"
+
+#: shop/models.py:1205
+msgid "naver order voucher code"
+msgstr "네이버 상품권 발송내역"
+
+#: shop/models.py:1206
+msgid "naver order voucher codes"
+msgstr "네이버 상품권 발송내역"
+
+#: shop/models.py:1368
+msgid "campaign type"
+msgstr "캠페인 유형"
+
+#: shop/models.py:1375
+msgid "media"
+msgstr "매체 ID"
+
+#: shop/models.py:1382
+msgid "ad query"
+msgstr "검색어"
+
+#: shop/models.py:1387
+msgid "ad rank"
+msgstr "광고순위"
+
+#: shop/models.py:1391
+msgid "ad group ID"
+msgstr "광고 그룹 ID"
+
+#: shop/models.py:1396
+msgid "ad ID"
+msgstr "소재 ID"
+
+#: shop/models.py:1401
+msgid "ad keyword ID"
+msgstr "키워드 ID"
+
+#: shop/models.py:1406
+msgid "ad keyword"
+msgstr "키워드"
+
+#: shop/models.py:1416
+msgid "naver advertisement log"
+msgstr "네이버 CPC 광고 로그"
+
+#: shop/models.py:1417
+msgid "naver advertisement logs"
+msgstr "네이버 CPC 광고 로그"
+
+#: shop/models.py:1448
+msgid "mileage memo"
+msgstr "사유"
+
+#: shop/models.py:1453
+msgid "mileage log"
+msgstr "마일리지 내역"
+
+#: shop/models.py:1454
+msgid "mileage logs"
+msgstr "마일리지 내역"
+
+#: shop/templates/admin/import_export/voucher_change_list_import_item.html:5
+msgid "Import"
+msgstr "임포트"
+
+#: shop/templates/admin/shop/order_change_form.html:6
+msgid "Go Back"
+msgstr "뒤로"
+
+#: shop/templates/admin/shop/order_change_form.html:7
+msgid "Save and continue editing"
+msgstr "저장 후 계속 수정"
+
+#: shop/templates/shop/default/base.html:150
+msgid "PINCOIN MAIN"
+msgstr "핀코인 대표몰"
+
+#: shop/templates/shop/default/base.html:260
+msgid "Game Info"
+msgstr "게임소식"
+
+#: shop/templates/shop/default/base.html:264
+#: shop/templates/shop/default/gamemeca_ranking.html:17
+msgid "Game Ranking"
+msgstr "인기 게임 순위"
+
+#: shop/templates/shop/default/base.html:267 shop/views.py:925
+msgid "Game Latest News"
+msgstr "최신기사"
+
+#: shop/templates/shop/default/base.html:270 shop/views.py:929
+msgid "Game Top News"
+msgstr "주요뉴스"
+
+#: shop/templates/shop/default/base.html:273 shop/views.py:927
+msgid "Game Headline News"
+msgstr "헤드라인"
+
+#: shop/templates/shop/default/base.html:276 shop/views.py:931
+msgid "Game Featured News"
+msgstr "특집기사"
+
+#: shop/templates/shop/default/base.html:279 shop/views.py:935
+msgid "Game Preview"
+msgstr "프리뷰"
+
+#: shop/templates/shop/default/base.html:282 shop/views.py:933
+msgid "Game Review"
+msgstr "리뷰"
+
+#: shop/templates/shop/default/home.html:77
+msgid "All Products"
+msgstr "오늘의 최저가 상품권"
+
+#: shop/templates/shop/default/order_detail.html:214
+msgid "Pay Escrow"
+msgstr "에스크로 결제"
+
+#: shop/templates/shop/default/order_detail.html:266
+msgid "It may take a few minutes for us to get notified by PayPal."
+msgstr ""
+"페이팔에서 저희에게 결제 통보 처리해주는 시간은 좀 더 소요될 수 있습니다."
+
+#: shop/templates/shop/default/order_detail.html:267
+msgid "You don't have to pay again if you received payment email from PayPal."
+msgstr "페이팔에서 이미 결제 메일을 받으신 경우 다시 결제하실 필요는 없습니다."
+
+#: shop/templates/shop/default/paypal_success.html:11
+msgid "Payment Completed"
+msgstr "결제완료"
+
+#: shop/templates/shop/default/paypal_success.html:13
+msgid "It may take a few minutes for your order to get notified by PayPal."
+msgstr ""
+"페이팔에서 저희에게 결제 통보 처리해주는 시간은 좀 더 소요될 수 있습니다."
+
+#: shop/templates/shop/default/paypal_success.html:14
+msgid "Your payment will be completed only if you have"
+msgstr "다음 경우에만 상품권이 발송됩니다."
+
+#: shop/templates/shop/default/paypal_success.html:16
+msgid "a verified PayPal account"
+msgstr "verified 페이팔 계정"
+
+#: shop/templates/shop/default/paypal_success.html:17
+msgid "an instant payment"
+msgstr "instant 결제"
+
+#: shop/templates/shop/default/paypal_success.html:18
+msgid "the same email address as PayPal account"
+msgstr "페이팔 계정 이메일 주소와 사용자 이메일 주소 일치"
+
+#: shop/templates/shop/default/paypal_success.html:20
+msgid ""
+"Otherwise, your payment will be refunded within 30 minutes during business "
+"hours."
+msgstr "만약 위와 다르면 12시간 이내로 무조건 주문무효 및 환불처리됩니다."
+
+#: shop/templates/shop/default/paypal_success.html:33
+msgid "Thank you for shopping with us online!"
+msgstr "핀코인을 이용해주셔서 대단히 감사합니다."
+
+#: shop/views.py:775
+msgid "Invalid Content-Type"
+msgstr "올바르지 않은 Content-Type"
+
+#: shop/views.py:831
+msgid "PayPal Completed"
+msgstr "페이팔결제"
+
+#: shop/views.py:855
+msgid "[site] Order voided: {}"
+msgstr "[핀코인] 주문무효: {}"
+
+#: shop/views.py:883
+msgid "Game ranking"
+msgstr "인기 게임 순위"
+
+#~ msgid "PayPal Voided"
+#~ msgstr "페이팔무효"

@@ -1,0 +1,33 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3">
+            <div class="col-sm-12 col-md-8">
+                <div class="alert alert-danger">
+                    <ul class="pl-3 mb-0">
+                        <li class="my-2">
+                            이름을 변경하면 반드시 휴대폰본인인증과 서류본인인증을 다시 해야 합니다.
+                        </li>
+                        <li class="my-2">
+                            회원가입할 때 이름을 올바르게 기입하지 않은 경우에만 이름을 변경하시기 바랍니다.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Change Your Name" %}</h4>
+                    <div class="card-body">
+                        {% crispy form %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

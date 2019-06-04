@@ -1,0 +1,131 @@
+{% extends "rakmai/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load blog_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/blog/main.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./_breadcrumbs.html" %}
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            {% block entry %}entry{% endblock %}
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Search Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Blog Search" %}</h5>
+                    <div class="card-body">
+                        <form action="{% url 'blog:post-list' blog.slug %}" method="get" class="input-group">
+                            {{ search_form.q }}
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Side Widget" %}</h5>
+                    <div class="card-body">
+                        You can put anything you want inside of these side widgets. They are easy to use, and feature
+                        the new Bootstrap 4 card containers!
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Categories" %}</h5>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            {% blog_categories blog %}
+                                <li class="mb-1">
+                                    <a href="{% url 'blog:post-category' blog.slug category.slug %}">{{ category.title }}</a>
+                                </li>
+                                {% if not category.is_leaf_node %}
+                                    <ul>
+                                        {{ children }}
+                                    </ul>
+                                {% endif %}
+                            {% end_blog_categories %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Popular Tags" %}</h5>
+                    <div class="card-body">
+                        {% get_most_common_tags blog.slug 1 10 as tags %}
+                        {% for tag in tags %}
+                            <a class="btn btn-sm btn-info my-1"
+                               href="{% url 'blog:post-tag' blog.slug tag.slug %}">#{{ tag.name }}</a>
+                        {% empty %}
+                            {% trans "No Tags Yet." %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <!-- Recent Posts Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Recent Posts" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% get_recent_posts blog.slug 5 as posts %}
+                        {% for post in posts %}
+                            <li class="list-group-item">
+                                <a href="{{ post.get_absolute_url }}">{{ post.title|truncatechars:25 }}</a>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No Posts Yet." %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Recent Comments Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Recent Comments" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% for comment in last_comments %}
+                            <li class="list-group-item">
+                                <a href="{{ comment }}">{{ comment.comment|linebreaks }}</a>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No Comments Yet." %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Meta -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans 'Meta' %}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a
+                                href="{% url 'blog:post-archive' blog.slug %}">{% trans "Blog Archive" %}</a></li>
+                        <li class="list-group-item"><a href="{% url 'blog:tag' blog.slug %}">{% trans "Tags" %}</a></li>
+                        <li class="list-group-item"><a href="{% url 'blog:rss' blog.slug %}">{% trans "RSS" %}</a></li>
+                        {% if user.is_superuser %}
+                            <li class="list-group-item"><a href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

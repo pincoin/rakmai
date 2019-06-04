@@ -1,0 +1,170 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-3">
+        <form class="form" method="post">
+            {% csrf_token %}
+            <div class="row mt-0 mt-md-3">
+                <div class="col">
+                    <p class="alert alert-warning">
+                        {% blocktrans with provider_name=account.get_provider.name site_name=site.name %}
+                            You are about to use your {{ provider_name }} account to login to PINCOIN.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6">
+                    <h4 class="text-success">
+                        {% trans "Terms and Conditions" %}
+                    </h4>
+                    <pre class="term border border-dark p-2 mb-2">{% include 'member/account/terms/terms.txt' %}
+                    </pre>
+                    <div class="form-group mt-1 mt-md-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="{{ form.terms.id_for_label }}"
+                                   name="{{ form.terms.name }}" value="1" required>
+                            <label class="form-check-label" for="{{ form.terms.id_for_label }}">
+                                {{ form.terms.label }}<span class="asteriskField">*</span>
+                            </label>
+                            <small class="form-text text-muted">{{ form.terms.help_text }}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mt-2 mt-md-0">
+                    <h4 class="text-success">
+                        {% trans "Privacy Policy" %}
+                    </h4>
+                    <pre class="term border border-dark p-2 mb-2">{% include 'member/account/terms/privacy.txt' %}
+                    </pre>
+                    <div class="form-group mt-1 mt-md-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="{{ form.privacy.id_for_label }}"
+                                   name="{{ form.privacy.name }}" value="1" required>
+                            <label class="form-check-label" for="{{ form.privacy.id_for_label }}">
+                                {{ form.privacy.label }}<span class="asteriskField">*</span>
+                            </label>
+                            <small class="form-text text-muted">{{ form.privacy.help_text }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mt-2 mt-md-0">
+                    <div class="card rounded-2">
+                        <h4 class="card-header text-center">
+                            {% trans "Account Info" %}
+                        </h4>
+                        <div class="card-body py-0">
+                            <div class="form-group mb-1 mb-md-2">
+                                <label for="{{ form.email.id_for_label }}" class="col-form-label requiredField">
+                                    {{ form.email.label }}<span class="asteriskField">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    {{ form.email }}
+                                </div>
+                                <small class="form-text text-muted">{{ form.email.help_text }}</small>
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="{{ form.username.id_for_label }}" class="col-form-label requiredField">
+                                    {{ form.username.label }}<span class="asteriskField">*</span>
+                                </label>
+                                {{ form.username }}
+                                <small class="form-text text-muted">{{ form.username.help_text }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mt-2 mt-md-0">
+                    <div class="card rounded-2">
+                        <h4 class="card-header text-center">
+                            {% trans "Profile" %}
+                        </h4>
+                        <div class="card-body py-0">
+                            <div class="form-group mb-1 mb-md-2">
+                                <label for="{{ form.last_name.id_for_label }}" class="col-form-label requiredField">
+                                    {{ form.last_name.label }}<span class="asteriskField">*</span>
+                                </label>
+                                {{ form.last_name }}
+                                <small class="form-text text-muted">{{ form.last_name.help_text }}</small>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="{{ form.first_name.id_for_label }}" class="col-form-label requiredField">
+                                    {{ form.first_name.label }}<span class="asteriskField">*</span>
+                                </label>
+                                {{ form.first_name }}
+                                <small class="form-text text-muted">{{ form.first_name.help_text }}</small>
+                            </div>
+                            <div class="form-group mb-2 alert alert-info">
+                                <p class="d-none mb-2 font-weight-bold" id="valid-name-message"></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="{{ form.valid_name.id_for_label }}"
+                                           name="{{ form.valid_name.name }}" value="1" required>
+                                    <label class="form-check-label" for="{{ form.valid_name.id_for_label }}"
+                                           id="valid-name-message1">
+                                        {{ form.valid_name.label }}<span class="asteriskField">*</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <ul class="margin-bottom-0">
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {% if form.email.errors or form.password1.errors or form.password2.errors or form.username.errors or form.last_name.errors or form.first_name.errors %}
+                <div class="alert alert-danger">
+                    <ul class="margin-bottom-0">
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        {% for error in form.password1.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        {% for error in form.password2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        {% for error in form.last_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        {% for error in form.first_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary btn btn-block btn-primary btn-lg" type="submit">
+                {% trans "Sign up" %}
+            </button>
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/member/signup.js" %}"></script>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "./base.html" %}
+
+{% load i18n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="alert alert-danger mt-0 mt-md-3">
+            <form class="form-group" action="{% url 'card:order-delete' store.code order.order_no %}" method="post">
+                {% csrf_token %}
+                {% trans "Are you sure to delete?" %}
+                <button class="btn btn-danger float-right" type="submit">
+                    <span class="fas fa-trash-alt fa-fw" aria-hidden="true"></span> {% trans "Delete" %}
+                </button>
+            </form>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <div class="card rounded-2">
+                    <div class="card-header text-center">
+                        <h4>{% trans "Order Details" %}</h4>
+                        <small>{% trans "order no" %} - {{ order.order_no }}</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-sm-5 text-md-right">
+                                        <span class="text-muted">{% trans "order status" %}</span>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        {{ order.get_status_display }}
+                                    </div>
+                                </li>
+                                <li class="row mb-2">
+                                    <div class="col-sm-5 text-md-right">
+                                        <span class="text-muted">{% trans "payment method" %}</span>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        {{ order.get_payment_method_display }}
+                                    </div>
+                                </li>
+                                <li class="row mb-2">
+                                    <div class="col-sm-5 text-md-right">
+                                        <span class="text-muted">{% trans "Order Date/Time" %}</span>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        {{ order.created|date:"Y-m-d H:i" }}
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-6 col-md-4">
+                                        <span class="text-muted">{% trans "product name" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-2 text-md-right">
+                                        <span class="text-muted">{% trans "quantity" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-3 text-right">
+                                        <span class="text-muted">{% trans "unit price" %}</span>
+                                    </div>
+                                    <div class="d-none d-md-block col-md-3 text-right">
+                                        <span class="text-muted">{% trans "subtotal" %}</span>
+                                    </div>
+                                </li>
+                                {% for product in order.products.all %}
+                                    <li class="row mb-3">
+                                        <div class="col-5 col-md-4">
+                                            {{ product.name }}
+                                        </div>
+                                        <div class="col-2 col-md-2 text-right">
+                                            {{ product.quantity }}
+                                        </div>
+                                        <div class="col-5 col-md-3 text-right">
+                                            {{ product.selling_price|currency:order.currency }}
+                                        </div>
+                                        <div class="d-none d-md-block col-md-3 text-right">
+                                            {{ product.subtotal|currency:order.currency }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                <li class="row mb-2">
+                                    <div class="offset-4 col-4 offset-md-8 col-md-2 text-right">
+                                        {% trans "total price" %}
+                                    </div>
+                                    <div class="col-4 col-md-2 text-right">
+                                        <strong>{{ order.total_selling_price|currency:order.currency }}</strong>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <a class="btn btn-block btn-lg btn-outline-secondary"
+                           href="{% url 'card:order-list' store.code %}">
+                            <i class="fas fa-list"></i>
+                            {% trans "Order List" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

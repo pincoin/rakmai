@@ -1,0 +1,73 @@
+$(document).ready(function () {
+    var navbar = $('#navbarsTop');
+    var toggler = $('#navbar-toggle-button');
+
+    toggler.click(function (e) {
+        navbar.toggleClass('left-sidebar');
+        toggler.toggleClass('indexcity');
+        navbar.collapse('toggle');
+        e.stopPropagation();
+    });
+
+    $(document).on('click', function (e) {
+        if (navbar.is(":visible") && e.target.id !== 'id_q') {
+            $("button.navbar-toggler").click();
+        }
+    });
+
+    $('#id_status').on('change', function (e) {
+        this.form.submit();
+    });
+
+    $('#id_voucher').on('change', function (e) {
+        this.form.submit();
+    });
+
+    $('#id_order_by').on('change', function (e) {
+        this.form.submit();
+    });
+
+    var messages = [
+        '입금 후 10분 이내에 아무런 처리가 없을 때 확인요청을 부탁드립니다.\n\n',
+        '발송지연으로 불편을 드려 대단히 죄송합니다.\n\n',
+        '발권 처리해드렸습니다. 주문/발송 내역 페이지에서 확인 부탁드립니다.\n\n',
+        '마이페이지에서 고객님 이름 올바르게 수정 부탁드립니다.\n\n',
+        '주문자/입금자 이름이 다를 경우 입금자 명의 신분증과 카드에서 번호 가리고 help@pincoin.co.kr 이메일 주소로 사진을 보내주세요.\n\n제출불가 시 환불요청해주세요.\n\n',
+        '교환 또는 환불은 미사용에 한하여 요청일로부터 은행영업일 기준 3~5일 이후 환불 수수료 500원 제외하고 입금됩니다.\n\n',
+        'unverified 페이팔 계정은 무조건 주문무효 및 환불처리됩니다.\n\n반드시 페이팔에 로그인해서 get verified 메뉴에서 결제수단인증 완료 후 주문결제 해주세요.\n\n',
+        '환불 수수료 500원을 제외한 금액 환불 받으실 은행 이름, 계좌번호, 입금주를 고객문의에 남겨주세요. 다음 날 처리됩니다.\n\n' +
+        '또는 다음에 주문/입금하실 때 차액 빼고 입금해주세요.\n\n단, 이 경우 수동발권처리해야 하므로 오전9시부터 새벽1시 사이에 주문/입금부탁드립니다.\n\n감사합니다.',
+        '감사합니다.\n\n'
+    ];
+
+    $('#id_answer').on('change', function (e) {
+        if (this.value > 0) {
+            var key = this.value - 1;
+
+            $('#id_content').val(function (i, text) {
+                return text + messages[key];
+            });
+        }
+    });
+
+    var sms_messages = [
+        '[핀코인] ',
+        '[핀코인] 신분증 사진도 주민번호는 가리고 이름/생년월일/주소 일부가 보이게 올려주세요.',
+        '[핀코인] 화면캡처 아닌 실물 통장 또는 카드 사진도 번호는 가리고 이름이 보이게 올려주세요.',
+        '[핀코인] 통장/카드 캡쳐 사진이 아니라 실물 사진으로 번호 가리고 이름이 보이게 올려주세요.',
+        '[핀코인] 마이페이지에서 이름을 올바르게 변경하고 휴대폰인증 완료 부탁드립니다.',
+        '[핀코인] 입금자명으로 마이페이지에서 서류본인인증해주세요. 제출불가 시 환불요청해주세요.',
+        '[핀코인] 미사용에 한하여 환불요청일로부터 3~5일 후 수수료 500원 제외하고 입금됩니다.',
+        '[핀코인] 주문 후 1시간 이내 입금하지 않으면 자동삭제됩니다. 새로 주문만 완료해주세요.'
+    ];
+
+    $('#id_sms_answer').on('change', function (e) {
+        if (this.value > 0) {
+            var key = this.value - 1;
+
+            $('#id_content').val(function (i, text) {
+                return text + sms_messages[key];
+            });
+        }
+    });
+});

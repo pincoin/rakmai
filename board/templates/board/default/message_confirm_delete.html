@@ -1,0 +1,62 @@
+{% extends "./board_base.html" %}
+
+{% load i18n %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col">
+                <h2>{{ message.title }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p></p>
+                <p>
+                    <i class="fas fa-user"></i> <a href="#">{{ message.author }}</a>
+                    | <i class="fas fa-calendar-alt"></i> {{ message.created|date:"Y-m-d H:m" }}
+                    | <i class="fas fa-comments"></i> <a href="#">3 Comments</a>
+                    | <i class="far fa-eye"></i> <a href="#">{{ message.view_count }}</a>
+                    {% if user.is_superuser %}
+                        | <i class="fas fa-edit"></i>
+                        <a href="{% url 'board:message-edit' message.board.slug message.id %}">{% trans "Edit" %}</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <hr/>
+        <div class="alert alert-danger">
+            <form class="form-group" action="../" method="post">
+                {% csrf_token %}
+                {% trans "Are you sure to delete?" %}
+                <button class="btn btn-danger float-right" type="submit">
+                    <span class="fas fa-trash-alt fa-fw" aria-hidden="true"></span> {% trans "Delete" %}
+                </button>
+            </form>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col">
+                {{ message.content|clean_html|linebreaks }}
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'board:message-list' board.slug %}?page={{ request.GET.page }}"
+                   class="btn btn-secondary">
+                    <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;
+                    {% trans "List" %}
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'board:message-new' board.slug %}"
+                   class="btn btn-info float-right">
+                    <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;
+                    {% trans "Write" %}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

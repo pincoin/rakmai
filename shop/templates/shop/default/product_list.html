@@ -1,0 +1,156 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load rakmai_filters %}
+{% load shop_filters %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/rakmai/csrf-cookie.js" %}"></script>
+    <script src="{% static "js/shop/cart.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container pb-1">
+        {% if night_order %}
+            <div class="alert alert-danger category-alert mt-0 mt-md-3 py-0 mb-1 mb-md-3">
+                본 상품권은 오전 9시 이후 주문이 가능합니다.
+            </div>
+        {% endif %}
+        {% if category.description %}
+            <div class="alert alert-warning category-alert mt-0 mt-md-3 py-0 mb-1 mb-md-3">
+                {{ category.description|markdownify }}
+            </div>
+        {% endif %}
+        <div class="row text-center mt-2">
+            <div class="col px-4 px-md-3">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
+                            <div class="card h-100">
+                                {% if product.category.thumbnail %}
+                                    <a href="{% if product.stock == product.STOCK_CHOICES.in_stock %}{% url 'shop:product-detail' store.code product.id product.code %}{% else %}#{% endif %}">
+                                        <img class="product-image-thumbnail w-100"
+                                             src="{{ product.category.thumbnail.url }}"
+                                             alt="{{ product.name }}-{{ product.subtitle }}">
+                                    </a>
+                                {% else %}
+                                    <img class="product-image-thumbnail"
+                                         src="{% static 'images/shop/default/156x100.png' %}"
+                                         alt="{{ product.code }}">
+                                {% endif %}
+                                <div class="card-body p-2">
+                                    <span class="card-title">
+                                        {% if product.stock == product.STOCK_CHOICES.in_stock %}
+                                            <a href="{% url 'shop:product-detail' store.code product.id product.code %}"
+                                               class="d-block product-link">
+                                                {{ product.name }}
+                                            </a>
+                                        {% else %}
+                                            <span class="d-block">{{ product.name }}</span>
+                                        {% endif %}
+                                        {{ product.subtitle }}
+                                    </span>
+                                    <p class="card-text mt-1">
+                                        <strong class="d-block">
+                                            {{ product.selling_price|currency:currency_code }}
+                                        </strong>
+                                        {% if product.discount_rate > 0 %}
+                                            <span class="text-danger">
+                                        {{ product.discount_rate|floatformat:2 }}%
+                                        <i class="fas fa-arrow-down"></i>
+                                        </span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    {% if product.stock == product.STOCK_CHOICES.in_stock %}
+                                        <button class="btn btn-outline-primary add-one-to-cart-button"
+                                                data-item="{{ product.id }}">
+                                            <i class="fas fa-shopping-basket"></i>
+                                            {% trans "Add to Cart" %}
+                                        </button>
+                                    {% else %}
+                                        <button class="btn btn-outline-warning">
+                                            <i class="fas fa-inbox"></i>
+                                            {% trans "Sold out" %}
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="col mb-2 px-md-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <span class="card-title">{% trans "No products" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% if request.resolver_match.kwargs.store and request.resolver_match.kwargs.slug %}
+            {% if category.pg %}
+                <a class="btn btn-lg btn-block btn-info my-3"
+                   href="//card.{{ domains.domain }}{% url 'card:product-category' store.code category.slug %}">
+                    <i class="far fa-credit-card fa-fw"></i>
+                    카드몰에서 상품권 구매하기
+                </a>
+            {% endif %}
+        {% endif %}
+        <hr class="my-1 my-md-3">
+        <div class="row mb-0 mb-md-2">
+            <div class="col-sm-12 col-md-2 text-md-center">
+                <h5 class="mt-1 mt-md-3">{% trans "Share on SNS" %}</h5>
+            </div>
+            <div class="col-sm-12 col-md-10 pl-md-0">
+                <a href="#" class="btn btn-default p-0"
+                   onclick="window.open('http://www.facebook.com/sharer.php?u={{ request.build_absolute_uri }}', 'popup', 'scrollbars=no,width=600,height=300'); return false;">
+                    <img class="sns-button rounded" src="{% static 'images/shop/sns/facebook.png' %}">
+                </a>
+                <a href="" class="btn btn-default p-0"
+                   onclick="window.open('https://twitter.com/intent/tweet?text={{ category.title }}&url={{ request.build_absolute_uri }}', 'popup', 'scrollbars=no,width=600,height=300'); return false;">
+                    <img class="sns-button rounded" src="{% static 'images/shop/sns/twitter.png' %}">
+                </a>
+                <a href="#" class="btn btn-default p-0"
+                   onclick="window.open('https://story.kakao.com/share?text={{ category.title }}&url={{ request.build_absolute_uri }}', 'popup', 'scrollbars=no,width=600,height=600'); return false;">
+                    <img class="sns-button rounded" src="{% static 'images/shop/sns/kakaostory.png' %}">
+                </a>
+                <a href="" class="btn btn-default p-0"
+                   onclick="window.open('http://share.naver.com/web/shareView.nhn?title={{ category.title }}&url={{ request.build_absolute_uri }}', 'popup', 'scrollbars=no,width=600,height=600'); return false;">
+                    <img class="sns-button rounded" src="{% static 'images/shop/sns/naver.png' %}">
+                </a>
+            </div>
+        </div>
+
+        <div class="row mt-1 mt-md-3 mb-0 mb-md-2">
+            <div class="col">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_wide"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+
+        <div class="alert alert-info alert-fixed cart-alert">
+            <span id="cart_alert_product" class="d-block"></span>
+            {% trans "You have items in cart." %}
+        </div>
+
+        {% if page_obj %}
+            {% include './_pagination.html' with page_obj=page_obj page_range=page_range q=request.GET.q %}
+        {% endif %}
+    </div>
+{% endblock %}

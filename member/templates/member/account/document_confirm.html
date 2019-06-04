@@ -1,0 +1,112 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block stylesheet %}
+    <style>
+        .invalid-feedback {
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center my-4">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Document Verification" %}</h4>
+                    <div class="card-body">
+                        <div class="alert alert-danger mt-0 mt-md-3 py-0 mb-1 mb-md-3">
+                            <ul class="my-1 pl-3">
+                                <li class="my-1">
+                                    (1) 신분증 사진, (2) 통장 또는 카드 사진 <strong>모두</strong> 업로드해야 합니다.
+                                </li>
+                                <li class="my-1">
+                                    <strong>기존 이미지 삭제</strong>를 체크하고 <strong>서류 제출</strong> 버튼 클릭하면 해당 이미지는 서버에서 삭제됩니다.
+                                </li>
+                                <li class="my-1">
+                                    사진을 잘못 업로드한 경우 <strong>기존 이미지 삭제</strong>하고 다시 업로드해주세요.
+                                </li>
+                            </ul>
+                        </div>
+                        {% crispy form %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center my-4">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Information" %}</h4>
+                    <div class="card-body">
+                        <h5 class="text-success mb-3">서류본인인증을 반드시 완료해야 하는 경우는 다음과 같습니다.</h5>
+                        <ol class="pl-3 mb-4">
+                            <li class="my-2">
+                                <strong>
+                                    문화상품권, 해피머니, 도서문화상품권을 포함하고 일일 액면가 기준 누계 20만원 이상
+                                </strong>
+                                첫 구매하는 경우
+                            </li>
+                            <li class="my-2">
+                                <strong>
+                                    계좌이체로 일일 액면가 기준 누계 30만원 이상
+                                </strong>
+                                첫 구매하는 경우
+                            </li>
+                            <li class="my-2">
+                                <strong>
+                                    페이팔로 최근30일 이내 액면가 기준 누계 15만원 이상
+                                </strong>
+                                구매하는 경우 (한국 신분증 필수)
+                            </li>
+                            <li class="my-2">
+                                <strong>
+                                    휴대폰의 명의가 다른 경우
+                                </strong> (단, 가족 명의로라도 휴대폰본인인증은 완료해야 합니다.)
+                            </li>
+                        </ol>
+                        <h5 class="text-success mb-3">서류본인인증 시 반드시 다음 정보를 확인할 수 있어야 합니다.</h5>
+                        <ol class="pl-3 mb-4">
+                            <li class="my-2">
+                                <p><strong>신분증 (주민등록증, 운전면허증 등)</strong></p>
+                                <p>이름, 생년월일(주민번호 뒷자리 가릴 것), 주소의 일부(번지수, 동호수 가릴 것)</p>
+                                <p><strong>단, 휴대폰인증을 하지 않은 경우에는 전체 주소를 확인할 수 있어야 합니다.</strong></p>
+                            </li>
+                            <li class="my-2">
+                                <p><strong>통장 또는 ATM 카드, 체크카드</strong></p>
+                                <p>이름 (계좌번호 또는 카드번호는 가릴 것)</p>
+                            </li>
+                        </ol>
+                        <h5 class="text-success mb-3">서류본인인증을 요청하는 이유</h5>
+                        <ul class="pl-3 mb-4">
+                            <li class="my-2">
+                                <p><strong>휴대폰본인인증의 취약점</strong></p>
+                                <p>사기꾼들은 타인 명의의 대포폰으로 휴대폰본인인증을 하고 보이스피싱/파밍 사기 피해자의 계좌에서 돈을 이체하여 상품권을 탈취합니다.</p>
+                            </li>
+                            <li class="my-2">
+                                <p><strong>받는 분(입금) 통장 표시 내용 변경 후 입금 문제</strong></p>
+                                <p>인터넷뱅킹 계좌이체할 때 고객님의 이름의 아닌 타인의 이름이나 메모를 입력하여 입금할 수 있습니다.</p>
+                                <p>사기꾼들은 대포폰으로 휴대폰본인인증한 계정의 이름으로 바꾸어 입력하고 보이스피싱/파밍 사기 피해자의 계좌에서 돈을 이체해서 상품권을
+                                    탈취합니다.</p>
+                            </li>
+                        </ul>
+                        <h5 class="text-success mb-3">핀코인은 고객님의 개인정보보호를 위해 최선을 다해 노력합니다.</h5>
+                        <ul class="pl-3 mb-0">
+                            <li class="my-2">
+                                고객 여러분께서 제출한 개인정보 사진은 어디에도 노출되지 않으며 암호화하여 파일을 저장합니다.
+                            </li>
+                            <li class="my-2">
+                                제출한 사진은 개인정보보호 및 시스템 보안을 위해 이 페이지에서도 열람할 수 없습니다.
+                            </li>
+                            <li class="mt-2">
+                                제출한 사진은 경찰 등 수사기관의 요청이 없는 경우 3개월 이후 지체 없이 파기합니다.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

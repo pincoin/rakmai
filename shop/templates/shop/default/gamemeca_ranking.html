@@ -1,0 +1,70 @@
+{% extends "shop/default/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col">
+                <div class="card rounded-2">
+                    <div class="card-header text-center">
+                        <h4>{% trans "Game Ranking" %}</h4>
+                        <small>{{ lastupdt }}</small>
+                        <small>
+                            (<a href="{{ mecaurl50 }}" target="_blank">게임메카</a> 제공)
+                        </small>
+                    </div>
+                    <div class="card-body py-0">
+                        {% for game in games %}
+                            {% if forloop.counter == 11 %}
+                                <div class="row py-2 border-top">
+                                    <div class="col">
+                                        <!-- 반응형1 -->
+                                        <ins class="adsbygoogle adslot_wide"
+                                             style="display:block"
+                                             data-ad-client="ca-pub-6334863722125804"
+                                             data-ad-slot="6025802824"
+                                             data-ad-format="auto"
+                                             data-full-width-responsive="false"
+                                             data-language="ko"></ins>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="row py-2{% if not forloop.first %} border-top{% endif %}">
+                                <div class="col-2 col-sm-2 col-md-1 text-monospace">
+                                    {{ forloop.counter }}
+                                </div>
+                                <div class="col-3 col-sm-3 col-md-1 text-monospace">
+                                    {% if game.rank == '-' %}
+                                        <span class="text-dark">
+                                            <i class="fas fa-minus fa-fw"></i>
+                                        </span>
+                                    {% elif game.rank|first == '-' %}
+                                        <span class="text-info">
+                                            <i class="fas fa-arrow-down fa-fw"></i>{{ game.rank|slice:'1:' }}
+                                        </span>
+                                    {% else %}
+                                        <span class="text-danger">
+                                            <i class="fas fa-arrow-up fa-fw"></i>{{ game.rank }}
+                                        </span>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-10">
+                                    <a href="{{ game.link }}" target="_blank">
+                                        {{ game.content }}
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

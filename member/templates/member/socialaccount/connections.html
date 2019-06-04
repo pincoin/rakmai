@@ -1,0 +1,84 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load socialaccount %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Account Connections" %}</h4>
+                    <div class="card-body pb-0">
+                        {% if form.accounts %}
+                            <p>
+                                {% blocktrans %}
+                                    You can sign in to your account using any of the following third party accounts:
+                                {% endblocktrans %}
+                            </p>
+                            <form method="post" class="form" action="{% url 'socialaccount_connections' %}">
+                                {% csrf_token %}
+                                <fieldset>
+                                    {% if form.non_field_errors %}
+                                        <div class="alert alert-danger" id="errorMsg">{{ form.non_field_errors }}</div>
+                                    {% endif %}
+
+                                    {% for base_account in form.accounts %}
+                                        {% with base_account.get_provider_account as account %}
+                                            <div class="form-check mb-2 d-flex flex-column">
+                                                <input id="id_account_{{ base_account.id }}"
+                                                       class="form-check-input" type="radio"
+                                                       name="account" value="{{ base_account.id }}"/>
+                                                <label for="id_account_{{ base_account.id }}" class="form-check-label">
+                                                    {{ account.get_brand.name }} / {{ account }}
+                                                </label>
+                                            </div>
+                                        {% endwith %}
+                                    {% endfor %}
+                                    <div class="form-group mt-4 mb-0">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            {% trans 'Disconnect' %}
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        {% else %}
+                            <p class="alert alert-info">{% trans 'You currently have no social network accounts connected to this account.' %}</p>
+                        {% endif %}
+                        <hr class="my-3">
+                        <div class="row my-4">
+                            <div class="col-sm-12 col-md-4">
+                                <h5 class="mt-md-3 ml-md-2">{% trans 'Add a 3rd Party Account' %}</h5>
+                            </div>
+                            <div class="col-sm-12 col-md-8 pl-md-0">
+                                <a class=""
+                                   href="{% provider_login_url 'naver' process='connect' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/naver.png' %}">
+                                </a>
+                                <a class="ml-3 ml-md-4"
+                                   href="{% provider_login_url 'kakao' process='connect' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/kakao.png' %}">
+                                </a>
+                                <a class="ml-3 ml-md-4"
+                                   href="{% provider_login_url 'facebook' process='connect' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/facebook.png' %}">
+                                </a>
+                                <a class="ml-3 ml-md-4"
+                                   href="{% provider_login_url 'google' process='connect' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded border border-info"
+                                         src="{% static 'images/shop/sns/login/google.png' %}">
+                                </a>
+                                {% providers_media_js %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

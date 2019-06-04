@@ -1,0 +1,71 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-3">
+        <div class="col">
+            <form action="{% url 'rabop:stock-status' store.code %}" method="get" class="input-group">
+                <div class="input-group-prepend">
+                    <a href="{% url 'rabop:stock-status' store.code %}" class="btn btn-outline-dark">
+                        {% trans "all" %}
+                    </a>
+                </div>
+                {{ voucher_filter_form.voucher }}
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col">
+            <strong>{% trans "selling price" %}: {{ total|default:0|currency:'KRW' }}</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 col-sm-3">
+            {% trans "product name" %}
+        </div>
+        <div class="col-2 col-sm-2">
+            {% trans "current quantity" %}
+        </div>
+    </div>
+    {% for voucher in vouchers %}
+        <div class="row py-1 border-top">
+            <div class="col-8 col-md-3">
+                <a href="{% url 'admin:shop_product_change' voucher.id %}">
+                    {{ voucher.name }} {{ voucher.subtitle }}
+                </a>
+            </div>
+            <div class="col-2 col-md-2 text-monospace">
+                {% if voucher.stock_level < 0 %}
+                    <span class="text-danger">{{ voucher.stock_count }}</span>
+                {% else %}
+                    {{ voucher.stock_count }}
+                {% endif %}
+                <small>({{ voucher.minimum_stock_level }})</small>
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No Vouchers Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+    {% include './_pagination_stock_status.html' with page_obj=page_obj page_range=page_range voucher=request.GET.voucher %}
+    <hr>
+    <a href="{% url 'rabop:stock-bulk-upload' 'default' %}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-file-upload" aria-hidden="true"></i>&nbsp;{% trans "Stock Bulk Upload" %}
+    </a>
+    <a href="{% url 'admin:shop_voucher_add' %}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-plus" aria-hidden="true"></i>&nbsp;{% trans "Add Voucher" %}
+    </a>
+{% endblock %}

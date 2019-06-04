@@ -1,0 +1,97 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load help_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="alert alert-warning category-alert mt-0 mt-md-3 py-0 mb-1">
+            <ul>
+                <li>고객 여러분의 의견에 귀 기울이겠습니다. 좋은 말씀과 쓴소리 모두 환영합니다.</li>
+                <li>핀코인 사이트 이용불편사항, 기능개선, 버그 등 다양한 의견을 부탁드립니다.</li>
+                <li><span class="font-weight-bold">구매자 고객후기 작성 시 해피머니1천원권을 보내드립니다.</span>
+                    <ul>
+                        <li>구매상품권 및 금액 명시</li>
+                        <li>3줄 이상 작성</li>
+                        <li>1달에 1회 참여 가능</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <h4 class="text-center my-1 my-md-3">{% trans "Testimonials" %}</h4>
+                <div class="card my-2">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <strong>{{ testimonial.title }}</strong>
+                            </div>
+                            <div class="col-8 col-md-2">
+                                {% if request.user.is_superuser and testimonial.owner.profile %}
+                                    <a href="{% url 'rabop:customer-detail' store.code testimonial.owner.profile.id %}">
+                                        {{ testimonial.owner.username }}
+                                    </a>
+                                {% else %}
+                                    {{ testimonial.owner.username|truncatechars:5 }}
+                                {% endif %}
+                            </div>
+                            <div class="col-4 col-md-2 text-md-right text-muted"
+                                 data-toggle="tooltip" data-placement="top" title="{{ testimonial.created }}">
+                                {{ testimonial.created|date:'Y.m.d' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pb-0">
+                        {{ testimonial.content|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                {% for answer in testimonial.answers.all %}
+                    <div class="card my-2">
+                        <div class="card-header d-flex flex-wrap">
+                            <div class="p-2">
+                                # {{ forloop.counter }}
+                            </div>
+                            <div class="ml-auto p-2 text-muted"
+                                 data-toggle="tooltip" data-placement="top" title="{{ answer.created }}">
+                                {{ answer.created|date:'Y.m.d' }}
+                            </div>
+                        </div>
+                        <div class="card-body pb-0">
+                            {{ answer.content|linebreaks }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if request.user.is_superuser %}
+            {% crispy form %}
+        {% endif %}
+        <a href="{% url 'help:testimonials-list' store.code %}?page={{ request.GET.page }}"
+           class="btn btn-outline-secondary btn-block btn-lg my-2">
+            <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+        </a>
+        <div class="row mt-md-3 mt-1">
+            <div class="col">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_wide"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+    </div>
+{% endblock %}

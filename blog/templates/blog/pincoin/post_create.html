@@ -1,0 +1,15 @@
+{% extends "./blog_base_full_width.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block entry %}
+    <!-- Post Content Column -->
+    <div class="col">
+        <div class="row my-1 my-md-2">
+            <div class="col">
+                {% crispy form %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

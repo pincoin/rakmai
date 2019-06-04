@@ -1,0 +1,9 @@
+<div class="{{ widget.wrapper_class }}">
+    <textarea class="simplemde-widget" id="id-{{ widget.name }}" name="{{ widget.name }}">{% if widget.value %}
+{{ widget.value }}{% endif %}</textarea>
+    <input type="file" id="id-{{ widget.name }}-file" name="{{ widget.name }}-file" />
+    <script>
+        // These options are passed to script in order to synchronize with Django settings.
+        var options = {% autoescape off %}{{ widget.options }}{% endautoescape %};
+    </script>
+</div>

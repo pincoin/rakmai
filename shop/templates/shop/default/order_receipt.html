@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    {% load static %}
+    {% load i18n %}
+    {% load shop_filters %}
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Nanum Gotic', sans-serif;
+            line-height: 180%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            padding: 0.3rem;
+            border-bottom: 1px solid #333333;
+        }
+
+        .watermark {
+            background-image: url("{% static 'images/shop/default/pincoin-logo-watermark.png' %}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .text-monospace {
+            font-family: monospace;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .stamp {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+        }
+
+        .row {
+            margin-top: 1rem;
+        }
+
+        .row-flex {
+            margin-top: 1rem;
+            display: flex;
+        }
+
+        .column-left {
+            flex: 40%;
+        }
+
+        .column-right {
+            flex: 60%;
+        }
+    </style>
+    <title>{% trans "Transaction Detail Report" %}</title>
+</head>
+<body>
+<div class="watermark">
+    <div class="content">
+        <h2 class="text-center">
+            {% trans "Transaction Detail Report" %}
+        </h2>
+        <h5 class="text-center">
+            주문번호: <span class="text-monospace">{{ order.order_no }}</span>
+        </h5>
+        <div class="row-flex">
+            <div class="column-left">
+                <h4 class="text-center">공급받는자</h4>
+                <table>
+                    <tr>
+                        <th>주문일시</th>
+                        <td>{{ order.created|date:"Y-m-d H:i" }}</td>
+                    </tr>
+                    <tr>
+                        <th>성명</th>
+                        <td>{{ order.fullname }}</td>
+                    </tr>
+                    <tr>
+                        <th>결제수단</th>
+                        <td>
+                            {{ order.get_payment_method_display }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>합계금액</th>
+                        <td class="text-monospace">{{ order.total_selling_price|currency:order.currency }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column-right">
+                <h4 class="text-center">공급자</h4>
+                <table>
+                    {% if corp %}
+                        <tr>
+                            <th>등록번호</th>
+                            <td>163-81-01158</td>
+                        </tr>
+                        <tr>
+                            <th>상호</th>
+                            <td>
+                                주식회사 핀코인
+                                <img src="{% static 'images/shop/default/pincoin-stamp.png' %}"
+                                     alt="stamp" class="stamp">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>대표</th>
+                            <td>서종화</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td>서울 서초구 강남대로 479<br>B1 피치트리 139호</td>
+                        </tr>
+                        <tr>
+                            <th>업태 / 종목</th>
+                            <td>서비스업 / 상품권매매</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th>등록번호</th>
+                            <td>130-45-35437</td>
+                        </tr>
+                        <tr>
+                            <th>상호</th>
+                            <td>
+                                핀코인
+                                <img src="{% static 'images/shop/default/pincoin-stamp.png' %}"
+                                     alt="stamp" class="stamp">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>성명</th>
+                            <td>서종화</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td>서울 서초구 강남대로 479<br>B1 피치트리 139호</td>
+                        </tr>
+                        <tr>
+                            <th>업태 / 종목</th>
+                            <td>도소매 / 전자상거래</td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <p>상품권은 면세상품이므로 현금영수증 또는 세금계산서는 최종 사용처에서 발행합니다.</p>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                <tr>
+                    <th class="text-center">품목</th>
+                    <th class="text-center">규격</th>
+                    <th class="text-center">수량</th>
+                    <th class="text-center">단가</th>
+                    <th class="text-center">공급가액</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in order.products.all %}
+                    <tr>
+                        <td>
+                            {{ product.name }}
+                        </td>
+                        <td>
+                            {{ product.subtitle }}
+                        </td>
+                        <td class="text-right text-monospace">
+                            {{ product.quantity }}
+                        </td>
+                        <td class="text-right text-monospace">
+                            {{ product.selling_price|currency:order.currency }}
+                        </td>
+                        <td class="text-right text-monospace">
+                            {{ product.subtotal|currency:order.currency }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="4" class="text-right">합계</th>
+                    <td class="text-right text-monospace">
+                        {{ order.total_selling_price|currency:order.currency }}
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

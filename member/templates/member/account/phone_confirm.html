@@ -1,0 +1,22 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-6">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Phone Verification" %}</h4>
+                    <div class="card-body">
+                        {{ result }}
+                        <hr>
+                        <a href="{% url 'account_profile' %}" class="btn btn-block btn-lg btn-primary">
+                            {% trans "Return to My Page" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

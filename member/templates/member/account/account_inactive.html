@@ -1,0 +1,18 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center my-4">
+            <div class="col-sm-12 col-md-6">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Account Inactive" %}</h4>
+                    <div class="card-body">
+                        <p>{% trans "This account is inactive." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

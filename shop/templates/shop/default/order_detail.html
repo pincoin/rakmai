@@ -1,0 +1,520 @@
+{% extends "shop/default/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_tags %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="container pb-4">
+        <div class="row mt-0 mt-md-3">
+            <div class="col">
+                <div class="card rounded-2">
+                    <div class="card-header text-center">
+                        <h4>{% trans "Order Details" %}</h4>
+                        <small>
+                            {% trans "order no" %}:
+                            <span class="text-monospace">
+                                {{ order.order_no }}
+                            </span>
+                        </small>
+                    </div>
+                    <div class="card-body pb-0">
+                        <div class="row">
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right pt-1 mb-2">
+                                        <span class="text-muted">{% trans "order status" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                                            <span class="btn btn-sm btn-outline-dark mb-1 mt-0">
+                                        {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                                            <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                                        {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                                            <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                                        {% else %}
+                                            <span class="btn btn-sm btn-outline-danger mb-1 mt-0">
+                                        {% endif %}
+                                        {{ order.get_status_display }}
+                                        </span>
+                                    </div>
+                                </li>
+                                {% if show_related_order %}
+                                    <li class="row mb-2">
+                                        <div class="col-md-5 d-none d-md-block text-right">
+                                            <span class="text-muted">{% trans "related order" %}</span>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7 text-monospace">
+                                            {% if order.parent %}
+                                                <a href="{% url 'shop:order-detail' store.code order.parent.order_no %}">
+                                                    {{ order.parent.order_no|truncatechars:13 }}
+                                                </a>
+                                            {% else %}
+                                                {% for child in order.children.all %}
+                                                    <a href="{% url 'shop:order-detail' store.code child.order_no %}">
+                                                        {{ child.order_no|truncatechars:13 }}
+                                                    </a>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endif %}
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right">
+                                        <span class="text-muted">{% trans "payment method" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {{ order.get_payment_method_display }}
+                                    </div>
+                                </li>
+                                <li class="row mb-2">
+                                    <div class="col-md-5 d-none d-md-block text-right">
+                                        <span class="text-muted">{% trans "Order Date/Time" %}</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        {{ order.created|date:"Y-m-d H:i" }}
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="col-sm-12 col-md-6 list-unstyled mb-0">
+                                <li class="row mb-2">
+                                    <div class="col-6 col-md-4">
+                                        <span class="text-muted">{% trans "product name" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-2 text-md-right">
+                                        <span class="text-muted">{% trans "quantity" %}</span>
+                                    </div>
+                                    <div class="col-3 col-md-3 text-right">
+                                        <span class="text-muted">{% trans "unit price" %}</span>
+                                    </div>
+                                    <div class="d-none d-md-block col-md-3 text-right">
+                                        <span class="text-muted">{% trans "subtotal" %}</span>
+                                    </div>
+                                </li>
+                                {% for product in order.products.all %}
+                                    <li class="row mb-3">
+                                        <div class="col-5 col-md-4">
+                                            {{ product.name }} {{ product.subtitle }}
+                                        </div>
+                                        <div class="col-2 col-md-2 text-monospace text-right">
+                                            {{ product.quantity }}
+                                        </div>
+                                        <div class="col-5 col-md-3 text-monospace text-right">
+                                            {{ product.selling_price|currency:order.currency }}
+                                        </div>
+                                        <div class="d-none d-md-block col-md-3 text-monospace text-right">
+                                            {{ product.subtotal|currency:order.currency }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                <li class="row mb-2">
+                                    <div class="offset-3 col-4 offset-md-7 col-md-2 text-right">
+                                        {% trans "total price" %}
+                                    </div>
+                                    <div class="col-5 col-md-3 text-monospace text-right">
+                                        <strong>{{ order.total_selling_price|currency:order.currency }}</strong>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                    {% if order.payment_method == order.PAYMENT_METHOD_CHOICES.bank_transfer %}
+                        <div class="card rounded-2 mt-4">
+                            <div class="card-header text-center">
+                                <h4>{% trans "Bank Transfer" %}</h4>
+                            </div>
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    {% if order.suspicious %}
+                                        <div class="col">
+                                            <h6 class="mb-1 mb-md-3">
+                                                첫 주문 고액 구매 시 이체 계좌번호는 아래 질문에
+                                                모두 <strong class="text-danger">아니오</strong>일 때
+                                                <strong class="text-dark">{{ store.phone }}</strong> 전화로 문의해주시기 바랍니다.
+                                            </h6>
+                                            <ul class="alert alert-warning">
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    본인이 직접 게임 또는 쇼핑에 사용하기 위한 목적이 아닙니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    다른 사람으로부터 상품권 구매로 일부 또는 전체 금액을 입금 받기로 했습니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    상품권 일부 또는 전체를 대리구매하여 카카오톡 등 메신저로 다른 사람에게 주기로 했습니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    네이트온/카카오톡 등 메신저에서 지인이 급한 돈이 필요하다고 상품권을 요구했습니까?
+                                                </li>
+                                                <li class="ml-3">
+                                                    중고나라 또는 번개장터에서 물품대금을 현금 대신 상품권으로 요구 받았습니까?
+                                                </li>
+                                            </ul>
+                                            <p>
+                                                반드시 메뉴의
+                                                <a class="btn btn-outline-info btn-sm mr-1"
+                                                   href="{% url 'account_profile' %}">{% trans "My Page" %}</a>에서
+                                                <strong>휴대폰본인인증</strong>과 <strong>서류본인인증</strong> 모두 완료해야 상품권 발송 처리됩니다.
+                                            </p>
+                                        </div>
+                                    {% else %}
+                                        <div class="col">
+                                            <h6 class="mb-2 mb-md-3">
+                                                다음 질문 중 하나라도 해당하는 경우 입금하지 말고 즉시 경찰서에 신고하시기 바랍니다.
+                                            </h6>
+                                            <ul class="alert alert-warning">
+                                                <li class="ml-3 mb-1 mb-md-2 font-weight-bold">
+                                                    다른 사람으로부터 상품권 구매로 일부 또는 전체 금액을 입금 받기로 했습니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    상품권 일부 또는 전체를 대리구매하여 카카오톡 등 메신저로 다른 사람에게 주기로 했습니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    네이트온/카카오톡 등 메신저에서 지인이 급한 돈이 필요하다고 상품권을 요구했습니까?
+                                                </li>
+                                                <li class="ml-3 mb-1 mb-md-2">
+                                                    중고나라 또는 번개장터에서 물품대금을 현금 대신 상품권으로 요구 받았습니까?
+                                                </li>
+                                                <li class="ml-3">
+                                                    본인이 직접 게임 또는 쇼핑에 사용하기 위한 목적이 아닙니까?
+                                                </li>
+                                            </ul>
+                                            <div class="alert alert-danger">
+                                                <p class="mb-2"><strong>1시간</strong> 이내에 아래 은행 계좌번호로 입금해주시기 바랍니다.</p>
+                                                <p class="mb-0">입금하지 않은 주문은 1시간 경과 후 자동 삭제됩니다.</p>
+                                            </div>
+                                            <h6 class="pl-1">예금주: 주식회사 핀코인</h6>
+                                            <ul class="pl-4 detail-notice">
+                                                {{ store.bank_account|safe }}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.escrow %}
+                        <div class="card rounded-2 mt-4">
+                            <div class="card-header text-center">
+                                <h4>{% trans "Escrow (KB)" %}</h4>
+                            </div>
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6>예금주: 주식회사 핀코인</h6>
+                                        <ul class="pl-4 detail-notice">
+                                            {{ store.escrow_account|safe }}
+                                        </ul>
+                                        <a class="btn btn-block btn-lg kb-escrow-button mb-4" target="_blank"
+                                           href="http://escrow1.kbstar.com/quics?page=B009111&cc=b010807%3Ab008491&mHValue=3fe2e060295de57522bb0393f87521cf201903122224238">
+                                            <img class="sns-kb-button" src="{% static 'images/shop/sns/kb.png' %}"
+                                                 alt="KB에스크로" title="KB에스크로">
+                                            {% trans "Pay Escrow" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.paypal %}
+                        <div class="card rounded-2 mt-4">
+                            <div class="card-header text-center">
+                                <h4>{% trans "PayPal" %}</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <form action="{{ paypal.form_action }}" method="post">
+                                            <!-- Seller -->
+                                            <input name="business" value="{{ paypal.business }}" type="hidden">
+                                            <input name="cmd" value="_cart" type="hidden">
+                                            <input name="upload" value="1" type="hidden">
+                                            <input name="currency_code" value="{{ paypal.currency_code }}"
+                                                   type="hidden">
+                                            <input name="charset" value="utf-8" type="hidden">
+
+                                            <!-- Callback URLs -->
+                                            <input name="return" value="{{ paypal_return }}" type="hidden">
+                                            <input name="notify_url" value="{{ paypal_notify_url }}" type="hidden">
+                                            <input name="cancel_return" value="{{ paypal_cancel_return }}"
+                                                   type="hidden">
+
+                                            {% for product in order.products.all %}
+                                                <input name="item_name_{{ forloop.counter }}"
+                                                       value="{{ product.name }} {{ product.subtitle }}"
+                                                       type="hidden">
+                                                <input name="item_number_{{ forloop.counter }}"
+                                                       value="{{ product.name }} {{ product.subtitle }}"
+                                                       type="hidden">
+                                                <input name="amount_{{ forloop.counter }}"
+                                                       value="{{ product.selling_price|currency:order.currency|slice:'1:' }}"
+                                                       type="hidden">
+                                                <input name="quantity_{{ forloop.counter }}"
+                                                       value="{{ product.quantity }}"
+                                                       type="hidden">
+                                                <input name="weight_{{ forloop.counter }}"
+                                                       value="0"
+                                                       type="hidden">
+                                            {% endfor %}
+
+                                            <!-- Order no # -->
+                                            <input name="custom" value="{{ order.order_no }}" type="hidden">
+
+                                            <div class="alert alert-info">
+                                                <p class="mb-0">
+                                                    {% trans "It may take a few minutes for us to get notified by PayPal." %}
+                                                    {% trans "You don't have to pay again if you received payment email from PayPal." %}
+                                                </p>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-block btn-lg btn-primary">
+                                                <i class="fab fa-paypal"></i>
+                                                {% trans "Pay Now" %}
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if show_confirm_order_button %}
+                    <div class="card rounded-2 mt-4">
+                        <h4 class="card-header text-center">{% trans "Attention" %}</h4>
+                        <div class="card-body pb-0">
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="pl-2 detail-notice">
+                                        <li>
+                                            <strong class="text-danger">{% trans "under review" %}</strong>
+                                            <p class="mt-2">
+                                                고객님의 주문과 입금을 확인했지만
+                                                고객님께서 본인인증절차를 아직 완료하지 않은 경우입니다.
+                                            </p>
+                                            <p>
+                                                메뉴의
+                                                <a class="btn btn-outline-info btn-sm mr-1"
+                                                   href="{% url 'account_profile' %}">{% trans "My Page" %}</a>에서
+                                                고객님의 본인인증 절차를 완료하시면 상품권을 발송합니다.
+                                            </p>
+                                            {% if show_refund_order_button %}
+                                                <p>
+                                                    추가 본인인증을 하지 않고 환불을 원하시면 아래의
+                                                    <a class="btn btn-sm btn-outline-danger"
+                                                       href="{% url 'shop:refund-create' store.code order.order_no %}">
+                                                        <i class="fas fa-calculator"></i>
+                                                        {% trans "Refund Payment" %}
+                                                    </a> 버튼을 눌러주세요.
+                                                </p>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            <strong class="text-success">{% trans "payment pending" %}</strong>
+                                            <p class="mt-2">
+                                                고객님께서 주문을 완료하고 고객님께서 아직 입금을 하지 않으신 경우 또는
+                                                고객님께서 주문과 함께 입금을 하셨지만 고객님이 입금자 이름이 일치하지 않는 경우입니다.
+                                            </p>
+                                            {% if show_delete_order_button %}
+                                                <p>
+                                                    상품권 권종 및 수량을 잘못 선택하여 주문하신 경우 아래의
+                                                    <a class="btn btn-sm btn-outline-danger"
+                                                       href="{% url 'shop:order-delete' store.code order.order_no %}">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        {% trans "Delete Order" %}
+                                                    </a>
+                                                    버튼을 눌러서 주문취소 후 새로 주문하시기 바랍니다.
+                                                </p>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            <strong class="text-success">{% trans "payment completed" %}</strong>
+                                            <p class="mt-2">
+                                                고객님의 입금을 확인한 경우이며 이미 본인인증 절차를 모두 완료하신 경우에는
+                                                5분 안에 상품권을 이 페이지를 새로고침해서 확인할 수 있습니다.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <strong class="text-success">{% trans "payment verified" %}</strong>
+                                            <p class="mt-2">
+                                                고객님의 입금을 확인하고 본인인증절차를 완료하신 경우이며
+                                                5분 안에 상품권을 이 페이지를 새로고침해서 확인할 수 있습니다.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if show_voucher_list and order.products.first.codes.count %}
+                    <div class="card rounded-2 mt-4">
+                        <div class="card-header text-center">
+                            <h5>{% trans "Voucher Code List" %}</h5>
+                        </div>
+                        <div class="card-body py-0">
+                            <div class="row">
+                                <ul class="col list-unstyled mb-0">
+                                    <li class="row p-2 d-none d-md-flex">
+                                        <div class="col-12 col-md-3">
+                                            <span class="text-muted">{% trans "Voucher" %}</span>
+                                        </div>
+                                        <div class="col-12 col-md-5">
+                                            <span class="text-muted">{% trans "Voucher Code" %}</span>
+                                        </div>
+                                    </li>
+                                    {% for product in order.products.all %}
+                                        {% for voucher in product.codes.all %}
+                                            {% if forloop.counter <= product.quantity %}
+                                                <li class="row py-3 px-2
+                                                    {% if forloop.counter != 1 or forloop.parentloop.counter != 1 %}
+                                                        border-top
+                                                    {% endif %}">
+                                                    <div class="col-12 col-md-3">
+                                                        <small>
+                                                            [{{ forloop.parentloop.counter }}-{{ forloop.counter }}]
+                                                        </small>
+                                                        {{ product.name }}
+                                                        {{ product.subtitle }}
+                                                    </div>
+                                                    <div class="col-12 col-md-5">
+                                                        <span class="text-monospace">
+                                                            {% if voucher.revoked %}
+                                                                <span class="text-muted">
+                                                                    {% trans "Revoked" %}
+                                                                </span>
+                                                            {% else %}
+                                                                {{ voucher.code }}
+                                                                {{ voucher.remarks }}
+                                                            {% endif %}
+                                                        </span>
+                                                    </div>
+
+                                                    {% if '구글' in product.name and not voucher.revoked %}
+                                                        <div class="col-12 col-md-4">
+                                                            <a href="https://play.google.com/store?code={{ voucher.code|cut:" "|cut:"-" }}">
+                                                                {% trans "Charge" %}
+                                                            </a>
+                                                        </div>
+                                                    {% endif %}
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <hr>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <a class="btn btn-block btn-lg btn-outline-dark"
+                           href="{% url 'shop:order-list' store.code %}?page={{ request.GET.page }}">
+                            <i class="fas fa-list"></i>
+                            {% trans "Order List" %}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% if show_confirm_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-info"
+                               href="{% url 'help:question-create-order' store.code order.order_no %}">
+                                <i class="fas fa-check"></i><br>
+                                {% trans "Confirm Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_hide_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <form action="{% url 'shop:order-again' store.code order.order_no %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-block btn-lg btn-outline-info" type="submit">
+                                    <i class="fas fa-file-upload"></i><br>
+                                    {% trans "Order Again" %}
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    {% if show_refund_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'shop:refund-create' store.code order.order_no %}">
+                                <i class="fas fa-calculator"></i><br>
+                                {% trans "Refund Payment" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_delete_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'shop:order-delete' store.code order.order_no %}">
+                                <i class="fas fa-trash-alt"></i><br>
+                                {% trans "Delete Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% if show_hide_order_button %}
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-success"
+                               href="{% url 'shop:order-receipt' store.code order.order_no %}">
+                                <i class="fas fa-receipt"></i><br>
+                                {% trans "Transaction Detail Report" %}
+                            </a>
+                        </div>
+
+                        <div class="col-6 col-md-2 mb-3">
+                            <a class="btn btn-block btn-lg btn-outline-danger"
+                               href="{% url 'shop:order-hide' store.code order.order_no %}">
+                                <i class="fas fa-trash-alt"></i><br>
+                                {% trans "Hide Order" %}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if show_refund_order_button %}
+                    <div class="card rounded-2">
+                        <div class="card-body pb-0">
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="pl-2 detail-notice">
+                                        <li>
+                                            <strong class="text-secondary">환불 수수료</strong>
+                                            <p>
+                                                <span class="text-danger">환불 수수료 500원 차감</span>한 금액이 환불 입금처리됩니다.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <strong class="text-secondary">환불 가능 기간</strong>
+                                            <p class="mt-2">
+                                                고객님께서 상품권을 받으신 경우
+                                                해당 상품권을 사용하지 않은 경우에 한하여
+                                                <span class="text-danger">3일 이내</span>에만 교환 또는 환불 요청 가능합니다.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <strong class="text-secondary">환불 처리 기간</strong>
+                                            <p>
+                                                상품권을 받기 전이라도 고객님의 교환 또는 환불 요청이 있은 날로부터
+                                                <span class="text-danger">은행 영업일 기준으로 3~4일 이내</span>에 처리됩니다.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

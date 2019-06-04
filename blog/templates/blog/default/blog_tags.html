@@ -1,0 +1,19 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        <div class="card my-4">
+            <div class="card-body">
+                {% for tag in tags %}
+                    <a class="btn btn-info" href="{% url 'blog:post-tag' blog.slug tag.slug %}" role="button">{{ tag.name }}</a>
+                {% empty %}
+                    {% trans "No Tags Yet." %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

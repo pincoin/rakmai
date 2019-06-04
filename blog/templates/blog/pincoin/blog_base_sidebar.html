@@ -1,0 +1,131 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load disqus_tags %}
+{% load blog_tags %}
+{% load shop_tags %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/blog/adsense.css" %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            {% block entry %}entry{% endblock %}
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- AdSense Widget -->
+                <div class="card my-1 my-md-2">
+                    <div class="card-body px-0 py-1 mx-auto">
+                        <!-- 반응형1 -->
+                        <ins class="adsbygoogle adslot_blog_sidebar"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334863722125804"
+                             data-ad-slot="6025802824"
+                             data-ad-format="auto"
+                             data-full-width-responsive="false"></ins>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card my-1 my-md-2">
+                    <h5 class="card-header py-1 py-md-2">{% trans "Categories" %}</h5>
+                    <div class="card-body py-1 py-md-2">
+                        <ul class="mb-0 pl-3">
+                            {% get_blog_category_roots blog.slug as cached_roots %}
+                            {% navbar_blog_categories cached_roots %}
+                                <li class="mb-1">
+                                    <a href="{% url 'blog:post-category' blog.slug category.slug %}">{{ category.title }}</a>
+                                </li>
+                                {% if not category.is_leaf_node %}
+                                    <ul class="pl-2">
+                                        {{ children }}
+                                    </ul>
+                                {% endif %}
+                            {% end_navbar_blog_categories %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Product List Widget -->
+                <div class="card my-1 my-md-2">
+                    <h5 class="card-header py-1 py-md-2">{% trans "Pincoin Products" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% get_category_leaf 'default' as categories %}
+                        {% for category in categories|slice:":10" %}
+                            <li class="list-group-item py-1 py-md-2">
+                                <a href="{% url 'shop:product-category' 'default' category.slug %}">
+                                    {{ category.title }}
+                                    <strong class="text-danger">
+                                        {{ category.discount_rate }}%
+                                        <i class="fas fa-arrow-down"></i>
+                                    </strong>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="card my-1 my-md-2">
+                    <h5 class="card-header py-1 py-md-2">{% trans "Popular Tags" %}</h5>
+                    <div class="card-body py-1 py-md-2">
+                        {% get_most_common_tags blog.slug 1 10 as tags %}
+                        {% for tag in tags %}
+                            <a class="btn btn-sm btn-info my-1"
+                               href="{% url 'blog:post-tag' blog.slug tag.slug %}">#{{ tag.name }}</a>
+                        {% empty %}
+                            {% trans "No Tags Yet." %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Recent Posts Widget -->
+                <div class="card my-1 my-md-2">
+                    <h5 class="card-header py-1 py-md-2">{% trans "Recent Posts" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% get_recent_posts blog.slug 5 as posts %}
+                        {% for post in posts %}
+                            <li class="list-group-item py-1 py-md-2">
+                                <a href="{{ post.get_absolute_url }}">{{ post.title|truncatechars:25 }}</a>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No Posts Yet." %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Recent Comments Widget -->
+                <div class="card my-1 my-md-2">
+                    <h5 class="card-header py-1 py-md-2">{% trans "Recent Comments" %}</h5>
+                    <div class="card-body py-0">
+                        {% disqus_recent_comments shortname 10 50 1 %}
+                    </div>
+                </div>
+
+                <!-- AdSense Widget -->
+                <div class="card my-1 my-md-2">
+                    <div class="card-body px-0 py-1 mx-auto">
+                        <!-- 반응형1 -->
+                        <ins class="adsbygoogle adslot_blog_sidebar"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334863722125804"
+                             data-ad-slot="6025802824"
+                             data-ad-format="auto"
+                             data-full-width-responsive="false"></ins>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

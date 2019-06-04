@@ -1,0 +1,56 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-3">
+        <div class="col">
+            <form action="{% url 'rabop:best-sellers-report' store.code %}" method="get" class="input-group">
+                <div class="input-group-prepend">
+                    <a href="{% url 'rabop:best-sellers-report' store.code %}" class="btn btn-outline-dark">
+                        {% trans "all" %}
+                    </a>
+                </div>
+                {{ order_by_filter_form.order_by }}
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-2">
+            {% trans "No." %}
+        </div>
+        <div class="col-md-3">
+            {% trans "Voucher" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "Order Total" %}
+        </div>
+    </div>
+    {% for product in products %}
+        <div class="row py-1 border-top mb-1">
+            <div class="col-1 col-sm-1 col-md-2">
+                {{ forloop.counter }}
+            </div>
+            <div class="col-5 col-sm-5 col-md-3">
+                {{ product.name }}
+            </div>
+            <div class="col-6 col-sm-6 col-md-2">
+                {{ product.order_total|currency:'KRW' }}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No Sales Report Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

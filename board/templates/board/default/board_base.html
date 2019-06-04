@@ -1,0 +1,51 @@
+{% extends "rakmai/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load board_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/board/main.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./_breadcrumbs.html" %}
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            {% block entry %}entry{% endblock %}
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Side Widget" %}</h5>
+                    <div class="card-body">
+                        You can put anything you want inside of these side widgets. They are easy to use, and feature
+                        the new Bootstrap 4 card containers!
+                    </div>
+                </div>
+
+                <!-- Recent Posts Well -->
+                <div class="card my-4">
+                    <h5 class="card-header">{% trans "Recent Posts" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% get_recent_messages 5 as messages %}
+                        {% for message in messages %}
+                            <li class="list-group-item">
+                                <a href="{% url 'board:message-detail' message.board.slug message.pk %}">{{ message.title|truncatechars:25 }}</a>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No Messages Yet." %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

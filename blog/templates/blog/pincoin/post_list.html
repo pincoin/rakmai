@@ -1,0 +1,73 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load disqus_tags %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        {% for post in posts %}
+            {% if forloop.counter == 2 or forloop.counter == 5 %}
+                <div class="card my-1 my-md-2">
+                    <div class="card-body px-0 py-1 mx-auto">
+                        <!-- 반응형1 -->
+                        <ins class="adsbygoogle adslot_blog_entry_block"
+                             style="display:block"
+                             data-ad-client="ca-pub-6334863722125804"
+                             data-ad-slot="6025802824"
+                             data-ad-format="auto"
+                             data-full-width-responsive="false"></ins>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="card my-1 my-md-2">
+                <div class="card-header">
+                    {% if post.category.title %}
+                        <i class="far fa-folder-open"></i>
+                        <a href="{% url 'blog:post-category' post.blog.slug post.category.slug %}">{{ post.category.title }}</a>
+                        |
+                    {% endif %}
+                    <i class="far fa-calendar-alt"></i> {{ post.published|date:"Y-m-d H:m" }}
+                    {% if blog.allow_comments and post.allow_comments %}
+                        | <i class="fas fa-comments"></i>
+                        <a href="{{ post.get_absolute_url }}#disqus_thread">{% disqus_num_replies %} {% trans "comments" %}</a>
+                    {% endif %}
+                    | <i class="far fa-eye"></i> {{ post.view_count }} {% trans "views" %}
+                </div>
+
+                <div class="card-body">
+                    <h4 class="card-title post-heading-title">
+                        <a href="{{ post.get_absolute_url }}?page={{ page_obj.number }}">{{ post.title }}</a>
+                    </h4>
+                    <p class="card-text">{{ post.excerpt|strip_html|linebreaks }}</p>
+                    <a href="{{ post.get_absolute_url }}?page={{ page_obj.number }}"
+                       class="btn btn-sm btn-primary">
+                        {% trans "Read More" %}
+                        <i class="fas fa-chevron-right fa-fw"></i>
+                    </a>
+                </div>
+
+                <div class="card-footer">
+                    <i class="fas fa-tags fa-fw mr-2 mb-2"></i>
+                    {% for tag in post.tags.all %}
+                        <a class="btn btn-sm btn-sm btn-info p-1 mb-2"
+                           href="{% url 'blog:post-tag' blog.slug tag.slug %}"
+                           role="button">
+                            #{{ tag.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <div class="card my-4">
+                <div class="card-body">
+                    {% trans "No Posts Yet." %}
+                </div>
+            </div>
+        {% endfor %}
+
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+    </div>
+{% endblock %}

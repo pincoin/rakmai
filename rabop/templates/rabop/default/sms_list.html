@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-2">
+            {% trans "from phone number" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "to phone number" %}
+        </div>
+        <div class="col-md-6">
+            {% trans "content" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "created" %}
+        </div>
+    </div>
+    {% for message in messages %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-2 order-1 order-md-1">
+                {{ message.phone_from }}
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 order-2 order-md-2">
+                {{ message.phone_to }}
+            </div>
+            <div class="col-8 col-sm-8 col-md-6 order-4 order-md-3">
+                {{ message.content|truncatechars:45 }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2 order-3 order-md-4">
+                {{ message.created|date:"Y-m-d H:m" }}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No SMS Message Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+    {% include './_pagination.html' with page_obj=page_obj page_range=page_range q=request.GET.q %}
+    <a href="{% url 'rabop:sms-send' store.code %}?page={{ request.GET.page }}"
+       class="btn btn-outline-primary btn-block btn-lg mb-4">
+        <i class="fas fa-sms fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Send short message" %}
+    </a>
+{% endblock %}

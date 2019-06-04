@@ -1,0 +1,64 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        {% for post in posts %}
+            <div class="card my-1 my-md-2">
+                <div class="card-header">
+                    {% if post.category.title %}
+                        <i class="far fa-folder-open"></i>
+                        <a href="{% url 'blog:post-category' post.blog.slug post.category.slug %}">{{ post.category.title }}</a>
+                        |
+                    {% endif %}
+                    <i class="far fa-calendar-alt"></i> {{ post.published|date:"Y-m-d H:m" }}
+                    | <i class="far fa-eye"></i> {{ post.view_count }} {% trans "views" %}
+                    <span class="btn-sm btn-warning">{{ post.get_status_display }}</span>
+                </div>
+
+                <div class="card-body">
+                    <h4 class="card-title post-heading-title">
+                        <a href="{% url 'blog:post-my-detail' post.blog.slug post.id post.slug %}?page={{ page_obj.number }}">
+                            {{ post.title }}
+                        </a>
+                    </h4>
+                    <p class="card-text">{{ post.excerpt|strip_html|linebreaks }}</p>
+                    <a href="{% url 'blog:post-my-detail' post.blog.slug post.id post.slug %}?page={{ page_obj.number }}"
+                       class="btn btn-sm btn-primary">
+                        {% trans "Read More" %}
+                        <i class="fas fa-chevron-right fa-fw"></i>
+                    </a>
+                </div>
+
+                <div class="card-footer">
+                    <i class="fas fa-tags fa-fw mr-2 mb-2"></i>
+                    {% for tag in post.tags.all %}
+                        <a class="btn btn-sm btn-info p-1 mb-2"
+                           href="{% url 'blog:post-tag' blog.slug tag.slug %}"
+                           role="button">
+                            #{{ tag.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <div class="card my-4">
+                <div class="card-body">
+                    {% trans "No Posts Yet." %}
+                </div>
+            </div>
+        {% endfor %}
+
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+
+        <hr>
+        <a href="{% url 'blog:post-create' blog.slug %}"
+           class="btn btn-primary btn-block btn-lg mb-4">
+            <i class="fas fa-pen-square" aria-hidden="true"></i>&nbsp;{% trans "Write a new post" %}
+        </a>
+    </div>
+{% endblock %}

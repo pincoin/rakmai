@@ -1,0 +1,80 @@
+{% extends "./board_base.html" %}
+
+{% load i18n %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered my-4">
+                    <colgroup>
+                        <col class="text-center col-xs-1"/>
+                        <col class="text-center col-xs-7"/>
+                        <col class="text-center col-xs-2"/>
+                        <col class="text-center col-xs-1"/>
+                        <col class="text-center col-xs-1"/>
+                    </colgroup>
+                    <thead class="thead-light">
+                    <tr>
+                        <th>{% trans "No." %}</th>
+                        <th>{% trans "Title" %}</th>
+                        <th>{% trans "Author" %}</th>
+                        <th>{% trans "Views" %}</th>
+                        <th>{% trans "At" %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for message in messages %}
+                        <tr>
+                            <th scope="row">{{ message.id }}</th>
+                            <td>
+                                <a href="{% url 'board:message-detail' board.slug message.id %}?page={{ page_obj.number }}">
+                                    {{ message.title|truncatechars:35 }}
+                                </a>
+                            </td>
+                            <td>{{ message.nickname }}</td>
+                            <td>{{ message.view_count }}</td>
+                            <td>
+                                {% if message.created|is_today %}
+                                    {{ message.created|date:"H:m" }}
+                                {% else %}
+                                    {{ message.created|date:"Y.m.d" }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">
+                                {% trans "No Messages Yet." %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row"><!-- Buttons -->
+            <div class="col">
+                <a href="{% url 'board:message-new' board.slug %}" class="btn btn-info float-right">
+                    <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;
+                    {% trans "Write" %}
+                </a>
+            </div>
+        </div>
+
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+
+        <div class="row">
+            <div class="col-md-9 offset-md-3">
+                <form method="get" class="form-inline">
+                    {{ message_search_form.where }}
+                    {{ message_search_form.q }}
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">{% trans "Search" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

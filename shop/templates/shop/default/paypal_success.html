@@ -1,0 +1,44 @@
+{% extends "shop/default/base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Payment Completed" %}</h4>
+                    <div class="card-body">
+                        <p>{% trans "It may take a few minutes for your order to get notified by PayPal." %}</p>
+                        <p>{% trans "Your payment will be completed only if you have" %}</p>
+                        <ul class="pl-3">
+                            <li>{% trans "a verified PayPal account" %}</li>
+                            <li>{% trans "an instant payment" %}</li>
+                            <li>{% trans "the same email address as PayPal account" %}</li>
+                        </ul>
+                        <p>{% trans "Otherwise, your payment will be refunded within 30 minutes during business hours." %}</p>
+                        <ul class="pl-3">
+                            <li>
+                                <a href="{% url 'shop:order-list' store.code %}">
+                                    {% trans "Order History" %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'help:question-list' store.code %}">
+                                    {% trans "Help" %}
+                                </a>
+                            </li>
+                        </ul>
+                        <p>{% trans "Thank you for shopping with us online!" %}</p>
+                        <hr>
+                        <a href="{% url 'shop:order-list' store.code %}"
+                           class="btn btn-lg btn-block btn-outline-dark">
+                            {% trans "Order List" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

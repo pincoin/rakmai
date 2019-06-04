@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load blog_tags %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            {% block entry %}entry{% endblock %}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

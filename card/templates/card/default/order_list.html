@@ -1,0 +1,206 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+{% load help_tags %}
+{% load member_tags %}
+
+{% block content %}
+    <div class="container pb-2">
+    {% if under_review %}
+        <div class="row mt-0 mt-md-3 justify-content-center">
+            <div class="col">
+                <div class="alert alert-warning py-2">
+                    <ul class="mb-0 pl-2">
+                        <li class="mb-2">
+                            <a class="btn btn-info btn-sm" href="{% url 'account_profile' %}">
+                                {% trans "My Page" %}에서 본인인증
+                                <i class="fas fa-fw fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <strong>휴대폰본인인증</strong>을 완료해야 상품권이 발송됩니다.
+                        </li>
+                        <li class="">
+                            <strong>서류본인인증</strong>을 반드시 완료해야 하는 경우는 다음과 같습니다.
+                            <ul class="pl-3">
+                                <li class="my-1">
+                                    문화상품권, 해피머니, 도서문화상품권을 포함하고 일일 액면가 기준 누계 20만원 이상 첫 구매하는 경우
+                                </li>
+                                <li class="my-1">
+                                    계좌이체로 일일 액면가 기준 누계 30만원 이상 첫 구매하는 경우
+                                </li>
+                                <li class="my-1">
+                                    주문자/입금자 이름과 휴대폰의 명의가 다른 경우
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-0 justify-content-center">
+    {% else %}
+        <div class="row mt-0 mt-md-3 justify-content-center">
+    {% endif %}
+<div class="col">
+    <div class="card rounded-2">
+        <h4 class="card-header text-center">
+            {% trans "Order History" %}
+            <small class="text-muted">[{% trans "Card Mall" %}]</small>
+        </h4>
+        <div class="card-body mb-0 pb-0 pt-0 pt-md-3">
+            <div class="row pb-2 text-muted d-none d-md-flex ">
+                <div class="col-md-3">
+                    {% trans "order no" %}
+                </div>
+                <div class="col-md-2">
+                    {% trans "order status" %}
+                </div>
+                <div class="col-md-3">
+                    {% trans "payment method" %}
+                </div>
+                <div class="col-md-2">
+                    {% trans "Order Date/Time" %}
+                </div>
+                <div class="col-md-2 text-md-right">
+                    {% trans "total price" %}
+                </div>
+            </div>
+            {% for order in orders %}
+                <div class="row py-1{% if not forloop.first %} border-top{% endif %}">
+                    <div class="col-12 col-sm-12 col-md-3 text-monospace pt-2 order-1 order-md-1">
+                        <a href="{% url 'card:order-detail' store.code order.order_no %}?page={{ page_obj.number }}">
+                            {{ order.order_no|truncatechars:18 }}
+                        </a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2 pt-1 order-3 order-md-2">
+                        <a href="{% url 'card:order-detail' store.code order.order_no %}?page={{ page_obj.number }}">
+                            {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                                <span class="btn btn-sm btn-outline-dark mb-1 mt-0">
+                            {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                                <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                            {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                                <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                            {% else %}
+                                <span class="btn btn-sm btn-outline-danger mb-1 mt-0">
+                            {% endif %}
+                            {{ order.get_status_display }}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-8 col-sm-8 col-md-3 pt-2 order-2 order-md-3">
+                        {{ order.get_payment_method_display }}
+                    </div>
+                    <div class="col-8 col-sm-8 col-md-2 pt-2 order-4 order-md-4">
+                        {{ order.created|date:"Y-m-d H:i" }}
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2 text-monospace text-md-right pt-2 order-5 order-md-5">
+                        {{ order.total_selling_price|currency:order.currency }}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="row my-3">
+                    <div class="col text-center">
+                        {% trans "No Orders Yet" %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="card-footer py-1 my-0">
+            <p class="mb-0">
+                계좌이체/무통장입금 구매내역은 대표몰
+                <a href="//www.{{ domains.domain }}{% url 'shop:order-list' store.code %}">
+                     <i class="far fa-paper-plane fa-fw" aria-hidden="true"></i>주문/발송</a>에서 확인 가능합니다.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+{% if page_obj %}
+    {% include './_pagination_order_list.html' with page_obj=page_obj page_range=page_range q=request.GET.q %}
+{% endif %}
+
+<div class="row mt-1 mt-3">
+    <div class="col-12 col-md-6">
+        <div class="card">
+            <h4 class="card-header text-center">
+                {% trans "Latest Login History" %}
+            </h4>
+            <p class="alert alert-warning py-1 mb-0">
+                수상한 접속이 있는 경우 즉시 비밀번호를 변경하시고 고객센터에 알려주세요.
+            </p>
+            <ul class="list-group list-group-flush">
+                {% get_login_logs request.user 5 as logs %}
+                {% for log in logs %}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                {% if log.country_code %}
+                                    <img src="/assets/images/shop/flag/{{ log.country_code }}.png"
+                                         alt="{{ log.ip_address }}">
+                                {% endif %}
+                                {{ log.ip_address }}
+                            </div>
+                            <div class="col-12 col-md-8">
+                                {{ log.created }}
+                            </div>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">
+                        {% trans "No login logs" %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 mt-2 mt-md-0">
+        <div class="card">
+            <h4 class="card-header text-center">
+                {% trans "Latest Customer Questions" %}
+            </h4>
+            <ul class="list-group list-group-flush">
+                {% get_customer_questions store.code 5 as questions %}
+                {% for question in questions %}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-12">
+                                {% if question.answers_count %}
+                                    <span class="btn btn-sm mr-2 btn-warning">{% trans "Answered" %}</span>
+                                {% else %}
+                                    <span class="btn btn-sm mr-2 btn-secondary">{% trans "Unanswered" %}</span>
+                                {% endif %}
+                                <span class="btn btn-sm btn-outline-secondary mr-2">
+                                            {{ question.get_category_display }}
+                                        </span>
+                                {% if question.order %}
+                                    <a href="{% url 'shop:order-detail' store.code question.order.order_no %}"
+                                       class="btn btn-sm mr-2 btn-outline-info">
+                                        {% trans "Order #" %}
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-12 pt-1  text-muted"
+                                 data-toggle="tooltip" data-placement="top" title="{{ question.created }}">
+                                {{ question.created|date:'Y.m.d' }}
+                            </div>
+                            <div class="col-12">
+                                <a href="{% url 'help:question-detail' store.code question.id %}?page={{ page_obj.number }}">
+                                    {{ question.title }}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">
+                        {% trans "No question" %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

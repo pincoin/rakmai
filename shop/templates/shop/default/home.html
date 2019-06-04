@@ -1,0 +1,344 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load shop_tags %}
+{% load shop_filters %}
+{% load help_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/rakmai/csrf-cookie.js" %}"></script>
+    <script src="{% static "js/shop/cart.js" %}"></script>
+    <script src="//partner.talk.naver.com/banners/script"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+        Kakao.init('5baf9689e5b9c6ca3bed558546c13931');
+        Kakao.PlusFriend.createAddFriendButton({
+            container: '#plusfriend-addfriend-button',
+            plusFriendId: '_gPEET'
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="carouselIndicators" class="carousel slide d-none d-md-block" data-ride="carousel" data-interval="4000">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item carousel-image-07 active">
+                <div class="carousel-caption carousel-caption-custom rounded">
+                    <h2 class="carousel-text-custom">구글기프트카드 최저가</h2>
+                </div>
+            </div>
+            <div class="carousel-item carousel-image-01">
+                <div class="carousel-caption carousel-caption-custom rounded">
+                    <h2 class="carousel-text-custom">구글기프트카드 7% 할인</h2>
+                </div>
+            </div>
+            <div class="carousel-item carousel-image-02">
+                <div class="carousel-caption carousel-caption-custom rounded">
+                    <h2 class="carousel-text-custom">넥슨카드 최저가 핀코인</h2>
+                </div>
+            </div>
+            <div class="carousel-item carousel-image-05">
+                <div class="carousel-caption carousel-caption-custom rounded">
+                    <h2 class="carousel-text-custom">틴캐시 최저가 핀코인</h2>
+                </div>
+            </div>
+            <div class="carousel-item carousel-image-06">
+                <div class="carousel-caption carousel-caption-custom rounded">
+                    <h2 class="carousel-text-custom">에그머니 최저가 핀코인</h2>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">{% trans "Previous" %}</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">{% trans "Next" %}</span>
+        </a>
+    </div>
+    <!-- Page Content -->
+    <div class="container pb-1">
+        <!-- Product List -->
+        <h4 class="mt-0 mt-md-3 mb-2 home-heading">{% trans "All Products" %}</h4>
+        <div class="row text-center mb-1 mb-md-2">
+            <div class="col px-4 px-md-3">
+                <div class="row">
+                    {% get_category_leaf store.code as categories %}
+                    {% for category in categories %}
+                        <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
+                            <div class="card h-100 border-0">
+                                <a href="{% url 'shop:product-category' store.code category.slug %}">
+                                    <img class="product-image-thumbnail w-100"
+                                         src="{{ category.thumbnail.url }}"
+                                         alt="{{ category.title }}">
+                                </a>
+                                <div class="card-body p-1">
+                                    <span class="card-title">
+                                        <a href="{% url 'shop:product-category' store.code category.slug %}"
+                                           class="product-link">
+                                            {{ category.title }}
+                                        </a>
+                                    </span>
+                                    <p class="card-text">
+                                        {% trans "Up to" %}
+                                        <strong class="text-danger">
+                                            {{ category.discount_rate }}%
+                                            <i class="fas fa-arrow-down"></i>
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="col-lg-8 col-md-4 col-12 mt-2 mt-md-0 px-1 px-md-3">
+                        <div class="card border-0">
+                            <div class="card-body pt-1 pl-0 mx-auto">
+                                <!-- 반응형1 -->
+                                <ins class="adsbygoogle adslot_wide"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-6334863722125804"
+                                     data-ad-slot="6025802824"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="false"></ins>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warnings -->
+        <div class="row mb-1 mb-md-3">
+            <div class="col-12 col-md-8">
+                <h4 class="mb-2 my-md-2 home-heading">
+                    <i class="fas fa-shield-alt fa-fw"></i>
+                    상품권 금융사기 예방 수칙
+                </h4>
+                <ul class="mb-0 pl-4">
+                    <li class="my-2 mt-md-3 mb-md-4">
+                        다른 사람으로부터 상품권 구매로 일부 또는 전체 금액을 입금 받기로 했습니까?
+                    </li>
+                    <li class="my-2 my-md-4">
+                        상품권 일부 또는 전체를
+                        <a href="{% url 'blog:post-detail' 'www' '18' '문화상품권-대리구매-알바-무조건-사기' %}"
+                           class="font-weight-bold text-danger">대리구매</a>
+                        하여 카카오톡 등 메신저로 다른 사람에게 주기로 했습니까?
+                    </li>
+                    <li class="my-2 my-md-4">
+                        네이트온/카카오톡 등 메신저에서 지인이 급한 돈이 필요하다고 상품권을 요구했습니까?
+                    </li>
+                    <li class="my-2 my-md-4">
+                        중고나라 또는 번개장터에서 물품대금을 현금 대신 상품권으로 요구 받았습니까?
+                    </li>
+                </ul>
+                <div class="px-2 text-danger font-weight-bold">
+                    위 질문 중 하나라도 해당하면 사기꾼과 메신저 또는 전화 연락을 끊고 바로 경찰서에 연락하시기 바랍니다.
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <h4 class="mt-3 mb-2 my-md-2 home-heading">
+                    <i class="fas fa-coins fa-fw"></i>
+                    핀코인 대표몰 / 핀코인 카드몰
+                </h4>
+                <p>
+                    <a class="btn btn-lg btn-block btn-info mt-3"
+                       href="//card.{{ domains.domain }}{% url 'card:home' store.code %}">
+                        <i class="far fa-credit-card fa-fw"></i>
+                        카드몰에서 상품권 구매하기
+                    </a>
+                </p>
+                <ul>
+                    <li class="my-2">대표몰: 계좌이체, 에스크로, 페이팔 결제</li>
+                    <li class="my-2">카드몰: 신용카드 결제</li>
+                    <ul class="pl-2">
+                        <li class="my-2">카드사별 월간 한도 100만원</li>
+                        <li class="my-2">개인카드, 일시불, 소득공제 제외</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+        <!-- News -->
+        <div class="row mb-1 mb-md-3">
+            <div class="col-md-6">
+                <h4 class="my-2">
+                    <a class="home-heading" href="{% url 'help:notice-list' store.code %}">
+                        {% trans "Notice" %}
+                    </a>
+                </h4>
+                <ul class="list-unstyled text-small mb-0">
+                    {% get_notice 'default' 'www' as notice_messages %}
+                    {% for message in notice_messages %}
+                        <li class="row my-2">
+                            <div class="col-12 col-md-9">
+                                {% if message.category == message.CATEGORY_CHOICES.common %}
+                                    <strong class="text-primary">
+                                {% elif message.category == message.CATEGORY_CHOICES.event %}
+                                    <strong class="text-info">
+                                {% elif message.category == message.CATEGORY_CHOICES.price %}
+                                    <strong class="text-danger">
+                                {% endif %}
+                                [{{ message.get_category_display }}]</strong>
+                                <a href="{% url 'help:notice-detail' store.code message.id %}?page={{ page_obj.number }}">
+                                    {{ message.title }}
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 text-muted">
+                                {{ message.created|date:'Y.m.d' }}
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">
+                            {% trans "No message" %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4 class="my-2">
+                    <a class="home-heading" href="{% url 'help:testimonials-list' store.code %}">
+                        {% trans "Testimonials" %}
+                    </a>
+                </h4>
+                <ul class="list-unstyled text-small mb-0">
+                    {% get_testimonials as testimonials %}
+                    {% for message in testimonials %}
+                        <li class="row my-2">
+                            <div class="col-12 col-md-9">
+                                <a href="{% url 'help:testimonials-detail' store.code message.id %}?page={{ page_obj.number }}">
+                                    {{ message.title|truncatechars:32 }}
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 text-muted">
+                                {{ message.created|date:'Y.m.d' }}
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">
+                            {% trans "No testimonial" %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Best sellers -->
+        <h4 class="mb-2 home-heading">{% trans "Best Sellers" %}</h4>
+        <div class="row text-center mb-1 mb-md-2">
+            <div class="col px-4 px-md-3">
+                <div class="row">
+                    {% get_product_list store.code 'best' as best_sellers %}
+                    {% for product in best_sellers %}
+                        <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
+                            <div class="card h-100">
+                                {% if product.category.thumbnail %}
+                                    <a href="
+
+
+
+                                            {% if product.stock == product.STOCK_CHOICES.in_stock %}{% url 'shop:product-detail' store.code product.id product.code %}{% else %}#{% endif %}">
+                                        <img class="product-image-thumbnail w-100"
+                                             src="{{ product.category.thumbnail.url }}"
+                                             alt="{{ product.name }}-{{ product.subtitle }}">
+                                    </a>
+                                {% else %}
+                                    <img class="product-image-thumbnail"
+                                         src="{% static 'images/shop/default/156x100.png' %}"
+                                         alt="{{ product.code }}">
+                                {% endif %}
+                                <div class="card-body p-2">
+                                    <span class="card-title">
+                                        {% if product.stock == product.STOCK_CHOICES.in_stock %}
+                                            <a href="{% url 'shop:product-detail' store.code product.id product.code %}"
+                                               class="d-block product-link">
+                                            {{ product.name }}
+                                        </a>
+                                        {% else %}
+                                            <span class="d-block">{{ product.name }}</span>
+                                        {% endif %}
+                                        {{ product.subtitle }}
+                                    </span>
+                                    <p class="card-text mt-1">
+                                        <strong class="d-block">
+                                            {{ product.selling_price|currency:currency_code }}
+                                        </strong>
+                                        {% if product.discount_rate > 0 %}
+                                            <span class="text-danger">
+                                        {{ product.discount_rate|floatformat:2 }}%
+                                        <i class="fas fa-arrow-down"></i>
+                                    </span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    {% if product.stock == product.STOCK_CHOICES.in_stock %}
+                                        <button class="btn btn-outline-primary add-one-to-cart-button"
+                                                data-item="{{ product.id }}">
+                                            <i class="fas fa-shopping-basket"></i>
+                                            {% trans "Add to Cart" %}
+                                        </button>
+                                    {% else %}
+                                        <button class="btn btn-outline-warning">
+                                            <i class="fas fa-inbox"></i>
+                                            {% trans "Sold out" %}
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card call-to-action mb-1 mb-md-2 text-center">
+            <div class="card-body">
+                <div class="row my-0">
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left text-md-right">
+                        고객센터: 매일 오전9시~새벽1시
+                    </div>
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left text-md-center font-weight-bold">
+                        365일/24시간 실시간 발송
+                    </div>
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left">
+                        매월1일 새벽2시 연장근무
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left text-md-right">
+                        <img class="contact-button rounded mr-2" src="{% static 'images/shop/sns/phone.png' %}">
+                        <strong>{{ store.phone }}</strong>
+                    </div>
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left text-md-center font-weight-bold">
+                        <div id="plusfriend-addfriend-button"></div>
+                    </div>
+                    <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left">
+                        <div class="talk_banner_div" data-id="66778"></div>
+                    </div>
+                </div>
+                <small>고객센터 메뉴에서 문의를 남겨주시면 바로 답변 또는 전화연락드립니다.</small>
+                {{ currency }}
+            </div>
+        </div>
+
+        <div class="alert alert-info alert-fixed cart-alert">
+            <span id="cart_alert_product" class="d-block"></span>
+            {% trans "You have items in cart." %}
+        </div>
+    </div>
+{% endblock %}

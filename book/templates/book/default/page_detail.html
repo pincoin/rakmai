@@ -1,0 +1,116 @@
+{% extends "./book_base_sidebar.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load disqus_tags %}
+{% load rakmai_filters %}
+{% load book_tags %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/blog/adsense.css" %}">
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/book/lightbox.js" %}"></script>
+{% endblock %}
+
+{% block entry %}
+    <div id="book-page-content" class="col-md-9 page">
+        {% get_ancestor_path page.id as breadcrumbs %}
+        {% include "./_breadcrumbs_row.html" with breadcrumbs=breadcrumbs %}
+        <div class="row mb-1 mb-md-3">
+            <div class="col col-xl-10">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_book_page_top"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="horizontal"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-10">
+                <h1 class="mt-1 page-heading-title">{{ page.title }}</h1>
+                <div class="page-content">
+                    {{ page.content|markdownify }}
+                </div>
+                <p class="text-right">{% trans "Last Modified" %}: {{ page.updated|date:"Y-m-d H:m" }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-10">
+                <hr class="my-1 my-md-3"/>
+                {% get_adjacent_pages book.id page.id as adjacent_pages %}
+                <ul class="list-unstyled">
+                    {% if adjacent_pages.previous_page %}
+                        <li class="my-2">{% trans "Previous Page" %}:
+                            <a href="{% url 'book:page-detail' book.id adjacent_pages.previous_page.id %}">
+                                {{ adjacent_pages.previous_page }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="my-2">{% trans "Previous Page" %}:
+                            <a href="{% url 'book:book-detail' book.id %}">
+                                {{ book.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if adjacent_pages.next_page %}
+                        <li class="my-2">{% trans "Next Page" %}:
+                            <a href="{% url 'book:page-detail' book.id adjacent_pages.next_page.id %}">
+                                {{ adjacent_pages.next_page }}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="row mb-1 mb-md-3">
+            <div class="col col-xl-10">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_book_page_bottom"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+        <div class="row mb-1 mb-md-4">
+            <div class="col col-xl-10">
+                <div id="disqus_thread">
+                    {% set_disqus_url page_absolute_url %}
+                    {% disqus_show_comments %}
+                </div>
+            </div>
+        </div>
+        <button id="topButton" title="Go to top" class="btn btn-secondary">
+            <i class="fas fa-arrow-up"></i> {% trans "Top" %}
+        </button>
+    </div>
+    <div class="modal fade" id="lightboxModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-full-width" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{% static 'images/shop/default/1x1.png' %}" class="mx-auto d-block" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        {% trans "Close" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

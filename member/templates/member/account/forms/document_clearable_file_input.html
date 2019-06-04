@@ -1,0 +1,13 @@
+{% load i18n %}
+{% if widget.is_initial %}
+    {% if not widget.required %}
+        <div class="form-check my-2">
+            <input type="checkbox" name="{{ widget.checkbox_name }}"
+                   id="{{ widget.checkbox_id }}" class="form-check-input"/>
+            <label for="{{ widget.checkbox_id }}" class="form-check-label text-danger">
+                {% trans "Remove uploaded image" %}
+            </label>
+        </div>
+    {% endif %}
+{% endif %}
+<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %} />

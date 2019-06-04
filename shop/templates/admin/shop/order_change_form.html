@@ -1,0 +1,22 @@
+{% extends 'admin/change_form.html' %}
+{% load i18n %}
+
+{% block submit_buttons_bottom %}
+    <div class="submit-row">
+        <input class="order-list-button" type="button" value="{% trans "Go Back" %}" name="_back">
+        <input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue"/>
+
+        {% if original.status == original.STATUS_CHOICES.under_review or original.status == original.STATUS_CHOICES.payment_completed %}
+            <input class="order-verification-button" type="submit" value="{% trans "Verify" %}" name="_verify"/>
+        {% endif %}
+
+        {% if original.status == original.STATUS_CHOICES.payment_verified %}
+            <input class="order-verification-button" type="submit" value="{% trans "Unverify" %}" name="_unverify"/>
+            <input class="order-send-button" type="submit" value="{% trans "Send" %}" name="_send-codes"/>
+        {% endif %}
+
+        {% if original.status == original.STATUS_CHOICES.refund_pending %}
+            <input class="order-refund-button" type="submit" value="{% trans "Refunded" %}" name="_send-refund"/>
+        {% endif %}
+    </div>
+{% endblock %}

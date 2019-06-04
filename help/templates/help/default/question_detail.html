@@ -1,0 +1,70 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load help_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        {% include './_tabs.html' with active='question' %}
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12 col-md-3 p-1 order-1 order-md-1">
+                                {% if question.answers_count %}
+                                    <span class="btn btn-sm mr-2 btn-warning">{% trans "Answered" %}</span>
+                                {% else %}
+                                    <span class="btn btn-sm mr-2 btn-secondary">{% trans "Unanswered" %}</span>
+                                {% endif %}
+                                <span class="btn btn-sm mr-2 btn-outline-secondary">
+                                    {{ question.get_category_display }}
+                                </span>
+                                {% if question.order %}
+                                    <a href="{% url 'shop:order-detail' store.code question.order.order_no %}"
+                                       class="btn btn-sm mr-2 btn-outline-info">
+                                        {% trans "Order #" %}
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-12 col-md-7 p-2 order-3 order-md-2">
+                                <strong>{{ question.title }}</strong>
+                            </div>
+                            <div class="col-12 col-md-2 p-2 text-md-right text-muted order-2 order-md-3"
+                                 data-toggle="tooltip" data-placement="top" title="{{ question.created }}">
+                                {{ question.created|date:'Y.m.d' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {{ question.content|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                {% for answer in question.answers.all %}
+                    <div class="card my-2">
+                        <div class="card-header d-flex flex-wrap">
+                            <div class="p-2">
+                                # {{ forloop.counter }}
+                            </div>
+                            <div class="ml-auto p-2 text-muted"
+                                 data-toggle="tooltip" data-placement="top" title="{{ answer.created }}">
+                                {{ answer.created|date:'Y.m.d' }}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            {{ answer.content|linebreaks }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <a href="{% url 'help:question-list' store.code %}?page={{ request.GET.page }}"
+           class="btn btn-outline-secondary btn-block btn-lg my-2">
+            <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+        </a>
+    </div>
+{% endblock %}

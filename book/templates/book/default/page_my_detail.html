@@ -1,0 +1,92 @@
+{% extends "./book_base_my_sidebar.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load rakmai_filters %}
+{% load book_tags %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/book/lightbox.js" %}"></script>
+{% endblock %}
+
+{% block entry %}
+    <div id="book-page-content" class="col-md-9 page">
+        {% get_ancestor_path page.id as breadcrumbs %}
+        {% include "./_breadcrumbs_my_row.html" with breadcrumbs=breadcrumbs %}
+        <div class="row mt-1">
+            <div class="col">
+                <a href="{% url 'book:page-edit' book.id page.id %}" class="btn btn-sm btn-info">
+                    <i class="fas fa-edit"></i> {% trans "Edit Page" %}
+                </a>
+                <a href="{% url 'book:page-delete' book.id page.id %}" class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash-alt"></i> {% trans "Delete Page" %}
+                </a>
+                <a href="{% url 'book:page-create' book.id %}" class="btn btn-sm btn-success">
+                    <i class="fas fa-pencil-alt"></i> {% trans "Write Page" %}
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-xl-10">
+                <h1 class="mt-4 page-heading-title">{{ page.title }}</h1>
+                <div class="page-content">
+                    {{ page.content|markdownify }}
+                </div>
+                <p class="text-right">{% trans "Last Modified" %}: {{ page.updated|date:"Y-m-d H:m" }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-10">
+                <hr class="my-1 my-md-3"/>
+                {% get_adjacent_pages book.id page.id as adjacent_pages %}
+                <ul class="list-unstyled">
+                    {% if adjacent_pages.previous_page %}
+                        <li class="my-2">{% trans "Previous Page" %}:
+                            <a href="{% url 'book:page-my-detail' book.id adjacent_pages.previous_page.id %}">
+                                {{ adjacent_pages.previous_page }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="my-2">{% trans "Previous Page" %}:
+                            <a href="{% url 'book:book-my-detail' book.id %}">
+                                {{ book.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if adjacent_pages.next_page %}
+                        <li class="my-2">{% trans "Next Page" %}:
+                            <a href="{% url 'book:page-my-detail' book.id adjacent_pages.next_page.id %}">
+                                {{ adjacent_pages.next_page }}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <button id="topButton" title="Go to top" class="btn btn-secondary">
+            <i class="fas fa-arrow-up"></i> {% trans "Top" %}
+        </button>
+    </div>
+    <div class="modal fade" id="lightboxModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-full-width" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{% static 'images/shop/default/1x1.png' %}" class="mx-auto d-block" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        {% trans "Close" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

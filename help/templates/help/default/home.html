@@ -1,0 +1,143 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container pb-1">
+        <ul class="nav nav-pills nav-justified my-2">
+            <li class="nav-item">
+                <a class="nav-link help-item" href="{% url 'help:faq-list' store.code %}">
+                    {% trans "FAQ" %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link help-item" href="{% url 'help:notice-list' store.code %}">
+                    {% trans "Notice" %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link help-item" href="{% url 'help:question-list' store.code %}">
+                    {% trans "Q&amp;A" %}
+                </a>
+            </li>
+        </ul>
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <h5 class="card-header">{% trans "Notice" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-primary mr-2">일반</a>
+                                <a href="#">
+                                    구글 기프트 카드 50만원/30만원/20만원 입고
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <a href="#" class="btn btn-light btn-block btn-lg">{% trans "Read Notice more" %}</a>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <h5 class="card-header">{% trans "FAQ" %}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <a href="#" class="btn btn-sm btn-warning mr-2">이벤트</a>
+                                <a href="#">
+                                    로스트사가 도서문화상품권 이벤트 (~12월 31일)
+                                </a>
+                            </div>
+                            <span>2018.01.01</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <a href="#" class="btn btn-light btn-block btn-lg">{% trans "Read FAQ more." %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

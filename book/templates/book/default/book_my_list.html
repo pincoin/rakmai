@@ -1,0 +1,48 @@
+{% extends "./book_base_full_width.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+
+{% block entry %}
+    <div class="col">
+        <div class="row">
+            {% for book in books %}
+                <div class="col-sm-6 mb-4">
+                    <div class="media">
+                        {% if book.thumbnail %}
+                            {% thumbnail book.thumbnail 120x168 crop="smart" as im %}
+                            <img class="mr-3 rounded" src="{{ im.url }}"
+                                 width="{{ im.width }}" height="{{ im.height }}"
+                                 alt="{{ book.title }}">
+                        {% else %}
+                            <img class="mr-3 rounded" src="{% static 'images/shop/default/120x168.png' %}" alt="{{ book.title }}">
+                        {% endif %}
+                        <div class="media-body">
+                            <h5 class="mb-2 page-heading-title">
+                                <strong>
+                                    <a href="{% url 'book:book-my-detail' book.id %}">{{ book.title }}</a>
+                                </strong>
+                            </h5>
+                            <ul class="list-unstyled">
+                                {% if book.category.title %}
+                                    <li class="my-2">- {{ book.category.title }}</li>
+                                {% endif %}
+                                <li class="my-2">- {{ book.updated|date:"Y-m-d H:m" }}</li>
+                                <li class="my-2">- {{ book.get_license_display }}</li>
+                                <li class="my-2">- {{ book.get_status_display }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <a href="{% url 'book:book-create' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-book"></i> {% trans "Write New Book" %}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+.CodeMirror {
+    height: 320px;
+}
+
+#id-content-file {
+    display: none;
+}
+
+#id-description-file {
+    display: none;
+}
+
+.page-thumbnail-image {
+    max-width: 166px;
+    max-height: 68px;
+}

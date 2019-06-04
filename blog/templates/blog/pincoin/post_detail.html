@@ -1,0 +1,175 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+{% load disqus_tags %}
+{% load rakmai_filters %}
+{% load blog_tags %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    {% if post.allow_highlight %}
+        <link rel="stylesheet" href="{% static 'css/prism/prism.css' %}">
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/rakmai/csrf-cookie.js" %}"></script>
+    <script src="{% static "js/blog/post-comment.js" %}"></script>
+    <script src="{% static "js/blog/lightbox.js" %}"></script>
+    {% if post.allow_highlight %}
+        <script src="{% static "js/prism/prism.js" %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block entry %}
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+        <h4 class="mt-1 mt-md-3 post-heading-title">{{ post.title }}</h4>
+        <hr/>
+        <p>
+            {% if post.category.title %}
+                <i class="fas fa-folder-open"></i>
+                <a href="{% url 'blog:post-category' blog.slug post.category.slug %}">{{ post.category.title }}</a> |
+            {% endif %}
+            <i class="far fa-calendar-alt"></i> {{ post.published|date:"Y-m-d H:m" }}
+            {% if blog.allow_comments and post.allow_comments %}
+                | <i class="fas fa-comments"></i>
+                <a href="{{ post.get_absolute_url }}#disqus_thread">{% disqus_num_replies %} {% trans "comments" %}</a>
+            {% endif %}
+            | <i class="far fa-eye"></i> {{ post.view_count }} {% trans "views" %}
+            {% if user.is_superuser %}
+                | <i class="fas fa-edit"></i>
+                <a href="{% url 'blog:post-edit' post.blog.slug post.id post.slug %}">{% trans "Edit" %}</a>
+                | <i class="fas fa-trash-alt"></i>
+                <a href="{% url 'blog:post-delete' post.blog.slug post.id post.slug %}">{% trans "Delete" %}</a>
+            {% endif %}
+        </p>
+        <hr/>
+        <div class="card my-1 my-md-2">
+            <div class="card-body px-0 py-1 mx-auto">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_blog_entry_block"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+
+        <div id="blog-page-content" class="page-content-text no-break-word">
+            {{ post.content|clean_html }}
+        </div>
+
+        <div class="modal fade" id="lightboxModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-full-width" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{% static 'images/shop/default/1x1.png' %}" class="mx-auto d-block" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            {% trans "Close" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+
+        <p>
+            <i class="fas fa-tags fa-fw mr-2 mb-2"></i>
+            {% for tag in post.tags.all %}
+                <a class="btn btn-sm btn-info p-1 mb-2"
+                   href="{% url 'blog:post-tag' blog.slug tag.slug %}"
+                   role="button">
+                    #{{ tag.name }}
+                </a>
+            {% endfor %}
+        </p>
+        <hr/>
+
+        <div id="carouselPincoin" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselPincoin" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselPincoin" data-slide-to="1"></li>
+                <li data-target="#carouselPincoin" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{% url 'shop:product-category' 'default' '구글기프트카드' %}">
+                        <img class="d-block w-100" src="{% static 'images/banner/google-1640x624.jpg' %}"
+                             alt="구글기프트카드 최저가 핀코인">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'shop:product-category' 'default' '넥슨카드' %}">
+                        <img class="d-block w-100" src="{% static 'images/banner/nexon-1640x624.jpg' %}"
+                             alt="넥슨카드 최저가 핀코인">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'shop:home' 'default' %}">
+                        <img class="d-block w-100" src="{% static 'images/banner/pincoin-1640x624.jpg' %}"
+                             alt="대한민국 1등 온라인 상품권 쇼핑몰 핀코인">
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Related posts -->
+        <h4 class="mt-2 mt-md-3">{% trans "Related Posts" %}</h4>
+        <div class="row">
+            {% get_similar_posts post blog.slug 3 as similar_posts %}
+            {% for similar_post in similar_posts %}
+                <div class="col-sm-4 my-1">
+                    <div class="card h-100">
+                        {% if similar_post.thumbnail %}
+                            {% thumbnail similar_post.thumbnail 222x145 crop="smart" as im %}
+                            <img class="card-img-top" src="{{ im.url }}" width="{{ im.width }}"
+                                 height="{{ im.height }}">
+                        {% else %}
+                            <img class="card-img-top"
+                                 src="{% static 'images/shop/default/222x145.png' %}"
+                                 alt="no thumbnail">
+                        {% endif %}
+                        <div class="card-body">
+                            <a class="card-text" href="{{ similar_post.get_absolute_url }}">{{ similar_post.title }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if blog.allow_comments and post.allow_comments %}
+            <div class="row mb-1 mb-md-4">
+                <div class="col">
+                    <div id="disqus_thread">
+                        {% set_disqus_url post_absolute_url %}
+                        {% disqus_show_comments %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-warning my-4">
+                {% trans "Comments are now allowed." %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

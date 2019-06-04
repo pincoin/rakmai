@@ -1,0 +1,269 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_tags %}
+{% load shop_filters %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/rakmai/csrf-cookie.js" %}"></script>
+    <script src="{% static "js/card/cart.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-0 mt-md-3 mb-0">
+                    <div class="card-header d-flex justify-content-between text-light cart-heading">
+                        <h5 class="mb-0">
+                            <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+                            {% trans "Cart / Checkout" %}
+                        </h5>
+                        <button id="cart-empty-button" class="btn btn-default btn-sm">
+                            {% trans "Empty Cart" %} <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <ul class="list-group list-group-flush" id="id-cart-list">
+                        {% get_card_cart as cart %}
+                        {% for item in cart.items %}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 pt-2">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-8 col-md-4">
+                                                <h6 class="mb-0">
+                                                    <a class="product-link"
+                                                       href="{% url "card:product-detail" store.code item.product.id item.product.code %}">
+                                                        {{ item.product.name }} {{ item.product.subtitle }}
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                            <div class="col-4 col-sm-4 col-md-3 py-0 text-right">
+                                                <small>{{ item.product.pg_selling_price|currency:currency_code }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="row">
+                                            <div class="col-12 input-group">
+                                                <span class="input-group-prepend">
+                                                    <button class="btn btn-outline-success add-to-cart-button"
+                                                            data-item="{{ item.product.id }}">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </span>
+                                                <input id="id-quantity-{{ item.product.id }}"
+                                                       class="form-control text-center input-item-quantity"
+                                                       type="text"
+                                                       value="{{ item.quantity }}"
+                                                       data-item="{{ item.product.id }}"/>
+                                                <span class="input-group-append">
+                                                    <button class="btn btn-outline-secondary remove-from-cart-button"
+                                                            data-item="{{ item.product.id }}">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <span class="input-group-append">
+                                                    <button class="btn btn-outline-danger delete-from-cart-button"
+                                                            data-item="{{ item.product.id }}">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="id-subtotal-{{ item.product.id }}"
+                                         class="col-12 col-md-2 mt-2 text-right">
+                                        <h6 class="mb-0">{{ item.subtotal|currency:currency_code }}</h6>
+                                    </div>
+                                </div>
+                            </li>
+                            {% if forloop.last %}
+                                <li class="list-group-item text-right">
+                                    <h6 class="mb-0">{% trans "Total Amount" %}:
+                                        <span id="id-total">{{ cart.total|currency:currency_code }}</span>
+                                    </h6>
+                                </li>
+                            {% endif %}
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No Items in cart" %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card my-2 my-md-3">
+                        <div class="card-header text-light cart-heading">
+                            <h5 class="mb-0">
+                                <i class="far fa-credit-card" aria-hidden="true"></i>
+                                {% trans "Payment Method" %}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group margin-bottom-0">
+                                {% for radio in form.payment_method %}
+                                    <div class="form-check">
+                                        <label for="{{ radio.id_for_label }}" class="form-check-label">
+                                            <input class="form-check-input" name="{{ form.payment_method.name }}"
+                                                   value="{{ radio.data.value }}" type="radio"
+                                                   id="{{ radio.id_for_label }}"
+                                                    {% ifequal form.payment_method.field.initial radio.data.value %}
+                                                   checked="checked"
+                                                    {% endifequal %}>
+                                            {{ radio.choice_label }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="card-footer py-1 my-0">
+                            <p class="mb-1">
+                                현재
+                                <span class="text-success font-weight-bold">
+                            <i class="far fa-credit-card" aria-hidden="true"></i>카드몰</span>을
+                                이용 중입니다.
+                            </p>
+                            <p class="mb-1">
+                                계좌이체 결제는
+                                <a href="//www.{{ domains.domain }}{% url 'shop:home' store.code %}">
+                                    <i class="fas fa-wallet fa-fw"></i>대표몰</a>을 이용해주시기 바랍니다.
+                            </p>
+                            <p class="mb-0 text-danger font-weight-bold">
+                                카드사별 월한도 100만원, 법인카드 불가, 할부거래 불가, 소득공제 제외
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="{{ form.agreement.id_for_label }}"
+                                   name="{{ form.agreement.name }}" value="1" required>
+                            <label class="form-check-label text-primary" for="{{ form.agreement.id_for_label }}">
+                                {{ form.agreement.label }}
+                            </label>
+                            <small class="form-text text-muted">{{ form.agreement.help_text }}</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="{{ form.agreement1.id_for_label }}"
+                                   name="{{ form.agreement1.name }}" value="1" required>
+                            <label class="form-check-label text-danger" for="{{ form.agreement1.id_for_label }}">
+                                {{ form.agreement1.label }}
+                            </label>
+                            <small class="form-text text-primary"><strong>{{ form.agreement1.help_text }}</strong>
+                            </small>
+                        </div>
+                    </div>
+                    <hr class="mb-1 mb-md-3">
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <ul class="margin-bottom-0">
+                                {% for error in form.non_field_errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {{ form.agreement.errors }}
+                    {{ form.agreement1.errors }}
+                    {% if member.total_order_count == 0 %}
+                        <div class="row justify-content-center my-1 my-md-3">
+                            <div class="col">
+                                <div class="card rounded-2">
+                                    <h5 class="card-header text-center">{% trans "Attention in cart" %}</h5>
+                                    <div class="card-body pb-0">
+                                        <p>
+                                            <a class="btn btn-info btn-sm" href="{% url 'account_profile' %}">
+                                                {% trans "My Page" %}에서 본인인증
+                                                <i class="fas fa-fw fa-chevron-right"></i>
+                                            </a>
+                                        </p>
+                                        {% if member.phone_verified_status != member.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                                            <h5 class="text-danger mb-3">
+                                                휴대폰본인인증 필수
+                                            </h5>
+                                        {% endif %}
+                                        {% if  not member.document_verified %}
+                                            <h5 class="text-success mb-3">
+                                                서류본인인증이 필요한 경우
+                                            </h5>
+                                            <ul class="pl-3">
+                                                <li class="my-2">
+                                                    <strong>
+                                                        문화상품권, 해피머니, 도서문화상품권을 포함하고 일일 액면가 기준 누계 20만원 이상
+                                                    </strong>
+                                                    첫 구매하는 경우
+                                                </li>
+                                                <li class="my-2">
+                                                    <strong>
+                                                        계좌이체로 일일 액면가 기준 누계 30만원 이상
+                                                    </strong>
+                                                    첫 구매하는 경우
+                                                </li>
+                                                <li class="my-2">
+                                                    <strong>
+                                                        휴대폰의 명의가 다른 경우
+                                                    </strong> (단, 가족 명의로라도 휴대폰본인인증은 완료해야 합니다.)
+                                                </li>
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <button class="btn btn-block btn-lg btn-primary mb-3" type="submit">
+                        <i class="fas fa-fw fa-check"></i>
+                        {% trans "Checkout" %}
+                    </button>
+                </form>
+
+                {% if member.total_order_count > 0 and not member.document_verified %}
+                    <div class="row justify-content-center mb-1 mb-md-3">
+                        <div class="col">
+                            <div class="card rounded-2">
+                                <h5 class="card-header text-center">{% trans "Attention" %}</h5>
+                                <div class="card-body pb-0">
+                                    <p>
+                                        <a class="btn btn-info btn-sm" href="{% url 'account_profile' %}">
+                                            {% trans "My Page" %}에서 본인인증
+                                            <i class="fas fa-fw fa-chevron-right"></i>
+                                        </a>
+                                    </p>
+                                    <h5 class="text-success mb-3">
+                                        서류본인인증이 필요한 경우
+                                    </h5>
+                                    <ul class="pl-3">
+                                        <li class="my-2">
+                                            <strong>
+                                                문화상품권, 해피머니, 도서문화상품권을 포함하고 일일 액면가 기준 누계 20만원 이상
+                                            </strong>
+                                            첫 구매하는 경우
+                                        </li>
+                                        <li class="my-2">
+                                            <strong>
+                                                계좌이체로 일일 액면가 기준 누계 30만원 이상
+                                            </strong>
+                                            첫 구매하는 경우
+                                        </li>
+                                        <li class="my-2">
+                                            <strong>
+                                                휴대폰의 명의가 다른 경우
+                                            </strong> (단, 가족 명의로라도 휴대폰본인인증은 완료해야 합니다.)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

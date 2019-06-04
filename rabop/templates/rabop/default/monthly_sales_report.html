@@ -1,0 +1,80 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load shop_filters %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="//code.highcharts.com/highcharts.js"></script>
+    <script>
+        $(function () {
+            var myChart = Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: '{% trans "Monthly Sales Report" %}'
+                },
+                subtitle: {
+                    text: '{{ year|unlocalize }}'
+                },
+                xAxis: {
+                    categories: [
+                        {% for s in sales %}
+                            '{{ s.month|date:"F" }}',
+                        {% endfor %}
+                    ]
+                },
+                yAxis: {
+                    title: {
+                        text: '{% trans "Amount" %}'
+                    }
+                },
+                series: [{
+                    name: '{% trans "Sales" %}',
+                    data: [
+                        {% for s in sales %}
+                            {{ s.amount|unlocalize }},
+                        {% endfor %}
+                    ]
+                }]
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="container" class="mb-1 mb-md-3"></div>
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-1">
+            {% trans "No." %}
+        </div>
+        <div class="col-md-1">
+            {% trans "Month" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "Amount" %}
+        </div>
+    </div>
+    {% for s in sales %}
+        <div class="row py-1 border-top mb-1">
+            <div class="col-2 col-sm-2 col-md-1">
+                {{ forloop.counter }}
+            </div>
+            <div class="col-2 col-sm-2 col-md-1">
+                {{ s.month|date:"F" }}
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 text-md-right">
+                {{ s.amount|currency:'KRW' }}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No Sales Report Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

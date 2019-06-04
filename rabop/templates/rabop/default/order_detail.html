@@ -1,0 +1,587 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load crispy_forms_tags %}
+{% load shop_filters %}
+{% load rabop_tags %}
+
+{% block content %}
+    <div class="row">
+        <ul class="col list-unstyled">
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right mt-1">
+                    {% trans "order no" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    <a href="{% url 'admin:shop_order_change' order.id %}">
+                        {{ order.order_no }}
+                    </a>
+                    <a href="{% url 'rabop:order-list' store.code %}?category=5&keyword={{ order.user.id|unlocalize }}"
+                       class="btn btn-sm btn-outline-dark">
+                        {% trans "Order List" %}
+                    </a>
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "fullname" %}
+                </div>
+                <div class="col-sm-9">
+                    <a href="{% url 'rabop:customer-detail' store.code order.user.profile.id %}">
+                        {{ order.user.profile.full_name }}
+                    </a>
+                    {% if order.user.profile.phone_verified_status == order.user.profile.PHONE_VERIFIED_STATUS_CHOICES.verified and order.user.profile.date_of_birth != None %}
+                        <span class="font-weight-bold text-primary">
+                        (
+                            {{ order.user.profile.date_of_birth|timesince }}
+                            {% if order.user.profile.gender == 0 %}
+                                <i class="fas fa-female"></i>
+                            {% elif order.user.profile.gender == 1 %}
+                                <i class="fas fa-male"></i>
+                            {% endif %}
+                            {% if order.user.profile.domestic == 2 %}
+                                외국인
+                            {% endif %}
+                            {% if order.user.profile.telecom == '01' %}
+                                SKT
+                            {% elif order.user.profile.telecom == '02' %}
+                                KT
+                            {% elif order.user.profile.telecom == '03' %}
+                                LGU+
+                            {% else %}
+                                MVNO
+                            {% endif %}
+                            )
+                        </span>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "Username" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.user.profile.user.username }}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "E-mail" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.user.profile.user.email }}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "SNS Accounts" %}
+                </div>
+                <div class="col-sm-9">
+                    {% for base_account in accounts %}
+                        {% with base_account.get_provider_account as account %}
+                            {{ account.get_brand.name }}
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "phone number" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.phone %}
+                        <a href="tel:{{ order.user.profile.phone }}">{{ order.user.profile.phone }}</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 mt-md-1 text-sm-right">
+                    {% trans "Phone Verification" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.phone_verified_status == order.user.profile.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-check text-success"></i>
+                        </button>
+
+                        <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ order.user.profile.phone }}"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-sms"></i>
+                            SMS
+                        </a>
+                    {% elif order.user.profile.phone_verified_status == order.user.profile.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-lock text-warning"></i>
+                        </button>
+
+                        <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ order.user.profile.phone }}"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-sms"></i>
+                            SMS
+                        </a>
+                    {% elif order.user.profile.phone_verified_status == order.user.profile.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-times text-danger"></i>
+                        </button>
+
+                        {% if phone_number_format %}
+                            <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ order.user.profile.phone }}"
+                               class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-sms"></i>
+                                SMS
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 mt-md-1 text-sm-right">
+                    {% trans "Document Verification" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.document_verified %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-check text-success"></i>
+                        </button>
+                    {% else %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-times text-danger"></i>
+                        </button>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 mt-md-1 text-sm-right">
+                    {% trans "not purchased for months" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.not_purchased_months %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-check text-success"></i>
+                        </button>
+                        {{ order.user.profile.repurchased|date:"Y-m-d H:m" }}
+                    {% else %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-times text-danger"></i>
+                        </button>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 mt-md-1 text-sm-right">
+                    {% trans "allow order" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.allow_order %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-check text-success"></i>
+                        </button>
+                    {% else %}
+                        <button class="btn btn-sm btn-light">
+                            <i class="fas fa-times text-danger"></i>
+                        </button>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 mt-md-1 text-sm-right">
+                    {% trans "order status" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                        <span class="btn btn-sm btn-outline-warning mb-1 mt-0">
+                    {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                        <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                    {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                        <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                    {% else %}
+                        <span class="btn btn-sm btn-outline-danger mb-1 mt-0 mr-2">
+                    {% endif %}
+                    {{ order.get_status_display }}
+                    </span>
+                    {% if order.visible == order.VISIBLE_CHOICES.hidden %}
+                        <span class="btn btn-sm btn-outline-danger mb-1 mt-0 mr-2">
+                        {{ order.get_visible_display }}
+                        </span>
+                    {% endif %}
+                    {% if show_related_order %}
+                        {% if order.parent %}
+                            <a href="{% url 'rabop:order-detail' store.code order.parent.pk %}">
+                                {{ order.parent.order_no|truncatechars:13 }}
+                            </a>
+                        {% else %}
+                            {% for child in order.children.all %}
+                                <a href="{% url 'rabop:order-detail' store.code child.pk %}">
+                                    {{ child.order_no|truncatechars:13 }}
+                                </a>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "payment method" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.get_payment_method_display }}
+                    {% if order.payment_method == order.PAYMENT_METHOD_CHOICES.paypal and order.transaction_id %}
+                        (txn_id:
+                        <a href="//www.paypal.com/myaccount/transaction/details/{{ order.transaction_id }}"
+                           target="_blank">
+                            {{ order.transaction_id }}
+                        </a>)
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "Order Date/Time" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.created|date:"Y-m-d H:i" }}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "date joined" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.user.date_joined|date:"Y-m-d H:m" }}
+                    <strong>({{ order.user.date_joined|timesince }})</strong>
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "last purchased date" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.last_purchased %}
+                        {{ order.user.profile.last_purchased|date:"Y-m-d H:m" }}
+                        <strong>({{ order.user.profile.last_purchased|timesince }})</strong>
+                    {% else %}
+                        <span class="text-danger">{% trans "No order record" %}</span>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "total order count" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if order.user.profile.total_order_count == 0 %}
+                        <span class="text-danger">{% trans "No order record" %}</span>
+                    {% elif order.user.profile.total_order_count < 5 %}
+                        <span class="text-danger text-monospace">{{ order.user.profile.total_order_count }}</span>
+                    {% else %}
+                        <span class="text-monospace">{{ order.user.profile.total_order_count }}</span>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "total price" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {% if order.total_selling_price > order.user.profile.max_price %}
+                        <span class="font-weight-bold text-danger">
+                    {% else %}
+                        <span>
+                    {% endif %}
+                    {{ order.total_selling_price|currency:order.currency }}
+                    </span>
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "one day total" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {% if one_day_total_over %}
+                        <span class="font-weight-bold text-danger">
+                    {% else %}
+                        <span>
+                    {% endif %}
+                    {{ one_day_total|currency:order.currency }}
+                    </span>
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "last total" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {% if last_total_over %}
+                        <span class="font-weight-bold text-danger">
+                    {% else %}
+                        <span>
+                    {% endif %}
+                    {{ last_total|currency:order.currency }}
+                    </span>
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "max price" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {{ order.user.profile.max_price|currency:order.currency }}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "average price" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {{ order.user.profile.average_price|currency:order.currency }}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "last login count" %}
+                </div>
+                <div class="col-sm-9 text-monospace">
+                    {% if last_login_count > 0 %}
+                        <a href="{% url 'admin:member_loginlog_changelist' %}?q={{ order.ip_address }}"
+                           class="font-weight-bold text-danger">
+                            {{ last_login_count }}
+                        </a>
+                    {% else %}
+                        {{ last_login_count }}
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "country" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if country_code %}
+                        <img src="/assets/images/shop/flag/{{ country_code }}.png" alt="{{ order.ip_address }}">
+                        {{ country_name }}
+                    {% else %}
+                        {{ order.ip_address }}
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "accept-language" %}
+                </div>
+                <div class="col-sm-9">
+                    {% if 'ko' not in order.user_agent %}
+                        <span class="text-danger">{{ order.accept_language }}</span>
+                    {% else %}
+                        {{ order.accept_language }}
+                    {% endif %}
+                </div>
+            </li>
+            <li class="row mb-2">
+                <div class="col-sm-3 text-sm-right">
+                    {% trans "user-agent" %}
+                </div>
+                <div class="col-sm-9">
+                    {{ order.user_agent }}
+                </div>
+            </li>
+            {% if order.message %}
+                <li class="row mb-2">
+                    <div class="col-sm-3 text-sm-right">
+                        {% trans "order message" %}
+                    </div>
+                    <div class="col-sm-9">
+                        {{ order.message }}
+                    </div>
+                </li>
+            {% endif %}
+            {% if order.user.profile.memo %}
+                <li class="row mb-2">
+                    <div class="col-sm-3 text-sm-right">
+                        <strong>{% trans "user memo" %}</strong>
+                    </div>
+                    <div class="col-sm-9 text-warning">
+                        {{ order.user.profile.memo|linebreaksbr }}
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="row">
+        <ul class="col list-unstyled mb-0">
+            <li class="row mb-2">
+                <div class="col-6 col-sm-3 text-sm-right">
+                    {% trans "product name" %}
+                </div>
+                <div class="col-3 col-sm-2 text-sm-right">
+                    {% trans "quantity" %}
+                </div>
+                <div class="col-3 col-sm-2 text-right">
+                    {% trans "unit price" %}
+                </div>
+                <div class="d-none d-sm-block col-sm-2 text-right">
+                    {% trans "subtotal" %}
+                </div>
+            </li>
+            {% for product in order.products.all %}
+                <li class="row mb-2">
+                    <div class="col-5 col-sm-3 text-sm-right">
+                        {{ product.name }} {{ product.subtitle }}
+                    </div>
+                    <div class="col-2 col-sm-2 text-monospace text-right">
+                        {{ product.quantity }}
+                    </div>
+                    <div class="col-5 col-sm-2 text-monospace text-right">
+                        {{ product.selling_price|currency:order.currency }}
+                    </div>
+                    <div class="d-none d-sm-block col-sm-2 text-monospace text-right">
+                        {{ product.subtotal|currency:order.currency }}
+                    </div>
+                </li>
+            {% endfor %}
+            <li class="row mb-2">
+                <div class="offset-8 col-4 offset-sm-7 col-sm-2 text-monospace text-right">
+                    <strong>{{ order.total_selling_price|currency:order.currency }}</strong>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    {% get_legacy_order_products order.user.email as legacy_order_products %}
+    {% if legacy_order_products %}
+        <div class="row mb-2">
+            <div class="col">
+                <a class="btn btn-lg btn-block btn-outline-info mb-2" data-toggle="collapse"
+                   href="#collapseLegacyOrderProducts"
+                   role="button"
+                   aria-expanded="false" aria-controls="collapseLegacyOrderProducts">
+                    {% trans "legacy order products" %}
+                </a>
+            </div>
+        </div>
+        <div class="row collapse" id="collapseLegacyOrderProducts">
+            <ul class="col list-unstyled">
+                {% for product in legacy_order_products %}
+                    <li class="row mb-2">
+                        <div class="offset-sm-3 col-sm-3">
+                            {{ product.product_name }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if show_voucher_list and order.products.first.codes.count %}
+        <div class="card rounded-2 mb-1 mb-md-3">
+            <div class="card-header text-center">
+                <h5 class="mb-0">{% trans "Voucher Code List" %}</h5>
+            </div>
+            <div class="card-body py-0">
+                <div class="row">
+                    <ul class="col list-unstyled mb-0">
+                        {% for product in order.products.all %}
+                            {% for voucher in product.codes.all %}
+                                <li class="row p-2
+                                    {% if forloop.counter != 1 or forloop.parentloop.counter != 1 %}
+                                        border-top
+                                    {% endif %}
+                                    {% if forloop.counter > product.quantity %}
+                                        alert-danger
+                                    {% endif %}
+                                    {% if voucher.revoked %}
+                                        text-muted
+                                    {% endif %}">
+                                    <div class="col-12 col-md-4">
+                                        <small>
+                                            [{{ forloop.parentloop.counter }}-{{ forloop.counter }}]
+                                        </small>
+                                        {{ product.name }}
+                                        {{ product.subtitle }}
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <a href="{% url 'admin:shop_voucher_change' voucher.voucher.id|unlocalize %}"
+                                           class="text-monospace">
+                                            {{ voucher.code|truncatechars:8 }} {{ voucher.remarks }}
+                                        </a>
+                                        {% if forloop.counter > product.quantity %}
+                                            {% trans "[Error] Revoke Now" %}
+                                        {% endif %}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% for payment in order.payments.all %}
+        <div class="row my-2">
+            <div class="col-4 col-sm-3 text-sm-right order-md-1 mt-1">
+                {{ payment.get_account_display }}
+            </div>
+            <div class="col-4 col-sm-2 order-sm-2 text-monospace mt-1">
+                {{ payment.amount|currency:order.currency }}
+            </div>
+            <div class="col-4 col-sm-2 order-sm-4">
+                <form action="{% url 'rabop:payment-delete' store.code order.id payment.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        {% trans "Delete" %}
+                    </button>
+                </form>
+            </div>
+            <div class="col-12 col-sm-3 order-sm-3 mt-1">
+                {{ payment.received }}
+            </div>
+        </div>
+        {% if forloop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+    {% if order.status == order.STATUS_CHOICES.payment_pending %}
+        {% crispy form %}
+        <hr>
+    {% endif %}
+    <a href="{% url 'rabop:order-list' store.code %}?page={{ request.GET.page }}"
+       class="btn btn-lg btn-block btn-secondary text-light mb-4">{% trans "List" %}</a>
+
+    {% if show_verify_payment_button %}
+        <form action="{% url 'rabop:order-verify' store.code order.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-block btn-success mb-4">
+                {% trans "Verify" %}
+            </button>
+        </form>
+    {% endif %}
+
+    {% if show_unverify_payment_button %}
+        <form action="{% url 'rabop:order-unverify' store.code order.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-block btn-outline-dark mb-4">
+                {% trans "Unverify" %}
+            </button>
+        </form>
+    {% endif %}
+
+    {% if show_send_button %}
+        <form action="{% url 'rabop:order-send' store.code order.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-block btn-danger mb-4">
+                {% trans "Send" %}
+            </button>
+        </form>
+    {% endif %}
+
+    {% if show_refund_button %}
+        <form action="{% url 'rabop:order-refund' store.code order.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-block btn-warning text-light mb-4">
+                {% trans "Refunded" %}
+            </button>
+        </form>
+    {% endif %}
+{% endblock %}

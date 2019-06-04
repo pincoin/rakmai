@@ -1,0 +1,50 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        <div class="card my-1 my-md-2">
+            <div class="card-body px-0 py-1 mx-auto">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_blog_entry_block"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+        <div class="card my-3">
+            <div class="card-body py-2">
+                <h4 class="mb-0">
+                    {% blocktrans with m=month|date:_('N, Y') %}Monthly Archive {{ m }}{% endblocktrans %}
+                </h4>
+                <ul class="mb-0 mt-1 mt-md-3 pl-0">
+                    {% for daily in date_list %}
+                        <li style="display: inline;">
+                            <a href="{% url 'blog:post-archive-day' blog.slug daily|date:'Y' daily|date:'m' daily|date:'d' %}">
+                                {{ daily|date:_('j') }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% for post in posts %}
+            <div class="row my-2 my-md-3">
+                <div class="col-12 col-md-2 text-monospace">
+                    {{ post.published|date:'Y-m-d' }}
+                </div>
+                <div class="col-12 col-md-10">
+                    <a href="{{ post.get_absolute_url }}"><strong>{{ post.title }}</strong></a>
+                </div>
+            </div>
+        {% endfor %}
+        <hr/>
+
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+    </div>
+{% endblock %}

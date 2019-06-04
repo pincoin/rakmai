@@ -1,0 +1,114 @@
+{% extends "./base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row justify-content-center my-4">
+        <div class="col">
+            <div class="card mb-2">
+                <div class="card-header text-center">
+                    <h4 class="mb-0">{% trans "legacy customer" %}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "Full name" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.last_name }} {{ customer.first_name }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "E-mail" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.email }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "phone number" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.phone %}
+                                    <a href="{% url 'rabop:legacy-customer-mms-list' store.code customer.phone   %}">{{ customer.phone }}</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "date joined" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.date_joined|date:"Y-m-d H:m" }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "last purchased date" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.order.last_purchased|date:"Y-m-d H:m" }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "total order count" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ customer.order.total_order_count }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "last total" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {% if customer.order.last_total > 0 %}
+                                    {{ customer.order.last_total|default:0|currency:'KRW' }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "max price" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ customer.order.max_price|default:0|currency:'KRW' }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "average price" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ customer.order.average_price|default:0|currency:'KRW' }}
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        {% for product in customer.products.all %}
+                            <li class="row mb-2">
+                                <div class="offset-sm-3 col-sm-3">
+                                    {{ product.product_name }}
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <a href="{% url 'rabop:legacy-customer-list' store.code %}"
+               class="btn btn-lg btn-block btn-secondary text-light mb-4">
+                {% trans "List" %}
+            </a>
+        </div>
+    </div>
+{% endblock %}

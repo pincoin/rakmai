@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-3">
+            {% trans "data" %}
+        </div>
+        <div class="col-md-3">
+            {% trans "sent datetime" %}
+        </div>
+    </div>
+    {% for message in messages %}
+        <div class="row py-1 border-top">
+            <div class="col-12 col-md-10">
+                {% if message.mime == message.MIME_CHOICES.txt %}
+                    {{ message.data }}
+                {% elif message.mime == message.MIME_CHOICES.jpg %}
+                    <img src="data:image/jpeg;charset=utf-8;base64,{{ message.data }}" style="max-width: 100%;">
+                {% elif message.mime == message.MIME_CHOICES.png %}
+                    <img src="data:image/png;charset=utf-8;base64,{{ message.data }}" style="max-width: 100%;">
+                {% endif %}
+            </div>
+            <div class="col-12 col-md-2">
+                {{ message.mms.sent }}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No MMS Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+    {% include './_pagination.html' with page_obj=page_obj page_range=page_range q=request.GET.q %}
+{% endblock %}

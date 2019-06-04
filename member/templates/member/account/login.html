@@ -1,0 +1,129 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3">
+            <div class="col-sm-12 col-md-6">
+                <div class="card border-0">
+                    <div class="card-body px-2 px-md-3 py-1">
+                        <div class="alert alert-info py-1 mb-3">
+                            <p class="mb-1">
+                                1년 이상 미접속 고객님은 다시
+                                <a href="{% url 'account_signup' %}" class="font-weight-bold">회원가입</a>해주세요.
+                            </p>
+                            <p class="mb-0">
+                                [정보통신망법]에 따라 1년 이상 미접속 계정 정보는 모두 파기합니다.
+                            </p>
+                        </div>
+                        {% if form.non_field_errors %}
+                            <ul class="py-0 alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                    <li class="my-1">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <form class="form" method="post">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}"
+                                       value="{{ redirect_field_value }}"/>
+                            {% endif %}
+                            <fieldset>
+                                <div id="div_id_login" class="form-group mb-2 mb-md-3">
+                                    <div class="">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-fw fa-envelope"></i>
+                                                </span>
+                                            </div>
+                                            <input type="email" name="{{ form.login.name }}"
+                                                   placeholder="{{ form.login.label }}"
+                                                   class="form-control" required id="{{ form.login.id_for_label }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="div_id_password" class="form-group mb-2 mb-md-3">
+                                    <div class="">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-fw fa-key"></i>
+                                                </span>
+                                            </div>
+                                            <input type="password" name="{{ form.password.name }}"
+                                                   placeholder="{{ form.password.label }}"
+                                                   class="form-control" required id="{{ form.password.id_for_label }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if form.non_field_errors or form.recaptcha %}
+                                    <div class="d-flex justify-content-center">
+                                        <div class="g-recaptcha"
+                                             data-sitekey="{{ google_recaptcha_site_key }}">
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <hr class="d-none d-md-block">
+                            </fieldset>
+                            <div>
+                                <input type="submit"
+                                       name="submit"
+                                       value="{% trans "Sign In" %}"
+                                       class="btn btn-primary btn btn-block btn-lg login-button mt-2 mt-md-0 mb-2"
+                                       id="submit-id-submit"/>
+                            </div>
+                        </form>
+                        <div class="row my-3">
+                            <div class="col-sm-12 text-center text-md-left col-md-4 order-1 order-md-2">
+                                <h6 class="mt-md-3">{% trans "Loigin with SNS" %}</h6>
+                            </div>
+                            <div class="col-sm-12 text-center text-md-left col-md-7 order-2 order-md-1">
+                                <a class=""
+                                   href="{% provider_login_url 'naver' process='login' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/naver.png' %}">
+                                </a>
+                                <a class="ml-2 ml-md-3"
+                                   href="{% provider_login_url 'kakao' process='login' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/kakao.png' %}">
+                                </a>
+                                <a class="ml-2 ml-md-3"
+                                   href="{% provider_login_url 'facebook' process='login' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded"
+                                         src="{% static 'images/shop/sns/login/facebook.png' %}">
+                                </a>
+                                <a class="ml-2 ml-md-3"
+                                   href="{% provider_login_url 'google' process='login' scope=scope auth_params=auth_params %}">
+                                    <img class="sns-login-button rounded border border-info"
+                                         src="{% static 'images/shop/sns/login/google.png' %}">
+                                </a>
+                                {% providers_media_js %}
+                            </div>
+                        </div>
+                        <hr class="d-none d-md-block">
+                        <div class="row mt-4 mt-md-0">
+                            <div class="col-6 pr-1">
+                                <a class="btn btn-block btn-lg btn-outline-info"
+                                   href="{% url 'account_reset_password' %}">
+                                    {% trans "Forgot Password?" %}
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a class="btn btn-block btn-lg btn-outline-primary" href="{% url 'account_signup' %}">
+                                    {% trans "Sign up" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

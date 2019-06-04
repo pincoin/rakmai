@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    {{ form.as_p }}
+    <hr>
+    <a href="{% url 'rabop:order-list' store.code %}"
+       class="btn btn-lg btn-block btn-secondary text-light mb-4">
+        {% trans "List" %}
+    </a>
+    <a href="{% url 'rabop:order-detail' store.code order_id %}"
+       class="btn btn-lg btn-block btn-secondary text-light mb-4">
+        {% trans "Previous Order Details" %}
+    </a>
+    <a href="{% url 'rabop:stock-bulk-upload' 'default' %}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-file-upload" aria-hidden="true"></i>&nbsp;{% trans "Stock Bulk Upload" %}
+    </a>
+    <a href="{% url 'admin:shop_voucher_add' %}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-plus" aria-hidden="true"></i>&nbsp;{% trans "Add Voucher" %}
+    </a>
+{% endblock %}

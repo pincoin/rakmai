@@ -1,0 +1,52 @@
+{% extends "./book_base_full_width.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+{% load rakmai_filters %}
+{% load book_tags %}
+
+{% block entry %}
+    <div class="col">
+        <div class="alert alert-danger">
+            <form class="form-group" action="{% url 'book:book-delete' book.id %}" method="post">
+                {% csrf_token %}
+                {% trans "Are you sure to delete?" %}
+                <button class="btn btn-danger float-right" type="submit">
+                    <span class="fas fa-trash-alt fa-fw" aria-hidden="true"></span> {% trans "Delete" %}
+                </button>
+            </form>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <div class="media">
+                    {% if book.thumbnail %}
+                        {% thumbnail book.thumbnail 120x168 crop="smart" as im %}
+                        <img class="mr-3" src="{{ im.url }}"
+                             width="{{ im.width }}" height="{{ im.height }}"
+                             alt="{{ book.title }}">
+                    {% else %}
+                        <img class="mr-3" src="{% static 'images/shop/default/120x168.png' %}" alt="{{ book.title }}">
+                    {% endif %}
+                    <div class="media-body ">
+                        <h3 class="mb-2">
+                            <strong>
+                                <a href="{% url 'book:book-my-detail' book.id %}">{{ book.title }}</a>
+                            </strong>
+                        </h3>
+                        <ul class="list-unstyled">
+                            {% if book.category.title %}
+                                <li>- {{ book.category.title }}</li>
+                            {% endif %}
+                            <li>- {{ book.owner.username }}</li>
+                            <li>- {{ book.updated }}</li>
+                            <li>- {{ book.get_license_display }}</li>
+                            <li>- {{ book.get_status_display }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="my-4">{{ book.description|markdownify }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

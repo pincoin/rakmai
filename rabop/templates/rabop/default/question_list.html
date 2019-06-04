@@ -1,0 +1,93 @@
+{% extends './base.html' %}
+
+{% load i18n %}
+{% load shop_tags %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-2">
+        <div class="col">
+            <form action="{% url 'rabop:question-list' store.code %}" method="get" class="input-group">
+                <div class="input-group-prepend">
+                    {{ question_search_form.category }}
+                </div>
+                {{ question_search_form.keyword }}
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    {% for question in questions %}
+                        <li class="list-group-item py-1 py-md-2">
+                            <div class="row">
+                                <div class="col">
+                                    {% if question.owner and question.owner.profile %}
+                                        <a href="{% url 'rabop:customer-detail' store.code question.owner.profile.id %}">
+                                            {{ question.owner.profile.full_name }}
+                                        </a>
+                                        {% if question.owner.profile.phone_verified_status == question.owner.profile.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                                            <i class="fas fa-check fa-fw text-success"></i>
+                                        {% elif question.owner.profile.phone_verified_status == question.owner.profile.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                                            <i class="fas fa-times fa-fw text-danger"></i>
+                                        {% elif question.owner.profile.phone_verified_status == question.owner.profile.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                                            <i class="fas fa-lock fa-fw text-warning"></i>
+                                        {% endif %}
+                                        {% if question.owner.profile.document_verified %}
+                                            <i class="fas fa-check text-success"></i>
+                                        {% else %}
+                                            <i class="fas fa-times text-danger"></i>
+                                        {% endif %}
+                                        {% if question.owner.profile.phone %}
+                                            {{ question.owner.profile.phone }}
+                                        {% endif %}
+                                    {% else %}
+                                        {% trans "unregistered" %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-4 mt-1">
+                                    {% if question.answers_count %}
+                                        <span class="btn btn-sm btn-secondary mr-1">{% trans "Answered" %}</span>
+                                    {% else %}
+                                        <span class="btn btn-sm btn-danger mr-1">{% trans "Unanswered" %}</span>
+                                    {% endif %}
+                                    <span class="btn btn-sm btn-outline-secondary mr-1">
+                                {{ question.get_category_display }}
+                            </span>
+                                    {% if question.order %}
+                                        <a href="{% url 'rabop:order-detail' store.code question.order.id %}"
+                                           class="btn btn-sm mr-2 btn-outline-info">
+                                            {% trans "Order #" %}
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 mt-1 mt-md-2">
+                                    <a href="{% url 'rabop:question-detail' store.code question.id %}?page={{ page_obj.number }}">
+                                        {{ question.title }}
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-2 mt-1 mt-md-2 text-muted text-md-right"
+                                     data-toggle="tooltip" data-placement="top" title="{{ question.created }}">
+                                    {{ question.created|date:'Y.m.d' }}
+                                </div>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">
+                            {% trans "No question" %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+{% endblock %}

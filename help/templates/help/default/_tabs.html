@@ -1,0 +1,21 @@
+{% load i18n %}
+<ul class="nav nav-tabs nav-justified mt-0 mt-md-3 help-tab">
+    <li class="nav-item">
+        <a class="nav-link help-item {% if active == 'faq' %}active{% endif %}"
+           href="{% url 'help:faq-list' store.code %}">
+            {% trans "FAQ" %}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link help-item {% if active == 'notice' %}active{% endif %}"
+           href="{% url 'help:notice-list' store.code %}">
+            {% trans "Notice" %}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link help-item {% if active == 'question' %}active{% endif %}"
+           href="{% url 'help:question-list' store.code %}">
+            {% trans "Q&amp;A" %}
+        </a>
+    </li>
+</ul>

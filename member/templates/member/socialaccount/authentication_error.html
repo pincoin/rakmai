@@ -1,0 +1,21 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Social Network Login Failure" %}</h4>
+                    <div class="card-body">
+                        <p class="mb-0">
+                            {% trans "An error occurred while attempting to login via your social network account." %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

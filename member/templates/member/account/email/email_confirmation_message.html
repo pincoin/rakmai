@@ -1,0 +1,18 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}
+
+{% blocktrans %}
+    <p>
+        Hello from PINCOIN!
+    </p>
+
+    <p>
+        You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect
+        their account.
+    </p>
+
+    <p>
+        To confirm this is correct, go to {{ activate_url }}
+    </p>
+{% endblocktrans %}
+
+{% include 'shop/default/email/_footer.html' with store_code='default' %}

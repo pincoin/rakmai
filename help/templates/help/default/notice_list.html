@@ -1,0 +1,66 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-2">
+        {% include './_tabs.html' with active='notice' %}
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <ul class="list-group list-group-flush">
+                        {% for message in notice_messages %}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-2 col-md-1 p-md-1 order-1 order-md-1">
+                                        {% if message.category == message.CATEGORY_CHOICES.common %}
+                                            <span class="btn btn-sm mr-2 btn-secondary">
+                                        {% elif message.category == message.CATEGORY_CHOICES.event %}
+                                            <span class="btn btn-sm mr-2 btn-warning">
+                                        {% elif message.category == message.CATEGORY_CHOICES.price %}
+                                            <span class="btn btn-sm mr-2 btn-info">
+                                        {% endif %}
+                                        {{ message.get_category_display }}
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-md-9 pt-2 p-md-2 order-3 order-md-2">
+                                        <a href="{% url 'help:notice-detail' store.code message.id %}?page={{ page_obj.number }}">
+                                            {{ message.title }}
+                                        </a>
+                                    </div>
+                                    <div class="col-10 col-md-2 pt-1 p-md-2 text-md-right text-muted order-2 order-md-3">
+                                        {{ message.created|date:'Y.m.d' }}
+                                    </div>
+                                </div>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No message" %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+
+        <div class="row mt-md-3 mt-1">
+            <div class="col">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_wide"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+    </div>
+{% endblock %}

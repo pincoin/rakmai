@@ -1,0 +1,104 @@
+/* main.css */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+body {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    padding-top: 47px; /* navbar fixed-top */
+    margin-bottom: 77px; /* allocate footer margin */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.footer {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 77px; /* fixed height of the footer */
+}
+
+@media (min-width: 540px) {
+    /* Small devices (landscape phones, 576px and up) */
+    body {
+        padding-top: 70px;
+        margin-bottom: 55px;
+    }
+
+    .footer {
+        height: 55px;
+    }
+}
+
+@media (min-width: 720px) {
+    /* Medium devices (tablets, 768px and up) */
+    body {
+        padding-top: 70px;
+        margin-bottom: 55px;
+    }
+
+    .footer {
+        height: 55px;
+    }
+}
+
+.base-footer {
+    background-color: #03353e;
+}
+
+/* small device sidebar menu settings begin here. */
+.indexcity {
+    z-index: 999;
+}
+
+.left-sidebar {
+    right: 0 !important;
+    left: 0 !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        background-color: #ebf2ea;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 76%;
+        padding: 10px;
+        left: -0px;
+        overflow-y: scroll;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000;
+    }
+}
+
+.no-transition {
+    -webkit-transition: height 0.01s;
+    -moz-transition: height 0.01s;
+    -ms-transition: height 0.01s;
+    -o-transition: height 0.01s;
+    transition: height 0.01s;
+}
+/* small device sidebar menu settings end here. */
+
+.text-monospace {
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.paypal-text {
+    color: #009cde;
+}
+
+.danal-text {
+    color: #ff6963;
+}
+
+.kb-text {
+    color: #ffa805
+}

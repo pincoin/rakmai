@@ -1,0 +1,7 @@
+<div class="{{ widget.wrapper_class }}">
+    <textarea class="summernote-widget" id="id-{{ widget.name }}" name="{{ widget.name }}">{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
+    <script>
+        // These options are passed to script in order to synchronize with Django settings.
+        var options = {% autoescape off %}{{ widget.options }}{% endautoescape %};
+    </script>
+</div>

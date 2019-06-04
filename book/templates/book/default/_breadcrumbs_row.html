@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col col-xl-10">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'book:book-detail' book.id %}">{{ book.title }}</a></li>
+            {% for crumb in breadcrumbs %}
+                <li class="breadcrumb-item">
+                    <a href="{% url 'book:page-detail' book.id crumb.id %}">{{ crumb.title }}</a>
+                </li>
+            {% endfor %}
+            <li class="breadcrumb-item active">{{ page.title }}</li>
+        </ol>
+    </div>
+</div>

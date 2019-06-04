@@ -1,0 +1,18 @@
+{% load i18n %}
+<h4>{% trans "Question Answer" %}</h4>
+<hr>
+{% if answer.question.order %}
+    <ul>
+        <li style="padding-top: 0.5rem;">
+            {% trans "order no" %}:
+            <a href="https://pincoin.co.kr{% url 'shop:order-detail' answer.question.store.code answer.question.order.order_no %}">
+                {{ answer.question.order.order_no }}
+            </a>
+        </li>
+    </ul>
+    <hr>
+{% endif %}
+<p>{{ answer.content }}</p>
+<h5>{{ answer.question.title }}</h5>
+<p>{{ answer.question.content }}</p>
+{% include './_footer.html' with store_code=answer.question.store.code %}

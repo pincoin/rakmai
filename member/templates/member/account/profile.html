@@ -1,0 +1,255 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load static %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/member/verification.js" %}"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script>
+        IMP.init("{{ iamport_user_code }}");
+
+        function requestCertification() {
+            IMP.certification({
+                // param
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    $.ajax({
+                        url: "{{ iamport_sms_callback_url }}",
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            imp_uid: rsp.imp_uid
+                        }
+                    }).done(function (data, textStatus, jqXHR) {
+                        if (textStatus === 'success') {
+                            location.reload();
+                        }
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("인증에 실패하였습니다.");
+                    });
+                } else {
+                    alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">{% trans "Verification" %}</h4>
+                    </div>
+                    <div class="card-body pb-0">
+                        <ul class="list-unstyled">
+                            <li class="row mb-1 mb-md-3">
+                                <div class="col-sm-3 text-md-right mt-1">
+                                    <h4>{{ member.full_name }}</h4>
+                                </div>
+                                <div class="col-sm-9 mt-1">
+                                    {% if member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                                        {% if hangul_name %}
+                                            휴대폰 명의가 다른 경우
+                                        {% else %}
+                                            올바른 한글 이름으로
+                                        {% endif %}
+                                    {% endif %}
+                                    <a href="{% url 'account_change_name' %}"
+                                       class="btn btn-sm ml-2 btn-outline-dark">
+                                        {% trans "Change Your Name" %}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row mb-1 mb-md-3">
+                                <div class="col-sm-3 text-md-right mt-1">
+                                    {% trans "Phone Verification" %}
+                                </div>
+                                <div class="col-sm-9">
+                                    <button class="btn btn-sm btn-light mr-2">
+                                        {% if member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                                            <i class="fas fa-check fa-fw text-success"></i>
+                                        {% elif member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                                            <i class="fas fa-times fa-fw text-danger"></i>
+                                        {% elif member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                                            <i class="fas fa-lock fa-fw text-warning"></i>
+                                        {% endif %}
+                                    </button>
+                                    <button id="button-phone-verification"
+                                            class="btn btn-sm btn-outline-info mr-2"
+                                            href="{% url 'account_confirm_phone' %}">
+                                        {% trans "Verify" %}
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="row mb-1 mb-md-3">
+                                <div class="col-sm-3 text-md-right mt-1">
+                                    {% trans "Document Verification" %}
+                                </div>
+                                <div class="col-sm-9">
+                                    {% if member.document_verified %}
+                                        <button class="btn btn-sm btn-light mr-2">
+                                            <i class="fas fa-check fa-fw text-success"></i>
+                                        </button>
+                                    {% else %}
+                                        <button class="btn btn-sm btn-light mr-2">
+                                            <i class="fas fa-times fa-fw text-danger"></i>
+                                        </button>
+                                    {% endif %}
+                                    <a class="btn btn-sm btn-outline-info mr-2"
+                                       href="{% url 'account_confirm_document' %}">
+                                        {% trans "Verify" %}
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        {% if member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                            <ul class="pl-2">
+                                <li class="text-danger font-weight-bold">휴대폰 본인 인증 [필수]</li>
+                                <ul class="pl-3">
+                                    <li class="my-1">해외에서 페이팔 결제하시는 경우 서류 본인 인증으로 대신합니다.</li>
+                                    <li class="my-1">휴대폰 명의가 다른 경우 서류 본인 인증으로 대신합니다.
+                                        (단, <strong>일일 구매한도 10만원</strong>)
+                                    </li>
+                                </ul>
+                            </ul>
+                        {% endif %}
+                        {% if member.phone_verified_status == member.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                            <ul class="pl-2">
+                                <li class="text-danger font-weight-bold">휴대폰 본인 인증 [휴면계정]</li>
+                                <ul class="pl-3">
+                                    <li class="my-1">6개월 이상 미접속 휴면계정으로 휴대폰 본인 인증합니다.</li>
+                                </ul>
+                            </ul>
+                        {% endif %}
+                        <ul class="mb-0 pl-2">
+                            <li class="text-danger font-weight-bold">서류 본인 인증 [선택]</li>
+                            <ul class="mb-0 pl-3">
+                                <li class="my-1">
+                                    문화상품권, 해피머니, 도서문화상품권을 포함하고 일일 액면가 기준 누계 20만원 이상 첫 구매
+                                </li>
+                                <li class="my-1">
+                                    계좌이체로 일일 액면가 기준 누계 30만원 이상 첫 구매
+                                </li>
+                                <li class="my-1">
+                                    페이팔로 최근30일 이내 액면가 기준 누계 15만원 이상 구매 (<strong>한국 신분증</strong>)
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-2">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">{% trans "Profile" %}</h4>
+                    </div>
+                    <div class="card-body pb-0">
+                        <ul class="list-unstyled">
+                            <li class="row mb-4">
+                                <div class="col-sm-3 mt-1 mb-2 text-md-right">
+                                    {% trans "Language" %}
+                                </div>
+                                <form class="col-sm-9 form-inline" action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                                    <select id="language-selector" class="form-control form-control-sm" name="language">
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as languages %}
+                                        {% for language in languages %}
+                                            <option value="{{ language.code }}"
+                                                    {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                                {{ language.name_local }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            </li>
+                            <li class="row mb-4">
+                                <div class="col-sm-3 mt-1 mb-2 text-md-right">
+                                    {% trans "Currency" %}
+                                </div>
+                                <form class="col-sm-9 form-inline" action="{% url 'shop:currency-update' store.code %}"
+                                      method="post">
+                                    {% csrf_token %}
+                                    <select id="currency-selector"
+                                            class="form-control form-control-sm"
+                                            name="currency_code">
+                                        {% for code in currency_rate.keys %}
+                                            <option value="{{ code }}"
+                                                    {% if currency_code == code %}selected{% endif %}>
+                                                {{ code }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            </li>
+                            <li class="row mb-4">
+                                <div class="col-sm-3 text-md-right">
+                                    {% trans "Username" %}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{ member.user.username }}
+                                </div>
+                            </li>
+                            <li class="row mb-4">
+                                <div class="col-sm-3 text-md-right">
+                                    {% trans "E-mail" %}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{ member.user.email }}
+                                </div>
+                            </li>
+                            <li class="row mb-4">
+                                <div class="col-sm-3 text-md-right">
+                                    {% trans "Full name" %}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{ member.full_name }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                <a class="btn btn-block btn-lg btn-outline-dark"
+                                   href="{% url 'socialaccount_connections' %}">
+                                    {% trans "Connect with SNS accounts" %}
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                <a class="btn btn-block btn-lg btn-outline-dark" href="{% url 'account_email' %}">
+                                    {% trans "Change Primary E-mail Address" %}
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                <a class="btn btn-block btn-lg btn-outline-dark"
+                                   href="{% url 'account_change_password' %}">
+                                    {% trans "Change Password" %}
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 mb-0">
+                                <a class="btn btn-block btn-lg btn-outline-dark" href="{% url 'account_change_name' %}">
+                                    {% trans "Change Your Name" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'account_unregister' %}"
+                   class="btn btn-block btn-lg btn-outline-danger">{% trans "Unregister" %}</a>
+            </div>
+        </div>
+        <form name="form1" action="/auth/okname/pincoin1.php" method="post">
+            <input type="hidden" name="okname_token" value="{{ okname_token }}">
+        </form>
+    </div>
+{% endblock %}

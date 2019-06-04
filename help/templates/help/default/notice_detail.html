@@ -1,0 +1,63 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load static %}
+{% load shop_tags %}
+{% load rakmai_filters %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static "js/help/main.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-2">
+        {% include './_tabs.html' with active='notice' %}
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <div class="card-header d-flex flex-wrap">
+                        <div class="p-1">
+                            {% if notice_message.category == notice_message.CATEGORY_CHOICES.common %}
+                                <span class="btn btn-sm mr-2 btn-secondary">
+                            {% elif notice_message.category == notice_message.CATEGORY_CHOICES.event %}
+                                <span class="btn btn-sm mr-2 btn-warning">
+                            {% elif notice_message.category == notice_message.CATEGORY_CHOICES.price %}
+                                <span class="btn btn-sm mr-2 btn-info">
+                            {% endif %}
+                            {{ notice_message.get_category_display }}
+                            </span>
+                        </div>
+                        <div class="p-2"><strong>{{ notice_message.title }}</strong></div>
+                        <div class="p-2 text-muted">
+                            {{ notice_message.created|date:'Y.m.d' }}
+                        </div>
+                    </div>
+                    <div class="card-body help-content">
+                        {{ notice_message.content|markdownify }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'help:notice-list' store.code %}?page={{ request.GET.page }}"
+           class="btn btn-outline-secondary btn-block btn-lg my-2">
+            <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+        </a>
+        <div class="row mt-md-3 mt-1">
+            <div class="col">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_wide"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "./board_base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block entry %}
+    <div class="col-lg-8">
+        <div class="row my-4">
+            <div class="col">
+                {% crispy form %}
+            </div>
+        </div>
+        <div class="row my-4" id="thumbnail-list">
+            {% for attachment in message.attachments.all %}
+                <div id="thumbnail-card-{{ attachment.uid }}" class="col-lg-3 col-md-3 col-sm-4 mt-2">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img class="card-img-top"
+                                 src="{{ attachment.file.url }}"
+                                 width="118" height="68">
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn-sm btn-danger thumbnail-delete-button"
+                               id="thumbnail-{{ attachment.uid }}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

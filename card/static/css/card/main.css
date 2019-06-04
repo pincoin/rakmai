@@ -1,0 +1,567 @@
+/* main.css */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    padding-top: 54px; /* navbar fixed-top */
+    margin-bottom: 318px; /* allocate footer margin */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+.footer {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 318px; /* fixed height of the footer */
+}
+
+@media (min-width: 540px) {
+    /* Small devices (landscape phones, 576px and up) */
+    body {
+        padding-top: 54px;
+        margin-bottom: 225px;
+    }
+
+    .footer {
+        height: 225px;
+    }
+}
+
+@media (min-width: 720px) {
+    /* Medium devices (tablets, 768px and up) */
+    body {
+        padding-top: 69px;
+        margin-bottom: 153px;
+    }
+
+    .footer {
+        height: 153px;
+    }
+}
+
+/* small device sidebar menu settings begin here. */
+.indexcity {
+    z-index: 999;
+}
+
+.left-sidebar {
+    right: 0 !important;
+    left: 0 !important;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.left-sidebar .submenu-item {
+    background: #ffffff;
+    color: #03353e;
+}
+
+.left-sidebar .submenu-heading {
+    background-color: #fcf1d1;
+    color: #e88f2f;
+    font-weight: bold;
+}
+
+.left-sidebar .submenu-scroll {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gray-layer {
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    display: none;
+    cursor: pointer;
+}
+
+.scroll-lock {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        background-color: #fcf1d1;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 76%;
+        padding: 10px;
+        left: -0px;
+        overflow-y: scroll;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000;
+    }
+}
+
+/* small device sidebar menu settings end here. */
+
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Looks ugly because it is wider */
+    .navbar-expand-md > .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.no-transition {
+    -webkit-transition: height 0.01s;
+    -moz-transition: height 0.01s;
+    -ms-transition: height 0.01s;
+    -o-transition: height 0.01s;
+    transition: height 0.01s;
+}
+
+.alert-fixed {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    border-radius: 0;
+}
+
+.term {
+    height: 12em;
+    overflow-y: auto;
+    white-space: pre-line;
+}
+
+.term-noscroll {
+    white-space: pre-line;
+    font-size: 15px;
+    line-height: 160%;
+}
+
+.help-item {
+    padding: .5rem .4rem;
+}
+
+.help-content {
+    font-size: 17px;
+    line-height: 160%;
+}
+
+.help-content > ol {
+    padding-left: 1rem;
+}
+
+.help-content h1, .help-content h2, .help-content h3, .help-content h4, .help-content h5, .help-content h6 {
+    margin: 20px 0;
+    padding: 5px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+}
+
+.help-content h1 {
+    font-size: 1.9em;
+}
+
+.help-content h2 {
+    font-size: 1.7em;
+}
+
+.help-content h3 {
+    font-size: 1.5em;
+}
+
+.help-content h4 {
+    font-size: 1.3em;
+}
+
+.help-content h5 {
+    font-size: 1.1em;
+}
+
+.help-content ul, .help-content ol {
+    padding-left: .5rem;
+}
+
+.help-content ul li, .help-content ul li ul li {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.help-content > ul, .help-content > ol {
+    padding-left: 1.5rem;
+}
+
+.help-content > ul > li, .help-content > ol > li {
+    margin-bottom: 0.5rem;
+}
+
+.help-content > ul > li > p, .help-content > ol > li > p {
+    margin-bottom: 0.5rem;
+}
+
+.modal p {
+    line-height: 170%;
+}
+
+.detail-notice p {
+    word-wrap: normal;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 170%;
+}
+
+.text-monospace {
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.no-break-word {
+    word-break: keep-all;
+}
+
+.modal-full-width {
+    max-width: 90% !important;
+}
+
+.category-alert ul {
+    padding-left: .5rem;
+    margin-bottom: 0;
+}
+
+.category-alert ul li {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.category-description1 > ul, .category-description1 > ol {
+    padding-left: 1.8rem;
+    margin-bottom: 1.8rem;
+}
+
+.category-description1 > ul > li, .category-description1 > ol > li {
+    margin-bottom: 0.5rem;
+}
+
+.category-description1 > ul > li > p, .category-description1 > ol > li > p {
+    margin-bottom: 0.5rem;
+}
+
+.category-description1 ul li ul li {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.category-description1 h5 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.category-description1 > ul > li > ul > li > h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.category-menu {
+    background-color: #fcf1d1;
+}
+
+.category-menu a {
+    color: #03353e;
+}
+
+.product-link {
+    color: #03353e;
+}
+
+.product-link:hover {
+    color: #2C6700;
+}
+
+.product-image-thumbnail {
+    max-height: 100px;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #03353e;
+    border-radius: .25rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.product-image-thumbnail-sm {
+    max-width: 100%;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #03353e;
+    border-radius: .25rem;
+}
+
+.home-heading {
+    color: #ef597b;
+}
+
+.cart-heading {
+    background-color: #56baec;
+}
+
+.carousel-item {
+    height: 35vh;
+    min-height: 100px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-image-01 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-26.jpg');
+}
+
+.carousel-image-02 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-27.jpg');
+}
+
+.carousel-image-03 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-13.jpg');
+}
+
+.carousel-image-04 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-21.jpg');
+}
+
+.carousel-image-05 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-25.jpg');
+}
+
+.carousel-image-06 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-24.jpg');
+}
+
+.carousel-image-07 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-28.jpg');
+}
+
+.carousel-image-08 {
+    background-image: url('/assets/images/shop/default/carousel/carousel-29.jpg');
+}
+
+.carousel-caption-custom {
+}
+
+.carousel-text-custom {
+    color: #e4ebe3;
+}
+
+@media (min-width: 720px) {
+    .carousel-caption-custom {
+        text-align: center;
+        margin: 0 15% 0 15%;
+        padding: 8px 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .carousel-text-custom {
+        color: #e4ebe3;
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .carousel-caption-custom {
+        text-align: center;
+        margin: 0 25% 0 25%;
+        padding: 8px 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .carousel-text-custom {
+        color: #e4ebe3;
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .carousel-caption-custom {
+        text-align: center;
+        margin: 0 25% 0 25%;
+        padding: 8px 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .carousel-text-custom {
+        color: #e4ebe3;
+        font-size: 2.5rem;
+    }
+}
+
+/* reserved for overlapped text message */
+.home-banner-text {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    word-wrap: normal;
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.call-to-action {
+    color: #1b1924;
+    background-color: #d4e8c1;
+    border: 1px solid #b6ceb6;
+    word-wrap: normal;
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.shop-footer {
+    background-color: #fcf1d1;
+}
+
+.shop-footer, .shop-footer a {
+    color: #03353e;
+}
+
+.shop-footer h5, .shop-footer h5 a {
+    color: #e88f2f;
+}
+
+.base-footer {
+    background-color: #e88f2f;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.login-button {
+    color: #ffffff;
+    background-color: #2C6700;
+}
+
+.login-button:hover {
+    color: #ffffff;
+    background-color: #254b00;
+}
+
+.contact-button {
+    width: 32px;
+    height: 32px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-button {
+    width: 44px;
+    height: 44px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-login-button {
+    width: 50px;
+    height: 50px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-facebook-button {
+    color: #ffffff;
+    background-color: #3b5998;
+}
+
+.sns-facebook-button:hover {
+    color: #ffffff;
+    background-color: #384b87;
+}
+
+.sns-facebook-button1 {
+    color: #3b5998;
+}
+
+.sns-facebook-button1:hover {
+    color: #384b87;
+}
+
+.sns-twitter-button {
+    color: #1dcaff;
+}
+
+.sns-twitter-button:hover {
+    color: #00aced;
+}
+
+.sns-paypal-button {
+    color: #003087;
+}
+
+.sns-paypal-button:hover {
+    color: #012169;
+}
+
+.sns-google-button {
+    color: #ffffff;
+    background-color: #d14836;
+}
+
+.sns-google-button:hover {
+    color: #ffffff;
+    background-color: #c53727;
+}
+
+.sns-kakao-button {
+    color: #292929;
+    background-color: #fec704;
+}
+
+.sns-kakao-button:hover {
+    color: #292929;
+    background-color: #e1ae04;
+}
+
+.sns-naver-button {
+    color: #ffffff;
+    background-color: #1ec800;
+}
+
+.sns-naver-button:hover {
+    color: #ffffff;
+    background-color: #1aaf00;
+}
+
+.sns-kb-button {
+    width: 30px;
+    height: 30px;
+}
+
+.sns-danal-button {
+    width: 82px;
+    height: 30px;
+}
+
+.kb-escrow-button {
+    color: #fcaf17;
+    background-color: #645b4c;
+}
+
+.kb-escrow-button:hover {
+    color: #fdb913;
+    background-color: #545045;
+}

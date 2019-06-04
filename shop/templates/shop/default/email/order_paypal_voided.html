@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load shop_filters %}
+<h4>{% trans "Order Voided" %}</h4>
+<hr>
+<ul>
+    <li style="padding-top: 0.5rem;">
+        {% trans "order no" %}:
+        <a href="https://pincoin.co.kr{% url 'shop:order-detail' store_code order.order_no %}">
+            {{ order.order_no }}
+        </a>
+    </li>
+    <li style="padding-top: 0.5rem;">
+        {% trans "Order Date/Time" %}: {{ order.created|date:"Y-m-d H:i" }}
+    </li>
+    <li style="padding-top: 0.5rem;">
+        {% trans "payment method" %}: {{ order.get_payment_method_display }}
+    </li>
+</ul>
+<hr>
+<table>
+    <tr>
+        <th style="padding: 0.5rem;">{% trans "product name" %}</th>
+        <th style="padding: 0.5rem;">{% trans "quantity" %}</th>
+        <th style="padding: 0.5rem;">{% trans "unit price" %}</th>
+        <th style="padding: 0.5rem;">{% trans "subtotal" %}</th>
+    </tr>
+    {% for product in order.products.all %}
+        <tr>
+            <td style="padding: 0.5rem;">{{ product.name }} {{ product.subtitle }}</td>
+            <td style="padding: 0.5rem; text-align: right;">{{ product.quantity }}</td>
+            <td style="padding: 0.5rem; text-align: right;">{{ product.selling_price|currency:order.currency }}</td>
+            <td style="padding: 0.5rem; text-align: right;">{{ product.subtotal|currency:order.currency }}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="4" style="padding: 0.5rem; text-align: right;">
+            <strong>{% trans "total price" %}: {{ order.total_selling_price|currency:order.currency }}</strong>
+        </td>
+    </tr>
+</table>
+
+<p>
+    고객님의 페이팔 결제가 완료되었더라도 다음 이유 중 하나로 주문무효 처리되어 곧 환불 처리됩니다.
+</p>
+
+<ul>
+    <li style="padding-top: 0.5rem;">
+        핀코인 계정 이메일 주소와 페이팔 계정 이메일 주소 불일치
+    </li>
+    <li style="padding-top: 0.5rem;">
+        unverified 페이팔 계정
+    </li>
+    <li style="padding-top: 0.5rem;">
+        echeck 결제
+    </li>
+</ul>l
+
+{% include './_footer.html' with store_code=store_code %}

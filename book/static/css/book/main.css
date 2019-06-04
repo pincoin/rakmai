@@ -1,0 +1,422 @@
+/* main.css */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    padding-top: 54px; /* navbar fixed-top */
+    margin-bottom: 318px; /* allocate footer margin */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+.footer {
+    /* No media query for Extra small devices (portrait phones, less than 576px) */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 318px; /* fixed height of the footer */
+}
+
+@media (min-width: 540px) {
+    /* Small devices (landscape phones, 576px and up) */
+    body {
+        padding-top: 54px;
+        margin-bottom: 225px;
+    }
+
+    .footer {
+        height: 225px;
+    }
+}
+
+@media (min-width: 720px) {
+    /* Medium devices (tablets, 768px and up) */
+    body {
+        padding-top: 69px;
+        margin-bottom: 153px;
+    }
+
+    .footer {
+        height: 153px;
+    }
+}
+
+/* small device sidebar menu settings begin here. */
+.indexcity {
+    z-index: 999;
+}
+
+.left-sidebar {
+    right: 0 !important;
+    left: 0 !important;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gray-layer {
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    display: none;
+    cursor:pointer;
+}
+
+.scroll-lock {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        background-color: #e4ebe3;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 76%;
+        padding: 10px;
+        left: -0px;
+        overflow-y: scroll;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000;
+    }
+}
+
+/* small device sidebar menu settings end here. */
+
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Looks ugly because it is wider */
+    .navbar-expand-md > .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.no-transition {
+    -webkit-transition: height 0.01s;
+    -moz-transition: height 0.01s;
+    -ms-transition: height 0.01s;
+    -o-transition: height 0.01s;
+    transition: height 0.01s;
+}
+
+.category-menu {
+    background-color: #ebf2ea;
+}
+
+.category-menu a {
+    color: #03353e;
+}
+
+#topButton {
+    display: none;
+    position: fixed;
+    bottom: 12px;
+    right: 30px;
+    z-index: 99;
+}
+
+#topButton:hover {
+    background-color: #333; /* Add a dark-grey background on hover */
+}
+
+.submit-padding-left {
+    padding-left: 5px;
+}
+
+.modal-full-width {
+    max-width: 90% !important;
+}
+
+.page-content {
+    font-size: 16px;
+    line-height: 160%;
+    margin-top: 20px;
+}
+
+.page-content .toc {
+    background: #fefefe;
+    border: dotted 1px #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.page-content .toc ul {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.page-content .toc li {
+    list-style: decimal;
+    margin-left: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6 {
+    margin: 15px 0;
+    padding: 5px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+}
+
+.page-heading-title {
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+.page-content h1 {
+    font-size: 1.7em;
+}
+
+.page-content h2 {
+    font-size: 1.6em;
+}
+
+.page-content h3 {
+    font-size: 1.5em;
+}
+
+.page-content h4 {
+    font-size: 1.4em;
+}
+
+.page-content h5 {
+    font-size: 1.3em;
+}
+
+.page-content h6 {
+    font-size: 1.2em;
+}
+
+.page-content .codehilite {
+    border-left: 5px solid #85aa8f;
+    padding-left: 10px;
+}
+
+.page-content pre {
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.page-content code {
+    font-family: 'Nanum Gothic Coding', monospace;
+    background-color: #f1f1f5;
+}
+
+.page-content blockquote {
+    font-family: 'Nanum Gothic Coding', monospace;
+    margin-top: 10px;
+    padding: 5px 10px 0px 10px;
+    border-left: 5px solid #ffad1a;
+    background-color: #e3f3ff;
+}
+
+.page-content ul, .page-content ol {
+    padding-left: .5rem;
+}
+
+.page-content ul li {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.page-content > ul, .page-content > ol {
+    padding-left: 1.5rem;
+}
+
+.page-content > ul > li, .page-content > ol > li {
+    margin-bottom: .25rem;
+}
+
+.page-content > ul > li > p, .page-content > ol > li > p {
+    margin-bottom: .25rem;
+}
+
+.page-heading-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+.page-heading-title a {
+    color: #f39c12;
+}
+
+.sidebar .toc {
+    font-size: 0.9em;
+}
+
+.sidebar .toc h5 {
+    font-size: 1em;
+}
+
+#side-table-of-contents {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .page {
+        margin-left: auto;
+    }
+
+    .sidebar .toc {
+        font-size: 0.9em;
+    }
+
+    #side-table-of-contents {
+        display: block;
+    }
+
+    .list-scrollable {
+        max-height: 580px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.shop-footer {
+    background-color: #ebf2ea;
+}
+
+.shop-footer, .shop-footer a {
+    color: #03353e;
+}
+
+.shop-footer h5, .shop-footer h5 a {
+    color: #87b842;
+}
+
+.base-footer {
+    background-color: #03353e;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.login-button {
+    color: #ffffff;
+    background-color: #2C6700;
+}
+
+.login-button:hover {
+    color: #ffffff;
+    background-color: #254b00;
+}
+
+.contact-button {
+    width: 32px;
+    height: 32px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-button {
+    width: 44px;
+    height: 44px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-login-button {
+    width: 50px;
+    height: 50px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sns-facebook-button {
+    color: #ffffff;
+    background-color: #3b5998;
+}
+
+.sns-facebook-button:hover {
+    color: #ffffff;
+    background-color: #384b87;
+}
+
+.sns-facebook-button1 {
+    color: #3b5998;
+}
+
+.sns-facebook-button1:hover {
+    color: #384b87;
+}
+
+.sns-twitter-button {
+    color: #1dcaff;
+}
+
+.sns-twitter-button:hover {
+    color: #00aced;
+}
+
+.sns-paypal-button {
+    color: #003087;
+}
+
+.sns-paypal-button:hover {
+    color: #012169;
+}
+
+.sns-google-button {
+    color: #ffffff;
+    background-color: #d14836;
+}
+
+.sns-google-button:hover {
+    color: #ffffff;
+    background-color: #c53727;
+}
+
+.sns-kakao-button {
+    color: #292929;
+    background-color: #fec704;
+}
+
+.sns-kakao-button:hover {
+    color: #292929;
+    background-color: #e1ae04;
+}
+
+.sns-naver-button {
+    color: #ffffff;
+    background-color: #1ec800;
+}
+
+.sns-naver-button:hover {
+    color: #ffffff;
+    background-color: #1aaf00;
+}
+
+.sns-kb-button {
+    width: 30px;
+    height: 30px;
+}
+
+.sns-danal-button {
+    width: 82px;
+    height: 30px;
+}
+
+.kb-escrow-button {
+    color: #fcaf17;
+    background-color: #645b4c;
+}
+
+.kb-escrow-button:hover {
+    color: #fdb913;
+    background-color: #545045;
+}

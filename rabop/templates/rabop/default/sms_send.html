@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% crispy form %}
+    <a href="{% url 'rabop:sms-list' store.code %}?page={{ request.GET.page }}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+    </a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        <div class="card my-1 my-md-2">
+            <div class="card-body px-0 py-1 mx-auto">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_blog_entry_block"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+        <div class="card my-1 my-md-2">
+            <div class="card-body">
+                {% for tag in tags %}
+                    <a class="btn btn-info p-1 mb-2" href="{% url 'blog:post-tag' blog.slug tag.slug %}"
+                       role="button">{{ tag.name }}</a>
+                {% empty %}
+                    {% trans "No Tags Yet." %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

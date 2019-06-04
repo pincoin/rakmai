@@ -1,0 +1,63 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load book_tags %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/book/codehilite.css" %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static "js/book/resize-sidebar-height.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row mt-1 mt-md-3">
+            <div class="col-md-3 sidebar mb-3 mb-md-0">
+                <!-- Table of Contents Widget -->
+                <div class="card toc mb-1 mb-md-3">
+                    <div class="card-body py-3">
+                        <div class="card-title">
+                            <form action="{% url 'book:page-list' book.id %}" method="get" class="input-inline">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="toc-toggle-button" class="btn btn-info" type="button">
+                                            <i class="fas fa-book"></i>
+                                            {% trans "TOC" %}
+                                        </button>
+                                    </div>
+                                    {{ search_form.q }}
+                                    <span class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </span>
+                                </div>
+                            </form>
+                        </div>
+                        <h4 class="card-subtitle mt-1 mt-md-3 page-heading-title">
+                            <a href="{% url 'book:book-detail' book.id %}"><strong>{{ book.title }}</strong></a>
+                        </h4>
+                    </div>
+                    {% get_table_of_contents book.id 20 as table_of_contents %}
+                    <ul class="list-group list-group-flush list-scrollable" id="side-table-of-contents">
+                        {% for page_item in table_of_contents.tree_list %}
+                            <li class="list-group-item{% if page_id == page_item.id %} list-group-item-secondary{% endif %}"
+                                style="padding-left:{{ page_item.indent }}px;">
+                                <a href="{% url 'book:page-detail' book.id page_item.id %}">{{ page_item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            {% block entry %}{% endblock %}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

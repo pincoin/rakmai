@@ -1,0 +1,22 @@
+{% extends "rakmai/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load blog_tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/blog/main.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./_breadcrumbs.html" %}
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            {% block entry %}entry{% endblock %}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+{% endblock %}

@@ -1,0 +1,23 @@
+.adslot_book_page_top {
+    width: 320px;
+    height: 50px;
+}
+
+@media (min-width: 768px) {
+    .adslot_book_page_top {
+        width: 728px;
+        height: 90px;
+    }
+}
+
+.adslot_book_page_bottom {
+    width: 320px;
+    height: 100px;
+}
+
+@media (min-width: 768px) {
+    .adslot_book_page_bottom {
+        width: 728px;
+        height: 90px;
+    }
+}

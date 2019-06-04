@@ -1,0 +1,121 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block javascript %}
+    <script src="{% static "js/rabop/category-product.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-12 col-md-4">
+                <label for="{{ form.fullname.id_for_label }}" class="col-form-label requiredField">
+                    {{ form.fullname.label }}
+                    <span class="asteriskField">*</span>
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="{{ form.fullname.id_for_label }}"
+                       name="{{ form.fullname.name }}">
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="id_phone" class="col-form-label requiredField">
+                    {{ form.phone.label }}
+                    <span class="asteriskField">*</span>
+                </label>
+                <input class="form-control"
+                       type="text"
+                       placeholder="{{ form.phone.help_text }}"
+                       id="{{ form.phone.id_for_label }}"
+                       name="{{ form.phone.name }}">
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="{{ form.transaction_id.id_for_label }}" class="col-form-label">
+                    {{ form.transaction_id.label }}
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="{{ form.transaction_id.id_for_label }}"
+                       name="{{ form.transaction_id.name }}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-12 col-md-4">
+                <label for="id_stock" class="col-form-label">
+                    상품권
+                </label>
+                <select class="form-control" id="id_stock">
+                    <option value="-1">선택</option>
+                </select>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="{{ form.product.id_for_label }}" class="col-form-label requiredField">
+                    {{ form.product.label }}
+                    <span class="asteriskField">*</span>
+                </label>
+                <select class="form-control" id="{{ form.product.id_for_label }}" name="{{ form.product.name }}">
+                </select>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="{{ form.quantity.id_for_label }}" class="col-form-label requiredField">
+                    {{ form.quantity.label }}
+                    <span class="asteriskField">*</span>
+                </label>
+                <select class="form-control" id="{{ form.quantity.id_for_label }}" name="{{ form.quantity.name }}">
+                    {% for option in form.quantity %}
+                        <option value="{{ option.data.value }}">{{ option.choice_label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-12">
+                <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                <textarea class="form-control"
+                          type="text"
+                          id="{{ form.message.id_for_label }}"
+                          name="{{ form.message.name }}"></textarea>
+            </div>
+        </div>
+        {% if form.errors %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+
+                            {% for hidden_field in form.hidden_fields %}
+                                {% if hidden_field.errors %}
+                                    {% for error in hidden_field.errors %}
+                                        <li>{{ hidden_field.label }} {{ error }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for visible_field in form.visible_fields %}
+                                {% if visible_field.errors %}
+                                    {% for error in visible_field.errors %}
+                                        <li>{{ visible_field.label }} {{ error }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-block btn-primary btn-lg mb-3" id="id_upload">
+            <i class="fab fa-line"></i>
+            네이버 주문 추가
+        </button>
+    </form>
+    <a href="{% url 'rabop:naver-order-list' store.code %}?page={{ request.GET.page }}"
+       class="btn btn-outline-secondary btn-block btn-lg mb-4">
+        <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+    </a>
+{% endblock %}

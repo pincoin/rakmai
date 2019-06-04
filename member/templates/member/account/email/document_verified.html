@@ -1,0 +1,17 @@
+{% load i18n %}
+<h4>{% trans "Documents have been uploaded for verification." %}</h4>
+<h5>
+    <a href="https://pincoin.co.kr{% url 'rabop:customer-detail' 'default' profile.id %}" target="_blank">
+        {{ profile.full_name }}
+    </a>
+</h5>
+<ul>
+    {% for order in orders %}
+        <li>
+            <a href="https://pincoin.co.kr{% url 'rabop:order-detail' 'default' order.id %}">
+                {{ order.order_no }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% include 'shop/default/email/_footer.html' with store_code='default' %}

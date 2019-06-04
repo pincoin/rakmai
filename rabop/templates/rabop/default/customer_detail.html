@@ -1,0 +1,352 @@
+{% extends "./base.html" %}
+
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% load thumbnail %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row justify-content-center my-4">
+        <div class="col">
+            <div class="card mb-2">
+                <div class="card-header text-center">
+                    <h4 class="mb-0">{% trans "Profile" %}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "Full name" %}
+                            </div>
+                            <div class="col-sm-9">
+                                <a href="{% url 'admin:member_profile_change' customer.id %}">
+                                    {{ customer.full_name }}
+                                </a>
+
+                                <small>
+                                    <a href="{% url 'admin:auth_user_change' customer.user.id %}">
+                                        [{% trans "Edit" %}]
+                                    </a>
+                                </small>
+                                {% if customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.verified and customer.date_of_birth != None %}
+                                    <span class="font-weight-bold text-primary">
+                                    (
+                                        {{ customer.date_of_birth|timesince }}
+                                        {% if customer.gender == 0 %}
+                                            <i class="fas fa-female"></i>
+                                        {% elif customer.gender == 1 %}
+                                            <i class="fas fa-male"></i>
+                                        {% endif %}
+                                        {% if customer.domestic == 2 %}
+                                            외국인
+                                        {% endif %}
+                                        {% if customer.telecom == '01' %}
+                                            SKT
+                                        {% elif customer.telecom == '02' %}
+                                            KT
+                                        {% elif customer.telecom == '03' %}
+                                            LGU+
+                                        {% else %}
+                                            MVNO
+                                        {% endif %}
+                                        )
+                                    </span>
+                                {% endif %}
+
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "Username" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.user.username }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "E-mail" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.user.email }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right mt-1">
+                                {% trans "Email Verification" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if email_verified %}
+                                    <form action="{% url 'rabop:customer-unverify-email' store.code customer.user.profile.id %}"
+                                          method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-check fa-fw text-success"></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        {% trans "Unverify" %}
+                                    </button>
+                                {% else %}
+                                    <form action="{% url 'rabop:customer-verify-email' store.code customer.user.profile.id %}"
+                                          method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-times fa-fw text-danger"></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        {% trans "Verify" %}
+                                    </button>
+                                {% endif %}
+                                {% for base_account in accounts %}
+                                    {% with base_account.get_provider_account as account %}
+                                        {{ account.get_brand.name }}
+                                    {% endwith %}
+                                {% endfor %}
+                                </form>
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "phone number" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.phone %}
+                                    <a href="tel:{{ customer.phone }}">{{ customer.phone }}</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "address" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.address }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right mt-1">
+                                {% trans "Phone Verification" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-check fa-fw text-success"></i>
+                                    </button>
+
+                                    <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ customer.phone }}"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-sms"></i>
+                                        SMS
+                                    </a>
+                                {% elif customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-lock fa-fw text-warning"></i>
+                                    </button>
+
+                                    <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ customer.phone }}"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-sms"></i>
+                                        SMS
+                                    </a>
+                                {% elif customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-times fa-fw text-danger"></i>
+                                    </button>
+
+                                    {% if phone_number_format %}
+                                        <a href="{% url 'rabop:sms-send' store.code %}?phone_to={{ order.user.profile.phone }}"
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-sms"></i>
+                                            SMS
+                                        </a>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right mt-1">
+                                {% trans "Document Verification" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.document_verified %}
+                                    <form action="{% url 'rabop:customer-unverify-document' store.code customer.user.profile.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <button class="btn btn-sm btn-light">
+                                            <i class="fas fa-check fa-fw text-success"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            {% trans "Unverify" %}
+                                        </button>
+                                    </form>
+                                {% else %}
+                                    <form action="{% url 'rabop:customer-verify-document' store.code customer.user.profile.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <button class="btn btn-sm btn-light">
+                                            <i class="fas fa-times fa-fw text-danger"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-sm btn-success">
+                                            {% trans "Verify" %}
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right mt-1">
+                                {% trans "not purchased for months" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.not_purchased_months %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-check fa-fw text-success"></i>
+                                    </button>
+                                    {{ customer.repurchased|date:"Y-m-d H:m" }}
+                                {% else %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-times fa-fw text-danger"></i>
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right mt-1">
+                                {% trans "allow order" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.allow_order %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-check fa-fw text-success"></i>
+                                    </button>
+                                {% else %}
+                                    <button class="btn btn-sm btn-light">
+                                        <i class="fas fa-times fa-fw text-danger"></i>
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "photo ID" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.photo_id %}
+                                    <a href="{{ customer.photo_id.url }}">
+                                        <img src="{{ customer.photo_id|thumbnail_url:'photo' }}">
+                                    </a>
+                                {% else %}
+                                    {% trans "No Image" %}
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "bank account or debit/credit card" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.card %}
+                                    <a href="{{ customer.card.url }}">
+                                        <img src="{{ customer.card|thumbnail_url:'photo' }}">
+                                    </a>
+                                {% else %}
+                                    {% trans "No Image" %}
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "date joined" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.user.date_joined|date:"Y-m-d H:m" }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "last purchased date" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.user.profile.last_purchased %}
+                                    {{ customer.user.profile.last_purchased|date:"Y-m-d H:m" }}
+                                {% else %}
+                                    <span class="text-danger">{% trans "No order record" %}</span>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "total order count" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {% if customer.user.profile.total_order_count == 0 %}
+                                    <span class="text-danger">{% trans "No order record" %}</span>
+                                {% elif customer.user.profile.total_order_count < 5 %}
+                                    <span class="text-danger text-monospace">{{ customer.user.profile.total_order_count }}</span>
+                                {% else %}
+                                    <span class="text-monospace">{{ customer.user.profile.total_order_count }}</span>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "one day total" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ one_day_total|currency:'KRW' }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "last total" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ last_total|currency:'KRW' }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "max price" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ customer.user.profile.max_price|currency:'KRW' }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "average price" %}
+                            </div>
+                            <div class="col-sm-9 text-monospace">
+                                {{ customer.user.profile.average_price|currency:'KRW' }}
+                            </div>
+                        </li>
+                        <li class="row mb-2">
+                            <div class="col-sm-3 text-sm-right">
+                                {% trans "user memo" %}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ customer.user.profile.memo|linebreaksbr }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <a href="{% url 'rabop:order-list' store.code %}?category=5&keyword={{ customer.user.id|unlocalize }}"
+               class="btn btn-lg btn-block btn-secondary text-light mb-4">
+                {% trans "Order List" %}
+            </a>
+
+            <a href="{% url 'rabop:customer-list' store.code %}"
+               class="btn btn-lg btn-block btn-outline-primary mb-4">
+                {% trans "List" %}
+            </a>
+
+            <a href="{% url 'rabop:legacy-customer-list' store.code %}?category=3&keyword={{ customer.user.email }}"
+               class="btn btn-lg btn-block btn-outline-primary mb-4">
+                {% trans "legacy customers" %}
+            </a>
+        </div>
+    </div>
+{% endblock %}

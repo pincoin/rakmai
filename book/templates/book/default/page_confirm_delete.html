@@ -1,0 +1,34 @@
+{% extends "./book_base_my_sidebar.html" %}
+
+{% load i18n %}
+{% load l10n %}
+{% load rakmai_filters %}
+{% load book_tags %}
+
+{% block entry %}
+    <div class="col-md-9 page">
+        <div class="row">
+            <div class="col col-xl-10">
+                <div class="alert alert-danger mt-4">
+                    <form class="form-group" action="{% url 'book:page-delete' book.id page.id %}" method="post">
+                        {% csrf_token %}
+                        {% trans "Are you sure to delete?" %}
+                        <button class="btn btn-sm btn-danger float-right" type="submit">
+                            <span class="fas fa-trash-alt fa-fw" aria-hidden="true"></span> {% trans "Delete" %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-xl-10">
+                <h4 class="mt-4">{{ page.title }}</h4>
+                <div class="page">
+                    {{ page.content|markdownify }}
+                </div>
+                <button id="topButton" title="Go to top">Top</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-2">
+        <div class="col">
+            <form action="{% url 'rabop:naver-order-list' store.code %}" method="get" class="input-group">
+                <div class="input-group-prepend">
+                    {{ order_search_form.category }}
+                </div>
+                {{ order_search_form.keyword }}
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="row mb-1 mb-md-3">
+        <div class="col">
+            <form action="{% url 'rabop:naver-order-list' store.code %}" method="get" class="input-group">
+                <div class="input-group-prepend">
+                    <a href="{% url 'rabop:naver-order-list' store.code %}" class="btn btn-outline-dark">
+                        {% trans "all" %}
+                    </a>
+                </div>
+                {{ order_status_search_form.status }}
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-1 text-monospace order-1 order-md-1">
+            {% trans "order no" %}
+        </div>
+        <div class="col-md-3 order-2 order-md-3">
+            {% trans "fullname" %}
+        </div>
+        <div class="col-md-2 order-3 order-md-4">
+            {% trans "order status" %}
+        </div>
+        <div class="col-md-2 order-4 order-md-5">
+            {% trans "payment method" %}
+        </div>
+        <div class="col-md-2 text-md-right order-5 order-md-2">
+            {% trans "total price" %}
+        </div>
+        <div class="col-md-2 order-6 order-md-6">
+            {% trans "Order Date/Time" %}
+        </div>
+    </div>
+    {% for order in orders %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-1 text-monospace pt-2 order-2 order-md-1">
+                <a href="{% url 'rabop:naver-order-detail' store.code order.id %}">
+                    {{ order.order_no|truncatechars:9 }}
+                </a>
+            </div>
+            <div class="col-8 col-sm-8 col-md-3 pt-2 order-1 order-md-3">
+                {{ order.fullname }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2 pt-1 order-4 order-md-4">
+                <a href="{% url 'rabop:naver-order-detail' store.code order.id %}">
+                    {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                        <span class="btn btn-sm btn-outline-warning mb-1 mt-0">
+                    {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                        <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                    {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                        <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                    {% else %}
+                        <span class="btn btn-sm btn-outline-danger mb-1 mt-0">
+                    {% endif %}
+                    {{ order.get_status_display }}
+                    </span>
+                </a>
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 pt-2 order-3 order-md-5">
+                {% if order.payment_method == order.PAYMENT_METHOD_CHOICES.bank_transfer %}
+                    <span class="text-primary">
+                {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.escrow %}
+                    <span class="text-success">
+                {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.paypal %}
+                    <span class="paypal-text"><i class="fab fa-cc-paypal fa-fw"></i>
+                {% endif %}
+                {{ order.get_payment_method_display }}
+                </span>
+            </div>
+            <div class="col-4 col-sm-4 col-md-2 text-md-right text-monospace pt-2 order-6 order-md-2">
+                {{ order.total_selling_price|currency:"KRW" }}
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 pt-2 order-5 order-md-6">
+                {{ order.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No Orders Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+    {% include './_pagination_order_list.html' with page_obj=page_obj page_range=page_range category=request.GET.category keyword=request.GET.keyword status=request.GET.status %}
+    <a href="{% url 'rabop:naver-order-create' store.code %}?page={{ request.GET.page }}"
+       class="btn btn-outline-primary btn-block btn-lg mb-4">
+        <i class="fas fa-barcode fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Naver Order Create" %}
+    </a>
+{% endblock %}

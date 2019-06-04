@@ -1,0 +1,75 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load crispy_forms_tags %}
+{% load rakmai_filters %}
+{% load blog_tags %}
+
+{% block entry %}
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+        <h4 class="mt-1 mt-md-3">{{ post.title }}</h4>
+        <hr/>
+        <div class="alert alert-danger">
+            <form class="form-group" action="{% url 'blog:post-delete' post.blog.slug post.id post.slug %}"
+                  method="post">
+                {% csrf_token %}
+                {% trans "Are you sure to delete?" %}
+                <button class="btn btn-danger float-right" type="submit">
+                    <span class="fas fa-trash-alt fa-fw" aria-hidden="true"></span> {% trans "Delete" %}
+                </button>
+            </form>
+        </div>
+
+        <p>
+            {% if post.category.title %}
+                <i class="far fa-folder-open"></i>
+                <a href="{% url 'blog:post-category' blog.slug post.category.slug %}">{{ post.category.title }}</a> |
+            {% endif %}
+            <i class="fas fa-user"></i> <a href="#">{{ post.owner }}</a>
+            | <i class="far fa-calendar-alt"></i> {{ post.published|date:"Y-m-d H:m" }}
+            | <i class="fas fa-comments"></i> <a href="#comment">{{ comment_count }} {% trans "comments" %}</a>
+            | <i class="far fa-eye"></i> {{ post.view_count }} {% trans "views" %}
+            | <i class="fas fa-map-marker-alt"></i> {{ post.ip_address|mask_ip_address }}
+        </p>
+        <hr/>
+
+        {% if post.thumbnail %}
+            {% thumbnail post.thumbnail 900x300 crop="smart" as im %}
+            <img class="img-fluid rounded" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% else %}
+            <img class="img-fluid rounded" src="{% static 'images/shop/default/900x300.png' %}" alt="no thumbnail">
+        {% endif %}
+        <hr/>
+
+        {% if blog.markup == blog.FORMAT_CHOICES.html %}
+            {{ post.content|clean_html|linebreaks }}
+        {% elif blog.markup == blog.FORMAT_CHOICES.markdown %}
+            {{ post.content|markdownify }}
+        {% elif blog.markup == blog.FORMAT_CHOICES.text %}
+            {{ post.content|strip_html|linebreaks }}
+        {% endif %}
+        <hr/>
+
+        <p>
+            <i class="fas fa-tags fa-fw"></i>
+            {% for tag in post.tags.all %}
+                <a class="btn btn-sm btn-info" href="{% url 'blog:post-tag' blog.slug tag.slug %}" role="button">
+                    #{{ tag.name }}
+                </a>
+            {% endfor %}
+        </p>
+        {% if blog.allow_comments and post.allow_comments %}
+            <hr/>
+            <!-- Comments List -->
+            <a href="#comments"></a>
+            <ul class="list-unstyled">
+            </ul>
+        {% else %}
+            <div class="alert alert-warning my-4">
+                {% trans "Comments are now allowed." %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

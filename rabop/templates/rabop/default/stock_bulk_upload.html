@@ -1,0 +1,99 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block javascript %}
+    <script src="{% static "js/rabop/stock-bulk-upload.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-2">
+        <div class="col-12 col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="id_content">RAW data</label>
+                    <textarea class="form-control" id="id_content" rows="10"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_stock">상품권</label>
+                        <select class="form-control" id="id_stock">
+                            <option value="-1">선택</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_amount">금액권종</label>
+                        <select class="form-control" id="id_amount">
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_amount">비고</label>
+                        <input class="form-control" type="text" placeholder="해피머니 발행일자" id="id_remarks">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-block btn-primary mb-3" id="id_parse">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    변환하기
+                </button>
+            </form>
+            <div id="id_error1" class="alert alert-danger d-none"></div>
+        </div>
+        <div class="col-12 col-md-6" id="stock-upload-json">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_json_content">JSON data</label>
+                    {{ form.json_content }}
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_stock1">상품권</label>
+                        <input class="form-control" type="text" placeholder="-" readonly id="id_stock1">
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_amount">금액권종</label>
+                        <input class="form-control" type="text" placeholder="-" readonly id="id_amount1">
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label for="id_amount">매수</label>
+                        <input class="form-control" type="text" placeholder="-" readonly id="id_count">
+                    </div>
+                </div>
+                {{ form.product }}
+                <button type="submit" class="btn btn-block btn-primary mb-3" id="id_upload">
+                    <i class="fas fa-file-upload"></i>
+                    업로드
+                </button>
+            </form>
+            <div id="id_error2" class="alert alert-danger d-none"></div>
+        </div>
+        {% if form.errors %}
+            <div class="col-12">
+                <div class="alert alert-danger mb-0">
+                    <ul class="mb-0">
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+
+                        {% for hidden_field in form.hidden_fields %}
+                            {% if hidden_field.errors %}
+                                {% for error in hidden_field.errors %}
+                                    <li>(Hidden field {{ hidden_field.name }}) {{ error }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% for visible_field in form.visible_fields %}
+                            {% if visible_field.errors %}
+                                {% for error in visible_field.errors %}
+                                    <li>(Hidden field {{ visible_field.name }}) {{ error }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

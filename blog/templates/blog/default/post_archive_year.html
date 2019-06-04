@@ -1,0 +1,33 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% block entry %}
+    <!-- Blog Entries Column -->
+    <div class="col-lg-8">
+        <div class="card my-4">
+            <div class="card-body">
+                <h4>{% blocktrans with y=year|date:'Y' %}Yearly Archive {{ y }}{% endblocktrans %}</h4>
+                <ul class="mb-0 mt-4">
+                    {% for monthly in date_list %}
+                        <li style="display: inline;">
+                            <a href="{% url 'blog:post-archive-month' blog.slug monthly|date:'Y' monthly|date:'m' %}">
+                                {{ monthly|date:'F' }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <ul class="my-4">
+            {% for post in posts %}
+                <li>{{ post.published|date:'Y-m-d' }} -
+                    <a href="{{ post.get_absolute_url }}"><strong>{{ post.title }}</strong></a>
+                </li>
+            {% endfor %}
+        </ul>
+        <hr/>
+
+        {% include './_pagination.html' with page_obj=page_obj page_range=page_range %}
+    </div>
+{% endblock %}

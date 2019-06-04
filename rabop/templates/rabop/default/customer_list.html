@@ -1,0 +1,77 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+
+{% block content %}
+    <div class="row mb-1 mb-md-3">
+        <div class="col">
+            <form action="{% url 'rabop:customer-list' store.code %}" method="get">
+                <div class="input-group mb-1 mb-md-3">
+                    <div class="input-group-prepend">
+                        {{ customer_search_form.category }}
+                    </div>
+                    {{ customer_search_form.keyword }}
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-3">
+            {% trans "fullname" %}
+        </div>
+        <div class="col-md-3">
+            {% trans "Email" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "phone number" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "document verified" %}
+        </div>
+    </div>
+    {% for customer in customers %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3 order-1 order-md-1">
+                <a href="{% url 'rabop:customer-detail' store.code customer.user.profile.id %}">
+                    {{ customer.full_name }}
+                </a>
+            </div>
+            <div class="col-8 col-sm-8 col-md-3 order-2 order-md-2">
+                {{ customer.user.email }}
+            </div>
+            <div class="col-8 col-sm-8 col-md-2 order-4 order-md-3">
+                {% if customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.verified %}
+                    <i class="fas fa-check text-success"></i>
+                {% elif customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.revoked %}
+                    <i class="fas fa-lock text-warning"></i>
+                {% elif customer.phone_verified_status == customer.PHONE_VERIFIED_STATUS_CHOICES.unverified %}
+                    <i class="fas fa-times text-danger"></i>
+                {% endif %}
+                {% if customer.phone %}
+                    <a href="tel:{{ customer.phone }}">{{ customer.phone }}</a>
+                {% endif %}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2 order-3 order-md-4">
+                {% if customer.document_verified %}
+                    <i class="fas fa-check text-success"></i>
+                {% else %}
+                    <i class="fas fa-times text-danger"></i>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <div class="row my-3">
+            <div class="col text-center">
+                {% trans "No Customers Yet" %}
+            </div>
+        </div>
+    {% endfor %}
+    {% include './_pagination_customer_list.html' with page_obj=page_obj page_range=page_range category=request.GET.category keyword=request.GET.keyword status=request.GET.status %}
+{% endblock %}

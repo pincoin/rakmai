@@ -1,0 +1,49 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row justify-content-center mt-0 mt-md-3 mb-2">
+            <div class="col-sm-12 col-md-8">
+                <div class="card rounded-2">
+                    <h4 class="card-header text-center">{% trans "Unregister" %}</h4>
+                    <div class="card-body">
+                        <form method="post" action="{% url 'account_unregister' %}">
+                            {% csrf_token %}
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="{{ form.agree.name }}">
+                                    {{ form.agree.label }}
+                                </label>
+                            </div>
+                            <div class="alert alert-warning mt-1 mt-md-3">
+                                전자상거래 등에서의 소비자보호에 관한 법률 제6조에 의거
+                                <strong>아이디, 이름, 전자우편주소, 휴대전화번호</strong> 등
+                                거래의 주체를 식별할 수 있는 정보에 한하여
+                                서비스 이용에 관한 동의를 철회한 경우에도 이를 보존할 수 있으며,
+                                동법 시행령 제6조에 의거 다음과 같이 거래 기록을 보관합니다.
+                                <ol class="mt-1 mt-md-3 mb-0">
+                                    <li class="my-1">표시, 광고에 관한 기록 : 6개월</li>
+                                    <li class="my-1">계약 또는 청약철회 등에 관한 기록 : 5년</li>
+                                    <li class="my-1">대금결제 및 재화 등의 공급에 관한 기록 : 5년</li>
+                                    <li class="my-1">소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</li>
+                                    <li class="my-1">채권․채무관계 잔존시에는 해당 채권․채무관계 정산시까지</li>
+                                </ol>
+                            </div>
+                            <div class="alert alert-danger mt-1 mt-md-3">
+                                상기 법률에 근거하여 신규고객이 한도 초과 구매하기 위해 탈퇴 후 재가입해도 구매할 수 없습니다.
+                            </div>
+                            <hr>
+                            <button class="btn btn-block btn-lg btn-danger"
+                                    type="submit">{% trans 'Unregister' %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

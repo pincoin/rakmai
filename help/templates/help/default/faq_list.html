@@ -1,0 +1,64 @@
+{% extends base_template_path %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_tags %}
+{% load rakmai_filters %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static "css/shop/adsense.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container pb-2">
+        {% include './_tabs.html' with active='faq' %}
+        <div class="row my-2">
+            <div class="col">
+                <div class="card my-2">
+                    <ul class="list-group list-group-flush">
+                        {% for message in faq_messages %}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-1 p-md-1">
+                                        <span class="btn btn-sm btn-secondary mr-2">
+                                            {{ message.get_category_display }}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-11 pt-2 p-md-2">
+                                        <a href="#collapseFaq-{{ message.id }}"
+                                           role="button" data-toggle="collapse" aria-expanded="false"
+                                           aria-controls="collapseFaq">
+                                            {{ message.title }}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="collapse mt-3" id="collapseFaq-{{ message.id }}">
+                                    <div class="card card-body bg-light help-content pb-0">
+                                        {{ message.content|markdownify }}
+                                    </div>
+                                </div>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">
+                                {% trans "No message" %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-md-3 mt-1">
+            <div class="col">
+                <!-- 반응형1 -->
+                <ins class="adsbygoogle adslot_wide"
+                     style="display:block"
+                     data-ad-client="ca-pub-6334863722125804"
+                     data-ad-slot="6025802824"
+                     data-ad-format="auto"
+                     data-full-width-responsive="false"
+                     data-language="ko"></ins>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "./blog_base_sidebar.html" %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load rakmai_filters %}
+{% load blog_tags %}
+{% load static %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    {% if post.allow_highlight %}
+        <link rel="stylesheet" href="{% static 'css/prism/prism.css' %}">
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static "js/blog/lightbox.js" %}"></script>
+    {% if post.allow_highlight %}
+        <script src="{% static "js/prism/prism.js" %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block entry %}
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+        <h4 class="mt-1 mt-md-3 post-heading-title">{{ post.title }}</h4>
+        <hr/>
+
+        <p>
+            {% if post.category.title %}
+                <i class="far fa-folder-open"></i>
+                <a href="{% url 'blog:post-category' blog.slug post.category.slug %}">{{ post.category.title }}</a> |
+            {% endif %}
+            <i class="far fa-calendar-alt"></i> {{ post.published|date:"Y-m-d H:m" }}
+            | <i class="fas fa-comments"></i> <a href="#comments">{{ comment_count }} {% trans "comments" %}</a>
+            | <i class="far fa-eye"></i> {{ post.view_count }} {% trans "views" %}
+            {% if user.is_superuser %}
+                | <i class="fas fa-edit"></i>
+                <a href="{% url 'blog:post-edit' post.blog.slug post.id post.slug %}">{% trans "Edit" %}</a>
+                | <i class="fas fa-trash-alt"></i>
+                <a href="{% url 'blog:post-delete' post.blog.slug post.id post.slug %}">{% trans "Delete" %}</a>
+            {% endif %}
+        </p>
+        <hr/>
+
+        {% if post.thumbnail %}
+            <img class="img-fluid border border-dark" src="{{ post.thumbnail.url }}">
+        {% else %}
+            <img class="img-fluid border border-dark" src="{% static 'images/shop/default/900x300.png' %}" alt="no thumbnail">
+        {% endif %}
+        <hr/>
+
+        <div id="blog-page-content" class="page-content-text no-break-word">
+            {{ post.content|clean_html }}
+        </div>
+
+        <div class="modal fade" id="lightboxModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-full-width" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{% static 'images/shop/default/1x1.png' %}" class="mx-auto d-block" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            {% trans "Close" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+
+        <p>
+            <i class="fas fa-tags fa-fw mr-2 mb-2"></i>
+            {% for tag in post.tags.all %}
+                <a class="btn btn-sm btn-info p-1 mb-2"
+                   href="{% url 'blog:post-tag' blog.slug tag.slug %}"
+                   role="button">
+                    #{{ tag.name }}
+                </a>
+            {% endfor %}
+        </p>
+        <hr/>
+
+        <!-- Related posts -->
+        <h4 class="mt-2 mt-3">{% trans "Related Posts" %}</h4>
+        <div class="row">
+            {% get_similar_posts post blog.slug 3 as similar_posts %}
+            {% for similar_post in similar_posts %}
+                <div class="col-sm-4 my-1">
+                    <div class="card h-100">
+                        {% if similar_post.thumbnail %}
+                            {% thumbnail similar_post.thumbnail 222x145 crop="smart" as im %}
+                            <img class="card-img-top" src="{{ im.url }}" width="{{ im.width }}"
+                                 height="{{ im.height }}">
+                        {% else %}
+                            <img class="card-img-top"
+                                 src="{% static 'images/shop/default/222x145.png' %}"
+                                 alt="no thumbnail">
+                        {% endif %}
+                        <div class="card-body">
+                            <a class="card-text" href="{{ similar_post.get_absolute_url }}">{{ similar_post.title }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

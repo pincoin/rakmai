@@ -1,0 +1,56 @@
+{% extends "./board_base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load rakmai_filters %}
+
+{% block entry %}
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+        <h4 class="mt-4">{{ message.title }}</h4>
+        <hr/>
+        <p>
+            {% if message.category.title %}
+                <i class="fas fa-folder"></i>
+                <a href="#">{{ message.category.title }}</a> |
+            {% endif %}
+            <i class="fas fa-user"></i> <a href="#">{{ message.nickname }}</a>
+            | <i class="fas fa-calendar-alt"></i> {{ message.created|date:"Y-m-d H:m" }}
+            | <i class="fas fa-comments"></i> <a href="#comment">{{ comment_count }} {% trans "comments" %}</a>
+            | <i class="far fa-eye"></i> {{ message.view_count }} {% trans "views" %}
+            | <i class="fas fa-map-marker-alt"></i> {{ message.ip_address|mask_ip_address }}
+            {% if user.is_superuser %}
+                | <i class="fas fa-edit"></i>
+                <a href="{% url 'board:message-edit' message.board.slug message.id %}?page={{ request.GET.page }}">
+                    {% trans "Edit" %}
+                </a>
+                | <i class="fas fa-trash-alt"></i>
+                <a href="{% url 'board:message-delete' message.board.slug message.id %}?page={{ request.GET.page }}">
+                    {% trans "Delete" %}
+                </a>
+            {% endif %}
+        </p>
+        <hr/>
+        {{ message.content|clean_html|linebreaks }}
+        <hr/>
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'board:message-list' board.slug %}?page={{ request.GET.page }}"
+                   class="btn btn-secondary">
+                    <i class="fas fa-list-ul fa-fw" aria-hidden="true"></i>&nbsp;{% trans "List" %}
+                </a>
+                <a href="{% url 'board:message-new' board.slug %}" class="btn btn-info">
+                    <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Write" %}
+                </a>
+                {% if message.owner.pk == user.id %}
+                    <a href="{% url 'board:message-edit' board.slug message.id %}" class="btn btn-warning">
+                        <i class="fas fa-edit fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'board:message-delete' board.slug message.id %}" class="btn btn-danger">
+                        <i class="fas fa-trash-alt fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Delete" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

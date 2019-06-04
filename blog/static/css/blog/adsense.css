@@ -1,0 +1,23 @@
+.adslot_blog_sidebar {
+    width: 320px;
+    height: 100px;
+}
+
+@media (min-width: 768px) {
+    .adslot_blog_sidebar {
+        width: 336px;
+        height: 280px;
+    }
+}
+
+.adslot_blog_entry_block {
+    width: 320px;
+    height: 100px;
+}
+
+@media (min-width: 768px) {
+    .adslot_blog_entry_block {
+        width: 728px;
+        height: 90px;
+    }
+}

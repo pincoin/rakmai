@@ -1,0 +1,22 @@
+{% extends base_template_path %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container pb-1">
+        <div class="row mt-0 mt-md-3 mb-2">
+            <div class="col">
+                <div class="card rounded-2">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">{% trans "Privacy Policy" %}</h4>
+                    </div>
+                    <div class="card-body">
+                        <pre class="term-noscroll">
+{% include './terms/privacy.txt' %}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
