@@ -591,21 +591,21 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             return Response(serializer.data, status=status.HTTP_200_OK)
                         else:
                             return Response(data=json.dumps({
-                                "code": 400,
-                                "message": _('Your name does not match the phone owner.')
+                                'code': 400,
+                                'message': str(_('Your name does not match the phone owner.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
                     else:
                         return Response(data=json.dumps({
-                            "code": 400,
-                            "message": _('You have verified within 48 hours.')
+                            'code': 400,
+                            'message': str(_('You have verified within 48 hours.'))
                         }),
                             status=status.HTTP_400_BAD_REQUEST)
 
                 except (Profile.DoesNotExist, PhoneVerificationLog.DoesNotExist):
                     return Response(data=json.dumps({
-                        "code": 400,
-                        "message": _('Illegal access: no record')
+                        'code': 400,
+                        'message': str(_('Illegal access: no record'))
                     }),
                         status=status.HTTP_400_BAD_REQUEST)
 
