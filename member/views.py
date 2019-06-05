@@ -530,42 +530,37 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
 
         return None
 
-    def get(self, request, store, format=None):
+    def get(self, request, format=None):
         return Response(None)
 
-    def post(self, request, store, format=None):
+    def post(self, request, format=None):
         serializer = IamportSmsCallbackSerializer(data=request.data)
 
         if serializer.is_valid():
             response = self.find(request.data['imp_uid'])
 
-            '''
-            imp_uid string
-            merchant_uid string
-            pg_tid string
-            pg_provider string
-            name string
-            gender string
-            birth integer
-            certified boolean
-            certified_at long
-            unique_key string
-            unique_in_site string
-            '''
+            if response and response['certified']:
+                print(request.data)
+                print(response)
 
-            if response:
                 try:
-                    self.profile = Profile.objects.select_related('user').get(user__pk=self.request.user.id)
+                    profile = Profile.objects.select_related('user').get(user__pk=int(request.data['merchant_uid']))
+
                     log = PhoneVerificationLog()
-                    log.owner = self.request.user
-                    log.ci = response['unique_key']
+                    log.owner = profile.user
+                    log.transaction_id = response['pg_tid']
                     log.di = response['unique_in_site']
+                    log.ci = response['unique_key']
                     log.fullname = response['name']
-                    log.date_of_birth = response['birth']
-                    log.cellphone = response['phone']
-                    log.gender = response['gender']
+                    log.date_of_birth = datetime.fromtimestamp(int(response['birth'])).strftime('%Y%m%d')
+                    log.gender = 1 if response['gender'] == 'male' else 0
+                    log.domestic = 1 if not response['foreigner'] else 0
+                    # TODO: telecom and phone number
+                    log.telecom = ''
+                    log.cellphone = ''
                     log.save()
 
+                    # TODO: timestamped model -> created (not transaction id)
                     # check duplicate user verifications
                     logs = PhoneVerificationLog.objects \
                         .filter(ci=log.ci, owner__isnull=False) \
@@ -574,32 +569,44 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                         .filter(d__gt=int(make_aware(localtime().now() - timedelta(hours=48)).strftime('%Y%m%d%H%m')
                                           + '00000000'))
 
-                    self.profile.phone = log.cellphone
+                    profile.phone = log.cellphone
 
                     if not logs:
-                        if log.fullname == self.profile.full_name:
-                            self.profile.phone_verified_status = Profile.PHONE_VERIFIED_STATUS_CHOICES.verified
-                            self.profile.date_of_birth = datetime.strptime(log.date_of_birth, '%Y%m%d').date()
-                            self.profile.gender = log.gender
-                            self.profile.domestic = log.domestic
-                            self.profile.telecom = log.telecom
+                        if log.fullname == profile.full_name:
+                            profile.phone_verified_status = Profile.PHONE_VERIFIED_STATUS_CHOICES.verified
+                            profile.date_of_birth = datetime.strptime(log.date_of_birth, '%Y%m%d').date()
+                            profile.gender = log.gender
+                            profile.domestic = log.domestic
+                            profile.telecom = log.telecom
+                            profile.save()
 
-                            self.result = _('Phone verification was done.')
-
-                            orders = Order.objects.valid(self.request.user).filter(status__in=[
+                            orders = Order.objects.valid(profile.user).filter(status__in=[
                                 Order.STATUS_CHOICES.under_review,
                             ])
 
                             if orders:
-                                message = _('Phone Verification {}').format(self.profile.full_name)
+                                message = _('Phone Verification {}').format(profile.full_name)
                                 send_notification_line.delay(message)
-                        else:
-                            self.result = _('Your name does not match the phone owner.')
-                    else:
-                        self.result = _('You have verified within 48 hours.')
 
-                    self.profile.save()
+                            return Response(serializer.data, status=status.HTTP_200_OK)
+                        else:
+                            return Response(data=json.dumps({
+                                "code": 400,
+                                "message": _('Your name does not match the phone owner.')
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+                    else:
+                        return Response(data=json.dumps({
+                            "code": 400,
+                            "message": _('You have verified within 48 hours.')
+                        }),
+                            status=status.HTTP_400_BAD_REQUEST)
+
                 except (Profile.DoesNotExist, PhoneVerificationLog.DoesNotExist):
-                    self.result = _('Illegal access: no record')
+                    return Response(data=json.dumps({
+                        "code": 400,
+                        "message": _('Illegal access: no record')
+                    }),
+                        status=status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

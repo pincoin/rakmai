@@ -20,13 +20,17 @@
                         type: 'post',
                         dataType: 'json',
                         data: {
-                            imp_uid: rsp.imp_uid
+                            imp_uid: rsp.imp_uid,
+                            merchant_uid: "{{ member.user.id }}"
                         }
                     }).done(function (data, textStatus, jqXHR) {
                         if (textStatus === 'success') {
                             location.reload();
                         }
                     }).fail(function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                        console.log(jqXHR);
                         alert("인증에 실패하였습니다.");
                     });
                 } else {
@@ -34,6 +38,12 @@
                 }
             });
         }
+
+        $(document).ready(function () {
+            $('#button-phone-verification-danal').on('click', function () {
+                requestCertification();
+            });
+        });
     </script>
 {% endblock %}
 
@@ -81,6 +91,11 @@
                                     </button>
                                     <button id="button-phone-verification"
                                             class="btn btn-sm btn-outline-info mr-2"
+                                            href="{% url 'account_confirm_phone' %}">
+                                        {% trans "Verify" %}
+                                    </button>
+                                    <button id="button-phone-verification-danal"
+                                            class="btn btn-sm btn-outline-info mr-2 d-none"
                                             href="{% url 'account_confirm_phone' %}">
                                         {% trans "Verify" %}
                                     </button>
