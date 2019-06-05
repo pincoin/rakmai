@@ -484,12 +484,11 @@ class OrderDetailView(LoginRequiredMixin, StoreContextMixin, HostRestrict, gener
         ] and delta < timedelta(days=shop_settings.REFUNDABLE_DAYS):
             context['show_refund_order_button'] = True
         elif self.object.status in [models.Order.STATUS_CHOICES.shipped, ]:
-            if self.object.user.profile.total_order_count > 1:
-                context['show_refund_order_button'] = True
-            elif timedelta(hours=2) < delta < timedelta(days=shop_settings.REFUNDABLE_DAYS):
-                context['show_refund_order_button'] = True
-            elif no_refund_product:
-                context['show_refund_order_button'] = True
+            if not no_refund_product:
+                if self.object.user.profile.total_order_count > 1:
+                    context['show_refund_order_button'] = True
+                elif timedelta(hours=2) < delta < timedelta(days=shop_settings.REFUNDABLE_DAYS):
+                    context['show_refund_order_button'] = True
 
         context['show_delete_order_button'] = self.object.status in [
             models.Order.STATUS_CHOICES.payment_pending,
