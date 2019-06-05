@@ -345,7 +345,7 @@
                     merchant_uid: "{{ order.order_no }}",
                     name: "상품권구매",
                     amount: {{ order.total_selling_price|stringformat:'d' }},
-                    tax_free: 0,
+                    tax_free: {{ order.total_selling_price|stringformat:'d' }},
                     buyer_email: "{{ order.user.email }}",
                     buyer_name: "{{ order.fullname }}",
                     buyer_tel: "{{ order.user.profile.phone }}"
