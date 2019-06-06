@@ -68,7 +68,7 @@ class Command(BaseCommand):
 
                 # update review count
                 if data['response'] and 'posts' in data['response'][0]:
-                    product.review_count = data['response'][0]['posts']
+                    product.review_count_pg = data['response'][0]['posts']
                     product.save()
                     self.stdout.write(self.style.SUCCESS(
                         '{} has {} comments'.format(params['thread:link'], data['response'][0]['posts'])))
