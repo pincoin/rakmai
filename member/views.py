@@ -555,9 +555,8 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     log.date_of_birth = datetime.fromtimestamp(int(response['birth'])).strftime('%Y%m%d')
                     log.gender = 1 if response['gender'] == 'male' else 0
                     log.domestic = 1 if not response['foreigner'] else 0
-                    # TODO: telecom and phone number
-                    log.telecom = ''
-                    log.cellphone = ''
+                    log.telecom = response['carrier']
+                    log.cellphone = response['phone']
                     log.save()
 
                     # TODO: timestamped model -> created (not transaction id)
