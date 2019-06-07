@@ -1,6 +1,7 @@
 {% extends base_template_path %}
 
 {% load i18n %}
+{% load l10n %}
 {% load static %}
 
 {% block javascript %}
@@ -21,7 +22,7 @@
                         dataType: 'json',
                         data: {
                             imp_uid: rsp.imp_uid,
-                            merchant_uid: "{{ member.user.id }}"
+                            merchant_uid: "{{ member.user.id|unlocalize }}"
                         }
                     }).done(function (data, textStatus, jqXHR) {
                         if (textStatus === 'success') {
