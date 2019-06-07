@@ -44,16 +44,9 @@
                             {% if order.user.profile.domestic == 2 %}
                                 외국인
                             {% endif %}
-                            {% if order.user.profile.telecom == '01' %}
-                                SKT
-                            {% elif order.user.profile.telecom == '02' %}
-                                KT
-                            {% elif order.user.profile.telecom == '03' %}
-                                LGU+
-                            {% else %}
-                                MVNO
-                            {% endif %}
-                            )
+
+                            {{ order.user.profile.telecom }}
+                        )
                         </span>
                     {% endif %}
                 </div>

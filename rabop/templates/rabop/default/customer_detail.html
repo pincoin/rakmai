@@ -41,16 +41,8 @@
                                         {% if customer.domestic == 2 %}
                                             외국인
                                         {% endif %}
-                                        {% if customer.telecom == '01' %}
-                                            SKT
-                                        {% elif customer.telecom == '02' %}
-                                            KT
-                                        {% elif customer.telecom == '03' %}
-                                            LGU+
-                                        {% else %}
-                                            MVNO
-                                        {% endif %}
-                                        )
+                                        {{ customer.telecom }}
+                                    )
                                     </span>
                                 {% endif %}
 
