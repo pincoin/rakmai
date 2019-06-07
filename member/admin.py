@@ -70,7 +70,7 @@ class LoginLogAdmin(admin.ModelAdmin):
 
 class PhoneVerificationLogAdmin(admin.ModelAdmin):
     list_display = (
-        'fullname', 'cellphone', 'telecom', 'gender', 'date_of_birth',
+        'fullname', 'cellphone', 'telecom', 'gender', 'date_of_birth', 'created'
     )
     fields = (
         'owner', 'fullname', 'cellphone', 'telecom', 'date_of_birth', 'gender', 'domestic', 'token',
@@ -80,7 +80,7 @@ class PhoneVerificationLogAdmin(admin.ModelAdmin):
         'owner', 'fullname', 'date_of_birth', 'gender', 'domestic', 'telecom', 'cellphone',
         'token', 'code', 'reason', 'result_code', 'message', 'transaction_id', 'di', 'ci', 'return_message',
     )
-    ordering = ['-transaction_id']
+    ordering = ['-created']
 
 
 class MmsAdmin(admin.ModelAdmin):
