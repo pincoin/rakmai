@@ -256,7 +256,7 @@ class LoginLog(TimeStampedModel):
         return '{} {} {}'.format(self.user.email, self.ip_address, self.created)
 
 
-class PhoneVerificationLog(models.Model):
+class PhoneVerificationLog(TimeStampedModel):
     GENDER_CHOICES = Choices(
         (0, 'female', _('female')),
         (1, 'male', _('male')),

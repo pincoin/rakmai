@@ -559,14 +559,12 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     log.cellphone = response['phone']
                     log.save()
 
-                    # TODO: timestamped model -> created (not transaction id)
                     # check duplicate user verifications
                     logs = PhoneVerificationLog.objects \
-                        .filter(ci=log.ci, owner__isnull=False) \
-                        .exclude(owner=log.owner) \
-                        .annotate(d=Cast('transaction_id', FloatField())) \
-                        .filter(d__gt=int(make_aware(localtime().now() - timedelta(hours=48)).strftime('%Y%m%d%H%m')
-                                          + '00000000'))
+                        .filter(ci=log.ci,
+                                owner__isnull=False,
+                                created__gte=make_aware(localtime().now() - timedelta(hours=48))) \
+                        .exclude(owner=log.owner)
 
                     profile.phone = log.cellphone
 
