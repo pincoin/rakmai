@@ -6,7 +6,6 @@
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static "js/member/verification.js" %}"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script>
         IMP.init("{{ iamport_user_code }}");
@@ -256,8 +255,5 @@
                    class="btn btn-block btn-lg btn-outline-danger">{% trans "Unregister" %}</a>
             </div>
         </div>
-        <form name="form1" action="/auth/okname/pincoin1.php" method="post">
-            <input type="hidden" name="okname_token" value="{{ okname_token }}">
-        </form>
     </div>
 {% endblock %}

@@ -13,9 +13,7 @@ from member.views import (
     MemberSocialLoginCancelledView, MemberSocialLoginErrorView, MemberSocialSignupView, MemberSocialConnectionsView,
     MemberEmailVerificationSentView, MemberConfirmEmailView, MemberEmailView,
     TermsView, PrivacyView,
-    MemberProfileView,
-    MemberConfirmPhoneView, MemberConfirmDocumentView, MemberNameUpdateView,
-    IamportSmsCallbackView,
+    MemberProfileView, MemberConfirmDocumentView, MemberNameUpdateView, IamportSmsCallbackView,
 )
 
 urlpatterns = [
@@ -69,11 +67,9 @@ urlpatterns = [
          MemberNameUpdateView.as_view(), name="account_change_name"),
 
     # Verification
-    path('confirm-phone/',
-         MemberConfirmPhoneView.as_view(), name="account_confirm_phone"),
     path('confirm-document/',
          MemberConfirmDocumentView.as_view(), name="account_confirm_document"),
-    path('confirm-phone/iamport/callback/',
+    path('confirm-phone/',
          IamportSmsCallbackView.as_view(), name='iamport-sms-callback'),
 
     # Social Providers

@@ -280,7 +280,6 @@ class MemberProfileView(LoginRequiredMixin, HostContextMixin, StoreContextMixin,
     def get_context_data(self, **kwargs):
         context = super(MemberProfileView, self).get_context_data(**kwargs)
         context['page_title'] = _('Profile')
-        context['okname_token'] = self.request.session['okname_token'] = str(uuid.uuid4()).replace('-', '')
 
         pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
 
@@ -291,81 +290,6 @@ class MemberProfileView(LoginRequiredMixin, HostContextMixin, StoreContextMixin,
         context['iamport_sms_callback_url'] = self.request.build_absolute_uri(
             reverse(settings.IAMPORT['sms_callback_url']))
 
-        return context
-
-
-class MemberConfirmPhoneView(LoginRequiredMixin, HostContextMixin, StoreContextMixin, TemplateView):
-    template_name = 'member/account/phone_confirm.html'
-
-    def dispatch(self, *args, **kwargs):
-        if 'okname_token' in self.request.session:
-            try:
-                self.profile = Profile.objects.select_related('user').get(user__pk=self.request.user.id)
-                log = PhoneVerificationLog.objects.get(token=self.request.session['okname_token'])
-                log.owner = self.request.user
-                log.save()
-
-                # check duplicate user verifications
-                logs = PhoneVerificationLog.objects \
-                    .filter(ci=log.ci, owner__isnull=False) \
-                    .exclude(owner=log.owner) \
-                    .annotate(d=Cast('transaction_id', FloatField())) \
-                    .filter(d__gt=int(make_aware(localtime().now() - timedelta(hours=48)).strftime('%Y%m%d%H%m')
-                                      + '00000000'))
-
-                self.profile.phone = log.cellphone
-
-                if not logs:
-                    if log.token == self.request.session['okname_token']:
-                        if log.fullname == self.profile.full_name:
-                            self.profile.phone_verified_status = Profile.PHONE_VERIFIED_STATUS_CHOICES.verified
-                            self.profile.date_of_birth = datetime.strptime(log.date_of_birth, '%Y%m%d').date()
-                            self.profile.gender = log.gender
-                            self.profile.domestic = log.domestic
-                            self.profile.telecom = log.telecom
-
-                            self.result = _('Phone verification was done.')
-
-                            del self.request.session['okname_token']
-
-                            orders = Order.objects.valid(self.request.user).filter(status__in=[
-                                Order.STATUS_CHOICES.under_review,
-                            ])
-
-                            failed = False
-
-                            if orders:
-                                failed = True
-                                '''
-                                for order in orders:
-                                    if not (order.total_list_price < Decimal(shop_settings.SUSPICIOUS_AMOUNT)
-                                            and send_vouchers(order)):
-                                        failed = True
-                                '''
-
-                            if failed:
-                                message = _('Phone Verification {}').format(self.profile.full_name)
-                                send_notification_line.delay(message)
-
-                        else:
-                            self.result = _('Your name does not match the phone owner.')
-                    else:
-                        self.result = _('Illegal access: token mismatch')
-                else:
-                    self.result = _('You have verified within 48 hours.')
-
-                self.profile.save()
-            except (Profile.DoesNotExist, PhoneVerificationLog.DoesNotExist):
-                self.result = _('Illegal access: no record')
-        else:
-            self.result = _('Illegal access: no session')
-
-        return super(MemberConfirmPhoneView, self).dispatch(*args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(MemberConfirmPhoneView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Phone Verification')
-        context['result'] = self.result
         return context
 
 
