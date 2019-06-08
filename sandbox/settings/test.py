@@ -1,5 +1,7 @@
 SECRET_KEY = 'rakmai_fake_key'
 
+DEBUG = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
