@@ -40,15 +40,21 @@ from rakmai.viewmixins import (
 from . import forms
 from . import models
 from . import settings as shop_settings
-from .forms2 import (
-    OrderForm, RefundForm
-)
 from .helpers import Cart
 from .tasks import (
     send_notification_email, send_notification_line, send_paypal_refund
 )
 from .utils import send_vouchers
 from .viewmixins import StoreContextMixin
+
+if settings.DEBUG:
+    from .forms2_debug import (
+        OrderForm, RefundForm
+    )
+else:
+    from .forms2 import (
+        OrderForm, RefundForm
+    )
 
 
 class HomeView(StoreContextMixin, HostRestrict, generic.TemplateView):

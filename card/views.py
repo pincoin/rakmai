@@ -38,10 +38,16 @@ from shop.tasks import (
 from shop.utils import send_vouchers
 from shop.viewmixins import StoreContextMixin
 from . import forms
-from .forms2 import (
-    OrderForm, RefundForm
-)
 from .serializers import IamportCallbackSerializer
+
+if settings.DEBUG:
+    from .forms2_debug import (
+        OrderForm, RefundForm
+    )
+else:
+    from .forms2 import (
+        OrderForm, RefundForm
+    )
 
 
 class HomeView(StoreContextMixin, HostRestrict, generic.TemplateView):
