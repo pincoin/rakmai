@@ -175,8 +175,6 @@ if DEBUG:
     TEMPLATES[0]['APP_DIRS'] = True
     TEMPLATES[0]['OPTIONS'].pop('loaders', None)
 
-REST_FRAMEWORK_TOKEN = '68085d87dcc531989b3a617cf0ee3a2187e4164c'
-
 # Disable DRF admin interface
 if not DEBUG:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = ('rest_framework.renderers.JSONRenderer',)
