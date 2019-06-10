@@ -33,7 +33,7 @@ $(document).ready(function () {
 
             switch (vouchers[voucher_idx].id) {
                 case 2: // 구글기프트카드
-                    results = content.match(/[A-Z0-9]{4}([- ][A-Z0-9]{4}){3,4}/mg);
+                    results = content.match(/[A-Z0-9]{4}([- ]*[A-Z0-9]{4}){3,4}/mg);
                     break;
                 case 10: // 에그머니
                     results = content.match(/[0-9]{5}-[0-9]{5}-[0-9]{5}-[0-9]{5}/mg);
