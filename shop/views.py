@@ -848,10 +848,10 @@ class PaypalCallbackView(HostRestrict, generic.FormView):
 
                     if order.user.profile.total_order_count >= 3 \
                             and order_history['created__min'] \
-                            and now() - order_history['created__min'] > timedelta(days=60) \
+                            and now() - order_history['created__min'] > timedelta(days=90) \
                             and order.total_list_price <= Decimal(shop_settings.SUSPICIOUS_AMOUNT15) \
                             and send_vouchers(order):
-                        # 구매 3회 이상, 최초 결제일 60일 경과, 15만원 한도 자동 발송
+                        # 구매 3회 이상, 최초 결제일 90일 경과, 15만원 한도 자동 발송
                         notify = False
 
                     if notify:
