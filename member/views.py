@@ -21,8 +21,6 @@ from django.contrib.auth.mixins import (
     AccessMixin, LoginRequiredMixin
 )
 from django.contrib.gis.geoip2 import GeoIP2
-from django.db.models import FloatField
-from django.db.models.functions import Cast
 from django.shortcuts import (
     get_object_or_404
 )
@@ -54,7 +52,7 @@ from .forms2 import (
     MemberDocumentForm, MemberUnregisterForm, MemberChangeNameForm,
 )
 from .models import (
-    Profile, PhoneVerificationLog
+    Profile, PhoneVerificationLog, PhoneBanned
 )
 from .serializers import IamportSmsCallbackSerializer
 
@@ -490,30 +488,39 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                                 created__gte=make_aware(localtime().now() - timedelta(hours=48))) \
                         .exclude(owner=log.owner)
 
-                    profile.phone = log.cellphone
+                    banned = PhoneBanned.objects.filter(phone=log.cellphone).exists()
 
                     if not logs:
-                        if log.fullname == profile.full_name:
-                            profile.phone_verified_status = Profile.PHONE_VERIFIED_STATUS_CHOICES.verified
-                            profile.date_of_birth = datetime.strptime(log.date_of_birth, '%Y%m%d').date()
-                            profile.gender = log.gender
-                            profile.domestic = log.domestic
-                            profile.telecom = log.telecom
-                            profile.save()
+                        if not banned:
+                            profile.phone = log.cellphone
 
-                            orders = Order.objects.valid(profile.user).filter(status__in=[
-                                Order.STATUS_CHOICES.under_review,
-                            ])
+                            if log.fullname == profile.full_name:
+                                profile.phone_verified_status = Profile.PHONE_VERIFIED_STATUS_CHOICES.verified
+                                profile.date_of_birth = datetime.strptime(log.date_of_birth, '%Y%m%d').date()
+                                profile.gender = log.gender
+                                profile.domestic = log.domestic
+                                profile.telecom = log.telecom
+                                profile.save()
 
-                            if orders:
-                                message = _('Phone Verification {}').format(profile.full_name)
-                                send_notification_line.delay(message)
+                                orders = Order.objects.valid(profile.user).filter(status__in=[
+                                    Order.STATUS_CHOICES.under_review,
+                                ])
 
-                            return Response(serializer.data, status=status.HTTP_200_OK)
+                                if orders:
+                                    message = _('Phone Verification {}').format(profile.full_name)
+                                    send_notification_line.delay(message)
+
+                                return Response(serializer.data, status=status.HTTP_200_OK)
+                            else:
+                                return Response(data=json.dumps({
+                                    'code': 400,
+                                    'message': str(_('Your name does not match the phone owner.'))
+                                }),
+                                    status=status.HTTP_400_BAD_REQUEST)
                         else:
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('Your name does not match the phone owner.'))
+                                'message': str(_('Your phone number is banned.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
                     else:
