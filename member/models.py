@@ -9,7 +9,9 @@ from django.utils.timezone import now, timedelta
 from django.utils.translation import gettext_lazy as _
 from easy_thumbnails.fields import ThumbnailerImageField
 from model_utils import Choices
-from model_utils.models import TimeStampedModel
+from model_utils.models import (
+    TimeStampedModel, SoftDeletableModel
+)
 
 from . import settings as member_settings
 
@@ -420,4 +422,18 @@ class MmsData(models.Model):
         verbose_name=_('MMS'),
         related_name='data',
         on_delete=models.CASCADE,
+    )
+
+
+class EmailBanned(SoftDeletableModel, TimeStampedModel):
+    email = models.EmailField(
+        verbose_name=_('email address'),
+    )
+
+
+class PhoneBanned(SoftDeletableModel, TimeStampedModel):
+    phone = models.CharField(
+        verbose_name=_('phone number'),
+        max_length=16,
+        default='01012341234',
     )

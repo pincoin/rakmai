@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from rakmai.helpers import get_sub_domain
 from shop.tasks import send_notification_email
+from .models import EmailBanned
 from . import settings as member_settings
 
 
@@ -28,6 +29,10 @@ class MyAccountAdapter(DefaultAccountAdapter):
     def clean_email(self, email):
         if email.lower().split('@')[1] in member_settings.DISALLOWED_EMAIL_DOMAIN:
             raise forms.ValidationError(_('Your email domain is not allowed.'))
+
+        if EmailBanned.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError(_('Your email is banned.'))
+
         return email
 
     def get_login_redirect_url(self, request):

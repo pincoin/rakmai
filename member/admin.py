@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from .models import (
-    Profile, LoginLog, PhoneVerificationLog, Mms, MmsData
+    Profile, LoginLog, PhoneVerificationLog, Mms, MmsData, EmailBanned, PhoneBanned
 )
 
 
@@ -96,8 +96,18 @@ class MmsDataAdmin(admin.ModelAdmin):
     pass
 
 
+class EmailBannedAdmin(admin.ModelAdmin):
+    pass
+
+
+class PhoneBannedAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(LoginLog, LoginLogAdmin)
 admin.site.register(PhoneVerificationLog, PhoneVerificationLogAdmin)
 admin.site.register(Mms, MmsAdmin)
 admin.site.register(MmsData, MmsDataAdmin)
+admin.site.register(EmailBanned, EmailBannedAdmin)
+admin.site.register(PhoneBanned, PhoneBannedAdmin)
