@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-14 22:05+0900\n"
+"POT-Creation-Date: 2019-06-16 11:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -643,7 +643,7 @@ msgstr "Q&amp;A"
 #: card/templates/card/default/base.html:331
 #: member/templates/member/account/signup.html:14
 #: member/templates/member/account/terms.html:11
-#: member/templates/member/socialaccount/signup.html:23 member/views.py:257
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:255
 #: shop/templates/shop/default/base.html:373
 msgid "Terms and Conditions"
 msgstr "Terms &amp; Conditions"
@@ -653,7 +653,7 @@ msgstr "Terms &amp; Conditions"
 #: card/templates/card/default/base.html:336
 #: member/templates/member/account/privacy.html:11
 #: member/templates/member/account/signup.html:31
-#: member/templates/member/socialaccount/signup.html:40 member/views.py:266
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:264
 #: shop/templates/shop/default/base.html:378
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
@@ -1335,8 +1335,8 @@ msgstr "Sign in"
 #: card/templates/card/default/base.html:169
 #: member/templates/member/account/login.html:120
 #: member/templates/member/account/signup.html:172
-#: member/templates/member/socialaccount/signup.html:158 member/views.py:117
-#: member/views.py:239 shop/templates/shop/default/base.html:103
+#: member/templates/member/socialaccount/signup.html:158 member/views.py:115
+#: member/views.py:237 shop/templates/shop/default/base.html:103
 #: shop/templates/shop/default/base.html:169
 msgid "Sign up"
 msgstr "Sign up"
@@ -2056,7 +2056,7 @@ msgstr "No Answer"
 #: help/admin.py:80 member/admin.py:31
 #: member/templates/member/account/profile.html:157
 #: member/templates/member/account/signup.html:103
-#: member/templates/member/socialaccount/signup.html:89 member/views.py:282
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:280
 #: rabop/templates/rabop/default/customer_detail.html:14
 msgid "Profile"
 msgstr "Profile"
@@ -2073,7 +2073,7 @@ msgstr "customer question"
 msgid "Full name"
 msgstr "Full name"
 
-#: help/admin.py:132 member/models.py:46 member/models.py:436
+#: help/admin.py:132 member/models.py:46 member/models.py:443
 #: rabop/forms.py:118 rabop/forms.py:212 rabop/forms.py:269 rabop/forms.py:508
 #: rabop/templates/rabop/default/customer_detail.html:103
 #: rabop/templates/rabop/default/customer_list.html:33
@@ -2262,7 +2262,7 @@ msgstr "I really would like to unregister."
 
 #: member/forms2.py:302 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
-#: member/templates/member/account/profile.html:247 member/views.py:400
+#: member/templates/member/account/profile.html:247 member/views.py:398
 msgid "Change Your Name"
 msgstr "Change Your Name"
 
@@ -2501,7 +2501,23 @@ msgstr "MIME type"
 msgid "data"
 msgstr "data"
 
-#: member/templates/member/account/account_inactive.html:10 member/views.py:192
+#: member/models.py:434
+msgid "Banned Email Address"
+msgstr "Banned Email Address"
+
+#: member/models.py:435
+msgid "Banned Email Addresses"
+msgstr "Banned Email Addresses"
+
+#: member/models.py:449
+msgid "Banned Phone Number"
+msgstr "Banned Phone Number"
+
+#: member/models.py:450
+msgid "Banned Phone Numbers"
+msgstr "Banned Phone Numbers"
+
+#: member/templates/member/account/account_inactive.html:10 member/views.py:190
 msgid "Account Inactive"
 msgstr "Account Inactive"
 
@@ -2510,7 +2526,7 @@ msgid "This account is inactive."
 msgstr "This account is inactive."
 
 #: member/templates/member/account/document_confirm.html:19
-#: member/templates/member/account/profile.html:98 member/views.py:339
+#: member/templates/member/account/profile.html:98 member/views.py:337
 #: rabop/templates/rabop/default/customer_detail.html:161
 #: rabop/templates/rabop/default/order_detail.html:134
 msgid "Document Verification"
@@ -2707,7 +2723,7 @@ msgstr ""
 "to reset it."
 
 #: member/templates/member/account/password_reset_done.html:15
-#: member/views.py:127 member/views.py:146
+#: member/views.py:125 member/views.py:144
 msgid "Password Reset"
 msgstr "Password Reset"
 
@@ -2762,7 +2778,7 @@ msgstr "Language"
 msgid "Currency"
 msgstr "Currency"
 
-#: member/templates/member/account/profile.html:231 member/views.py:248
+#: member/templates/member/account/profile.html:231 member/views.py:246
 msgid "Connect with SNS accounts"
 msgstr "Connect with SNS accounts"
 
@@ -2772,7 +2788,7 @@ msgstr "Change Primary E-mail Address"
 
 #: member/templates/member/account/profile.html:255
 #: member/templates/member/account/unregister.html:11
-#: member/templates/member/account/unregister.html:42 member/views.py:361
+#: member/templates/member/account/unregister.html:42 member/views.py:359
 msgid "Unregister"
 msgstr "Unregister"
 
@@ -2803,7 +2819,7 @@ msgid "Follow the link provided to finalize the signup process."
 msgstr "Follow the link provided to finalize the signup process."
 
 #: member/templates/member/socialaccount/authentication_error.html:11
-#: member/views.py:230
+#: member/views.py:228
 msgid "Social Network Login Failure"
 msgstr "Social Network Login Failure"
 
@@ -2844,7 +2860,7 @@ msgid "Add a 3rd Party Account"
 msgstr "Add a 3rd Party Account"
 
 #: member/templates/member/socialaccount/login_cancelled.html:5
-#: member/views.py:221
+#: member/views.py:219
 msgid "Login Cancelled"
 msgstr "Login Cancelled"
 
@@ -2869,55 +2885,61 @@ msgstr ""
 "account to login to PINCOIN.\n"
 "                        "
 
-#: member/views.py:98
+#: member/views.py:96
 msgid "Login"
 msgstr "Login"
 
-#: member/views.py:108
+#: member/views.py:106
 msgid "Logout"
 msgstr "Logout"
 
-#: member/views.py:136 member/views.py:155
+#: member/views.py:134 member/views.py:153
 msgid "Password Reset Done"
 msgstr "Password Reset Done"
 
-#: member/views.py:164
+#: member/views.py:162
 msgid "Email Verification Sent"
 msgstr "Email Verification Sent"
 
-#: member/views.py:173
+#: member/views.py:171
 msgid "Confirm Email Request"
 msgstr "Confirm E-mail Request"
 
-#: member/views.py:183
+#: member/views.py:181
 msgid "Email Management"
 msgstr "Email Management"
 
-#: member/views.py:202
+#: member/views.py:200
 msgid "Password Change"
 msgstr "Password Change"
 
-#: member/views.py:212
+#: member/views.py:210
 msgid "Password Set"
 msgstr "Password Set"
 
-#: member/views.py:329
+#: member/views.py:327
 msgid "Document Verification {} {} {}"
 msgstr "Document Verification {} {} {}"
 
-#: member/views.py:509
+#: member/views.py:510
 msgid "Phone Verification {}"
 msgstr "Phone Verification {}"
 
-#: member/views.py:516
+#: member/views.py:517
 msgid "Your name does not match the phone owner."
 msgstr "Your name does not match the phone owner"
 
-#: member/views.py:522
+#: member/views.py:523
+#, fuzzy
+#| msgid "Your email is banned."
+msgid "Your phone number is banned."
+msgstr "Your email address is banned."
+
+#: member/views.py:529
 msgid "You have verified within 48 hours."
 msgstr "You have verified within 48 hours."
 
-#: member/views.py:529
+#: member/views.py:536
 msgid "Illegal access: no record"
 msgstr "Illegal access: no record"
 

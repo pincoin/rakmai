@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-14 22:05+0900\n"
+"POT-Creation-Date: 2019-06-16 11:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -641,7 +641,7 @@ msgstr "문의하기"
 #: card/templates/card/default/base.html:331
 #: member/templates/member/account/signup.html:14
 #: member/templates/member/account/terms.html:11
-#: member/templates/member/socialaccount/signup.html:23 member/views.py:257
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:255
 #: shop/templates/shop/default/base.html:373
 msgid "Terms and Conditions"
 msgstr "이용약관"
@@ -651,7 +651,7 @@ msgstr "이용약관"
 #: card/templates/card/default/base.html:336
 #: member/templates/member/account/privacy.html:11
 #: member/templates/member/account/signup.html:31
-#: member/templates/member/socialaccount/signup.html:40 member/views.py:266
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:264
 #: shop/templates/shop/default/base.html:378
 msgid "Privacy Policy"
 msgstr "개인정보 처리방침"
@@ -1346,8 +1346,8 @@ msgstr "로그인"
 #: card/templates/card/default/base.html:169
 #: member/templates/member/account/login.html:120
 #: member/templates/member/account/signup.html:172
-#: member/templates/member/socialaccount/signup.html:158 member/views.py:117
-#: member/views.py:239 shop/templates/shop/default/base.html:103
+#: member/templates/member/socialaccount/signup.html:158 member/views.py:115
+#: member/views.py:237 shop/templates/shop/default/base.html:103
 #: shop/templates/shop/default/base.html:169
 msgid "Sign up"
 msgstr "회원가입"
@@ -2067,7 +2067,7 @@ msgstr "답변없음"
 #: help/admin.py:80 member/admin.py:31
 #: member/templates/member/account/profile.html:157
 #: member/templates/member/account/signup.html:103
-#: member/templates/member/socialaccount/signup.html:89 member/views.py:282
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:280
 #: rabop/templates/rabop/default/customer_detail.html:14
 msgid "Profile"
 msgstr "회원 개인정보"
@@ -2084,7 +2084,7 @@ msgstr "고객문의"
 msgid "Full name"
 msgstr "본명"
 
-#: help/admin.py:132 member/models.py:46 member/models.py:436
+#: help/admin.py:132 member/models.py:46 member/models.py:443
 #: rabop/forms.py:118 rabop/forms.py:212 rabop/forms.py:269 rabop/forms.py:508
 #: rabop/templates/rabop/default/customer_detail.html:103
 #: rabop/templates/rabop/default/customer_list.html:33
@@ -2276,7 +2276,7 @@ msgstr "핀코인 사이트 회원을 탈퇴합니다."
 
 #: member/forms2.py:302 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
-#: member/templates/member/account/profile.html:247 member/views.py:400
+#: member/templates/member/account/profile.html:247 member/views.py:398
 msgid "Change Your Name"
 msgstr "이름 변경"
 
@@ -2515,7 +2515,23 @@ msgstr "파일형식"
 msgid "data"
 msgstr "데이터"
 
-#: member/templates/member/account/account_inactive.html:10 member/views.py:192
+#: member/models.py:434
+msgid "Banned Email Address"
+msgstr "차단 이메일 주소"
+
+#: member/models.py:435
+msgid "Banned Email Addresses"
+msgstr "차단 이메일 주소"
+
+#: member/models.py:449
+msgid "Banned Phone Number"
+msgstr "차단 휴대전화 번호"
+
+#: member/models.py:450
+msgid "Banned Phone Numbers"
+msgstr "차단 휴대전화 번호"
+
+#: member/templates/member/account/account_inactive.html:10 member/views.py:190
 msgid "Account Inactive"
 msgstr "비활성화 계정"
 
@@ -2524,7 +2540,7 @@ msgid "This account is inactive."
 msgstr "비활성화된 계정입니다."
 
 #: member/templates/member/account/document_confirm.html:19
-#: member/templates/member/account/profile.html:98 member/views.py:339
+#: member/templates/member/account/profile.html:98 member/views.py:337
 #: rabop/templates/rabop/default/customer_detail.html:161
 #: rabop/templates/rabop/default/order_detail.html:134
 msgid "Document Verification"
@@ -2719,7 +2735,7 @@ msgid ""
 msgstr "가입하신 이메일 주소로 비밀번호 초기화를 위한 이메일을 발송합니다."
 
 #: member/templates/member/account/password_reset_done.html:15
-#: member/views.py:127 member/views.py:146
+#: member/views.py:125 member/views.py:144
 msgid "Password Reset"
 msgstr "비밀번호 초기화"
 
@@ -2774,7 +2790,7 @@ msgstr "언어"
 msgid "Currency"
 msgstr "통화"
 
-#: member/templates/member/account/profile.html:231 member/views.py:248
+#: member/templates/member/account/profile.html:231 member/views.py:246
 msgid "Connect with SNS accounts"
 msgstr "SNS 계정 연동"
 
@@ -2784,7 +2800,7 @@ msgstr "이메일 변경"
 
 #: member/templates/member/account/profile.html:255
 #: member/templates/member/account/unregister.html:11
-#: member/templates/member/account/unregister.html:42 member/views.py:361
+#: member/templates/member/account/unregister.html:42 member/views.py:359
 msgid "Unregister"
 msgstr "회원탈퇴"
 
@@ -2815,7 +2831,7 @@ msgid "Follow the link provided to finalize the signup process."
 msgstr "받으신 이메일 안에 링크를 클릭해 회원가입을 완료바랍니다."
 
 #: member/templates/member/socialaccount/authentication_error.html:11
-#: member/views.py:230
+#: member/views.py:228
 msgid "Social Network Login Failure"
 msgstr "SNS 로그인 실패"
 
@@ -2853,7 +2869,7 @@ msgid "Add a 3rd Party Account"
 msgstr "SNS 계정 연동 추가"
 
 #: member/templates/member/socialaccount/login_cancelled.html:5
-#: member/views.py:221
+#: member/views.py:219
 msgid "Login Cancelled"
 msgstr "로그인 취소됨"
 
@@ -2877,55 +2893,61 @@ msgstr ""
 "%(provider_name)s을 통해 핀코인에 로그인합니다.\n"
 "                        "
 
-#: member/views.py:98
+#: member/views.py:96
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:108
+#: member/views.py:106
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:136 member/views.py:155
+#: member/views.py:134 member/views.py:153
 msgid "Password Reset Done"
 msgstr "비밀번호 설정 완료"
 
-#: member/views.py:164
+#: member/views.py:162
 msgid "Email Verification Sent"
 msgstr "인증 이메일 발송"
 
-#: member/views.py:173
+#: member/views.py:171
 msgid "Confirm Email Request"
 msgstr "인증 이메일 요청"
 
-#: member/views.py:183
+#: member/views.py:181
 msgid "Email Management"
 msgstr "이메일 관리"
 
-#: member/views.py:202
+#: member/views.py:200
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:212
+#: member/views.py:210
 msgid "Password Set"
 msgstr "비밀번호 설정"
 
-#: member/views.py:329
+#: member/views.py:327
 msgid "Document Verification {} {} {}"
 msgstr "서류인증 {} {} {}"
 
-#: member/views.py:509
+#: member/views.py:510
 msgid "Phone Verification {}"
 msgstr "휴대폰인증 {}"
 
-#: member/views.py:516
+#: member/views.py:517
 msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
-#: member/views.py:522
+#: member/views.py:523
+#, fuzzy
+#| msgid "Your email is banned."
+msgid "Your phone number is banned."
+msgstr "차단된 이메일 주소입니다."
+
+#: member/views.py:529
 msgid "You have verified within 48 hours."
 msgstr "48시간 이후 휴대폰인증 완료바랍니다."
 
-#: member/views.py:529
+#: member/views.py:536
 msgid "Illegal access: no record"
 msgstr "잘못된 접근: 인증 실패"
 

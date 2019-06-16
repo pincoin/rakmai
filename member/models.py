@@ -430,6 +430,13 @@ class EmailBanned(SoftDeletableModel, TimeStampedModel):
         verbose_name=_('email address'),
     )
 
+    class Meta:
+        verbose_name = _('Banned Email Address')
+        verbose_name_plural = _('Banned Email Addresses')
+
+    def __str__(self):
+        return '{} {}'.format(self.email, self.created)
+
 
 class PhoneBanned(SoftDeletableModel, TimeStampedModel):
     phone = models.CharField(
@@ -437,3 +444,10 @@ class PhoneBanned(SoftDeletableModel, TimeStampedModel):
         max_length=16,
         default='01012341234',
     )
+
+    class Meta:
+        verbose_name = _('Banned Phone Number')
+        verbose_name_plural = _('Banned Phone Numbers')
+
+    def __str__(self):
+        return '{} {}'.format(self.phone, self.created)
