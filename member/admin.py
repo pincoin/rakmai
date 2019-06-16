@@ -97,11 +97,21 @@ class MmsDataAdmin(admin.ModelAdmin):
 
 
 class EmailBannedAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'email', 'created',
+    )
+    search_fields = ('email',)
+    readonly_fields = ('is_removed', 'created')
+    ordering = ['-created']
 
 
 class PhoneBannedAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'phone', 'created',
+    )
+    search_fields = ('phone',)
+    readonly_fields = ('is_removed', 'created')
+    ordering = ['-created']
 
 
 admin.site.register(Profile, ProfileAdmin)
