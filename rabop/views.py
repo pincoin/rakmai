@@ -1091,7 +1091,9 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
             queryset = queryset.filter(category__id=int(self.request.GET['voucher'].strip()))
 
         context['total'] = queryset \
-            .annotate(stock_count=Count(Case(When(vouchers__status=Voucher.STATUS_CHOICES.purchased, then=1)))) \
+            .annotate(stock_count=Count(Case(When(vouchers__status=Voucher.STATUS_CHOICES.purchased,
+                                                  vouchers__is_removed=False,
+                                                  then=1)))) \
             .aggregate(total=Sum(F('selling_price') * F('stock_count'), output_field=DecimalField()))['total']
 
         context['voucher_filter_form'] = self.voucher_filter_form_class(
