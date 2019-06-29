@@ -1083,6 +1083,7 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
         context['page_title'] = _('Stock Status')
 
         queryset = Product.objects \
+            .filter(status=Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
             .prefetch_related('vouchers')
 
