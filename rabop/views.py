@@ -1063,6 +1063,7 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
 
     def get_queryset(self):
         queryset = Product.objects \
+            .filter(status=Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
             .prefetch_related('vouchers') \
             .annotate(stock_count=Count(Case(When(vouchers__status=Voucher.STATUS_CHOICES.purchased,
