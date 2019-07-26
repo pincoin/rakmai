@@ -144,7 +144,7 @@ def get_category_leaf(store_code, pg=False):
         index = next((i for i, item in enumerate(categories) if item.id == 22), -1)
 
         if index > -1:
-            print(type(categories[index]))
+            categories[index].title = '아프리카별풍선'
             categories.insert(0, categories.pop(index))
 
     return categories
