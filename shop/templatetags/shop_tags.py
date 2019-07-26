@@ -130,14 +130,21 @@ def get_category_leaf(store_code, pg=False):
 
     if not categories:
         if pg:
-            categories = Category.objects \
-                .filter(store__code=store_code, level__gt=0, pg=True) \
-                .order_by('-pg_discount_rate', '-title')
+            categories = list(Category.objects \
+                              .filter(store__code=store_code, level__gt=0, pg=True) \
+                              .order_by('-pg_discount_rate', '-title'))
         else:
-            categories = Category.objects \
-                .filter(store__code=store_code, level__gt=0) \
-                .order_by('-discount_rate', '-title')
+            categories = list(Category.objects \
+                              .filter(store__code=store_code, level__gt=0) \
+                              .order_by('-discount_rate', '-title'))
 
         cache.set(cache_key, categories, cache_time)
+
+        # 아프리카TV 별풍선 = 22
+        index = next((i for i, item in enumerate(categories) if item.id == 22), -1)
+
+        if index > -1:
+            print(type(categories[index]))
+            categories.insert(0, categories.pop(index))
 
     return categories
