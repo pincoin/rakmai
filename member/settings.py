@@ -11,5 +11,5 @@ DOCUMENT_VAULT = getattr(settings, 'DOCUMENT_VAULT', 'member/{}/{}.{}')
 GOOGLE_RECAPTCHA_SESSION_KEY = getattr(settings, 'GOOGLE_RECAPTCHA_SESSION_KEY', 'GOOGLE_RECAPTCHA')
 
 DISALLOWED_EMAIL_DOMAIN = getattr(settings, 'DISALLOWED_EMAIL_DOMAIN', (
-    'qq.com', '163.com', '126.com', '188.com', 'yeah.net', 'sina.com'
+    'qq.com', '163.com', '126.com', '188.com', 'yeah.net', 'sina.com', 'hotmail.com', 'live.com'
 ))
