@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-25 04:33+0900\n"
+"POT-Creation-Date: 2019-08-21 11:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2196,18 +2196,22 @@ msgid "This is my name."
 msgstr "이름을 올바르게 입력했습니다."
 
 #: member/forms.py:50
+msgid "User ID"
+msgstr "아이디"
+
+#: member/forms.py:52
 msgid "You will sign in using this email."
 msgstr "로그인할 때 쓰는 이메일 주소입니다."
 
-#: member/forms.py:51
+#: member/forms.py:53
 msgid "Screen username"
 msgstr "사이트에서 사용되는 아이디입니다."
 
-#: member/forms.py:52 member/forms2.py:287
+#: member/forms.py:54 member/forms2.py:287
 msgid "Last name"
 msgstr "성(姓) - 남/녀를 구별하는 성별이 아닙니다. (예: 홍)"
 
-#: member/forms.py:53 member/forms2.py:280
+#: member/forms.py:55 member/forms2.py:280
 msgid "First name"
 msgstr "이름 - 성을 빼고 이름만 입력해주세요. (예: 길동)"
 
@@ -4374,15 +4378,3 @@ msgstr "[핀코인] 주문무효: {}"
 #: shop/views.py:910
 msgid "Game ranking"
 msgstr "인기 게임 순위"
-
-#~ msgid "Phone verification was done."
-#~ msgstr "휴대폰 본인 인증을 완료했습니다."
-
-#~ msgid "Illegal access: token mismatch"
-#~ msgstr "잘못된 접근: 토큰 불일치"
-
-#~ msgid "Illegal access: no session"
-#~ msgstr "잘못된 접근: 세션 없음"
-
-#~ msgid "PayPal Voided"
-#~ msgstr "페이팔무효"

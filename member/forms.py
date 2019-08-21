@@ -47,6 +47,8 @@ class MemberSignupForm(forms.Form):
         del self.fields['username'].widget.attrs['placeholder']
         del self.fields['username'].widget.attrs['autofocus']
 
+        self.fields['username'].label = _('User ID')
+
         self.fields['email'].help_text = _('You will sign in using this email.')
         self.fields['username'].help_text = _('Screen username')
         self.fields['last_name'].help_text = _('Last name')

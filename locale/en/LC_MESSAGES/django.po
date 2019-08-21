@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-25 04:33+0900\n"
+"POT-Creation-Date: 2019-08-21 11:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2185,18 +2185,22 @@ msgid "This is my name."
 msgstr "This is my name."
 
 #: member/forms.py:50
+msgid "User ID"
+msgstr "Username"
+
+#: member/forms.py:52
 msgid "You will sign in using this email."
 msgstr "You will sign in using this email."
 
-#: member/forms.py:51
+#: member/forms.py:53
 msgid "Screen username"
 msgstr "Screen username"
 
-#: member/forms.py:52 member/forms2.py:287
+#: member/forms.py:54 member/forms2.py:287
 msgid "Last name"
 msgstr "Last name"
 
-#: member/forms.py:53 member/forms2.py:280
+#: member/forms.py:55 member/forms2.py:280
 msgid "First name"
 msgstr "First name"
 
@@ -4365,15 +4369,3 @@ msgstr "[PINCOIN] Order voided: {}"
 #: shop/views.py:910
 msgid "Game ranking"
 msgstr "Game ranking"
-
-#~ msgid "Phone verification was done."
-#~ msgstr "Phone verification was done."
-
-#~ msgid "Illegal access: token mismatch"
-#~ msgstr "Illegal access: token mismatch"
-
-#~ msgid "Illegal access: no session"
-#~ msgstr "Illegal access: no session"
-
-#~ msgid "PayPal Voided"
-#~ msgstr "PayPal Voided"
