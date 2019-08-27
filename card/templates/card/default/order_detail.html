@@ -334,45 +334,86 @@
 
 {% block javascript %}
     {% if order.status == order.STATUS_CHOICES.payment_pending %}
-        <script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-        <script>
-            IMP.init("{{ iamport_user_code }}");
+        {% if request.user.email != 'dev@pincoin.co.kr' %}
+            <script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+            <script>
+                IMP.init("{{ iamport_user_code }}");
 
-            function requestPay() {
-                IMP.request_pay({
-                    pg: "danal_tpay",
-                    pay_method: "card",
-                    merchant_uid: "{{ order.order_no }}",
-                    name: "상품권구매",
-                    amount: {{ order.total_selling_price|stringformat:'d' }},
-                    tax_free: {{ order.total_selling_price|stringformat:'d' }},
-                    buyer_email: "{{ order.user.email }}",
-                    buyer_name: "{{ order.fullname }}",
-                    buyer_tel: "{{ order.user.profile.phone }}"
-                }, function (rsp) {
-                    if (rsp.success) {
-                        $.ajax({
-                            url: "{{ iamport_callback_url }}",
-                            type: 'post',
-                            dataType: 'json',
-                            data: {
-                                imp_uid: rsp.imp_uid,
-                                merchant_uid: rsp.merchant_uid,
-                                paid_amount: rsp.paid_amount,
-                                apply_num: rsp.apply_num
-                            }
-                        }).done(function (data, textStatus, jqXHR) {
-                            if (textStatus === 'success') {
-                                location.reload();
-                            }
-                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                            alert("결제에 실패하였습니다.");
-                        });
-                    } else {
-                        alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
-                    }
-                });
-            }
-        </script>
+                function requestPay() {
+                    IMP.request_pay({
+                        pg: "danal_tpay",
+                        pay_method: "card",
+                        merchant_uid: "{{ order.order_no }}",
+                        name: "상품권구매",
+                        amount: {{ order.total_selling_price|stringformat:'d' }},
+                        tax_free: {{ order.total_selling_price|stringformat:'d' }},
+                        buyer_email: "{{ order.user.email }}",
+                        buyer_name: "{{ order.fullname }}",
+                        buyer_tel: "{{ order.user.profile.phone }}"
+                    }, function (rsp) {
+                        if (rsp.success) {
+                            $.ajax({
+                                url: "{{ iamport_callback_url }}",
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    imp_uid: rsp.imp_uid,
+                                    merchant_uid: rsp.merchant_uid,
+                                    paid_amount: rsp.paid_amount,
+                                    apply_num: rsp.apply_num
+                                }
+                            }).done(function (data, textStatus, jqXHR) {
+                                if (textStatus === 'success') {
+                                    location.reload();
+                                }
+                            }).fail(function (jqXHR, textStatus, errorThrown) {
+                                alert("결제에 실패하였습니다.");
+                            });
+                        } else {
+                            alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+                        }
+                    });
+                }
+            </script>
+        {% else %}
+            <script type="application/javascript" src="//cdn.bootpay.co.kr/js/bootpay-3.0.5.min.js"></script>
+            <script>
+                function requestPay() {
+                    BootPay.request({
+                        price: {{ order.total_selling_price|stringformat:'d' }},
+                        application_id: "{{ bootpay_user_code }}",
+                        name: '상품권구매',
+                        pg: 'danal',
+                        method: 'card',
+                        show_agree_window: 0,
+                        user_info: {
+                            username: "{{ order.fullname }}",
+                            email: "{{ order.user.email }}",
+                            addr: "{{ iamport_callback_url }}",
+                            phone: "{{ order.user.profile.phone }}"
+                        },
+                        order_id: "{{ order.order_no }}"
+                    }).error(function (data) {
+                        console.log(data);
+                    }).cancel(function (data) {
+                        console.log(data);
+                    }).ready(function (data) {
+                        console.log(data);
+                    }).confirm(function (data) {
+                        console.log(data);
+                        var enable = true;
+                        if (enable) {
+                            BootPay.transactionConfirm(data);
+                        } else {
+                            BootPay.removePaymentWindow();
+                        }
+                    }).close(function (data) {
+                        console.log(data);
+                    }).done(function (data) {
+                        console.log(data);
+                    });
+                }
+            </script>
+        {% endif %}
     {% endif %}
 {% endblock %}

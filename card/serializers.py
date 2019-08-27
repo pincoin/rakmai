@@ -9,7 +9,6 @@ class IamportCallbackSerializer(serializers.Serializer):
 
 
 class BootpayCallbackSerializer(serializers.Serializer):
-    imp_uid = serializers.CharField()  # String
-    merchant_uid = serializers.UUIDField()  # String
-    paid_amount = serializers.IntegerField()  # Number
-    apply_num = serializers.CharField()  # String
+    receipt_id = serializers.CharField()  # String
+    order_id = serializers.UUIDField()  # String
+    price = serializers.IntegerField()  # Number

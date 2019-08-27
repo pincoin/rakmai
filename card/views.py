@@ -889,7 +889,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         response = requests.post(
             '{}/request/token'.format(settings.BOOTPAY['api_url']),
             data=json.dumps({
-                'application_id': settings.BOOTPAY['user_code'],
+                'application_id': settings.BOOTPAY['api_key'],
                 'private_key': settings.BOOTPAY['secret'],
             }),
             headers={
@@ -904,12 +904,12 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
 
         return None
 
-    def find(self, imp_uid, token=None):
+    def find(self, receipt_id, token=None):
         if not token:
             token = self.get_access_token()
 
         response = requests.get(
-            '{}payments/{}'.format(settings.BOOTPAY['api_url'], imp_uid),
+            '{}/receipt/{}'.format(settings.BOOTPAY['api_url'], receipt_id),
             headers={
                 "Authorization": token
             })
@@ -928,20 +928,19 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         serializer = BootpayCallbackSerializer(data=request.data)
 
         if serializer.is_valid():
-            response = self.find(request.data['imp_uid'])
+            response = self.find(request.data['receipt_id'])
 
             if response \
-                    and response['merchant_uid'] == request.data['merchant_uid'] \
-                    and response['apply_num'] == request.data['apply_num'] \
-                    and response['amount'] == int(request.data['paid_amount']):
+                    and response['order_id'] == request.data['order_id'] \
+                    and response['price'] == int(request.data['price']):
 
                 order = models.Order.objects \
                     .select_related('user', 'user__profile') \
-                    .get(order_no=response['merchant_uid'])
+                    .get(order_no=response['order_id'])
 
                 if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
                         and order.user.profile.full_name == order.fullname:
-                    if order.total_selling_price == Decimal(response['amount']):
+                    if order.total_selling_price == Decimal(response['price']):
                         if send_vouchers(order):
                             return Response(serializer.data, status=status.HTTP_200_OK)
                         else:
