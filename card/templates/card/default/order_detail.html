@@ -334,7 +334,7 @@
 
 {% block javascript %}
     {% if order.status == order.STATUS_CHOICES.payment_pending %}
-        {% if request.user.email != 'dev@pincoin.co.kr' %}
+        {% if request.user.email == 'dev@pincoin.co.kr' %}
             <script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
             <script>
                 IMP.init("{{ iamport_user_code }}");
