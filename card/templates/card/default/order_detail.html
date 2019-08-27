@@ -364,6 +364,7 @@
                                 }
                             }).done(function (data, textStatus, jqXHR) {
                                 if (textStatus === 'success') {
+                                    alert('약 1분 후 이 페이지를 새로고침하시면 상품권을 확인할 수 있습니다.');
                                     location.reload();
                                 }
                             }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -404,7 +405,6 @@
                         var enable = true;
                         if (enable) {
                             BootPay.transactionConfirm(data);
-
                         } else {
                             BootPay.removePaymentWindow();
                         }
