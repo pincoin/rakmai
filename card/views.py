@@ -930,7 +930,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         if serializer.is_valid():
             response = self.find(request.data['receipt_id'])
 
-            if response['status'] == 1 \
+            if response and response['status'] == 1 \
                     and response['order_id'] == request.data['order_id'] \
                     and response['price'] == int(request.data['price']):
 
@@ -942,13 +942,12 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
                         and order.user.profile.full_name == order.fullname:
                     if order.total_selling_price == Decimal(response['price']):
                         if send_vouchers(order):
-                            return HttpResponse('OK')
+                            pass
                         else:
                             # failure
                             order.status = models.Order.STATUS_CHOICES.payment_completed
                             order.save()
                             send_notification_line.delay(_('Failure: credit card 1'))
-                            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
                     else:
                         # invalid paid amount
                         order.status = models.Order.STATUS_CHOICES.voided
@@ -960,4 +959,4 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
                     order.save()
                     send_notification_line.delay(_('Failure: credit card 3'))
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return HttpResponse('OK')
