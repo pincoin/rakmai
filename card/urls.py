@@ -63,4 +63,7 @@ urlpatterns = [
 
     path('<str:store>/payment/iamport/callback/',
          views.IamportCallbackView.as_view(), name='iamport-callback'),
+
+    path('<str:store>/payment/bootpay/callback/',
+         views.BootpayCallbackView.as_view(), name='bootpay-callback'),
 ]

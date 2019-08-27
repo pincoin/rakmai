@@ -38,7 +38,9 @@ from shop.tasks import (
 from shop.utils import send_vouchers
 from shop.viewmixins import StoreContextMixin
 from . import forms
-from .serializers import IamportCallbackSerializer
+from .serializers import (
+    IamportCallbackSerializer, BootpayCallbackSerializer
+)
 
 if settings.DEBUG:
     from .forms2_debug import (
@@ -521,6 +523,8 @@ class OrderDetailView(LoginRequiredMixin, StoreContextMixin, HostRestrict, gener
         context['iamport_callback_url'] = self.request.build_absolute_uri(
             reverse(settings.IAMPORT['callback_url'], args=(self.store.code,)))
 
+        context['bootpay_user_code'] = settings.BOOTPAY['user_code']
+
         return context
 
     def get_template_names(self):
@@ -839,6 +843,89 @@ class IamportCallbackView(StoreContextMixin, HostRestrict, views.APIView):
 
     def post(self, request, store, format=None):
         serializer = IamportCallbackSerializer(data=request.data)
+
+        if serializer.is_valid():
+            response = self.find(request.data['imp_uid'])
+
+            if response \
+                    and response['merchant_uid'] == request.data['merchant_uid'] \
+                    and response['apply_num'] == request.data['apply_num'] \
+                    and response['amount'] == int(request.data['paid_amount']):
+
+                order = models.Order.objects \
+                    .select_related('user', 'user__profile') \
+                    .get(order_no=response['merchant_uid'])
+
+                if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
+                        and order.user.profile.full_name == order.fullname:
+                    if order.total_selling_price == Decimal(response['amount']):
+                        if send_vouchers(order):
+                            return Response(serializer.data, status=status.HTTP_200_OK)
+                        else:
+                            # failure
+                            order.status = models.Order.STATUS_CHOICES.payment_completed
+                            order.save()
+                            send_notification_line.delay(_('Failure: credit card 1'))
+                            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+                    else:
+                        # invalid paid amount
+                        order.status = models.Order.STATUS_CHOICES.voided
+                        order.save()
+                        send_notification_line.delay(_('Failure: credit card 2'))
+                else:
+                    # invalid user
+                    order.status = models.Order.STATUS_CHOICES.voided
+                    order.save()
+                    send_notification_line.delay(_('Failure: credit card 3'))
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
+    logger = logging.getLogger(__name__)
+    sub_domain = 'card'
+
+    def get_access_token(self):
+        response = requests.post(
+            '{}/request/token'.format(settings.BOOTPAY['api_url']),
+            data=json.dumps({
+                'application_id': settings.BOOTPAY['user_code'],
+                'private_key': settings.BOOTPAY['secret'],
+            }),
+            headers={
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache',
+            })
+
+        if response.status_code == requests.codes.ok:
+            result = response.json()
+            if result['code'] == 0:
+                return result['response']['token']
+
+        return None
+
+    def find(self, imp_uid, token=None):
+        if not token:
+            token = self.get_access_token()
+
+        response = requests.get(
+            '{}payments/{}'.format(settings.BOOTPAY['api_url'], imp_uid),
+            headers={
+                "Authorization": token
+            })
+
+        if response.status_code == requests.codes.ok:
+            result = response.json()
+            if result['code'] == 0:
+                return result['response']
+
+        return None
+
+    def get(self, request, store, format=None):
+        return Response(None)
+
+    def post(self, request, store, format=None):
+        serializer = BootpayCallbackSerializer(data=request.data)
 
         if serializer.is_valid():
             response = self.find(request.data['imp_uid'])
