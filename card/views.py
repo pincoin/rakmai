@@ -900,7 +900,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         if response.status_code == requests.codes.ok:
             result = response.json()
             if result['code'] == 0:
-                return result['response']['token']
+                return result['data']['token']
 
         return None
 
@@ -917,7 +917,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         if response.status_code == requests.codes.ok:
             result = response.json()
             if result['code'] == 0:
-                return result['response']
+                return result['data']
 
         return None
 
@@ -930,7 +930,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         if serializer.is_valid():
             response = self.find(request.data['receipt_id'])
 
-            if response \
+            if response['status'] == 1 \
                     and response['order_id'] == request.data['order_id'] \
                     and response['price'] == int(request.data['price']):
 
@@ -942,7 +942,7 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
                         and order.user.profile.full_name == order.fullname:
                     if order.total_selling_price == Decimal(response['price']):
                         if send_vouchers(order):
-                            return Response(serializer.data, status=status.HTTP_200_OK)
+                            return HttpResponse('OK')
                         else:
                             # failure
                             order.status = models.Order.STATUS_CHOICES.payment_completed
