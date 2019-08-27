@@ -404,6 +404,8 @@
                         var enable = true;
                         if (enable) {
                             BootPay.transactionConfirm(data);
+                            alert('3분 후 이 페이지를 새로고침하시면 상품권을 확인할 수 있습니다.');
+                            location.reload();
                         } else {
                             BootPay.removePaymentWindow();
                         }
