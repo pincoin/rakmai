@@ -138,6 +138,13 @@ def get_category_leaf(store_code, pg=False):
                               .filter(store__code=store_code, level__gt=0) \
                               .order_by('-discount_rate', '-title'))
 
+        # 구글기프트카드 = 1
+        index = next((i for i, item in enumerate(categories) if item.id == 2), -1)
+
+        if index > -1:
+            categories[index].title = '구글기프트카드'
+            categories.insert(0, categories.pop(index))
+
         # 아프리카TV 별풍선 = 22
         index = next((i for i, item in enumerate(categories) if item.id == 22), -1)
 
