@@ -45,6 +45,7 @@ class NoticeMessageAdmin(admin.ModelAdmin):
     list_select_related = ('owner',)
     list_display_links = ('category', 'title')
     list_filter = ('category', 'store')
+    raw_id_fields = ('owner',)
     form = forms.NoticeMessageAdminForm
     ordering = ['-created']
 
