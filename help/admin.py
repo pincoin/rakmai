@@ -154,6 +154,7 @@ class CustomerQuestionAdmin(admin.ModelAdmin):
 class TestimonialsAdmin(admin.ModelAdmin):
     list_display = ('title', 'created')
     search_fields = ['owner__email', ]
+    raw_id_fields = ('owner',)
     inlines = [TestimonialsAnswerInline]
     ordering = ['-created']
 
