@@ -13,6 +13,7 @@ INSTALLED_APPS += [
     'bookkeeping',
     'card',
     'api',
+    'event',
 ]
 
 # Internationalization
