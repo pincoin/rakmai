@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-21 11:25+0900\n"
+"POT-Creation-Date: 2019-09-16 19:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1239,7 +1239,7 @@ msgstr ""
 #: shop/forms2.py:390 shop/forms2.py:397
 msgid "Complete document verification."
 msgstr ""
-"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전9시~익"
+"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전10시~익"
 "일새벽1시)"
 
 #: card/forms2.py:179 shop/forms2.py:221
@@ -1282,7 +1282,7 @@ msgstr ""
 msgid "Complete document verification at night."
 msgstr ""
 "기존 고객님도 새벽시간 자동발권은 마이페이지에서 서류본인인증을 완료해야 합니"
-"다. (관리자 확인 시간: 오전9시)"
+"다. (관리자 확인 시간: 오전10시)"
 
 #: card/forms2.py:288 shop/forms2.py:330
 msgid ""
@@ -1360,7 +1360,7 @@ msgid "Orders"
 msgstr "주문/발송"
 
 #: card/templates/card/default/base.html:116
-#: card/templates/card/default/base.html:195 card/views.py:213
+#: card/templates/card/default/base.html:195 card/views.py:215
 #: shop/templates/shop/default/base.html:116
 #: shop/templates/shop/default/base.html:195 shop/views.py:219
 msgid "Cart"
@@ -1477,7 +1477,7 @@ msgstr "고객 문의"
 #: card/templates/card/default/order_confirm_hide.html:23
 #: card/templates/card/default/order_detail.html:17
 #: card/templates/card/default/order_list.html:56
-#: card/templates/card/default/refund_create.html:22 help/admin.py:118
+#: card/templates/card/default/refund_create.html:22 help/admin.py:119
 #: rabop/forms.py:211 rabop/forms.py:268
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:22
 #: rabop/templates/rabop/default/naver_order_detail.html:14
@@ -1883,7 +1883,7 @@ msgstr "거래명세서"
 msgid "Hide Order"
 msgstr "주문삭제"
 
-#: card/templates/card/default/order_list.html:50 card/views.py:429
+#: card/templates/card/default/order_list.html:50 card/views.py:431
 #: shop/templates/shop/default/order_list.html:56
 #: shop/templates/shop/default/paypal_success.html:24 shop/views.py:423
 msgid "Order History"
@@ -2019,44 +2019,44 @@ msgstr "환불요청 주문"
 msgid "Refund message"
 msgstr "메시지"
 
-#: card/views.py:59 shop/views.py:65
+#: card/views.py:61 shop/views.py:65
 msgid "1st online shop"
 msgstr "대한민국 1등 온라인상품권쇼핑몰"
 
-#: card/views.py:107 shop/views.py:200
+#: card/views.py:109 shop/views.py:200
 msgid "Products By Categories {}"
 msgstr "{}"
 
-#: card/views.py:155 shop/views.py:104
+#: card/views.py:157 shop/views.py:104
 msgid "Products"
 msgstr "상품"
 
-#: card/views.py:266 card/views.py:739 shop/admin.py:355 shop/views.py:272
+#: card/views.py:268 card/views.py:743 shop/admin.py:355 shop/views.py:272
 #: shop/views.py:723
 msgid "No language set"
 msgstr "브라우저 언어 지정 안함"
 
-#: card/views.py:290 shop/views.py:302
+#: card/views.py:292 shop/views.py:302
 msgid "[site] Order complete: {}"
 msgstr "[핀코인] 주문완료: {}"
 
-#: card/views.py:458 shop/views.py:450
+#: card/views.py:460 shop/views.py:450
 msgid "Order Details - {}"
 msgstr "주문 - {}"
 
-#: card/views.py:672 shop/views.py:662
+#: card/views.py:676 shop/views.py:662
 msgid "Refund Payment - {}"
 msgstr "환불요청 - {}"
 
-#: card/views.py:864
+#: card/views.py:868 card/views.py:950
 msgid "Failure: credit card 1"
 msgstr "신용카드 결제 발송 실패"
 
-#: card/views.py:870
+#: card/views.py:874 card/views.py:955
 msgid "Failure: credit card 2"
 msgstr "신용카드 결제 금애 불일치"
 
-#: card/views.py:875
+#: card/views.py:879 card/views.py:960
 msgid "Failure: credit card 3"
 msgstr "신용카드 결제 명의 불일치"
 
@@ -2064,7 +2064,7 @@ msgstr "신용카드 결제 명의 불일치"
 msgid "No Answer"
 msgstr "답변없음"
 
-#: help/admin.py:80 member/admin.py:31
+#: help/admin.py:81 member/admin.py:31
 #: member/templates/member/account/profile.html:157
 #: member/templates/member/account/signup.html:103
 #: member/templates/member/socialaccount/signup.html:89 member/views.py:280
@@ -2072,11 +2072,11 @@ msgstr "답변없음"
 msgid "Profile"
 msgstr "회원 개인정보"
 
-#: help/admin.py:85 shop/models.py:824
+#: help/admin.py:86 shop/models.py:824
 msgid "customer question"
 msgstr "고객문의"
 
-#: help/admin.py:127 member/admin.py:68 member/models.py:200
+#: help/admin.py:128 member/admin.py:68 member/models.py:200
 #: member/templates/member/account/profile.html:218
 #: rabop/templates/rabop/default/customer_detail.html:20
 #: rabop/templates/rabop/default/legacy_customer_detail.html:19
@@ -2084,7 +2084,7 @@ msgstr "고객문의"
 msgid "Full name"
 msgstr "본명"
 
-#: help/admin.py:132 member/models.py:46 member/models.py:443
+#: help/admin.py:133 member/models.py:46 member/models.py:443
 #: rabop/forms.py:118 rabop/forms.py:212 rabop/forms.py:269 rabop/forms.py:509
 #: rabop/templates/rabop/default/customer_detail.html:103
 #: rabop/templates/rabop/default/customer_list.html:33
@@ -2096,11 +2096,11 @@ msgstr "본명"
 msgid "phone number"
 msgstr "전화번호"
 
-#: help/admin.py:142 member/admin.py:49 member/models.py:59 shop/admin.py:557
+#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:557
 msgid "phone verified"
 msgstr "휴대폰 인증"
 
-#: help/admin.py:150 member/models.py:71
+#: help/admin.py:151 member/models.py:71
 #: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:565
 msgid "document verified"
 msgstr "서류 인증"
@@ -2942,10 +2942,8 @@ msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
 #: member/views.py:523
-#, fuzzy
-#| msgid "Your email is banned."
 msgid "Your phone number is banned."
-msgstr "차단된 이메일 주소입니다."
+msgstr "차단된 전화번호입니다."
 
 #: member/views.py:529
 msgid "You have verified within 48 hours."
@@ -3681,11 +3679,11 @@ msgstr "구글 제품"
 msgid "Google Services"
 msgstr "구글 제품"
 
-#: sandbox/settings/local.py:21
+#: sandbox/settings/local.py:22
 msgid "Korean"
 msgstr "한국어"
 
-#: sandbox/settings/local.py:22
+#: sandbox/settings/local.py:23
 msgid "English"
 msgstr "영어"
 
@@ -3782,7 +3780,7 @@ msgstr "한화 15만원까지만 주문 가능합니다."
 msgid "Complete document verification with Korean Photo ID."
 msgstr ""
 "마이페이지에서 \"한국 신분증\"으로 서류본인인증 먼저 완료해주세요. (관리자 확"
-"인 시간: 오전9시~익일새벽1시)"
+"인 시간: 오전10시~익일새벽1시)"
 
 #: shop/forms2.py:170
 msgid "Under 18, You cannot buy more than 150,000 KRW."
@@ -3790,7 +3788,7 @@ msgstr "만18세 미만은 한달에 15만원까지만 주문 가능합니다."
 
 #: shop/forms2.py:509 shop/forms2_debug.py:102
 msgid "You cannot refund at night."
-msgstr "환불요청은 오전9시 이후 가능합니다."
+msgstr "환불요청은 오전10시 이후 가능합니다."
 
 #: shop/helpers.py:18
 msgid "CartItem quantity={} price={}"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-21 11:25+0900\n"
+"POT-Creation-Date: 2019-09-16 19:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1349,7 +1349,7 @@ msgid "Orders"
 msgstr "Orders"
 
 #: card/templates/card/default/base.html:116
-#: card/templates/card/default/base.html:195 card/views.py:213
+#: card/templates/card/default/base.html:195 card/views.py:215
 #: shop/templates/shop/default/base.html:116
 #: shop/templates/shop/default/base.html:195 shop/views.py:219
 msgid "Cart"
@@ -1466,7 +1466,7 @@ msgstr "Customer Question"
 #: card/templates/card/default/order_confirm_hide.html:23
 #: card/templates/card/default/order_detail.html:17
 #: card/templates/card/default/order_list.html:56
-#: card/templates/card/default/refund_create.html:22 help/admin.py:118
+#: card/templates/card/default/refund_create.html:22 help/admin.py:119
 #: rabop/forms.py:211 rabop/forms.py:268
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:22
 #: rabop/templates/rabop/default/naver_order_detail.html:14
@@ -1872,7 +1872,7 @@ msgstr "Transaction Detail Report"
 msgid "Hide Order"
 msgstr "Delete Order"
 
-#: card/templates/card/default/order_list.html:50 card/views.py:429
+#: card/templates/card/default/order_list.html:50 card/views.py:431
 #: shop/templates/shop/default/order_list.html:56
 #: shop/templates/shop/default/paypal_success.html:24 shop/views.py:423
 msgid "Order History"
@@ -2008,44 +2008,44 @@ msgstr "Refund Order Details"
 msgid "Refund message"
 msgstr "Message"
 
-#: card/views.py:59 shop/views.py:65
+#: card/views.py:61 shop/views.py:65
 msgid "1st online shop"
 msgstr "1st online shop"
 
-#: card/views.py:107 shop/views.py:200
+#: card/views.py:109 shop/views.py:200
 msgid "Products By Categories {}"
 msgstr "Products By Categories {}"
 
-#: card/views.py:155 shop/views.py:104
+#: card/views.py:157 shop/views.py:104
 msgid "Products"
 msgstr "products"
 
-#: card/views.py:266 card/views.py:739 shop/admin.py:355 shop/views.py:272
+#: card/views.py:268 card/views.py:743 shop/admin.py:355 shop/views.py:272
 #: shop/views.py:723
 msgid "No language set"
 msgstr "No language set"
 
-#: card/views.py:290 shop/views.py:302
+#: card/views.py:292 shop/views.py:302
 msgid "[site] Order complete: {}"
 msgstr "[PINCOIN] Order complete: {}"
 
-#: card/views.py:458 shop/views.py:450
+#: card/views.py:460 shop/views.py:450
 msgid "Order Details - {}"
 msgstr "Order Details - {}"
 
-#: card/views.py:672 shop/views.py:662
+#: card/views.py:676 shop/views.py:662
 msgid "Refund Payment - {}"
 msgstr "Refund Payment - {}"
 
-#: card/views.py:864
+#: card/views.py:868 card/views.py:950
 msgid "Failure: credit card 1"
 msgstr "Failure: credit card 1"
 
-#: card/views.py:870
+#: card/views.py:874 card/views.py:955
 msgid "Failure: credit card 2"
 msgstr "Failure: credit card 2"
 
-#: card/views.py:875
+#: card/views.py:879 card/views.py:960
 msgid "Failure: credit card 3"
 msgstr "Failure: credit card 3"
 
@@ -2053,7 +2053,7 @@ msgstr "Failure: credit card 3"
 msgid "No Answer"
 msgstr "No Answer"
 
-#: help/admin.py:80 member/admin.py:31
+#: help/admin.py:81 member/admin.py:31
 #: member/templates/member/account/profile.html:157
 #: member/templates/member/account/signup.html:103
 #: member/templates/member/socialaccount/signup.html:89 member/views.py:280
@@ -2061,11 +2061,11 @@ msgstr "No Answer"
 msgid "Profile"
 msgstr "Profile"
 
-#: help/admin.py:85 shop/models.py:824
+#: help/admin.py:86 shop/models.py:824
 msgid "customer question"
 msgstr "customer question"
 
-#: help/admin.py:127 member/admin.py:68 member/models.py:200
+#: help/admin.py:128 member/admin.py:68 member/models.py:200
 #: member/templates/member/account/profile.html:218
 #: rabop/templates/rabop/default/customer_detail.html:20
 #: rabop/templates/rabop/default/legacy_customer_detail.html:19
@@ -2073,7 +2073,7 @@ msgstr "customer question"
 msgid "Full name"
 msgstr "Full name"
 
-#: help/admin.py:132 member/models.py:46 member/models.py:443
+#: help/admin.py:133 member/models.py:46 member/models.py:443
 #: rabop/forms.py:118 rabop/forms.py:212 rabop/forms.py:269 rabop/forms.py:509
 #: rabop/templates/rabop/default/customer_detail.html:103
 #: rabop/templates/rabop/default/customer_list.html:33
@@ -2085,11 +2085,11 @@ msgstr "Full name"
 msgid "phone number"
 msgstr "phone number"
 
-#: help/admin.py:142 member/admin.py:49 member/models.py:59 shop/admin.py:557
+#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:557
 msgid "phone verified"
 msgstr "phone verified"
 
-#: help/admin.py:150 member/models.py:71
+#: help/admin.py:151 member/models.py:71
 #: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:565
 msgid "document verified"
 msgstr "document verified"
@@ -3674,11 +3674,11 @@ msgstr "Google Service"
 msgid "Google Services"
 msgstr "Google Services"
 
-#: sandbox/settings/local.py:21
+#: sandbox/settings/local.py:22
 msgid "Korean"
 msgstr "Korean"
 
-#: sandbox/settings/local.py:22
+#: sandbox/settings/local.py:23
 msgid "English"
 msgstr "English"
 

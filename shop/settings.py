@@ -8,7 +8,7 @@ CART_SESSION_KEY = getattr(settings, 'CART_SESSION_KEY', 'CART')
 
 CARD_CART_SESSION_KEY = getattr(settings, 'CARD_CART_SESSION_KEY', 'CARD_CART')
 
-OPENING_TIME = getattr(settings, 'OPENING_TIME', 9)
+OPENING_TIME = getattr(settings, 'OPENING_TIME', 10)
 
 CLOSING_TIME = getattr(settings, 'CLOSING_TIME', 1)
 
