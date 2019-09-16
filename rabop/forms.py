@@ -176,6 +176,11 @@ class QuestionAnswerForm(forms.ModelForm):
         required=False,
     )
 
+    sms = forms.BooleanField(
+        label=_('No SMS'),
+        required=False,
+    )
+
     def __init__(self, *args, **kwargs):
         super(QuestionAnswerForm, self).__init__(*args, **kwargs)
 

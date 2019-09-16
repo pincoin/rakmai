@@ -843,12 +843,13 @@ class CustomerQuestionDetailView(SuperuserRequiredMixin, StoreContextMixin, gene
             html_message,
         )
 
-        if self.object.owner.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
-                or self.object.owner.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.revoked:
-            send_sms.delay(
-                self.object.owner.profile.phone,
-                _("You've got a question answer.")
-            )
+        if not form.cleaned_data['sms']:
+            if self.object.owner.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
+                    or self.object.owner.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.revoked:
+                send_sms.delay(
+                    self.object.owner.profile.phone,
+                    _("You've got a question answer.")
+                )
 
         return response
 

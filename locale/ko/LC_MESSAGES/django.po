@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:36+0900\n"
+"POT-Creation-Date: 2019-09-17 01:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgid "Overpaid"
 msgstr "초과입금"
 
 #: api/views.py:302 api/views.py:321 rabop/forms.py:85 rabop/forms.py:104
-#: rabop/forms.py:406 rabop/forms.py:425 rabop/views.py:1143 shop/utils.py:38
+#: rabop/forms.py:411 rabop/forms.py:430 rabop/views.py:1143 shop/utils.py:38
 #: shop/utils.py:58
 msgid " {}: {} ea"
 msgstr " {}: {}장"
@@ -142,8 +142,8 @@ msgstr "파일 갯수 초과"
 
 #: blog/forms.py:145 blog/forms.py:149 book/forms.py:179 book/forms.py:183
 #: card/forms.py:9 card/forms.py:13 rabop/forms.py:131 rabop/forms.py:135
-#: rabop/forms.py:225 rabop/forms.py:229 rabop/forms.py:280 rabop/forms.py:284
-#: rabop/forms.py:485 rabop/forms.py:489 rabop/forms.py:521 rabop/forms.py:525
+#: rabop/forms.py:230 rabop/forms.py:234 rabop/forms.py:285 rabop/forms.py:289
+#: rabop/forms.py:490 rabop/forms.py:494 rabop/forms.py:526 rabop/forms.py:530
 #: shop/forms.py:33 shop/forms.py:37
 msgid "search word"
 msgstr "검색"
@@ -1478,7 +1478,7 @@ msgstr "고객 문의"
 #: card/templates/card/default/order_detail.html:17
 #: card/templates/card/default/order_list.html:56
 #: card/templates/card/default/refund_create.html:22 help/admin.py:119
-#: rabop/forms.py:211 rabop/forms.py:268
+#: rabop/forms.py:216 rabop/forms.py:273
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:22
 #: rabop/templates/rabop/default/naver_order_detail.html:14
 #: rabop/templates/rabop/default/naver_order_list.html:43
@@ -1993,7 +1993,7 @@ msgid "Discount Rate"
 msgstr "할인율"
 
 #: card/templates/card/default/product_detail.html:139
-#: card/templates/card/default/product_detail.html:167 rabop/forms.py:346
+#: card/templates/card/default/product_detail.html:167 rabop/forms.py:351
 #: shop/templates/shop/default/product_detail.html:139
 #: shop/templates/shop/default/product_detail.html:167
 msgid "Quantity"
@@ -2085,7 +2085,7 @@ msgid "Full name"
 msgstr "본명"
 
 #: help/admin.py:133 member/models.py:46 member/models.py:443
-#: rabop/forms.py:118 rabop/forms.py:212 rabop/forms.py:269 rabop/forms.py:509
+#: rabop/forms.py:118 rabop/forms.py:217 rabop/forms.py:274 rabop/forms.py:514
 #: rabop/templates/rabop/default/customer_detail.html:103
 #: rabop/templates/rabop/default/customer_list.html:33
 #: rabop/templates/rabop/default/legacy_customer_detail.html:35
@@ -2109,7 +2109,7 @@ msgstr "서류 인증"
 msgid "help"
 msgstr "고객센터"
 
-#: help/forms.py:110 rabop/forms.py:185
+#: help/forms.py:110 rabop/forms.py:190
 msgid "Post Answer"
 msgstr "답변 작성"
 
@@ -2461,8 +2461,8 @@ msgstr "DI 고유값"
 msgid "ci"
 msgstr "CI 고유값"
 
-#: member/models.py:330 rabop/forms.py:117 rabop/forms.py:210
-#: rabop/forms.py:267 rabop/forms.py:508
+#: member/models.py:330 rabop/forms.py:117 rabop/forms.py:215
+#: rabop/forms.py:272 rabop/forms.py:513
 #: rabop/templates/rabop/default/customer_list.html:27
 #: rabop/templates/rabop/default/legacy_customer_list.html:27
 #: rabop/templates/rabop/default/naver_order_detail.html:24
@@ -2961,63 +2961,63 @@ msgstr "백엔드"
 msgid "Add Payment"
 msgstr "입금내역 추가"
 
-#: rabop/forms.py:89 rabop/forms.py:410 shop/utils.py:42
+#: rabop/forms.py:89 rabop/forms.py:415 shop/utils.py:42
 msgid "Out of stock! {}"
 msgstr "재고부족! {}"
 
-#: rabop/forms.py:108 rabop/forms.py:429 shop/utils.py:62
+#: rabop/forms.py:108 rabop/forms.py:434 shop/utils.py:62
 msgid "Already sent! {}"
 msgstr "이미 발송되었습니다! {}"
 
-#: rabop/forms.py:119 rabop/forms.py:213 rabop/forms.py:510
+#: rabop/forms.py:119 rabop/forms.py:218 rabop/forms.py:515
 #: rabop/templates/rabop/default/customer_list.html:30
 #: rabop/templates/rabop/default/legacy_customer_list.html:30
 msgid "Email"
 msgstr "이메일"
 
-#: rabop/forms.py:120 rabop/forms.py:214
+#: rabop/forms.py:120 rabop/forms.py:219
 msgid "user id"
 msgstr "사용자 ID"
 
-#: rabop/forms.py:153 rabop/forms.py:572
+#: rabop/forms.py:153 rabop/forms.py:577
 msgid "Template answer"
 msgstr "답변 템플릿"
 
-#: rabop/forms.py:155 rabop/forms.py:574
+#: rabop/forms.py:155 rabop/forms.py:579
 msgid "-----"
 msgstr "----"
 
 #: rabop/forms.py:156
-msgid "01. 입금10분 이내 재촉"
-msgstr "01. 입금10분 이내 재촉"
+msgid "01. 발송지연"
+msgstr "01. 발송지연"
 
 #: rabop/forms.py:157
-msgid "02. 발송지연"
-msgstr "02. 발송지연"
+msgid "02. 처리완료"
+msgstr "02. 처리완료"
 
 #: rabop/forms.py:158
-msgid "03. 처리완료"
-msgstr "03. 처리완료"
+msgid "03. 주문자 입금자 이름 불일치"
+msgstr "03. 주문자 입금자 이름 불일치"
 
 #: rabop/forms.py:159
-msgid "04. 이름 정정 요청"
-msgstr "04. 이름 정정 요청"
+msgid "04. 교환/환불 안내"
+msgstr "04. 교환/환불 안내"
 
 #: rabop/forms.py:160
-msgid "05. 주문자 입금자 이름 불일치"
-msgstr "05. 주문자 입금자 이름 불일치"
+msgid "05. 환불완료"
+msgstr "05. 환불완료"
 
 #: rabop/forms.py:161
-msgid "06. 교환/환불 안내"
-msgstr "06. 교환/환불 안내"
-
-#: rabop/forms.py:162
-msgid "07. 페이팔 무효 안내"
+msgid "06. 페이팔 무효 안내"
 msgstr "07. 페이팔 무효 안내"
 
-#: rabop/forms.py:163
-msgid "08. 초과입금"
+#: rabop/forms.py:162
+msgid "07. 초과입금"
 msgstr "08. 초과입금"
+
+#: rabop/forms.py:163
+msgid "08. 처리해드렸습니다."
+msgstr "08. 처리해드렸습니다."
 
 #: rabop/forms.py:164
 msgid "09. 감사합니다."
@@ -3027,99 +3027,103 @@ msgstr "09. 감사합니다."
 msgid "Send a giftcard."
 msgstr "해피머니1천원권 발송"
 
-#: rabop/forms.py:321 rabop/forms.py:565
+#: rabop/forms.py:180
+msgid "No SMS"
+msgstr "SMS 안 보냄"
+
+#: rabop/forms.py:326 rabop/forms.py:570
 #: rabop/templates/rabop/default/sms_list.html:13 shop/models.py:894
 msgid "to phone number"
 msgstr "수신번호"
 
-#: rabop/forms.py:324 rabop/forms.py:568
+#: rabop/forms.py:329 rabop/forms.py:573
 msgid "Not a valid phone number"
 msgstr "잘못된 전화번호 형식"
 
-#: rabop/forms.py:328
+#: rabop/forms.py:333
 msgid "voucher amount"
 msgstr "금액권종"
 
-#: rabop/forms.py:359 rabop/templates/rabop/default/naver_order_list.html:114
+#: rabop/forms.py:364 rabop/templates/rabop/default/naver_order_list.html:114
 msgid "Naver Order Create"
 msgstr "네이버 주문 추가"
 
-#: rabop/forms.py:438
+#: rabop/forms.py:443
 msgid "Google Card"
 msgstr "구글기프트카드"
 
-#: rabop/forms.py:439
+#: rabop/forms.py:444
 msgid "Nexon Card"
 msgstr "넥슨카드"
 
-#: rabop/forms.py:440
+#: rabop/forms.py:445
 msgid "Munhwa Card"
 msgstr "문화상품권"
 
-#: rabop/forms.py:441
+#: rabop/forms.py:446
 msgid "Book and Life"
 msgstr "도서문화상품권"
 
-#: rabop/forms.py:442
+#: rabop/forms.py:447
 msgid "Happy Money"
 msgstr "해피머니"
 
-#: rabop/forms.py:443
+#: rabop/forms.py:448
 msgid "Egg Money"
 msgstr "에그머니"
 
-#: rabop/forms.py:444
+#: rabop/forms.py:449
 msgid "Afreeca TV"
 msgstr "아프리카TV"
 
-#: rabop/forms.py:445
+#: rabop/forms.py:450
 msgid "Oncash"
 msgstr "온캐시"
 
-#: rabop/forms.py:446
+#: rabop/forms.py:451
 msgid "Smart Munhwa"
 msgstr "스마트문화상품권"
 
-#: rabop/forms.py:447
+#: rabop/forms.py:452
 msgid "Funny Card"
 msgstr "퍼니카드"
 
-#: rabop/forms.py:448
+#: rabop/forms.py:453
 msgid "Teencash"
 msgstr "틴캐시"
 
-#: rabop/forms.py:449
+#: rabop/forms.py:454
 msgid "N Coin"
 msgstr "엔코인"
 
-#: rabop/forms.py:450
+#: rabop/forms.py:455
 msgid "WoW Cash"
 msgstr "와우캐시"
 
-#: rabop/forms.py:451
+#: rabop/forms.py:456
 msgid "Itemmania"
 msgstr "매니아선불쿠폰"
 
-#: rabop/forms.py:452
+#: rabop/forms.py:457
 msgid "itemBay"
 msgstr "아이템베이선불쿠폰"
 
-#: rabop/forms.py:473 shop/models.py:645 shop/models.py:684 shop/models.py:1189
+#: rabop/forms.py:478 shop/models.py:645 shop/models.py:684 shop/models.py:1189
 msgid "voucher code"
 msgstr "상품권 핀번호"
 
-#: rabop/forms.py:474
+#: rabop/forms.py:479
 msgid "id"
 msgstr "id"
 
-#: rabop/forms.py:544
+#: rabop/forms.py:549
 #: rabop/templates/rabop/default/best_customers_report.html:37
 #: rabop/templates/rabop/default/best_sellers_by_category_report.html:34
 #: rabop/templates/rabop/default/best_sellers_report.html:34
 msgid "Order Total"
 msgstr "주문금액"
 
-#: rabop/forms.py:545
+#: rabop/forms.py:550
 #: rabop/templates/rabop/default/best_customers_report.html:40
 #: rabop/templates/rabop/default/best_sellers_report.html:37
 #: rabop/templates/rabop/default/daily_payments_report.html:112
@@ -3127,39 +3131,39 @@ msgstr "주문금액"
 msgid "Order Count"
 msgstr "주문횟수"
 
-#: rabop/forms.py:575
+#: rabop/forms.py:580
 msgid "01. [핀코인]"
 msgstr "01. [핀코인]"
 
-#: rabop/forms.py:576
+#: rabop/forms.py:581
 msgid "02. 신분증 사진 요청"
 msgstr "02. 신분증 사진 요청"
 
-#: rabop/forms.py:577
+#: rabop/forms.py:582
 msgid "03. 통장/카드사진 요청"
 msgstr "03. 통장/카드사진 요청"
 
-#: rabop/forms.py:578
+#: rabop/forms.py:583
 msgid "04. 실물 통장/카드사진 요청"
 msgstr "04. 실물 통장/카드사진 요청"
 
-#: rabop/forms.py:579
+#: rabop/forms.py:584
 msgid "05. 이름 정정 요청"
 msgstr "05. 이름 정정 요청"
 
-#: rabop/forms.py:580
+#: rabop/forms.py:585
 msgid "06. 인증명의 불일치"
 msgstr "06. 인증명의 불일치"
 
-#: rabop/forms.py:581
+#: rabop/forms.py:586
 msgid "07. 환불안내"
 msgstr "07. 환불안내"
 
-#: rabop/forms.py:582
+#: rabop/forms.py:587
 msgid "08. 재주문 요청"
 msgstr "08. 재주문 요청"
 
-#: rabop/forms.py:600 rabop/templates/rabop/default/sms_list.html:47
+#: rabop/forms.py:605 rabop/templates/rabop/default/sms_list.html:47
 msgid "Send short message"
 msgstr "SMS 발송"
 
@@ -4376,3 +4380,9 @@ msgstr "[핀코인] 주문무효: {}"
 #: shop/views.py:910
 msgid "Game ranking"
 msgstr "인기 게임 순위"
+
+#~ msgid "01. 입금10분 이내 재촉"
+#~ msgstr "01. 입금10분 이내 재촉"
+
+#~ msgid "04. 이름 정정 요청"
+#~ msgstr "04. 이름 정정 요청"
