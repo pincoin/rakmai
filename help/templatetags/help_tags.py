@@ -4,7 +4,7 @@ from django.core.cache import cache
 from django.db.models import Count
 
 from shop.models import (
-    NoticeMessage, Testimonials, CustomerQuestion
+    NoticeMessage, Testimonials, CustomerQuestion, Order
 )
 
 register = template.Library()
@@ -53,3 +53,11 @@ def get_customer_questions(context, store_code, count):
                     .order_by('-created')[:count]
 
     return questions
+
+
+
+@register.simple_tag
+def get_recent_orders(user_id, count):
+    return Order.objects \
+               .select_related('user', 'user__profile') \
+               .filter(is_removed=False, user__id=user_id)[:count]

@@ -1,11 +1,13 @@
 {% extends './base.html' %}
 
 {% load i18n %}
+{% load l10n %}
+{% load shop_filters %}
 {% load crispy_forms_tags %}
 {% load help_tags %}
 
 {% block content %}
-    <div class="row">
+    <div class="row mb-2">
         <div class="col">
             <div class="card">
                 <div class="card-header">
@@ -62,6 +64,64 @@
                 <div class="card-body pb-0">
                     {{ question.content|linebreaks }}
                 </div>
+            </div>
+        </div>
+    </div>
+
+    {% get_recent_orders question.owner.id 5 as orders %}
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                {% for order in orders %}
+                    <div class="row px-4">
+                        <div class="col-4 col-sm-4 col-md-2 text-monospace pt-2 order-2 order-md-1">
+                            <a href="{% url 'rabop:order-detail' store.code order.id %}?page={{ page_obj.number }}">
+                                {{ order.order_no|truncatechars:9 }}
+                            </a>
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-2 pt-1 order-4 order-md-4">
+                            <a href="{% url 'rabop:order-detail' store.code order.id %}?page={{ page_obj.number }}">
+                                {% if order.status == order.STATUS_CHOICES.payment_pending %}
+                                    <span class="btn btn-sm btn-outline-warning mb-1 mt-0">
+                                {% elif order.status == order.STATUS_CHOICES.payment_completed or order.status == order.STATUS_CHOICES.under_review %}
+                                    <span class="btn btn-sm btn-outline-info mb-1 mt-0">
+                                {% elif order.status == order.STATUS_CHOICES.payment_verified or order.status == order.STATUS_CHOICES.shipped %}
+                                    <span class="btn btn-sm btn-outline-success mb-1 mt-0">
+                                {% else %}
+                                    <span class="btn btn-sm btn-outline-danger mb-1 mt-0">
+                                {% endif %}
+                                {{ order.get_status_display }}
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-2 pt-2 order-3 order-md-5">
+                            {% if order.payment_method == order.PAYMENT_METHOD_CHOICES.bank_transfer %}
+                                <span class="text-primary">
+                            {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.escrow %}
+                                <span class="kb-text">
+                            {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.paypal %}
+                                <span class="paypal-text"><i class="fab fa-cc-paypal fa-fw"></i>
+                            {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}
+                                <span class="danal-text"><i class="far fa-credit-card fa-fw"></i>
+                            {% endif %}
+                            {{ order.get_payment_method_display }}
+                            </span>
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-2 text-md-right text-monospace pt-2 order-6 order-md-2">
+                            {{ order.total_selling_price|currency:order.currency }}
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-2 pt-2 order-5 order-md-6">
+                            {{ order.created|date:"Y-m-d H:i" }}
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="row my-3">
+                        <div class="col text-center">
+                            {% trans "No Orders Yet" %}
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
