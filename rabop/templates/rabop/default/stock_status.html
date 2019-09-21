@@ -48,7 +48,7 @@
                 {% else %}
                     {{ voucher.stock_count }}
                 {% endif %}
-                <small>({{ voucher.minimum_stock_level }})</small>
+                <small>({{ voucher.minimum_stock_level }} / {{ voucher.maximum_stock_level }})</small>
             </div>
         </div>
     {% empty %}
