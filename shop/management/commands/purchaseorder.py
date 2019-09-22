@@ -37,7 +37,9 @@ class Command(BaseCommand):
 
         for item in queryset:
             if item_name in d and d[item_name] and item_name != item.name:
-                email_string.append('----\n')
+                email_string.append('----\n\n')
+
+            if item_name != item.name:
                 item_name = item.name
 
             if item.stock_count < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
