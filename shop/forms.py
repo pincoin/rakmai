@@ -22,7 +22,8 @@ class ProductAdminForm(forms.ModelForm):
         model = models.Product
         fields = [
             'name', 'subtitle', 'code', 'list_price', 'selling_price', 'discount_rate',
-            'description', 'category', 'store', 'status', 'stock', 'minimum_stock_level', 'position',
+            'description', 'category', 'store', 'status',
+            'stock', 'minimum_stock_level', 'maximum_stock_level', 'position',
             'pg', 'pg_selling_price',
             'naver_partner', 'naver_partner_title', 'naver_partner_title_pg', 'naver_attribute',
         ]

@@ -262,7 +262,7 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         default=0,
     )
 
-    max_stock_level = models.IntegerField(
+    maximum_stock_level = models.IntegerField(
         verbose_name=_('maximum stock level'),
         default=0,
     )
