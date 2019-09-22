@@ -1,5 +1,6 @@
 import math
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db.models import (
     Count, Case, When
@@ -49,8 +50,8 @@ class Command(BaseCommand):
             send_notification_email.delay(
                 '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i')),
                 'dummy',
-                'jonghwa@pincoin.co.kr',
-                ['jonghwa@pincoin.co.kr', ],
+                settings.EMAIL_JONGHWA,
+                [settings.EMAIL_HAN, ],
                 _linebreaks(''.join(email_string)),
             )
 
