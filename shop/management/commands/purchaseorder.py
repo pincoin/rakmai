@@ -45,8 +45,6 @@ class Command(BaseCommand):
                                             int(math.ceil((item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
 
         if count:
-            self.stdout.write(''.join(email_string))
-
             send_notification_email.delay(
                 '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i')),
                 'dummy',
