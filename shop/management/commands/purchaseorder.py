@@ -1,4 +1,5 @@
 import math
+from decimal import Decimal
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -44,15 +45,25 @@ class Command(BaseCommand):
 
             if item.stock_count < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
                 count += 1
+
                 if item.name in d:
                     d[item.name] += 1
                 else:
                     d[item.name] = 1
-                email_string.append('{} {} {}매\n'
-                                    .format(item.name, item.subtitle,
-                                            int(math.ceil((item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
+
+                if item.name == '넥슨카드' and item.list_price < Decimal('30000'):
+                    email_string.append('{} {} {}매\n'
+                                        .format(item.name, item.subtitle,
+                                                int(math.ceil(
+                                                    (item.maximum_stock_level - item.stock_count) / 100.0) * 100)))
+                else:
+                    email_string.append('{} {} {}매\n'
+                                        .format(item.name, item.subtitle,
+                                                int(math.ceil(
+                                                    (item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
 
         if count:
+            self.stdout.write(''.join(email_string))
             send_notification_email.delay(
                 '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i')),
                 'dummy',
