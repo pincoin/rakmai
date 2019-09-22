@@ -26,15 +26,19 @@ class Command(BaseCommand):
 
         item_name = ''
 
+        count = 0
+
         for item in queryset:
             if item_name != item.name:
                 email_string.append('----\n')
                 item_name = item.name
 
             if item.stock_count < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
+                count += 1
                 email_string.append('{} {} {}\n'
                                     .format(item.name, item.subtitle,
                                             int(math.ceil((item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
 
-        self.stdout.write(''.join(email_string))
+        if count:
+            self.stdout.write(''.join(email_string))
         self.stdout.write(self.style.SUCCESS('Successfully made purchase order'))
