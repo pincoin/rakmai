@@ -5,6 +5,7 @@ from django.db.models import (
     Count, Case, When
 )
 from django.template.defaultfilters import date as _date
+from django.template.defaultfilters import linebreaks as _linebreaks
 from django.utils import timezone
 
 from shop import models
@@ -50,7 +51,7 @@ class Command(BaseCommand):
                 'dummy',
                 'jonghwa@pincoin.co.kr',
                 ['jonghwa@pincoin.co.kr', ],
-                ''.join(email_string),
+                _linebreaks(''.join(email_string)),
             )
 
         self.stdout.write(self.style.SUCCESS('Successfully made purchase order'))
