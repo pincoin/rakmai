@@ -33,14 +33,20 @@ class Command(BaseCommand):
 
         count = 0
 
+        d = dict()
+
         for item in queryset:
-            if item_name != item.name:
+            if item_name in d and d[item_name] and item_name != item.name:
                 email_string.append('----\n')
                 item_name = item.name
 
             if item.stock_count < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
                 count += 1
-                email_string.append('{} {} {}\n'
+                if item.name in d:
+                    d[item.name] += 1
+                else:
+                    d[item.name] = 1
+                email_string.append('{} {} {}매\n'
                                     .format(item.name, item.subtitle,
                                             int(math.ceil((item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
 
