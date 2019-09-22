@@ -6,6 +6,9 @@ from django.db.models import (
 )
 
 from shop import models
+from shop.tasks import (
+    send_notification_email
+)
 
 
 class Command(BaseCommand):
@@ -41,4 +44,13 @@ class Command(BaseCommand):
 
         if count:
             self.stdout.write(''.join(email_string))
+
+            send_notification_email.delay(
+                ('[핀코인]').format(),
+                'dummy',
+                'jonghwa@pincoin.co.kr',
+                ['dasol4245@daum.net', ],
+                ''.join(email_string),
+            )
+
         self.stdout.write(self.style.SUCCESS('Successfully made purchase order'))
