@@ -4,11 +4,11 @@ from django.core.management.base import BaseCommand
 from django.db.models import (
     Count, Case, When
 )
+from django.template.defaultfilters import date as _date
+from django.utils import timezone
 
 from shop import models
-from shop.tasks import (
-    send_notification_email
-)
+from shop.tasks import send_notification_email
 
 
 class Command(BaseCommand):
@@ -46,10 +46,10 @@ class Command(BaseCommand):
             self.stdout.write(''.join(email_string))
 
             send_notification_email.delay(
-                ('[핀코인]').format(),
+                '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i')),
                 'dummy',
                 'jonghwa@pincoin.co.kr',
-                ['dasol4245@daum.net', ],
+                ['jonghwa@pincoin.co.kr', ],
                 ''.join(email_string),
             )
 
