@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-22 00:17+0900\n"
+"POT-Creation-Date: 2019-09-22 20:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,7 +144,7 @@ msgstr "파일 갯수 초과"
 #: card/forms.py:9 card/forms.py:13 rabop/forms.py:131 rabop/forms.py:135
 #: rabop/forms.py:232 rabop/forms.py:236 rabop/forms.py:287 rabop/forms.py:291
 #: rabop/forms.py:492 rabop/forms.py:496 rabop/forms.py:528 rabop/forms.py:532
-#: shop/forms.py:33 shop/forms.py:37
+#: shop/forms.py:34 shop/forms.py:38
 msgid "search word"
 msgstr "검색"
 
