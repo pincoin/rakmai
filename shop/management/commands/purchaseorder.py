@@ -63,13 +63,22 @@ class Command(BaseCommand):
                                                     (item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
 
         if count:
-            self.stdout.write(''.join(email_string))
+            title = '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i'))
+            content = ''.join(email_string)
+
+            self.stdout.write(content)
+
+            po = models.PurchaseOrder()
+            po.title = title
+            po.content = content
+            po.save()
+
             send_notification_email.delay(
-                '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i')),
+                title,
                 'dummy',
                 settings.EMAIL_JONGHWA,
                 [settings.EMAIL_HAN, ],
-                _linebreaks(''.join(email_string)),
+                _linebreaks(content),
             )
 
         self.stdout.write(self.style.SUCCESS('Successfully made purchase order'))

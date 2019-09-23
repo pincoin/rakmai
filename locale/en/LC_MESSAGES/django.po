@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-22 20:38+0900\n"
+"POT-Creation-Date: 2019-09-23 19:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1132,6 +1132,7 @@ msgid "withdrawal type"
 msgstr "withdrawal type"
 
 #: bookkeeping/models.py:95 bookkeeping/models.py:130 shop/models.py:548
+#: shop/models.py:1524
 msgid "account"
 msgstr "account"
 
@@ -3190,7 +3191,7 @@ msgstr "08. 재주문 요청"
 msgid "Send short message"
 msgstr "Send SMS"
 
-#: rabop/templates/rabop/default/base.html:42 shop/admin.py:919
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:926
 msgid "PINCOIN administration"
 msgstr "PINCOIN administration"
 
@@ -3780,7 +3781,7 @@ msgstr "Mark selected vouchers as revoked"
 msgid "IP Address Count"
 msgstr "Count"
 
-#: shop/admin.py:917 shop/admin.py:918
+#: shop/admin.py:924 shop/admin.py:925
 msgid "PINCOIN admin"
 msgstr "PINCOIN admin"
 
@@ -4035,32 +4036,32 @@ msgstr "Pincoin order"
 msgid "pincoin orders"
 msgstr "Pincoin orders"
 
-#: shop/models.py:531
+#: shop/models.py:531 shop/models.py:1508
 msgid "KOOKMIN BANK"
 msgstr "KOOKMIN BANK"
 
-#: shop/models.py:532
+#: shop/models.py:532 shop/models.py:1509
 msgid "NONGHYUP BANK"
 msgstr "NONGHYUP BANK"
 
-#: shop/models.py:533
+#: shop/models.py:533 shop/models.py:1510
 msgid "SHINHAN BANK"
 msgstr "SHINHAN BANK"
 
-#: shop/models.py:534
+#: shop/models.py:534 shop/models.py:1511
 msgid "WOORI BANK"
 msgstr "WOORI BANK"
 
-#: shop/models.py:535
+#: shop/models.py:535 shop/models.py:1512
 msgid "IBK BANK"
 msgstr "IBK BANK"
 
 #: shop/models.py:541 shop/models.py:577 shop/models.py:810 shop/models.py:1121
-#: shop/models.py:1438
+#: shop/models.py:1438 shop/models.py:1517
 msgid "order"
 msgstr "order"
 
-#: shop/models.py:555
+#: shop/models.py:555 shop/models.py:1531
 msgid "amount"
 msgstr "amount"
 
@@ -4291,6 +4292,48 @@ msgstr "mileage log"
 #: shop/models.py:1459
 msgid "mileage logs"
 msgstr "mileage logs"
+
+#: shop/models.py:1476
+#, fuzzy
+#| msgid "re-purchased date"
+msgid "purchase order title"
+msgstr "re-purchased date"
+
+#: shop/models.py:1481
+#, fuzzy
+#| msgid "not purchased for months"
+msgid "purchase order content"
+msgstr "not purchased for months"
+
+#: shop/models.py:1485
+#, fuzzy
+#| msgid "bank account"
+msgid "purchase order bank account"
+msgstr "bank account"
+
+#: shop/models.py:1492
+#, fuzzy
+#| msgid "not purchased for months"
+msgid "purchase order amount"
+msgstr "not purchased for months"
+
+#: shop/models.py:1499 shop/models.py:1500
+#, fuzzy
+#| msgid "purchased"
+msgid "purchase order"
+msgstr "purchased"
+
+#: shop/models.py:1537
+#, fuzzy
+#| msgid "not purchased for months"
+msgid "purchase order payment"
+msgstr "not purchased for months"
+
+#: shop/models.py:1538
+#, fuzzy
+#| msgid "not purchased for months"
+msgid "purchase order payments"
+msgstr "not purchased for months"
 
 #: shop/templates/admin/import_export/voucher_change_list_import_item.html:5
 msgid "Import"

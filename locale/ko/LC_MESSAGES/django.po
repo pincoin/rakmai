@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-22 20:38+0900\n"
+"POT-Creation-Date: 2019-09-23 19:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1130,6 +1130,7 @@ msgid "withdrawal type"
 msgstr "출금 유형"
 
 #: bookkeeping/models.py:95 bookkeeping/models.py:130 shop/models.py:548
+#: shop/models.py:1524
 msgid "account"
 msgstr "계좌"
 
@@ -3172,7 +3173,7 @@ msgstr "07. 재주문 요청"
 msgid "Send short message"
 msgstr "SMS 발송"
 
-#: rabop/templates/rabop/default/base.html:42 shop/admin.py:919
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:926
 msgid "PINCOIN administration"
 msgstr "핀코인 관리자"
 
@@ -3761,7 +3762,7 @@ msgstr "선택한 상품권을 발권취소 상태로 변경합니다."
 msgid "IP Address Count"
 msgstr "횟수"
 
-#: shop/admin.py:917 shop/admin.py:918
+#: shop/admin.py:924 shop/admin.py:925
 msgid "PINCOIN admin"
 msgstr "핀코인 관리자"
 
@@ -4016,32 +4017,32 @@ msgstr "핀코인 주문"
 msgid "pincoin orders"
 msgstr "핀코인 주문"
 
-#: shop/models.py:531
+#: shop/models.py:531 shop/models.py:1508
 msgid "KOOKMIN BANK"
 msgstr "국민"
 
-#: shop/models.py:532
+#: shop/models.py:532 shop/models.py:1509
 msgid "NONGHYUP BANK"
 msgstr "농협"
 
-#: shop/models.py:533
+#: shop/models.py:533 shop/models.py:1510
 msgid "SHINHAN BANK"
 msgstr "신한"
 
-#: shop/models.py:534
+#: shop/models.py:534 shop/models.py:1511
 msgid "WOORI BANK"
 msgstr "우리"
 
-#: shop/models.py:535
+#: shop/models.py:535 shop/models.py:1512
 msgid "IBK BANK"
 msgstr "기업"
 
 #: shop/models.py:541 shop/models.py:577 shop/models.py:810 shop/models.py:1121
-#: shop/models.py:1438
+#: shop/models.py:1438 shop/models.py:1517
 msgid "order"
 msgstr "고객 주문"
 
-#: shop/models.py:555
+#: shop/models.py:555 shop/models.py:1531
 msgid "amount"
 msgstr "금액"
 
@@ -4273,6 +4274,34 @@ msgstr "마일리지 내역"
 msgid "mileage logs"
 msgstr "마일리지 내역"
 
+#: shop/models.py:1476
+msgid "purchase order title"
+msgstr "발주제목"
+
+#: shop/models.py:1481
+msgid "purchase order content"
+msgstr "발주내용"
+
+#: shop/models.py:1485
+msgid "purchase order bank account"
+msgstr "은행계좌"
+
+#: shop/models.py:1492
+msgid "purchase order amount"
+msgstr "발주금액"
+
+#: shop/models.py:1499 shop/models.py:1500
+msgid "purchase order"
+msgstr "주문발주"
+
+#: shop/models.py:1537
+msgid "purchase order payment"
+msgstr "대금지급"
+
+#: shop/models.py:1538
+msgid "purchase order payments"
+msgstr "대금지급"
+
 #: shop/templates/admin/import_export/voucher_change_list_import_item.html:5
 msgid "Import"
 msgstr "임포트"
@@ -4389,15 +4418,3 @@ msgstr "[핀코인] 주문무효: {}"
 #: shop/views.py:910
 msgid "Game ranking"
 msgstr "인기 게임 순위"
-
-#~ msgid "04. 실물 통장/카드사진 요청"
-#~ msgstr "04. 실물 통장/카드사진 요청"
-
-#~ msgid "05. 이름 정정 요청"
-#~ msgstr "05. 이름 정정 요청"
-
-#~ msgid "01. 입금10분 이내 재촉"
-#~ msgstr "01. 입금10분 이내 재촉"
-
-#~ msgid "04. 이름 정정 요청"
-#~ msgstr "04. 이름 정정 요청"

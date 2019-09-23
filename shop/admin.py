@@ -236,6 +236,13 @@ class OrderProductInline(admin.TabularInline):
     get_edit_link.short_description = _('product name')
 
 
+class PurchaseOrderPaymentInline(admin.StackedInline):
+    model = models.PurchaseOrderPayment
+    extra = 1
+    fields = ('account', 'amount')
+    ordering = ['-created']
+
+
 # Import Resources
 
 class VoucherResource(resources.ModelResource):
@@ -914,6 +921,15 @@ class MileageLogAdmin(admin.ModelAdmin):
     full_name.short_description = _('Full name')
 
 
+class PurchaseOrderAdmin(admin.ModelAdmin):
+    list_display = ('title', 'bank_account', 'amount', 'created')
+    search_fields = ('bank_account', 'amount')
+    date_hierarchy = 'created'
+    ordering = ['-created']
+
+    inlines = [PurchaseOrderPaymentInline, ]
+
+
 admin.site.site_header = _('PINCOIN admin')
 admin.site.site_title = _('PINCOIN admin')
 admin.site.index_title = _('PINCOIN administration')
@@ -934,3 +950,4 @@ admin.site.register(models.LegacyOrder, LegacyOrderAdmin)
 admin.site.register(models.LegacyOrderProduct, LegacyOrderProductAdmin)
 admin.site.register(models.NaverAdvertisementLog, NaverAdvertisementLogAdmin)
 admin.site.register(models.MileageLog, MileageLogAdmin)
+admin.site.register(models.PurchaseOrder, PurchaseOrderAdmin)

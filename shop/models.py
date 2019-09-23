@@ -1469,3 +1469,75 @@ class MileageLog(model_utils_models.SoftDeletableModel, model_utils_models.TimeS
         if profile:
             self.user.profile.mileage += self.mileage
             self.user.profile.save()
+
+
+class PurchaseOrder(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    title = models.CharField(
+        verbose_name=_('purchase order title'),
+        max_length=255,
+    )
+
+    content = models.TextField(
+        verbose_name=_('purchase order content'),
+    )
+
+    bank_account = models.CharField(
+        verbose_name=_('purchase order bank account'),
+        max_length=255,
+        blank=True,
+        null=True,
+    )
+
+    amount = models.DecimalField(
+        verbose_name=_('purchase order amount'),
+        max_digits=11,
+        decimal_places=2,
+        default=Decimal('0.00'),
+    )
+
+    class Meta:
+        verbose_name = _('purchase order')
+        verbose_name_plural = _('purchase order')
+
+    def __str__(self):
+        return '{}-{}'.format(self.title, self.created)
+
+
+class PurchaseOrderPayment(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    ACCOUNT_CHOICES = Choices(
+        (0, 'kb', _('KOOKMIN BANK')),
+        (1, 'nh', _('NONGHYUP BANK')),
+        (2, 'shinhan', _('SHINHAN BANK')),
+        (3, 'woori', _('WOORI BANK')),
+        (4, 'ibk', _('IBK BANK')),
+    )
+
+    order = models.ForeignKey(
+        'shop.PurchaseOrder',
+        verbose_name=_('order'),
+        related_name='payments',
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    account = models.IntegerField(
+        verbose_name=_('account'),
+        choices=ACCOUNT_CHOICES,
+        default=ACCOUNT_CHOICES.kb,
+        db_index=True,
+    )
+
+    amount = models.DecimalField(
+        verbose_name=_('amount'),
+        max_digits=11,
+        decimal_places=2,
+    )
+
+    class Meta:
+        verbose_name = _('purchase order payment')
+        verbose_name_plural = _('purchase order payments')
+
+    def __str__(self):
+        return 'order - {} / payment - {} {} {}'.format(
+            self.order.title, self.account, self.amount, self.created
+        )
