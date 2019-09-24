@@ -951,7 +951,7 @@ class MileageLogAdmin(admin.ModelAdmin):
 
 
 class PurchaseOrderAdmin(admin.ModelAdmin):
-    list_display = ('title', 'bank_account', 'amount', 'created')
+    list_display = ('title', 'bank_account', 'amount', 'paid', 'created')
     search_fields = ('bank_account', 'amount')
     date_hierarchy = 'created'
     ordering = ['-created']
@@ -975,21 +975,23 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
             for p in obj.payments.all():
                 email_string.append('{:,.0f} / {}\n'.format(p.amount, _date(p.created, 'Y-m-d H:i')))
 
-            print(''.join(email_string))
+            if not obj.paid:
+                obj.paid = True
+                obj.save()
 
-            send_notification_email.delay(
-                '[핀코인] 입금완료 {}'.format(obj.bank_account),
-                'dummy',
-                settings.EMAIL_JONGHWA,
-                [settings.EMAIL_HAN, ],
-                _linebreaks(''.join(email_string)),
-            )
+                send_notification_email.delay(
+                    '[핀코인] 입금완료 {} / {:,.0f}'.format(obj.bank_account, obj.amount),
+                    'dummy',
+                    settings.EMAIL_JONGHWA,
+                    [settings.EMAIL_HAN, ],
+                    _linebreaks(''.join(email_string)),
+                )
 
-            msg = format_html(
-                _('Payment notification email sent'),
-                **msg_dict
-            )
-            self.message_user(request, msg, messages.SUCCESS)
+                msg = format_html(
+                    _('Payment notification email sent'),
+                    **msg_dict
+                )
+                self.message_user(request, msg, messages.SUCCESS)
             redirect_url = request.path
             redirect_url = add_preserved_filters({'preserved_filters': preserved_filters, 'opts': opts}, redirect_url)
             return HttpResponseRedirect(redirect_url)

@@ -6,7 +6,9 @@
     <div class="submit-row">
         <input class="order-list-button" type="button" value="{% trans "Go Back" %}" name="_back">
         <input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue"/>
-        <input class="order-verification-button" type="submit" value="{% trans "Send email" %}"
-               name="_send_payment_notification"/>
+        {% if not original.paid %}
+            <input class="order-verification-button" type="submit" value="{% trans "Send email" %}"
+                   name="_send_payment_notification"/>
+        {% endif %}
     </div>
 {% endblock %}

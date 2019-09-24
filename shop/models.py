@@ -1481,6 +1481,11 @@ class PurchaseOrder(model_utils_models.SoftDeletableModel, model_utils_models.Ti
         verbose_name=_('purchase order content'),
     )
 
+    paid = models.BooleanField(
+        verbose_name=_('Paid'),
+        default=False,
+    )
+
     bank_account = models.CharField(
         verbose_name=_('purchase order bank account'),
         max_length=255,
