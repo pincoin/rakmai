@@ -100,6 +100,9 @@ Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve you
                     <a class="dropdown-item" href="{% url 'rabop:stock-bulk-upload' store.code %}">
                         {% trans "Stock Bulk Upload" %}
                     </a>
+                    <a class="dropdown-item" href="{% url 'admin:shop_purchaseorder_changelist' %}">
+                        {% trans "Purchase Order History" %}
+                    </a>
                 </div>
             </li>
             <li class="dropdown-divider"></li>

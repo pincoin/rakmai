@@ -2,6 +2,7 @@ import logging
 from decimal import Decimal
 from urllib.parse import quote as urlquote
 
+from django.conf import settings
 from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.filters import SimpleListFilter
@@ -12,6 +13,8 @@ from django.db.models import (
 )
 from django.forms.models import BaseInlineFormSet
 from django.http import HttpResponseRedirect
+from django.template.defaultfilters import date as _date
+from django.template.defaultfilters import linebreaks as _linebreaks
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.html import format_html
@@ -29,6 +32,7 @@ from member import settings as member_settings
 from member.models import LoginLog
 from member.models import Profile
 from shop.models import Category
+from shop.tasks import send_notification_email
 from . import forms
 from . import models
 from . import settings as shop_settings
@@ -966,7 +970,21 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
         }
 
         if '_send_payment_notification' in request.POST:
-            # obj
+            email_string = ['입금액 / 입금일시\n', '----\n']
+
+            for p in obj.payments.all():
+                email_string.append('{:,.0f} / {}\n'.format(p.amount, _date(p.created, 'Y-m-d H:i')))
+
+            print(''.join(email_string))
+
+            send_notification_email.delay(
+                '[핀코인] 입금완료 {}'.format(obj.bank_account),
+                'dummy',
+                settings.EMAIL_JONGHWA,
+                [settings.EMAIL_HAN, ],
+                _linebreaks(''.join(email_string)),
+            )
+
             msg = format_html(
                 _('Payment notification email sent'),
                 **msg_dict

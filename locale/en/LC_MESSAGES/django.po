@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-23 19:32+0900\n"
+"POT-Creation-Date: 2019-09-24 12:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgstr "blog"
 
 #: blog/forms.py:31 blog/models.py:158 blog/models.py:199 board/models.py:72
 #: board/models.py:81 board/models.py:140 book/forms.py:27 book/models.py:57
-#: book/models.py:137 shop/admin.py:54 shop/models.py:161 shop/models.py:237
+#: book/models.py:137 shop/admin.py:59 shop/models.py:161 shop/models.py:237
 #: shop/models.py:739 shop/models.py:774 shop/models.py:822
 msgid "category"
 msgstr "category"
@@ -445,7 +445,7 @@ msgid "RSS"
 msgstr "RSS"
 
 #: blog/templates/blog/default/blog_base_sidebar.html:122
-#: rabop/templates/rabop/default/base.html:142
+#: rabop/templates/rabop/default/base.html:145
 msgid "Admin"
 msgstr "Admin"
 
@@ -661,7 +661,7 @@ msgstr "Privacy Policy"
 #: blog/templates/blog/pincoin/base.html:247
 #: book/templates/book/default/base.html:204
 #: card/templates/card/default/base.html:346
-#: rabop/templates/rabop/default/base.html:151
+#: rabop/templates/rabop/default/base.html:154
 #: shop/templates/shop/default/base.html:388
 msgid "Blog"
 msgstr "Blog"
@@ -669,7 +669,7 @@ msgstr "Blog"
 #: blog/templates/blog/pincoin/base.html:252
 #: book/templates/book/default/base.html:209
 #: card/templates/card/default/base.html:351
-#: rabop/templates/rabop/default/base.html:154
+#: rabop/templates/rabop/default/base.html:157
 #: shop/templates/shop/default/base.html:393
 msgid "TechNote"
 msgstr "TechNote"
@@ -1384,7 +1384,7 @@ msgstr "My Page"
 #: card/templates/card/default/base.html:143
 #: card/templates/card/default/base.html:182
 #: member/templates/member/account/logout.html:11
-#: rabop/templates/rabop/default/base.html:205
+#: rabop/templates/rabop/default/base.html:208
 #: shop/templates/shop/default/base.html:143
 #: shop/templates/shop/default/base.html:182
 msgid "Sign out"
@@ -1473,9 +1473,9 @@ msgstr "Customer Question"
 #: rabop/templates/rabop/default/naver_order_detail.html:14
 #: rabop/templates/rabop/default/naver_order_list.html:43
 #: rabop/templates/rabop/default/order_detail.html:15
-#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:189
-#: shop/admin.py:216 shop/admin.py:728 shop/admin.py:744 shop/admin.py:804
-#: shop/admin.py:820 shop/models.py:416 shop/models.py:1054
+#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:213
+#: shop/admin.py:240 shop/admin.py:760 shop/admin.py:776 shop/admin.py:836
+#: shop/admin.py:852 shop/models.py:416 shop/models.py:1054
 #: shop/templates/shop/default/email/customer_question.html:7
 #: shop/templates/shop/default/email/order_complete.html:7
 #: shop/templates/shop/default/email/order_paypal_voided.html:7
@@ -1558,8 +1558,8 @@ msgstr "Payment Method"
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:55
 #: rabop/templates/rabop/default/naver_order_detail.html:103
 #: rabop/templates/rabop/default/order_detail.html:408
-#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:236
-#: shop/admin.py:707 shop/admin.py:749 shop/admin.py:825 shop/models.py:180
+#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:260
+#: shop/admin.py:739 shop/admin.py:781 shop/admin.py:857 shop/models.py:180
 #: shop/models.py:584 shop/models.py:1023 shop/models.py:1128
 #: shop/templates/shop/default/email/order_complete.html:22
 #: shop/templates/shop/default/email/order_paypal_voided.html:22
@@ -1651,8 +1651,8 @@ msgstr "subtotal"
 #: rabop/templates/rabop/default/naver_order_detail.html:81
 #: rabop/templates/rabop/default/naver_order_list.html:55
 #: rabop/templates/rabop/default/order_detail.html:278
-#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:627
-#: shop/admin.py:783 shop/models.py:489 shop/models.py:1099
+#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:659
+#: shop/admin.py:815 shop/models.py:489 shop/models.py:1099
 #: shop/templates/shop/default/email/order_complete.html:37
 #: shop/templates/shop/default/email/order_paypal_voided.html:37
 #: shop/templates/shop/default/email/order_refunded.html:37
@@ -2022,7 +2022,7 @@ msgstr "Products By Categories {}"
 msgid "Products"
 msgstr "products"
 
-#: card/views.py:268 card/views.py:743 shop/admin.py:355 shop/views.py:272
+#: card/views.py:268 card/views.py:743 shop/admin.py:387 shop/views.py:272
 #: shop/views.py:723
 msgid "No language set"
 msgstr "No language set"
@@ -2071,7 +2071,7 @@ msgstr "customer question"
 #: member/templates/member/account/profile.html:218
 #: rabop/templates/rabop/default/customer_detail.html:20
 #: rabop/templates/rabop/default/legacy_customer_detail.html:19
-#: shop/admin.py:914
+#: shop/admin.py:946
 msgid "Full name"
 msgstr "Full name"
 
@@ -2082,17 +2082,17 @@ msgstr "Full name"
 #: rabop/templates/rabop/default/legacy_customer_detail.html:35
 #: rabop/templates/rabop/default/legacy_customer_list.html:33
 #: rabop/templates/rabop/default/naver_order_detail.html:32
-#: rabop/templates/rabop/default/order_detail.html:84 shop/admin.py:537
+#: rabop/templates/rabop/default/order_detail.html:84 shop/admin.py:569
 #: shop/models.py:51 shop/models.py:949 shop/models.py:1066
 msgid "phone number"
 msgstr "phone number"
 
-#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:557
+#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:589
 msgid "phone verified"
 msgstr "phone verified"
 
 #: help/admin.py:151 member/models.py:71
-#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:565
+#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:597
 msgid "document verified"
 msgstr "document verified"
 
@@ -2316,7 +2316,7 @@ msgstr "allow order"
 
 #: member/models.py:93 rabop/templates/rabop/default/customer_detail.html:272
 #: rabop/templates/rabop/default/legacy_customer_detail.html:61
-#: rabop/templates/rabop/default/order_detail.html:264 shop/admin.py:570
+#: rabop/templates/rabop/default/order_detail.html:264 shop/admin.py:602
 #: shop/models.py:979
 msgid "total order count"
 msgstr "total order count"
@@ -2327,7 +2327,7 @@ msgstr "first purchased date"
 
 #: member/models.py:103 rabop/templates/rabop/default/customer_detail.html:260
 #: rabop/templates/rabop/default/legacy_customer_detail.html:53
-#: rabop/templates/rabop/default/order_detail.html:251 shop/admin.py:575
+#: rabop/templates/rabop/default/order_detail.html:251 shop/admin.py:607
 #: shop/models.py:974
 msgid "last purchased date"
 msgstr "last purchased date"
@@ -2343,7 +2343,7 @@ msgstr "re-purchased date"
 
 #: member/models.py:118 rabop/templates/rabop/default/customer_detail.html:302
 #: rabop/templates/rabop/default/legacy_customer_detail.html:81
-#: rabop/templates/rabop/default/order_detail.html:320 shop/admin.py:580
+#: rabop/templates/rabop/default/order_detail.html:320 shop/admin.py:612
 #: shop/models.py:991
 msgid "max price"
 msgstr "max price"
@@ -2358,7 +2358,7 @@ msgstr "total selling price"
 
 #: member/models.py:139 rabop/templates/rabop/default/customer_detail.html:310
 #: rabop/templates/rabop/default/legacy_customer_detail.html:89
-#: rabop/templates/rabop/default/order_detail.html:328 shop/admin.py:585
+#: rabop/templates/rabop/default/order_detail.html:328 shop/admin.py:617
 #: shop/models.py:998
 msgid "average price"
 msgstr "average price"
@@ -2402,7 +2402,7 @@ msgstr "E-mail"
 
 #: member/models.py:217 rabop/templates/rabop/default/customer_detail.html:252
 #: rabop/templates/rabop/default/legacy_customer_detail.html:45
-#: rabop/templates/rabop/default/order_detail.html:242 shop/admin.py:547
+#: rabop/templates/rabop/default/order_detail.html:242 shop/admin.py:579
 #: shop/models.py:944
 msgid "date joined"
 msgstr "date joined"
@@ -2424,7 +2424,7 @@ msgstr "login logs"
 msgid "token"
 msgstr "token"
 
-#: member/models.py:289 shop/admin.py:669 shop/admin.py:754 shop/admin.py:830
+#: member/models.py:289 shop/admin.py:701 shop/admin.py:786 shop/admin.py:862
 #: shop/models.py:335
 msgid "code"
 msgstr "code"
@@ -3191,7 +3191,7 @@ msgstr "08. 재주문 요청"
 msgid "Send short message"
 msgstr "Send SMS"
 
-#: rabop/templates/rabop/default/base.html:42 shop/admin.py:926
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:984
 msgid "PINCOIN administration"
 msgstr "PINCOIN administration"
 
@@ -3236,103 +3236,109 @@ msgstr "Quantities"
 msgid "Stock Bulk Upload"
 msgstr "Stock Bulk Upload"
 
-#: rabop/templates/rabop/default/base.html:110
+#: rabop/templates/rabop/default/base.html:104
+#, fuzzy
+#| msgid "Order History"
+msgid "Purchase Order History"
+msgstr "Order History"
+
+#: rabop/templates/rabop/default/base.html:113
 msgid "Sales Management"
 msgstr "Sales"
 
-#: rabop/templates/rabop/default/base.html:114
+#: rabop/templates/rabop/default/base.html:117
 msgid "Daily Sales"
 msgstr "Daily"
 
-#: rabop/templates/rabop/default/base.html:117
+#: rabop/templates/rabop/default/base.html:120
 msgid "Monthly Sales"
 msgstr "Monthly"
 
-#: rabop/templates/rabop/default/base.html:120
+#: rabop/templates/rabop/default/base.html:123
 msgid "Best Sellers by Category"
 msgstr "Best Sellers by Category"
 
-#: rabop/templates/rabop/default/base.html:123 rabop/views.py:1305
+#: rabop/templates/rabop/default/base.html:126 rabop/views.py:1305
 #: rabop/views.py:1355
 msgid "Best Sellers Report"
 msgstr "Best Sellers Report"
 
-#: rabop/templates/rabop/default/base.html:126
+#: rabop/templates/rabop/default/base.html:129
 #: rabop/templates/rabop/default/daily_payments_report.html:24
 #: rabop/templates/rabop/default/daily_payments_report.html:61
 #: rabop/views.py:1395
 msgid "Daily Payments Report"
 msgstr "Daily Payments Report"
 
-#: rabop/templates/rabop/default/base.html:129
+#: rabop/templates/rabop/default/base.html:132
 msgid "Best Customers"
 msgstr "Best Customers"
 
-#: rabop/templates/rabop/default/base.html:138
+#: rabop/templates/rabop/default/base.html:141
 msgid "Move"
 msgstr "Go"
 
-#: rabop/templates/rabop/default/base.html:145
+#: rabop/templates/rabop/default/base.html:148
 msgid "Main Store"
 msgstr "Main Store"
 
-#: rabop/templates/rabop/default/base.html:148
+#: rabop/templates/rabop/default/base.html:151
 msgid "Card Store"
 msgstr "Card Store"
 
-#: rabop/templates/rabop/default/base.html:157
+#: rabop/templates/rabop/default/base.html:160
 msgid "I'mport"
 msgstr "I'mport"
 
-#: rabop/templates/rabop/default/base.html:160
+#: rabop/templates/rabop/default/base.html:163
 msgid "Danal Partner Center"
 msgstr "Danal Partner Center"
 
-#: rabop/templates/rabop/default/base.html:163
+#: rabop/templates/rabop/default/base.html:166
 msgid "Naver Shopping Partner Zone"
 msgstr "Naver Shopping Partner Zone"
 
-#: rabop/templates/rabop/default/base.html:166
+#: rabop/templates/rabop/default/base.html:169
 msgid "Naver Smart Store"
 msgstr "Naver Smart Store"
 
-#: rabop/templates/rabop/default/base.html:169
+#: rabop/templates/rabop/default/base.html:172
 msgid "Naver Search Ad"
 msgstr "Naver Search Ad"
 
-#: rabop/templates/rabop/default/base.html:172
+#: rabop/templates/rabop/default/base.html:175
 msgid "Gmail"
 msgstr "Gmail"
 
-#: rabop/templates/rabop/default/base.html:176
+#: rabop/templates/rabop/default/base.html:179
 msgid "Cloudflare"
 msgstr "Cloudflare"
 
-#: rabop/templates/rabop/default/base.html:179
+#: rabop/templates/rabop/default/base.html:182
 msgid "Analytics"
 msgstr "Analytics"
 
-#: rabop/templates/rabop/default/base.html:182
+#: rabop/templates/rabop/default/base.html:185
 msgid "Ads"
 msgstr "Google Ads"
 
-#: rabop/templates/rabop/default/base.html:185
+#: rabop/templates/rabop/default/base.html:188
 msgid "Adsense"
 msgstr "Adsense"
 
-#: rabop/templates/rabop/default/base.html:188
+#: rabop/templates/rabop/default/base.html:191
 msgid "ALIGO"
 msgstr "ALIGO"
 
-#: rabop/templates/rabop/default/base.html:191
+#: rabop/templates/rabop/default/base.html:194
 msgid "mailgun"
 msgstr "mailgun"
 
-#: rabop/templates/rabop/default/base.html:194
+#: rabop/templates/rabop/default/base.html:197
 msgid "VULTR"
 msgstr "VULTR"
 
-#: rabop/templates/rabop/default/base.html:197
+#: rabop/templates/rabop/default/base.html:200
 msgid "Disqus"
 msgstr "Disqus"
 
@@ -3384,7 +3390,7 @@ msgstr "24H total"
 
 #: rabop/templates/rabop/default/customer_detail.html:294
 #: rabop/templates/rabop/default/legacy_customer_detail.html:69
-#: rabop/templates/rabop/default/order_detail.html:306 shop/admin.py:603
+#: rabop/templates/rabop/default/order_detail.html:306 shop/admin.py:635
 #: shop/models.py:984
 msgid "last total"
 msgstr "last total"
@@ -3479,12 +3485,12 @@ msgstr "Refunded"
 msgid "SNS Accounts"
 msgstr "SNS Accounts"
 
-#: rabop/templates/rabop/default/order_detail.html:336 shop/admin.py:622
+#: rabop/templates/rabop/default/order_detail.html:336 shop/admin.py:654
 msgid "last login count"
 msgstr "last login count"
 
-#: rabop/templates/rabop/default/order_detail.html:351 shop/admin.py:643
-#: shop/admin.py:893
+#: rabop/templates/rabop/default/order_detail.html:351 shop/admin.py:675
+#: shop/admin.py:925
 msgid "country"
 msgstr "country"
 
@@ -3527,7 +3533,7 @@ msgstr "created time"
 msgid "No SMS Message Yet"
 msgstr "No SMS Message Yet."
 
-#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:275
+#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:307
 #: shop/models.py:206 shop/models.py:608 shop/models.py:1152
 msgid "selling price"
 msgstr "selling price"
@@ -3716,72 +3722,76 @@ msgstr "Korean"
 msgid "English"
 msgstr "English"
 
-#: shop/admin.py:36 shop/admin.py:41
+#: shop/admin.py:41 shop/admin.py:46
 msgid "Removed Order"
 msgstr "Removed Order"
 
-#: shop/admin.py:85 shop/models.py:200 shop/models.py:601 shop/models.py:1145
+#: shop/admin.py:90 shop/models.py:200 shop/models.py:601 shop/models.py:1145
 msgid "list price"
 msgstr "list price"
 
-#: shop/admin.py:179 shop/admin.py:206 shop/admin.py:234
+#: shop/admin.py:203 shop/admin.py:230 shop/admin.py:258
 msgid "(save and continue editing to create a link)"
 msgstr "(save and continue editing to create a link)"
 
-#: shop/admin.py:181 shop/admin.py:208 shop/models.py:642 shop/models.py:707
+#: shop/admin.py:205 shop/admin.py:232 shop/models.py:642 shop/models.py:707
 #: shop/models.py:1186
 msgid "voucher"
 msgstr "voucher"
 
-#: shop/admin.py:280 shop/models.py:217
+#: shop/admin.py:312 shop/models.py:217
 msgid "Payment Gateway selling price"
 msgstr "PG selling price"
 
-#: shop/admin.py:309
+#: shop/admin.py:341
 msgid "Order Info"
 msgstr "Order Info"
 
-#: shop/admin.py:315
+#: shop/admin.py:347
 msgid "Transaction Verification"
 msgstr "Transaction Verification"
 
-#: shop/admin.py:675 shop/admin.py:686 shop/admin.py:697
+#: shop/admin.py:707 shop/admin.py:718 shop/admin.py:729
 msgid "1 voucher was"
 msgstr "1 voucher was"
 
-#: shop/admin.py:677 shop/admin.py:688 shop/admin.py:699
+#: shop/admin.py:709 shop/admin.py:720 shop/admin.py:731
 msgid "{} vouchers were"
 msgstr "{} vouchers were"
 
-#: shop/admin.py:678
+#: shop/admin.py:710
 msgid "{} successfully marked as purchased."
 msgstr "{} successfully marked as purchased."
 
-#: shop/admin.py:680
+#: shop/admin.py:712
 msgid "Mark selected vouchers as purchased"
 msgstr "Mark selected vouchers as purchased"
 
-#: shop/admin.py:689
+#: shop/admin.py:721
 msgid "{} successfully marked as sold."
 msgstr "{} successfully marked as sold."
 
-#: shop/admin.py:691
+#: shop/admin.py:723
 msgid "Mark selected vouchers as sold"
 msgstr "Mark selected vouchers as sold"
 
-#: shop/admin.py:700
+#: shop/admin.py:732
 msgid "{} successfully marked as revoked."
 msgstr "{} successfully marked as revoked."
 
-#: shop/admin.py:702
+#: shop/admin.py:734
 msgid "Mark selected vouchers as revoked"
 msgstr "Mark selected vouchers as revoked"
 
-#: shop/admin.py:898
+#: shop/admin.py:930
 msgid "IP Address Count"
 msgstr "Count"
 
-#: shop/admin.py:924 shop/admin.py:925
+#: shop/admin.py:971
+msgid "Payment notification email sent"
+msgstr ""
+
+#: shop/admin.py:982 shop/admin.py:983
 msgid "PINCOIN admin"
 msgstr "PINCOIN admin"
 
@@ -4340,12 +4350,20 @@ msgid "Import"
 msgstr "Import"
 
 #: shop/templates/admin/shop/order_change_form.html:6
+#: shop/templates/admin/shop/purchaseorder_change_form.html:7
 msgid "Go Back"
 msgstr "Go Back"
 
 #: shop/templates/admin/shop/order_change_form.html:7
+#: shop/templates/admin/shop/purchaseorder_change_form.html:8
 msgid "Save and continue editing"
 msgstr "Save and continue editing"
+
+#: shop/templates/admin/shop/purchaseorder_change_form.html:9
+#, fuzzy
+#| msgid "email"
+msgid "Send email"
+msgstr "email"
 
 #: shop/templates/shop/default/base.html:150
 msgid "PINCOIN MAIN"
