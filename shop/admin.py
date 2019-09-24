@@ -1,15 +1,20 @@
 import logging
 from decimal import Decimal
+from urllib.parse import quote as urlquote
 
 from django.contrib import admin
+from django.contrib import messages
 from django.contrib.admin.filters import SimpleListFilter
+from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.gis.geoip2 import GeoIP2
 from django.db.models import (
     Sum, Count
 )
 from django.forms.models import BaseInlineFormSet
+from django.http import HttpResponseRedirect
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.timezone import localtime, now, timedelta, make_aware
 from django.utils.translation import gettext_lazy as _
@@ -928,6 +933,30 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
     ordering = ['-created']
 
     inlines = [PurchaseOrderPaymentInline, ]
+
+    change_form_template = "admin/shop/purchaseorder_change_form.html"
+
+    def response_change(self, request, obj):
+        opts = self.model._meta
+        preserved_filters = self.get_preserved_filters(request)
+
+        msg_dict = {
+            'name': opts.verbose_name,
+            'obj': format_html('<a href="{}">{}</a>', urlquote(request.path), obj),
+        }
+
+        if '_send_payment_notification' in request.POST:
+            # obj
+            msg = format_html(
+                _('Payment notification email sent'),
+                **msg_dict
+            )
+            self.message_user(request, msg, messages.SUCCESS)
+            redirect_url = request.path
+            redirect_url = add_preserved_filters({'preserved_filters': preserved_filters, 'opts': opts}, redirect_url)
+            return HttpResponseRedirect(redirect_url)
+        else:
+            return super(PurchaseOrderAdmin, self).response_change(request, obj)
 
 
 admin.site.site_header = _('PINCOIN admin')
