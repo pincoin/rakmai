@@ -1438,6 +1438,13 @@ class LegacyCustomerListView(PageableMixin, SuperuserRequiredMixin, StoreContext
         return 'rabop/{}/legacy_customer_list.html'.format(self.store.theme)
 
 
+class CurrentBankAccountBalanceTemplateView(SuperuserRequiredMixin, StoreContextMixin, generic.TemplateView):
+    logger = logging.getLogger(__name__)
+
+    def get_template_names(self):
+        return 'rabop/{}/current_bank_account_balance.html'.format(self.store.theme)
+
+
 class LegacyCustomerDetailView(SuperuserRequiredMixin, StoreContextMixin, generic.DetailView):
     logger = logging.getLogger(__name__)
     context_object_name = 'customer'

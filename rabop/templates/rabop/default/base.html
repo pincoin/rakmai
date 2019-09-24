@@ -128,6 +128,9 @@ Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve you
                     <a class="dropdown-item" href="{% url 'rabop:daily-payments-report' store.code %}">
                         {% trans "Daily Payments Report" %}
                     </a>
+                    <a class="dropdown-item" href="{% url 'rabop:bank-account-balance-report' store.code %}">
+                        {% trans "Current Bank Balance" %}
+                    </a>
                     <a class="dropdown-item" href="{% url 'rabop:best-customers-report' store.code %}">
                         {% trans "Best Customers" %}
                     </a>

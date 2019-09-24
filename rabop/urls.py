@@ -110,6 +110,9 @@ urlpatterns = [
     path('<str:store>/report/daily-payments/',
          views.DailyPaymentReportView.as_view(), name='daily-payments-report'),
 
+    path('<str:store>/report/bank-account-balance/',
+         views.CurrentBankAccountBalanceTemplateView.as_view(), name='bank-account-balance-report'),
+
     path('<str:store>/legacy/customers/',
          views.LegacyCustomerListView.as_view(), name='legacy-customer-list'),
 

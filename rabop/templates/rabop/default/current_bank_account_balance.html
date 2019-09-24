@@ -1,0 +1,95 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load shop_filters %}
+{% load rabop_tags %}
+
+{% block content %}
+    <div class="row pb-2 text-muted d-none d-md-flex">
+        <div class="col-md-3">
+            {% trans "bank account" %}
+        </div>
+        <div class="col-md-3">
+            {% trans "balance" %}
+        </div>
+        <div class="col-md-2">
+            {% trans "created" %}
+        </div>
+    </div>
+
+    {% get_bank_account_balance 0 as account %}
+    {% if account %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3">
+                국민은행
+            </div>
+            <div class="col-8 col-sm-8 col-md-3">
+                {{ account.amount }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2">
+                {{ account.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% get_bank_account_balance 1 as account %}
+    {% if account %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3">
+                농협은행
+            </div>
+            <div class="col-8 col-sm-8 col-md-3">
+                {{ account.amount }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2">
+                {{ account.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% get_bank_account_balance 2 as account %}
+    {% if account %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3">
+                신한은행
+            </div>
+            <div class="col-8 col-sm-8 col-md-3">
+                {{ account.amount }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2">
+                {{ account.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% get_bank_account_balance 4 as account %}
+    {% if account %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3">
+                기업은행
+            </div>
+            <div class="col-8 col-sm-8 col-md-3">
+                {{ account.amount }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2">
+                {{ account.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% get_bank_account_balance 3 as account %}
+    {% if account %}
+        <div class="row py-1 border-top">
+            <div class="col-4 col-sm-4 col-md-3">
+                우리은행
+            </div>
+            <div class="col-8 col-sm-8 col-md-3">
+                {{ account.amount }}
+            </div>
+            <div class="col-4 col-sm-4 col-md-2">
+                {{ account.created|date:"Y-m-d H:i" }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
