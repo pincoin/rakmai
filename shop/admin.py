@@ -153,6 +153,25 @@ class OrderProductInlineFormset(BaseInlineFormSet):
             .filter(order=self.instance)
 
 
+class PurchaseOrderPaymentInlineFormset(BaseInlineFormSet):
+    def __init__(self, *args, **kwargs):
+        super(PurchaseOrderPaymentInlineFormset, self).__init__(*args, **kwargs)
+        self.queryset = models.PurchaseOrderPayment.objects \
+            .select_related('order') \
+            .filter(order=self.instance)
+
+        total = 0
+        for p in self.queryset:
+            total += p.amount
+
+        self.initial = []
+
+        for i in range(self.initial_form_count()):
+            self.initial.append({})
+
+        self.initial.append({'amount': self.instance.amount - total})
+
+
 class OrderPaymentInline(admin.StackedInline):
     model = models.OrderPayment
     extra = 1
@@ -244,6 +263,7 @@ class OrderProductInline(admin.TabularInline):
 class PurchaseOrderPaymentInline(admin.StackedInline):
     model = models.PurchaseOrderPayment
     extra = 1
+    formset = PurchaseOrderPaymentInlineFormset
     fields = ('account', 'amount')
     ordering = ['-created']
 
