@@ -557,6 +557,13 @@ class OrderPayment(model_utils_models.SoftDeletableModel, model_utils_models.Tim
         decimal_places=2,
     )
 
+    balance = models.DecimalField(
+        verbose_name=_('balance'),
+        max_digits=11,
+        decimal_places=2,
+        default=Decimal('0.00'),
+    )
+
     received = models.DateTimeField(
         verbose_name=_('received date'),
     )

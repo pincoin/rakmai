@@ -65,6 +65,7 @@ class OrderPaymentListView(views.APIView):
                 op = OrderPayment()
 
                 amount = Decimal(request.data['amount'].replace(",", ""))
+                balance = Decimal(request.data['balance'].replace(",", ""))
 
                 fullname = request.data['name'].strip()
 
@@ -106,6 +107,7 @@ class OrderPaymentListView(views.APIView):
                 if found:
                     op.account = request.data['account']
                     op.amount = amount
+                    op.balance = balance
                     op.received = make_aware(localtime().now())
                     op.save()
 
