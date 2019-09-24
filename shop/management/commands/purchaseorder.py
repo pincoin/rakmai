@@ -75,7 +75,7 @@ class Command(BaseCommand):
 
             send_notification_email.delay(
                 title,
-                'dummy',
+                content,
                 settings.EMAIL_JONGHWA,
                 [settings.EMAIL_HAN, ],
                 _linebreaks(content),

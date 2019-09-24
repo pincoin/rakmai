@@ -953,6 +953,7 @@ class MileageLogAdmin(admin.ModelAdmin):
 class PurchaseOrderAdmin(admin.ModelAdmin):
     list_display = ('title', 'bank_account', 'amount', 'paid', 'created')
     search_fields = ('bank_account', 'amount')
+    readonly_fields = ('title', 'content', 'paid', 'is_removed', 'created')
     date_hierarchy = 'created'
     ordering = ['-created']
 
@@ -981,7 +982,7 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
 
                 send_notification_email.delay(
                     '[핀코인] 입금완료 {} / {:,.0f}'.format(obj.bank_account, obj.amount),
-                    'dummy',
+                    ''.join(email_string),
                     settings.EMAIL_JONGHWA,
                     [settings.EMAIL_HAN, ],
                     _linebreaks(''.join(email_string)),

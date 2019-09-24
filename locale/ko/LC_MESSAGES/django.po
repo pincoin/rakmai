@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-24 12:35+0900\n"
+"POT-Creation-Date: 2019-09-24 13:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgstr "블로그"
 
 #: blog/forms.py:31 blog/models.py:158 blog/models.py:199 board/models.py:72
 #: board/models.py:81 board/models.py:140 book/forms.py:27 book/models.py:57
-#: book/models.py:137 shop/admin.py:59 shop/models.py:161 shop/models.py:237
+#: book/models.py:137 shop/admin.py:63 shop/models.py:161 shop/models.py:237
 #: shop/models.py:739 shop/models.py:774 shop/models.py:822
 msgid "category"
 msgstr "분류"
@@ -1130,7 +1130,7 @@ msgid "withdrawal type"
 msgstr "출금 유형"
 
 #: bookkeeping/models.py:95 bookkeeping/models.py:130 shop/models.py:548
-#: shop/models.py:1524
+#: shop/models.py:1529
 msgid "account"
 msgstr "계좌"
 
@@ -1484,9 +1484,9 @@ msgstr "고객 문의"
 #: rabop/templates/rabop/default/naver_order_detail.html:14
 #: rabop/templates/rabop/default/naver_order_list.html:43
 #: rabop/templates/rabop/default/order_detail.html:15
-#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:213
-#: shop/admin.py:240 shop/admin.py:760 shop/admin.py:776 shop/admin.py:836
-#: shop/admin.py:852 shop/models.py:416 shop/models.py:1054
+#: rabop/templates/rabop/default/order_list.html:43 shop/admin.py:217
+#: shop/admin.py:244 shop/admin.py:764 shop/admin.py:780 shop/admin.py:840
+#: shop/admin.py:856 shop/models.py:416 shop/models.py:1054
 #: shop/templates/shop/default/email/customer_question.html:7
 #: shop/templates/shop/default/email/order_complete.html:7
 #: shop/templates/shop/default/email/order_paypal_voided.html:7
@@ -1569,8 +1569,8 @@ msgstr "입금 / 결제수단"
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:55
 #: rabop/templates/rabop/default/naver_order_detail.html:103
 #: rabop/templates/rabop/default/order_detail.html:408
-#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:260
-#: shop/admin.py:739 shop/admin.py:781 shop/admin.py:857 shop/models.py:180
+#: rabop/templates/rabop/default/stock_status.html:32 shop/admin.py:264
+#: shop/admin.py:743 shop/admin.py:785 shop/admin.py:861 shop/models.py:180
 #: shop/models.py:584 shop/models.py:1023 shop/models.py:1128
 #: shop/templates/shop/default/email/order_complete.html:22
 #: shop/templates/shop/default/email/order_paypal_voided.html:22
@@ -1662,8 +1662,8 @@ msgstr "부분합계"
 #: rabop/templates/rabop/default/naver_order_detail.html:81
 #: rabop/templates/rabop/default/naver_order_list.html:55
 #: rabop/templates/rabop/default/order_detail.html:278
-#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:659
-#: shop/admin.py:815 shop/models.py:489 shop/models.py:1099
+#: rabop/templates/rabop/default/order_list.html:55 shop/admin.py:663
+#: shop/admin.py:819 shop/models.py:489 shop/models.py:1099
 #: shop/templates/shop/default/email/order_complete.html:37
 #: shop/templates/shop/default/email/order_paypal_voided.html:37
 #: shop/templates/shop/default/email/order_refunded.html:37
@@ -2033,7 +2033,7 @@ msgstr "{}"
 msgid "Products"
 msgstr "상품"
 
-#: card/views.py:268 card/views.py:743 shop/admin.py:387 shop/views.py:272
+#: card/views.py:268 card/views.py:743 shop/admin.py:391 shop/views.py:272
 #: shop/views.py:723
 msgid "No language set"
 msgstr "브라우저 언어 지정 안함"
@@ -2082,7 +2082,7 @@ msgstr "고객문의"
 #: member/templates/member/account/profile.html:218
 #: rabop/templates/rabop/default/customer_detail.html:20
 #: rabop/templates/rabop/default/legacy_customer_detail.html:19
-#: shop/admin.py:946
+#: shop/admin.py:950
 msgid "Full name"
 msgstr "본명"
 
@@ -2093,17 +2093,17 @@ msgstr "본명"
 #: rabop/templates/rabop/default/legacy_customer_detail.html:35
 #: rabop/templates/rabop/default/legacy_customer_list.html:33
 #: rabop/templates/rabop/default/naver_order_detail.html:32
-#: rabop/templates/rabop/default/order_detail.html:84 shop/admin.py:569
+#: rabop/templates/rabop/default/order_detail.html:84 shop/admin.py:573
 #: shop/models.py:51 shop/models.py:949 shop/models.py:1066
 msgid "phone number"
 msgstr "전화번호"
 
-#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:589
+#: help/admin.py:143 member/admin.py:49 member/models.py:59 shop/admin.py:593
 msgid "phone verified"
 msgstr "휴대폰 인증"
 
 #: help/admin.py:151 member/models.py:71
-#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:597
+#: rabop/templates/rabop/default/customer_list.html:36 shop/admin.py:601
 msgid "document verified"
 msgstr "서류 인증"
 
@@ -2330,7 +2330,7 @@ msgstr "무조건 주문 허용"
 
 #: member/models.py:93 rabop/templates/rabop/default/customer_detail.html:272
 #: rabop/templates/rabop/default/legacy_customer_detail.html:61
-#: rabop/templates/rabop/default/order_detail.html:264 shop/admin.py:602
+#: rabop/templates/rabop/default/order_detail.html:264 shop/admin.py:606
 #: shop/models.py:979
 msgid "total order count"
 msgstr "전체 주문횟수"
@@ -2341,7 +2341,7 @@ msgstr "첫 구매일시"
 
 #: member/models.py:103 rabop/templates/rabop/default/customer_detail.html:260
 #: rabop/templates/rabop/default/legacy_customer_detail.html:53
-#: rabop/templates/rabop/default/order_detail.html:251 shop/admin.py:607
+#: rabop/templates/rabop/default/order_detail.html:251 shop/admin.py:611
 #: shop/models.py:974
 msgid "last purchased date"
 msgstr "마지막 구매일시"
@@ -2357,7 +2357,7 @@ msgstr "재구매일시"
 
 #: member/models.py:118 rabop/templates/rabop/default/customer_detail.html:302
 #: rabop/templates/rabop/default/legacy_customer_detail.html:81
-#: rabop/templates/rabop/default/order_detail.html:320 shop/admin.py:612
+#: rabop/templates/rabop/default/order_detail.html:320 shop/admin.py:616
 #: shop/models.py:991
 msgid "max price"
 msgstr "최대 결제액"
@@ -2372,7 +2372,7 @@ msgstr "판매가 합계금액"
 
 #: member/models.py:139 rabop/templates/rabop/default/customer_detail.html:310
 #: rabop/templates/rabop/default/legacy_customer_detail.html:89
-#: rabop/templates/rabop/default/order_detail.html:328 shop/admin.py:617
+#: rabop/templates/rabop/default/order_detail.html:328 shop/admin.py:621
 #: shop/models.py:998
 msgid "average price"
 msgstr "평균 결제액"
@@ -2416,7 +2416,7 @@ msgstr "이메일"
 
 #: member/models.py:217 rabop/templates/rabop/default/customer_detail.html:252
 #: rabop/templates/rabop/default/legacy_customer_detail.html:45
-#: rabop/templates/rabop/default/order_detail.html:242 shop/admin.py:579
+#: rabop/templates/rabop/default/order_detail.html:242 shop/admin.py:583
 #: shop/models.py:944
 msgid "date joined"
 msgstr "가입일시"
@@ -2438,7 +2438,7 @@ msgstr "로그인 IP 로그"
 msgid "token"
 msgstr "토큰"
 
-#: member/models.py:289 shop/admin.py:701 shop/admin.py:786 shop/admin.py:862
+#: member/models.py:289 shop/admin.py:705 shop/admin.py:790 shop/admin.py:866
 #: shop/models.py:335
 msgid "code"
 msgstr "코드"
@@ -3173,7 +3173,7 @@ msgstr "07. 재주문 요청"
 msgid "Send short message"
 msgstr "SMS 발송"
 
-#: rabop/templates/rabop/default/base.html:42 shop/admin.py:984
+#: rabop/templates/rabop/default/base.html:42 shop/admin.py:1004
 msgid "PINCOIN administration"
 msgstr "핀코인 관리자"
 
@@ -3370,7 +3370,7 @@ msgstr "24시간 결제누적액"
 
 #: rabop/templates/rabop/default/customer_detail.html:294
 #: rabop/templates/rabop/default/legacy_customer_detail.html:69
-#: rabop/templates/rabop/default/order_detail.html:306 shop/admin.py:635
+#: rabop/templates/rabop/default/order_detail.html:306 shop/admin.py:639
 #: shop/models.py:984
 msgid "last total"
 msgstr "30일 결제누적액"
@@ -3465,12 +3465,12 @@ msgstr "환불완료"
 msgid "SNS Accounts"
 msgstr "연동 SNS"
 
-#: rabop/templates/rabop/default/order_detail.html:336 shop/admin.py:654
+#: rabop/templates/rabop/default/order_detail.html:336 shop/admin.py:658
 msgid "last login count"
 msgstr "최근 동일 IP 접속"
 
-#: rabop/templates/rabop/default/order_detail.html:351 shop/admin.py:675
-#: shop/admin.py:925
+#: rabop/templates/rabop/default/order_detail.html:351 shop/admin.py:679
+#: shop/admin.py:929
 msgid "country"
 msgstr "국가"
 
@@ -3513,7 +3513,7 @@ msgstr "생성일시"
 msgid "No SMS Message Yet"
 msgstr "메시지 없음"
 
-#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:307
+#: rabop/templates/rabop/default/stock_status.html:27 shop/admin.py:311
 #: shop/models.py:206 shop/models.py:608 shop/models.py:1152
 msgid "selling price"
 msgstr "판매가"
@@ -3701,76 +3701,76 @@ msgstr "한국어"
 msgid "English"
 msgstr "영어"
 
-#: shop/admin.py:41 shop/admin.py:46
+#: shop/admin.py:45 shop/admin.py:50
 msgid "Removed Order"
 msgstr "삭제된 주문"
 
-#: shop/admin.py:90 shop/models.py:200 shop/models.py:601 shop/models.py:1145
+#: shop/admin.py:94 shop/models.py:200 shop/models.py:601 shop/models.py:1145
 msgid "list price"
 msgstr "정가"
 
-#: shop/admin.py:203 shop/admin.py:230 shop/admin.py:258
+#: shop/admin.py:207 shop/admin.py:234 shop/admin.py:262
 msgid "(save and continue editing to create a link)"
 msgstr "저장 후 계속 수정"
 
-#: shop/admin.py:205 shop/admin.py:232 shop/models.py:642 shop/models.py:707
+#: shop/admin.py:209 shop/admin.py:236 shop/models.py:642 shop/models.py:707
 #: shop/models.py:1186
 msgid "voucher"
 msgstr "상품권"
 
-#: shop/admin.py:312 shop/models.py:217
+#: shop/admin.py:316 shop/models.py:217
 msgid "Payment Gateway selling price"
 msgstr "PG 판매가"
 
-#: shop/admin.py:341
+#: shop/admin.py:345
 msgid "Order Info"
 msgstr "주문 정보"
 
-#: shop/admin.py:347
+#: shop/admin.py:351
 msgid "Transaction Verification"
 msgstr "거래 검증"
 
-#: shop/admin.py:707 shop/admin.py:718 shop/admin.py:729
+#: shop/admin.py:711 shop/admin.py:722 shop/admin.py:733
 msgid "1 voucher was"
 msgstr "상품권 1장"
 
-#: shop/admin.py:709 shop/admin.py:720 shop/admin.py:731
+#: shop/admin.py:713 shop/admin.py:724 shop/admin.py:735
 msgid "{} vouchers were"
 msgstr "상품권 {}장"
 
-#: shop/admin.py:710
+#: shop/admin.py:714
 msgid "{} successfully marked as purchased."
 msgstr "을 매입 상태로 변경했습니다."
 
-#: shop/admin.py:712
+#: shop/admin.py:716
 msgid "Mark selected vouchers as purchased"
 msgstr "선택한 상품권을 매입 상태로 변경합니다."
 
-#: shop/admin.py:721
+#: shop/admin.py:725
 msgid "{} successfully marked as sold."
 msgstr "을 판매 상태로 변경했습니다."
 
-#: shop/admin.py:723
+#: shop/admin.py:727
 msgid "Mark selected vouchers as sold"
 msgstr "선택한 상품권을 판매 상태로 변경합니다."
 
-#: shop/admin.py:732
+#: shop/admin.py:736
 msgid "{} successfully marked as revoked."
 msgstr "을 발권취소 상태로 변경했습니다."
 
-#: shop/admin.py:734
+#: shop/admin.py:738
 msgid "Mark selected vouchers as revoked"
 msgstr "선택한 상품권을 발권취소 상태로 변경합니다."
 
-#: shop/admin.py:930
+#: shop/admin.py:934
 msgid "IP Address Count"
 msgstr "횟수"
 
-#: shop/admin.py:971
+#: shop/admin.py:991
 msgid "Payment notification email sent"
 msgstr ""
 
-#: shop/admin.py:982 shop/admin.py:983
+#: shop/admin.py:1002 shop/admin.py:1003
 msgid "PINCOIN admin"
 msgstr "핀코인 관리자"
 
@@ -4025,32 +4025,32 @@ msgstr "핀코인 주문"
 msgid "pincoin orders"
 msgstr "핀코인 주문"
 
-#: shop/models.py:531 shop/models.py:1508
+#: shop/models.py:531 shop/models.py:1513
 msgid "KOOKMIN BANK"
 msgstr "국민"
 
-#: shop/models.py:532 shop/models.py:1509
+#: shop/models.py:532 shop/models.py:1514
 msgid "NONGHYUP BANK"
 msgstr "농협"
 
-#: shop/models.py:533 shop/models.py:1510
+#: shop/models.py:533 shop/models.py:1515
 msgid "SHINHAN BANK"
 msgstr "신한"
 
-#: shop/models.py:534 shop/models.py:1511
+#: shop/models.py:534 shop/models.py:1516
 msgid "WOORI BANK"
 msgstr "우리"
 
-#: shop/models.py:535 shop/models.py:1512
+#: shop/models.py:535 shop/models.py:1517
 msgid "IBK BANK"
 msgstr "기업"
 
 #: shop/models.py:541 shop/models.py:577 shop/models.py:810 shop/models.py:1121
-#: shop/models.py:1438 shop/models.py:1517
+#: shop/models.py:1438 shop/models.py:1522
 msgid "order"
 msgstr "고객 주문"
 
-#: shop/models.py:555 shop/models.py:1531
+#: shop/models.py:555 shop/models.py:1536
 msgid "amount"
 msgstr "금액"
 
@@ -4291,22 +4291,26 @@ msgid "purchase order content"
 msgstr "발주내용"
 
 #: shop/models.py:1485
+msgid "Paid"
+msgstr "지불완료"
+
+#: shop/models.py:1490
 msgid "purchase order bank account"
 msgstr "은행계좌"
 
-#: shop/models.py:1492
+#: shop/models.py:1497
 msgid "purchase order amount"
 msgstr "발주금액"
 
-#: shop/models.py:1499 shop/models.py:1500
+#: shop/models.py:1504 shop/models.py:1505
 msgid "purchase order"
 msgstr "주문발주"
 
-#: shop/models.py:1537
+#: shop/models.py:1542
 msgid "purchase order payment"
 msgstr "대금지급"
 
-#: shop/models.py:1538
+#: shop/models.py:1543
 msgid "purchase order payments"
 msgstr "대금지급"
 
@@ -4324,7 +4328,7 @@ msgstr "뒤로"
 msgid "Save and continue editing"
 msgstr "저장 후 계속 수정"
 
-#: shop/templates/admin/shop/purchaseorder_change_form.html:9
+#: shop/templates/admin/shop/purchaseorder_change_form.html:10
 msgid "Send email"
 msgstr "이메일 발송"
 
