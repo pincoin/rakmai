@@ -3,12 +3,11 @@
 {% load i18n %}
 
 {% block submit_buttons_bottom %}
-    <div class="submit-row">
-        <input class="order-list-button" type="button" value="{% trans "Go Back" %}" name="_back">
-        <input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue"/>
-        {% if not original.paid %}
+    {{ block.super }}
+    {% if original.paid %}
+        <div class="submit-row">
             <input class="order-verification-button" type="submit" value="{% trans "Send email" %}"
                    name="_send_payment_notification"/>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 {% endblock %}
