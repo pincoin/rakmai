@@ -269,6 +269,7 @@ class PurchaseOrderPaymentInline(admin.StackedInline):
     extra = 1
     formset = PurchaseOrderPaymentInlineFormset
     fields = ('account', 'amount')
+    readonly_fields = ('created',)
     ordering = ['-created']
 
 
@@ -975,7 +976,7 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
             email_string = ['입금액 / 입금일시\n', '----\n']
 
             for p in obj.payments.all():
-                email_string.append('{:,.0f} / {}\n'.format(p.amount, _date(p.created, 'Y-m-d H:i')))
+                email_string.append('{:,.0f}\n'.format(p.amount, _date(p.created, 'Y-m-d H:i')))
 
             if not obj.paid:
                 obj.paid = True
