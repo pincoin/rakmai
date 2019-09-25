@@ -953,7 +953,7 @@ class MileageLogAdmin(admin.ModelAdmin):
 class PurchaseOrderAdmin(admin.ModelAdmin):
     list_display = ('title', 'bank_account', 'amount', 'paid', 'created')
     search_fields = ('bank_account', 'amount')
-    readonly_fields = ('title', 'content', 'paid', 'is_removed', 'created')
+    readonly_fields = ('content', 'paid', 'is_removed', 'created')
     list_filter = ('paid',)
     date_hierarchy = 'created'
     ordering = ['-created']
