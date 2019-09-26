@@ -977,7 +977,7 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
 
             for p in obj.payments.all():
                 email_string.append('{:,.0f} / {}\n'
-                                    .format(p.amount, _date(make_aware(localtime(p.created, 'Y-m-d H:i')))))
+                                    .format(p.amount, _date(make_aware(localtime(p.created)), 'Y-m-d H:i')))
 
             if not obj.paid:
                 obj.paid = True
