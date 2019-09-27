@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lotte Card Mobile</title>
-</head>
-<body>
-Mobile
-</body>
-</html>
+{% extends 'card/default/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="my-4">
+        <a href="http://m.lottecard.co.kr/app/LPCDMAA_V100.lc?bId=43956&vtCdKndC=P12305-A12305">
+            <img src="{% static 'images/shop/lottecard/20190927_mobile.jpg' %}" class="mx-auto d-block">
+        </a>
+    </div>
+{% endblock %}
