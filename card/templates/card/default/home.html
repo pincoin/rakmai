@@ -72,6 +72,14 @@
                 <div class="row">
                     {% get_category_leaf store.code True as categories %}
                     {% for category in categories %}
+                        {% if forloop.counter0 == 2 %}
+                            <div class="col-12 mb-3 d-block d-md-none">
+                                <a href="{% url 'event:lotte-card-mobile' %}">
+                                    <img src="{% static 'images/shop/default/banner/20190927_lottecard.jpg' %}"
+                                         class="mx-auto d-block">
+                                </a>
+                            </div>
+                        {% endif %}
                         <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
                             <div class="card h-100 border-0">
                                 {% if category.thumbnail %}
@@ -246,6 +254,8 @@
                             <div class="card h-100">
                                 {% if product.category.thumbnail %}
                                     <a href="
+
+
 
 
                                             {% if product.stock == product.STOCK_CHOICES.in_stock %}{% url 'card:product-detail' store.code product.id product.code %}{% else %}#{% endif %}">
