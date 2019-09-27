@@ -57,10 +57,10 @@ Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve you
 <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top py-1">
     <div class="gray-layer"></div>
     <div class="container">
-        <a class="navbar-brand d-none d-sm-none d-md-block" href="{% url 'card:home' store.code %}">
+        <a class="navbar-brand d-none d-sm-none d-md-block" href="//card.{{ domains.domain }}{% url 'card:home' store.code %}">
             <img src="{% static 'images/shop/default/pincoin_card_350x50.png' %}" alt="핀코인 카드몰" title="핀코인 카드몰">
         </a>
-        <a class="navbar-brand d-block d-sm-block d-md-none" href="{% url 'card:home' store.code %}">
+        <a class="navbar-brand d-block d-sm-block d-md-none" href="//card.{{ domains.domain }}{% url 'card:home' store.code %}">
             <img src="{% static 'images/shop/default/pincoin_card_98x30.png' %}" alt="핀코인 카드몰" title="핀코인 카드몰">
         </a>
         <button id="navbar-toggle-button" class="navbar-toggler" type="button" data-toggle="collapse"
