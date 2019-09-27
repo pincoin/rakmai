@@ -1246,11 +1246,11 @@ msgstr ""
 
 #: card/forms2.py:179 shop/forms2.py:221
 msgid "You cannot buy google more than {} KRW."
-msgstr "신규고객은 구글기프트카드 50만원까지만 주문 가능합니다."
+msgstr "신규고객은 구글기프트카드 30만원까지만 주문 가능합니다."
 
 #: card/forms2.py:192 shop/forms2.py:234
 msgid "You cannot buy more than {} KRW."
-msgstr "신규고객은 50만원까지만 주문 가능합니다."
+msgstr "신규고객은 30만원까지만 주문 가능합니다."
 
 #: card/forms2.py:228 shop/forms2.py:270
 msgid "Activate your account by cellphone verification."
@@ -1291,28 +1291,28 @@ msgid ""
 "You cannot buy google more than {} KRW within 48 hrs from the first order "
 "date."
 msgstr ""
-"첫 구매 후 48시간 동안 하루에 50만원까지만 구글기프트카드 주문 가능합니다."
+"첫 구매 후 48시간 동안 하루에 30만원까지만 구글기프트카드 주문 가능합니다."
 
 #: card/forms2.py:312 shop/forms2.py:354
 msgid ""
 "You cannot buy google more than {} KRW within 48 hrs because you have not "
 "purchased for 2 months."
 msgstr ""
-"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 50만원까"
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만원까"
 "지만 구글기프트카드 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니"
 "다.)"
 
 #: card/forms2.py:338 shop/forms2.py:380
 msgid ""
 "You cannot buy more than {} KRW within 48 hrs from the first order date."
-msgstr "첫 구매 후 48시간 동안 하루에 50만원까지만 주문 가능합니다."
+msgstr "첫 구매 후 48시간 동안 하루에 30만원까지만 주문 가능합니다."
 
 #: card/forms2.py:362 shop/forms2.py:404
 msgid ""
 "You cannot buy more than {} KRW within 48 hrs because you have not purchased "
 "for 2 months."
 msgstr ""
-"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 50만원까"
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만원까"
 "지만 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니다.)"
 
 #: card/forms2.py:382 shop/forms2.py:424
