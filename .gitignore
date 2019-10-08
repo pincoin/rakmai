@@ -132,3 +132,4 @@ sandbox/settings/secret.py
 sandbox/settings/production.py
 shop/forms2.py
 card/forms2.py
+sendgrid.env
