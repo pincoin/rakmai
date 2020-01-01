@@ -49,10 +49,7 @@ CURRENCY_RATE = getattr(settings, 'CURRENCY_RATE', {
     },
 })
 
-UNAVAILABLE_NIGHT_PRODUCTS = getattr(settings, '', ['퍼니카드',
-                                                    '스마트문화상품권',
-                                                    '틴캐시',
-                                                    '엔코인',
+UNAVAILABLE_NIGHT_PRODUCTS = getattr(settings, '', ['엔코인',
                                                     '와우캐시',
                                                     '매니아선불쿠폰',
                                                     '아이템베이선불쿠폰'])
