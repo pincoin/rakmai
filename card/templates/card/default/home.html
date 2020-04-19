@@ -35,12 +35,10 @@
             <li data-target="#carouselIndicators" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <a href="https://www.lottecard.co.kr/app/LPBNFDA_V340.lc?evnBultSeq=1292">
-                <div class="carousel-item carousel-image-09 active">
-                    <div class="carousel-caption carousel-caption-custom rounded">
-                    </div>
+            <div class="carousel-item carousel-image-09 active">
+                <div class="carousel-caption carousel-caption-custom rounded">
                 </div>
-            </a>
+            </div>
             <div class="carousel-item carousel-image-08">
                 <div class="carousel-caption carousel-caption-custom rounded">
                 </div>
@@ -255,7 +253,8 @@
                         <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
                             <div class="card h-100">
                                 {% if product.category.thumbnail %}
-                                    <a href="{% if product.stock == product.STOCK_CHOICES.in_stock %}{% url 'card:product-detail' store.code product.id product.code %}{% else %}#{% endif %}">
+                                    <a href="
+                                            {% if product.stock == product.STOCK_CHOICES.in_stock %}{% url 'card:product-detail' store.code product.id product.code %}{% else %}#{% endif %}">
                                         <img class="product-image-thumbnail w-100"
                                              src="{{ product.category.thumbnail.url }}"
                                              alt="{{ product.name }}-{{ product.subtitle }}">
