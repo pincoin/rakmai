@@ -72,12 +72,6 @@
                 <div class="row">
                     {% get_category_leaf store.code True as categories %}
                     {% for category in categories %}
-                        {% if forloop.counter0 == 4 %}
-                            <div class="col-12 mb-3 d-block d-md-none">
-                                <img src="{% static 'images/shop/default/banner/20191025_lottecard.jpg' %}"
-                                     class="mx-auto d-block">
-                            </div>
-                        {% endif %}
                         <div class="col-lg-2 col-md-4 col-6 mb-2 px-1 px-md-3">
                             <div class="card h-100 border-0">
                                 {% if category.thumbnail %}
