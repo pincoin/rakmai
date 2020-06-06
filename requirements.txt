@@ -20,4 +20,5 @@ qrcode==6.1
 django-disqus==0.5
 WeasyPrint==51
 Pillow==7.1.2
-django-redis==4.10.0
+django-redis==4.12.1
+future==0.18.2
