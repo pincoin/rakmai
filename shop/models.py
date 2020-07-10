@@ -250,6 +250,11 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         db_index=True,
     )
 
+    stock_quantity = models.IntegerField(
+        verbose_name=_('stock quantity'),
+        default=0,
+    )
+
     stock = models.IntegerField(
         verbose_name=_('stock'),
         choices=STOCK_CHOICES,
