@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.db.models import F
 from django.template.loader import render_to_string
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
@@ -90,6 +91,11 @@ def send_vouchers(order):
             ))
 
         OrderProductVoucher.objects.bulk_create(order_product_voucher_list)
+
+        # Update stock quantity
+        Product.objects \
+            .filter(code=order_product.code) \
+            .update(stock_quantity=F('stock_quantity') - order_product.quantity)
 
     # 4. Update transaction verification data
     order.user.profile.last_purchased = now()
