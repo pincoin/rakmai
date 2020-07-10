@@ -1146,6 +1146,11 @@ class StockBulkUploadView(SuperuserRequiredMixin, StoreContextMixin, generic.For
 
             Voucher.objects.bulk_create(voucher_list)
 
+            # Update stock quantity
+            Product.objects \
+                .filter(code=product.code) \
+                .update(stock_quantity=F('stock_quantity') + len(vouchers))
+
             messages.add_message(self.request, messages.INFO, _(' {}: {} ea').format(product.code, len(vouchers)))
 
         return super(StockBulkUploadView, self).form_valid(form)
