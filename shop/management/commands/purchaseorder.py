@@ -22,9 +22,6 @@ class Command(BaseCommand):
             .filter(status=models.Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
             .prefetch_related('vouchers') \
-            .annotate(stock_count=Count(Case(When(vouchers__status=models.Voucher.STATUS_CHOICES.purchased,
-                                                  vouchers__is_removed=False,
-                                                  then=1)))) \
             .exclude(maximum_stock_level=0) \
             .order_by('category', 'position')
 
@@ -43,7 +40,7 @@ class Command(BaseCommand):
             if item_name != item.name:
                 item_name = item.name
 
-            if item.stock_count < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
+            if item.stock_quantity < 0.7 * item.minimum_stock_level + 0.3 * item.maximum_stock_level:
                 count += 1
 
                 if item.name in d:
@@ -55,12 +52,12 @@ class Command(BaseCommand):
                     email_string.append('{} {} {}매\n'
                                         .format(item.name, item.subtitle,
                                                 int(math.ceil(
-                                                    (item.maximum_stock_level - item.stock_count) / 100.0) * 100)))
+                                                    (item.maximum_stock_level - item.stock_quantity) / 100.0) * 100)))
                 else:
                     email_string.append('{} {} {}매\n'
                                         .format(item.name, item.subtitle,
                                                 int(math.ceil(
-                                                    (item.maximum_stock_level - item.stock_count) / 10.0) * 10)))
+                                                    (item.maximum_stock_level - item.stock_quantity) / 10.0) * 10)))
 
         if count:
             title = '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i'))
