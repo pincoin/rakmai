@@ -357,6 +357,11 @@ class OrderSendView(SuperuserRequiredMixin, StoreContextMixin, generic.FormView)
 
             OrderProductVoucher.objects.bulk_create(order_product_voucher_list)
 
+            # Update stock quantity
+            Product.objects \
+                .filter(code=order_product.code) \
+                .update(stock_quantity=F('stock_quantity') - order_product.quantity)
+
         # 2. Update transaction verification data
         order = form.cleaned_data['order']
 
