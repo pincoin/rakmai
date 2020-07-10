@@ -1072,15 +1072,12 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
             .filter(status=Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
             .prefetch_related('vouchers') \
-            .annotate(stock_count=Count(Case(When(vouchers__status=Voucher.STATUS_CHOICES.purchased,
-                                                  vouchers__is_removed=False,
-                                                  then=1)))) \
-            .annotate(stock_level=F('stock_count') - F('minimum_stock_level'))
+            .annotate(stock_level=F('stock_quantity') - F('minimum_stock_level'))
 
         if 'voucher' in self.request.GET and self.request.GET['voucher']:
             queryset = queryset.filter(category__id=int(self.request.GET['voucher'].strip()))
         else:
-            queryset = queryset.exclude(stock_count=0, minimum_stock_level=0)
+            queryset = queryset.exclude(stock_quantity=0, minimum_stock_level=0)
 
         return queryset.order_by('stock_level')
 
@@ -1097,10 +1094,7 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
             queryset = queryset.filter(category__id=int(self.request.GET['voucher'].strip()))
 
         context['total'] = queryset \
-            .annotate(stock_count=Count(Case(When(vouchers__status=Voucher.STATUS_CHOICES.purchased,
-                                                  vouchers__is_removed=False,
-                                                  then=1)))) \
-            .aggregate(total=Sum(F('selling_price') * F('stock_count'), output_field=DecimalField()))['total']
+            .aggregate(total=Sum(F('selling_price') * F('stock_quantity'), output_field=DecimalField()))['total']
 
         context['voucher_filter_form'] = self.voucher_filter_form_class(
             voucher=self.request.GET.get('voucher') if self.request.GET.get('voucher') else '1',
