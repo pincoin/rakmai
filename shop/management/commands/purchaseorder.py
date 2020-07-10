@@ -3,9 +3,6 @@ from decimal import Decimal
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from django.db.models import (
-    Count, Case, When
-)
 from django.template.defaultfilters import date as _date
 from django.template.defaultfilters import linebreaks as _linebreaks
 from django.utils import timezone
@@ -21,7 +18,6 @@ class Command(BaseCommand):
         queryset = models.Product.objects \
             .filter(status=models.Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
-            .prefetch_related('vouchers') \
             .exclude(maximum_stock_level=0) \
             .order_by('category', 'position')
 
