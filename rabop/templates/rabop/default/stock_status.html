@@ -44,9 +44,9 @@
             </div>
             <div class="col-2 col-md-2 text-monospace">
                 {% if voucher.stock_level < 0 %}
-                    <span class="text-danger">{{ voucher.stock_count }}</span>
+                    <span class="text-danger">{{ voucher.stock_quantity }}</span>
                 {% else %}
-                    {{ voucher.stock_count }}
+                    {{ voucher.stock_quantity }}
                 {% endif %}
                 <small>({{ voucher.minimum_stock_level }} / {{ voucher.maximum_stock_level }})</small>
             </div>
