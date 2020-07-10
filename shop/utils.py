@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from member.models import Profile
 from .models import (
-    OrderProduct, OrderProductVoucher, Voucher
+    OrderProduct, OrderProductVoucher, Voucher, Product
 )
 from .tasks import (
     send_notification_line, send_notification_email, send_sms

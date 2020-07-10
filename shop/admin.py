@@ -292,7 +292,8 @@ class StoreAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name', 'subtitle', 'code',
-        'selling_price_with_rate', 'stock', 'minimum_stock_level', 'maximum_stock_level', 'status', 'position',
+        'selling_price_with_rate', 'stock', 'stock_quantity', 'minimum_stock_level', 'maximum_stock_level',
+        'status', 'position',
         'pg', 'pg_selling_price_with_rate',
         'naver_partner', 'naver_partner_title'
     )
