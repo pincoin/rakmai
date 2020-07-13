@@ -65,7 +65,7 @@ $(document).ready(function () {
 
                     if (results !== null) {
                         for (let x = 0; x < results.length; x++) {
-                            results[x] = results[x].replace('/ /g', '-');
+                            results[x] = results[x].replace(/ /g, '-');
                         }
                     }
 
