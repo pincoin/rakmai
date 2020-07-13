@@ -39,13 +39,11 @@ $(document).ready(function () {
                     results = content.match(/[0-9]{5}-[0-9]{5}-[0-9]{5}-[0-9]{5}/mg);
                     break;
                 case 3: // 넥슨카드
-                    results = content.match(/[A-Z]{5}-[A-Z]{5}-[A-Z]{5}-[A-Z]{5}/mg);
+                    results = content.match(/[A-Z]{5}-?[A-Z]{5}-?[A-Z]{5}-?[A-Z]{5}/mg);
 
-                    if (results === null) {
-                        results = content.match(/[A-Z]{20}/mg);
-
-                        if (results !== null) {
-                            for (let x = 0; x < results.length; x++) {
+                    if (results !== null) {
+                        for (let x = 0; x < results.length; x++) {
+                            if (results[x].length === 20) {
                                 results[x] = results[x].substr(0, 5) + '-'
                                     + results[x].substr(5, 5) + '-'
                                     + results[x].substr(10, 5) + '-'
@@ -53,6 +51,7 @@ $(document).ready(function () {
                             }
                         }
                     }
+
                     break;
                 case 11: // 해피머니 (code) remarks는 별도 수동 입력
                     if (voucher_remarks.match(/[0-9]{8}/g) !== null) {
