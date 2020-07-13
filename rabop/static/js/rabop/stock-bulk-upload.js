@@ -46,7 +46,7 @@ $(document).ready(function () {
 
                         if (results !== null) {
                             for (var x = 0; x < results.length; x++) {
-                                results[x] = results[i].substr(0, 5) + '-'
+                                results[x] = results[x].substr(0, 5) + '-'
                                     + results[x].substr(5, 5) + '-'
                                     + results[x].substr(10, 5) + '-'
                                     + results[x].substr(15, 5);
