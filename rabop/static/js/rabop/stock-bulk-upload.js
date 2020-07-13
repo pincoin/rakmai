@@ -73,7 +73,7 @@ $(document).ready(function () {
                     results = content.match(/[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}/mg);
                     break;
                 case 16: // N코인
-                    results = content.match(/[A-Z][0-9]{3}[- ][0-9]{4}[- ][0-9]{4}/mg);
+                    results = content.match(/[A-Z][0-9]{3}-?[0-9]{4}-?[0-9]{4}/mg);
                     break;
                 case 17: // 와우캐시
                     results = content.match(/[A-Z][0-9]{3}-[0-9]{4}-[0-9]{4}/mg);
