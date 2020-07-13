@@ -43,6 +43,15 @@ $(document).ready(function () {
 
                     if (results === null) {
                         results = content.match(/[A-Z]{20}/mg);
+
+                        if (results !== null) {
+                            for (var x = 0; x < results.length; x++) {
+                                results[x] = results[i].substr(0, 5) + '-'
+                                    + results[x].substr(5, 5) + '-'
+                                    + results[x].substr(10, 5) + '-'
+                                    + results[x].substr(15, 5);
+                            }
+                        }
                     }
                     break;
                 case 11: // 해피머니 (code) remarks는 별도 수동 입력
