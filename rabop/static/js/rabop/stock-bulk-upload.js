@@ -40,6 +40,10 @@ $(document).ready(function () {
                     break;
                 case 3: // 넥슨카드
                     results = content.match(/[A-Z]{5}-[A-Z]{5}-[A-Z]{5}-[A-Z]{5}/mg);
+
+                    if (results === null) {
+                        results = content.match(/[A-Z]{20}/mg);
+                    }
                     break;
                 case 11: // 해피머니 (code) remarks는 별도 수동 입력
                     if (voucher_remarks.match(/[0-9]{8}/g) !== null) {
@@ -50,6 +54,10 @@ $(document).ready(function () {
                 case 8: // 문화상품권
                 case 6: // 스마트문화상품권
                     results = content.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4,6}/mg);
+
+                    if (results === null) {
+                        results = content.match(/[0-9]{16,18}/mg);
+                    }
                     break;
                 case 7: // 도서문화상품권 (code + remarks)
                     results = content.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}[ \t\n-]+[0-9]{4}/mg);
