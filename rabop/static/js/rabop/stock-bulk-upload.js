@@ -34,6 +34,24 @@ $(document).ready(function () {
             switch (vouchers[voucher_idx].id) {
                 case 2: // 구글기프트카드
                     results = content.match(/[A-Z0-9]{4}([- ]*[A-Z0-9]{4}){3,4}/mg);
+
+                    if (results !== null) {
+                        for (let x = 0; x < results.length; x++) {
+                            if (results[x].length === 20) {
+                                results[x] = results[x].substr(0, 4) + '-'
+                                    + results[x].substr(4, 4) + '-'
+                                    + results[x].substr(8, 4) + '-'
+                                    + results[x].substr(12, 4) + '-'
+                                    + results[x].substr(16, 4);
+                            } else if (results[x].length === 16) {
+                                results[x] = results[x].substr(0, 4) + '-'
+                                    + results[x].substr(4, 4) + '-'
+                                    + results[x].substr(8, 4) + '-'
+                                    + results[x].substr(12, 4);
+                            }
+                        }
+                    }
+
                     break;
                 case 10: // 에그머니
                     results = content.match(/[0-9]{5}-[0-9]{5}-[0-9]{5}-[0-9]{5}/mg);
