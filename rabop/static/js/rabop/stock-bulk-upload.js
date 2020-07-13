@@ -74,7 +74,7 @@ $(document).ready(function () {
                     break;
                 case 16: // N코인
                 case 17: // 와우캐시
-                    results = content.match(/[A-Z][0-9]{3}-[0-9]{4}-[0-9]{4}/mg);
+                    results = content.match(/[A-Z][0-9]{3}[- ][0-9]{4}[- ][0-9]{4}/mg);
                     break;
             }
 
