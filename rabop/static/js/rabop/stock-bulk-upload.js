@@ -62,6 +62,13 @@ $(document).ready(function () {
                 case 8: // 문화상품권
                 case 6: // 스마트문화상품권
                     results = content.match(/[0-9]{4}[- ][0-9]{4}[- ][0-9]{4}[- ][0-9]{4,6}/mg);
+
+                    if (results !== null) {
+                        for (let x = 0; x < results.length; x++) {
+                            results[x] = results[x].replace('/ /g', '-');
+                        }
+                    }
+
                     break;
                 case 7: // 도서문화상품권 (code + remarks)
                     results = content.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}[ \t\n-]+[0-9]{4}/mg);
