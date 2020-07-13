@@ -45,7 +45,7 @@ $(document).ready(function () {
                         results = content.match(/[A-Z]{20}/mg);
 
                         if (results !== null) {
-                            for (var x = 0; x < results.length; x++) {
+                            for (let x = 0; x < results.length; x++) {
                                 results[x] = results[x].substr(0, 5) + '-'
                                     + results[x].substr(5, 5) + '-'
                                     + results[x].substr(10, 5) + '-'
@@ -83,6 +83,17 @@ $(document).ready(function () {
                     break;
                 case 16: // N코인
                     results = content.match(/[A-Z][0-9]{3}-?[0-9]{4}-?[0-9]{4}/mg);
+
+                    if (results !== null) {
+                        for (let x = 0; x < results.length; x++) {
+                            if (results[x].length === 12) {
+                                results[x] = results[x].substr(0, 4) + '-'
+                                    + results[x].substr(4, 4) + '-'
+                                    + results[x].substr(8, 4);
+                            }
+                        }
+                    }
+
                     break;
                 case 17: // 와우캐시
                     results = content.match(/[A-Z][0-9]{3}-[0-9]{4}-[0-9]{4}/mg);
