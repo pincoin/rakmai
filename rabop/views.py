@@ -10,7 +10,7 @@ from django.contrib.gis.geoip2 import GeoIP2
 from django.core.cache import cache
 from django.db import transaction
 from django.db.models import (
-    Count, Sum, Case, When, F
+    Count, Sum, F
 )
 from django.db.models.fields import DecimalField
 from django.db.models.functions import (
@@ -1071,7 +1071,6 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
         queryset = Product.objects \
             .filter(status=Product.STATUS_CHOICES.enabled) \
             .select_related('category') \
-            .prefetch_related('vouchers') \
             .annotate(stock_level=F('stock_quantity') - F('minimum_stock_level'))
 
         if 'voucher' in self.request.GET and self.request.GET['voucher']:
@@ -1087,8 +1086,7 @@ class StockStatusListView(PageableMixin, SuperuserRequiredMixin, StoreContextMix
 
         queryset = Product.objects \
             .filter(status=Product.STATUS_CHOICES.enabled) \
-            .select_related('category') \
-            .prefetch_related('vouchers')
+            .select_related('category')
 
         if 'voucher' in self.request.GET and self.request.GET['voucher']:
             queryset = queryset.filter(category__id=int(self.request.GET['voucher'].strip()))
