@@ -12,5 +12,5 @@ GOOGLE_RECAPTCHA_SESSION_KEY = getattr(settings, 'GOOGLE_RECAPTCHA_SESSION_KEY',
 
 DISALLOWED_EMAIL_DOMAIN = getattr(settings, 'DISALLOWED_EMAIL_DOMAIN', (
     'qq.com', '163.com', '126.com', '188.com', 'yeah.net', 'sina.com', 'hotmail.com', 'live.com',
-    'rael.cc', 'moakt.com', 'grr.la', 'guerrillamail.com',
+    'rael.cc', 'moakt.cc', 'grr.la', 'guerrillamail.com',
 ))
