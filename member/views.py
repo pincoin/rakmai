@@ -494,7 +494,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     if not logs:
                         if 'MVNO' in log.telecom \
                                 and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
-                                > timedelta(days=365 * 43) \
+                                > timedelta(days=365 * 40) \
                                 and now() - profile.user.date_joined < timedelta(hours=24):
                             return Response(data=json.dumps({
                                 'code': 400,
