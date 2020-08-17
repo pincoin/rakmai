@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 22:00+0900\n"
+"POT-Creation-Date: 2020-08-18 03:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,8 @@ msgid "Overpaid"
 msgstr "Overpaid"
 
 #: api/views.py:304 api/views.py:323 rabop/forms.py:85 rabop/forms.py:104
-#: rabop/forms.py:413 rabop/forms.py:432 rabop/views.py:1144 shop/utils.py:38
-#: shop/utils.py:58
+#: rabop/forms.py:413 rabop/forms.py:432 rabop/views.py:1146 shop/utils.py:39
+#: shop/utils.py:59
 msgid " {}: {} ea"
 msgstr " {}: {} ea"
 
@@ -643,7 +643,7 @@ msgstr "Q&amp;A"
 #: card/templates/card/default/base.html:331
 #: member/templates/member/account/signup.html:14
 #: member/templates/member/account/terms.html:11
-#: member/templates/member/socialaccount/signup.html:23 member/views.py:255
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:256
 #: shop/templates/shop/default/base.html:373
 msgid "Terms and Conditions"
 msgstr "Terms &amp; Conditions"
@@ -653,7 +653,7 @@ msgstr "Terms &amp; Conditions"
 #: card/templates/card/default/base.html:336
 #: member/templates/member/account/privacy.html:11
 #: member/templates/member/account/signup.html:31
-#: member/templates/member/socialaccount/signup.html:40 member/views.py:264
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:265
 #: shop/templates/shop/default/base.html:378
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
@@ -1177,151 +1177,41 @@ msgstr "unidentified deposit slips"
 msgid "Card mall"
 msgstr "Card mall"
 
-#: card/forms2.py:24 card/forms2_debug.py:10 shop/forms2.py:26
-#: shop/forms2_debug.py:14
+#: card/forms2_debug.py:10 shop/forms2_debug.py:14
 msgid "I agree to Commercial Law."
 msgstr "I agree to Commercial Law."
 
-#: card/forms2.py:25 card/forms2_debug.py:11 shop/forms2.py:27
-#: shop/forms2_debug.py:15
+#: card/forms2_debug.py:11 shop/forms2_debug.py:15
 msgid "Do you agree to buy items in your cart?"
 msgstr "Do you agree to buy items in your cart?"
 
-#: card/forms2.py:29 card/forms2_debug.py:15 shop/forms2.py:31
-#: shop/forms2_debug.py:19
+#: card/forms2_debug.py:15 shop/forms2_debug.py:19
 msgid "I purchase by myself on my own purpose."
 msgstr "I purchase by myself on my own purpose."
 
-#: card/forms2.py:30 card/forms2_debug.py:16 shop/forms2.py:32
-#: shop/forms2_debug.py:20
+#: card/forms2_debug.py:16 shop/forms2_debug.py:20
 msgid "It is 100 percent fraud if you are asked to buy the codes."
 msgstr "It is 100% fraud if you are asked to buy the codes."
 
-#: card/forms2.py:36 card/forms2_debug.py:22
+#: card/forms2_debug.py:22
 #: rabop/templates/rabop/default/daily_payments_report.html:16
 #: rabop/templates/rabop/default/daily_payments_report.html:128
 #: shop/models.py:390
 msgid "Credit Card"
 msgstr "Credit Card"
 
-#: card/forms2.py:60 card/forms2_debug.py:46 shop/forms2.py:62
-#: shop/forms2_debug.py:50
+#: card/forms2_debug.py:46 shop/forms2_debug.py:50
 msgid "Empty cart! Please, put items in your cart."
 msgstr "Empty cart! Please, put items in your cart."
 
-#: card/forms2.py:99 shop/forms2.py:140
-msgid "You have access log within {} hrs."
-msgstr "You have access log within {} hrs."
-
-#: card/forms2.py:110 shop/forms2.py:151
-msgid "Delete order first before the new order."
-msgstr "Delete order first before the new order."
-
-#: card/forms2.py:129
-msgid "Under 20, You cannot buy more than 150,000 KRW."
-msgstr "Under 20, You cannot buy more than 150,000 KRW."
-
-#: card/forms2.py:160 shop/forms2.py:202
-msgid "Complete cellphone verification."
-msgstr "Complete cellphone verification."
-
-#: card/forms2.py:166 shop/forms2.py:208
-msgid "You cannot buy culture more than {} KRW."
-msgstr "You cannot buy culture more than {} KRW."
-
-#: card/forms2.py:173 card/forms2.py:186 card/forms2.py:199 card/forms2.py:247
-#: card/forms2.py:254 card/forms2.py:298 card/forms2.py:305 card/forms2.py:348
-#: card/forms2.py:355 shop/forms2.py:215 shop/forms2.py:228 shop/forms2.py:241
-#: shop/forms2.py:289 shop/forms2.py:296 shop/forms2.py:340 shop/forms2.py:347
-#: shop/forms2.py:390 shop/forms2.py:397
-msgid "Complete document verification."
-msgstr "Complete document verification."
-
-#: card/forms2.py:179 shop/forms2.py:221
-msgid "You cannot buy google more than {} KRW."
-msgstr "You cannot buy google more than {} KRW."
-
-#: card/forms2.py:192 shop/forms2.py:234
-msgid "You cannot buy more than {} KRW."
-msgstr "You cannot buy more than {} KRW."
-
-#: card/forms2.py:228 shop/forms2.py:270
-msgid "Activate your account by cellphone verification."
-msgstr "Activate your account by cellphone verification."
-
-#: card/forms2.py:237 shop/forms2.py:279
-msgid ""
-"You cannot buy culture more than {} KRW within 48 hrs from the first order "
-"date."
-msgstr ""
-"You cannot buy culture more than {} KRW within 48 hrs from the first order "
-"date."
-
-#: card/forms2.py:261 shop/forms2.py:303
-msgid ""
-"You cannot buy culture more than {} KRW within 48 hrs because you have not "
-"purchased for 2 months."
-msgstr ""
-"You cannot buy culture more than {} KRW within 48 hrs because you have not "
-"purchased for 2 months."
-
-#: card/forms2.py:271 card/forms2.py:322 card/forms2.py:372 shop/forms2.py:313
-#: shop/forms2.py:364 shop/forms2.py:414
-msgid "You may order 1 hour after last purchase."
-msgstr "You may order 1 hour after last purchase."
-
-#: card/forms2.py:279 card/forms2.py:330 card/forms2.py:389 shop/forms2.py:321
-#: shop/forms2.py:372 shop/forms2.py:431
-msgid "Complete document verification at night."
-msgstr "Complete document verification at night."
-
-#: card/forms2.py:288 shop/forms2.py:330
-msgid ""
-"You cannot buy google more than {} KRW within 48 hrs from the first order "
-"date."
-msgstr ""
-"You cannot buy google more than {} KRW within 48 hrs from the first order "
-"date."
-
-#: card/forms2.py:312 shop/forms2.py:354
-msgid ""
-"You cannot buy google more than {} KRW within 48 hrs because you have not "
-"purchased for 2 months."
-msgstr ""
-"You cannot buy google more than {} KRW within 48 hrs because you have not "
-"purchased for 2 months."
-
-#: card/forms2.py:338 shop/forms2.py:380
-msgid ""
-"You cannot buy more than {} KRW within 48 hrs from the first order date."
-msgstr ""
-"You cannot buy more than {} KRW within 48 hrs from the first order date."
-
-#: card/forms2.py:362 shop/forms2.py:404
-msgid ""
-"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
-"for 2 months."
-msgstr ""
-"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
-"for 2 months."
-
-#: card/forms2.py:382 shop/forms2.py:424
-msgid "You cannot buy more than the maximum of your past order amount."
-msgstr "You cannot buy more than the maximum of your past order amount."
-
-#: card/forms2.py:403 shop/forms2.py:445
-msgid "Over amount for auto-send during night time"
-msgstr "Over amount for auto-send during night time"
-
-#: card/forms2.py:414 card/forms2_debug.py:56
+#: card/forms2_debug.py:56
 #: rabop/templates/rabop/default/naver_order_detail.html:90
-#: rabop/templates/rabop/default/order_detail.html:385 shop/forms2.py:467
-#: shop/forms2_debug.py:60 shop/models.py:506 shop/models.py:1118
+#: rabop/templates/rabop/default/order_detail.html:385 shop/forms2_debug.py:60
+#: shop/models.py:506 shop/models.py:1118
 msgid "order message"
 msgstr "order message"
 
-#: card/forms2.py:415 card/forms2_debug.py:57 shop/forms2.py:468
-#: shop/forms2_debug.py:61
+#: card/forms2_debug.py:57 shop/forms2_debug.py:61
 msgid "Your bank account and your full name"
 msgstr ""
 "Please, leave your bank account and full name if you transferred your money."
@@ -2059,7 +1949,7 @@ msgstr "No Answer"
 #: help/admin.py:81 member/admin.py:31
 #: member/templates/member/account/profile.html:154
 #: member/templates/member/account/signup.html:103
-#: member/templates/member/socialaccount/signup.html:89 member/views.py:280
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:281
 #: rabop/templates/rabop/default/customer_detail.html:14
 msgid "Profile"
 msgstr "Profile"
@@ -2134,8 +2024,8 @@ msgid "Notice : "
 msgstr "Notice : "
 
 #: help/views.py:142 help/views.py:161 help/views.py:176
-#: rabop/templates/rabop/default/base.html:67 rabop/views.py:764
-#: rabop/views.py:799
+#: rabop/templates/rabop/default/base.html:67 rabop/views.py:769
+#: rabop/views.py:804
 msgid "Customer Questions"
 msgstr "Customer Questions"
 
@@ -2143,7 +2033,7 @@ msgstr "Customer Questions"
 msgid "Testimonials : "
 msgstr "Testimonials : "
 
-#: help/views.py:333 rabop/views.py:828
+#: help/views.py:333 rabop/views.py:833
 msgid "No giftcard"
 msgstr "No giftcard"
 
@@ -2269,7 +2159,7 @@ msgstr "I really would like to unregister."
 
 #: member/forms2.py:302 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
-#: member/templates/member/account/profile.html:244 member/views.py:398
+#: member/templates/member/account/profile.html:244 member/views.py:399
 msgid "Change Your Name"
 msgstr "Change Your Name"
 
@@ -2533,7 +2423,7 @@ msgid "This account is inactive."
 msgstr "This account is inactive."
 
 #: member/templates/member/account/document_confirm.html:19
-#: member/templates/member/account/profile.html:98 member/views.py:337
+#: member/templates/member/account/profile.html:98 member/views.py:338
 #: rabop/templates/rabop/default/customer_detail.html:161
 #: rabop/templates/rabop/default/order_detail.html:134
 msgid "Document Verification"
@@ -2785,7 +2675,7 @@ msgstr "Language"
 msgid "Currency"
 msgstr "Currency"
 
-#: member/templates/member/account/profile.html:228 member/views.py:246
+#: member/templates/member/account/profile.html:228 member/views.py:247
 msgid "Connect with SNS accounts"
 msgstr "Connect with SNS accounts"
 
@@ -2795,7 +2685,7 @@ msgstr "Change Primary E-mail Address"
 
 #: member/templates/member/account/profile.html:252
 #: member/templates/member/account/unregister.html:11
-#: member/templates/member/account/unregister.html:42 member/views.py:359
+#: member/templates/member/account/unregister.html:42 member/views.py:360
 msgid "Unregister"
 msgstr "Unregister"
 
@@ -2924,29 +2814,33 @@ msgstr "Password Change"
 msgid "Password Set"
 msgstr "Password Set"
 
-#: member/views.py:327
+#: member/views.py:328
 msgid "Document Verification {} {} {}"
 msgstr "Document Verification {} {} {}"
 
-#: member/views.py:510
+#: member/views.py:498
+msgid "You can verify your account 24 hour after joined."
+msgstr ""
+
+#: member/views.py:518
 msgid "Phone Verification {}"
 msgstr "Phone Verification {}"
 
-#: member/views.py:517
+#: member/views.py:525
 msgid "Your name does not match the phone owner."
 msgstr "Your name does not match the phone owner"
 
-#: member/views.py:523
+#: member/views.py:531
 #, fuzzy
 #| msgid "Your email is banned."
 msgid "Your phone number is banned."
 msgstr "Your email address is banned."
 
-#: member/views.py:529
+#: member/views.py:537
 msgid "You have verified within 48 hours."
 msgstr "You have verified within 48 hours."
 
-#: member/views.py:536
+#: member/views.py:544
 msgid "Illegal access: no record"
 msgstr "Illegal access: no record"
 
@@ -2958,11 +2852,11 @@ msgstr "rabop"
 msgid "Add Payment"
 msgstr "Add Payment"
 
-#: rabop/forms.py:89 rabop/forms.py:417 shop/utils.py:42
+#: rabop/forms.py:89 rabop/forms.py:417 shop/utils.py:43
 msgid "Out of stock! {}"
 msgstr "Out of stock! {}"
 
-#: rabop/forms.py:108 rabop/forms.py:436 shop/utils.py:62
+#: rabop/forms.py:108 rabop/forms.py:436 shop/utils.py:63
 msgid "Already sent! {}"
 msgstr "Already sent! {}"
 
@@ -3200,7 +3094,7 @@ msgstr "PINCOIN administration"
 msgid "Pincoin Customer Orders"
 msgstr "Pincoin Customer Orders"
 
-#: rabop/templates/rabop/default/base.html:60 rabop/views.py:475
+#: rabop/templates/rabop/default/base.html:60 rabop/views.py:480
 msgid "Naver Customer Orders"
 msgstr "Naver Customer Orders"
 
@@ -3213,12 +3107,12 @@ msgid "New Customers"
 msgstr "New Customers"
 
 #: rabop/templates/rabop/default/base.html:82
-#: rabop/templates/rabop/default/customer_detail.html:340 rabop/views.py:1429
+#: rabop/templates/rabop/default/customer_detail.html:340 rabop/views.py:1431
 #: shop/models.py:969
 msgid "legacy customers"
 msgstr "legacy customers"
 
-#: rabop/templates/rabop/default/base.html:85 rabop/views.py:1027
+#: rabop/templates/rabop/default/base.html:85 rabop/views.py:1032
 msgid "SMS Log"
 msgstr "SMS Log"
 
@@ -3263,15 +3157,15 @@ msgstr "Monthly"
 msgid "Best Sellers by Category"
 msgstr "Best Sellers by Category"
 
-#: rabop/templates/rabop/default/base.html:129 rabop/views.py:1305
-#: rabop/views.py:1355
+#: rabop/templates/rabop/default/base.html:129 rabop/views.py:1307
+#: rabop/views.py:1357
 msgid "Best Sellers Report"
 msgstr "Best Sellers Report"
 
 #: rabop/templates/rabop/default/base.html:132
 #: rabop/templates/rabop/default/daily_payments_report.html:24
 #: rabop/templates/rabop/default/daily_payments_report.html:61
-#: rabop/views.py:1395
+#: rabop/views.py:1397
 msgid "Daily Payments Report"
 msgstr "Daily Payments Report"
 
@@ -3417,22 +3311,22 @@ msgstr "No Customers Yet."
 
 #: rabop/templates/rabop/default/daily_payments_report.html:13
 #: rabop/templates/rabop/default/daily_payments_report.html:122
-#: shop/forms2.py:38 shop/forms2_debug.py:26 shop/models.py:387
-#: shop/models.py:1049 shop/templates/shop/default/order_detail.html:128
+#: shop/forms2_debug.py:26 shop/models.py:387 shop/models.py:1049
+#: shop/templates/shop/default/order_detail.html:128
 msgid "Bank Transfer"
 msgstr "Bank Transfer"
 
 #: rabop/templates/rabop/default/daily_payments_report.html:14
 #: rabop/templates/rabop/default/daily_payments_report.html:124
-#: shop/forms2.py:39 shop/forms2_debug.py:27 shop/models.py:388
+#: shop/forms2_debug.py:27 shop/models.py:388
 #: shop/templates/shop/default/order_detail.html:201
 msgid "Escrow (KB)"
 msgstr "Escrow (KB)"
 
 #: rabop/templates/rabop/default/daily_payments_report.html:15
 #: rabop/templates/rabop/default/daily_payments_report.html:126
-#: shop/forms2.py:40 shop/forms2_debug.py:28 shop/models.py:389
-#: shop/models.py:541 shop/templates/shop/default/order_detail.html:223
+#: shop/forms2_debug.py:28 shop/models.py:389 shop/models.py:541
+#: shop/templates/shop/default/order_detail.html:223
 msgid "PayPal"
 msgstr "PayPal"
 
@@ -3444,7 +3338,7 @@ msgstr "PayPal"
 msgid "Amount"
 msgstr "Amount"
 
-#: rabop/templates/rabop/default/daily_sales_report.html:18 rabop/views.py:1219
+#: rabop/templates/rabop/default/daily_sales_report.html:18 rabop/views.py:1221
 msgid "Daily Sales Report"
 msgstr "Daily Sales Report"
 
@@ -3458,7 +3352,7 @@ msgid "Date"
 msgstr "Date"
 
 #: rabop/templates/rabop/default/legacy_customer_detail.html:13
-#: rabop/views.py:1459 shop/models.py:968
+#: rabop/views.py:1461 shop/models.py:968
 msgid "legacy customer"
 msgstr "legacy customer"
 
@@ -3467,7 +3361,7 @@ msgid "No MMS Yet"
 msgstr "No MMS Yet."
 
 #: rabop/templates/rabop/default/monthly_sales_report.html:18
-#: rabop/views.py:1183
+#: rabop/views.py:1185
 msgid "Monthly Sales Report"
 msgstr "Monthly Sales Report"
 
@@ -3557,59 +3451,59 @@ msgstr "current quantity"
 msgid "No Vouchers Yet"
 msgstr "No Vouchers Yet."
 
-#: rabop/views.py:388 shop/utils.py:122
+#: rabop/views.py:393 shop/utils.py:128
 msgid "[site] Order shipped: {}"
 msgstr "[PINCOIN] Order shipped: {}"
 
-#: rabop/views.py:400 shop/utils.py:134
+#: rabop/views.py:405 shop/utils.py:140
 msgid "You've got your vouchers."
 msgstr "You've got your vouchers."
 
-#: rabop/views.py:410 rabop/views.py:617
+#: rabop/views.py:415 rabop/views.py:622
 msgid "send error"
 msgstr "send error"
 
-#: rabop/views.py:434
+#: rabop/views.py:439
 msgid "[site] Order refunded: {}"
 msgstr "[PINCOIN] Order refunded: {}"
 
-#: rabop/views.py:499
+#: rabop/views.py:504
 msgid "Naver Order Details"
 msgstr "Naver Order Details"
 
-#: rabop/views.py:839
+#: rabop/views.py:844
 msgid "[site] Question Answer"
 msgstr "[PINCOIN] Question Answer"
 
-#: rabop/views.py:851
+#: rabop/views.py:856
 msgid "You've got a question answer."
 msgstr "You've got a question answer."
 
-#: rabop/views.py:893
+#: rabop/views.py:898
 msgid "Customers"
 msgstr "Customers"
 
-#: rabop/views.py:919
+#: rabop/views.py:924
 msgid "Customer"
 msgstr "Customer"
 
-#: rabop/views.py:1084
+#: rabop/views.py:1085
 msgid "Stock Status"
 msgstr "Stock Status"
 
-#: rabop/views.py:1115
+#: rabop/views.py:1112
 msgid "stock bulk upload"
 msgstr "stock bulk upload"
 
-#: rabop/views.py:1134
+#: rabop/views.py:1131
 msgid "Duplicated voucher code"
 msgstr "Duplicated voucher code"
 
-#: rabop/views.py:1260
+#: rabop/views.py:1262
 msgid "Best Customers Report"
 msgstr "Best Customers Report"
 
-#: rabop/views.py:1481
+#: rabop/views.py:1483
 msgid "Customer MMS"
 msgstr "Customer MMS"
 
@@ -3814,27 +3708,7 @@ msgstr "shop"
 msgid "discount rate"
 msgstr "discount rate"
 
-#: shop/forms2.py:95
-msgid "You have to buy more than {} KRW."
-msgstr "You have to buy more than {} KRW."
-
-#: shop/forms2.py:105
-msgid "PayPal is not allowed in Korea."
-msgstr "PayPal is not allowed in Korea."
-
-#: shop/forms2.py:112
-msgid "You cannot buy more than 150,000 KRW."
-msgstr "You cannot buy more than 150,000 KRW."
-
-#: shop/forms2.py:128
-msgid "Complete document verification with Korean Photo ID."
-msgstr "Complete document verification with Korean Photo ID."
-
-#: shop/forms2.py:170
-msgid "Under 18, You cannot buy more than 150,000 KRW."
-msgstr "Under 18, You cannot buy more than 150,000 KRW."
-
-#: shop/forms2.py:509 shop/forms2_debug.py:102
+#: shop/forms2_debug.py:102
 msgid "You cannot refund at night."
 msgstr "You cannot refund at night."
 
@@ -4488,6 +4362,100 @@ msgstr "[PINCOIN] Order voided: {}"
 #: shop/views.py:910
 msgid "Game ranking"
 msgstr "Game ranking"
+
+#~ msgid "You have access log within {} hrs."
+#~ msgstr "You have access log within {} hrs."
+
+#~ msgid "Delete order first before the new order."
+#~ msgstr "Delete order first before the new order."
+
+#~ msgid "Under 20, You cannot buy more than 150,000 KRW."
+#~ msgstr "Under 20, You cannot buy more than 150,000 KRW."
+
+#~ msgid "Complete cellphone verification."
+#~ msgstr "Complete cellphone verification."
+
+#~ msgid "You cannot buy culture more than {} KRW."
+#~ msgstr "You cannot buy culture more than {} KRW."
+
+#~ msgid "Complete document verification."
+#~ msgstr "Complete document verification."
+
+#~ msgid "You cannot buy google more than {} KRW."
+#~ msgstr "You cannot buy google more than {} KRW."
+
+#~ msgid "You cannot buy more than {} KRW."
+#~ msgstr "You cannot buy more than {} KRW."
+
+#~ msgid "Activate your account by cellphone verification."
+#~ msgstr "Activate your account by cellphone verification."
+
+#~ msgid ""
+#~ "You cannot buy culture more than {} KRW within 48 hrs from the first "
+#~ "order date."
+#~ msgstr ""
+#~ "You cannot buy culture more than {} KRW within 48 hrs from the first "
+#~ "order date."
+
+#~ msgid ""
+#~ "You cannot buy culture more than {} KRW within 48 hrs because you have "
+#~ "not purchased for 2 months."
+#~ msgstr ""
+#~ "You cannot buy culture more than {} KRW within 48 hrs because you have "
+#~ "not purchased for 2 months."
+
+#~ msgid "You may order 1 hour after last purchase."
+#~ msgstr "You may order 1 hour after last purchase."
+
+#~ msgid "Complete document verification at night."
+#~ msgstr "Complete document verification at night."
+
+#~ msgid ""
+#~ "You cannot buy google more than {} KRW within 48 hrs from the first order "
+#~ "date."
+#~ msgstr ""
+#~ "You cannot buy google more than {} KRW within 48 hrs from the first order "
+#~ "date."
+
+#~ msgid ""
+#~ "You cannot buy google more than {} KRW within 48 hrs because you have not "
+#~ "purchased for 2 months."
+#~ msgstr ""
+#~ "You cannot buy google more than {} KRW within 48 hrs because you have not "
+#~ "purchased for 2 months."
+
+#~ msgid ""
+#~ "You cannot buy more than {} KRW within 48 hrs from the first order date."
+#~ msgstr ""
+#~ "You cannot buy more than {} KRW within 48 hrs from the first order date."
+
+#~ msgid ""
+#~ "You cannot buy more than {} KRW within 48 hrs because you have not "
+#~ "purchased for 2 months."
+#~ msgstr ""
+#~ "You cannot buy more than {} KRW within 48 hrs because you have not "
+#~ "purchased for 2 months."
+
+#~ msgid "You cannot buy more than the maximum of your past order amount."
+#~ msgstr "You cannot buy more than the maximum of your past order amount."
+
+#~ msgid "Over amount for auto-send during night time"
+#~ msgstr "Over amount for auto-send during night time"
+
+#~ msgid "You have to buy more than {} KRW."
+#~ msgstr "You have to buy more than {} KRW."
+
+#~ msgid "PayPal is not allowed in Korea."
+#~ msgstr "PayPal is not allowed in Korea."
+
+#~ msgid "You cannot buy more than 150,000 KRW."
+#~ msgstr "You cannot buy more than 150,000 KRW."
+
+#~ msgid "Complete document verification with Korean Photo ID."
+#~ msgstr "Complete document verification with Korean Photo ID."
+
+#~ msgid "Under 18, You cannot buy more than 150,000 KRW."
+#~ msgstr "Under 18, You cannot buy more than 150,000 KRW."
 
 #~ msgid "04. 실물 통장/카드사진 요청"
 #~ msgstr "04. 실물 통장/카드사진 요청"
