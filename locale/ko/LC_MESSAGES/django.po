@@ -2158,7 +2158,7 @@ msgstr "서류 제출"
 
 #: member/forms2.py:275 member/forms2.py:281
 msgid "You have no orders."
-msgstr "서류인증 이전에 소액 결제 주문 완료 건이 있어야 합니다."
+msgstr "금융거래사기 방지를 위하여 서류인증 이전에 소액 결제 주문 완료 건이 있어야 합니다."
 
 #: member/forms2.py:288
 msgid "I really would like to unregister."
