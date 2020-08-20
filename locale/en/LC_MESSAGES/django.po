@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 16:45+0900\n"
+"POT-Creation-Date: 2020-08-20 22:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1200,7 +1200,7 @@ msgstr "It is 100% fraud if you are asked to buy the codes."
 msgid "Credit Card"
 msgstr "Credit Card"
 
-#: card/forms2_debug.py:46 member/forms2.py:260 shop/forms2_debug.py:50
+#: card/forms2_debug.py:46 shop/forms2_debug.py:50
 msgid "Empty cart! Please, put items in your cart."
 msgstr "Empty cart! Please, put items in your cart."
 
@@ -2053,13 +2053,13 @@ msgstr "Account"
 msgid "member"
 msgstr "member"
 
-#: member/forms.py:9 member/forms2.py:284
+#: member/forms.py:9 member/forms2.py:294
 #: rabop/templates/rabop/default/best_customers_report.html:34
 #: shop/models.py:951
 msgid "first name"
 msgstr "first name"
 
-#: member/forms.py:15 member/forms2.py:291
+#: member/forms.py:15 member/forms2.py:301
 #: rabop/templates/rabop/default/best_customers_report.html:31
 #: shop/models.py:946
 msgid "last name"
@@ -2089,27 +2089,27 @@ msgstr "You will sign in using this email."
 msgid "Screen username"
 msgstr "Screen username"
 
-#: member/forms.py:54 member/forms2.py:294
+#: member/forms.py:54 member/forms2.py:304
 msgid "Last name"
 msgstr "Last name"
 
-#: member/forms.py:55 member/forms2.py:287
+#: member/forms.py:55 member/forms2.py:297
 msgid "First name"
 msgstr "First name"
 
-#: member/forms2.py:55 member/forms2.py:109
+#: member/forms2.py:56 member/forms2.py:110
 msgid "Invalid reCAPTCHA. Please try again."
 msgstr "Invalid reCAPTCHA. Please try again."
 
-#: member/forms2.py:60
+#: member/forms2.py:61
 msgid "You haven't logged for a while."
 msgstr "You haven't logged for a while."
 
-#: member/forms2.py:90
+#: member/forms2.py:91
 msgid "Reset My Password"
 msgstr "Reset My Password"
 
-#: member/forms2.py:139 member/forms2.py:194
+#: member/forms2.py:140 member/forms2.py:195
 #: member/templates/member/account/password_change.html:11
 #: member/templates/member/account/password_reset_from_key.html:17
 #: member/templates/member/account/password_reset_from_key_done.html:10
@@ -2117,47 +2117,53 @@ msgstr "Reset My Password"
 msgid "Change Password"
 msgstr "Change Password"
 
-#: member/forms2.py:164
+#: member/forms2.py:165
 msgid "Add E-mail"
 msgstr "Add E-mail"
 
-#: member/forms2.py:221 member/templates/member/account/password_set.html:11
+#: member/forms2.py:222 member/templates/member/account/password_set.html:11
 msgid "Set Password"
 msgstr "Set Password"
 
-#: member/forms2.py:230 member/models.py:81 member/models.py:226
+#: member/forms2.py:231 member/models.py:81 member/models.py:226
 #: rabop/templates/rabop/default/customer_detail.html:224
 msgid "photo ID"
 msgstr "photo ID"
 
-#: member/forms2.py:231 member/forms2.py:236
+#: member/forms2.py:232 member/forms2.py:237
 msgid "Max: 4MB"
 msgstr "Max: 4MB"
 
-#: member/forms2.py:233
+#: member/forms2.py:234
 msgid "Please either submit a Photo ID or check the clear checkbox, not both."
 msgstr "Please either submit a Photo ID or check the clear checkbox, not both."
 
-#: member/forms2.py:235 member/models.py:87 member/models.py:235
+#: member/forms2.py:236 member/models.py:87 member/models.py:235
 #: rabop/templates/rabop/default/customer_detail.html:238
 msgid "bank account or debit/credit card"
 msgstr "bank account or debit/credit card"
 
-#: member/forms2.py:238
+#: member/forms2.py:239
 msgid ""
 "Please either submit a Card image or check the clear checkbox, not both."
 msgstr ""
 "Please either submit a Card image or check the clear checkbox, not both."
 
-#: member/forms2.py:254
+#: member/forms2.py:255
 msgid "Document Submit"
 msgstr "Document Submit"
 
-#: member/forms2.py:278
+#: member/forms2.py:275 member/forms2.py:281
+#, fuzzy
+#| msgid "naver orders"
+msgid "You have no orders."
+msgstr "naver orders"
+
+#: member/forms2.py:288
 msgid "I really would like to unregister."
 msgstr "I really would like to unregister."
 
-#: member/forms2.py:309 member/templates/member/account/name_change.html:25
+#: member/forms2.py:319 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
 #: member/templates/member/account/profile.html:244 member/views.py:399
 msgid "Change Your Name"

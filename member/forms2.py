@@ -19,6 +19,7 @@ from django.utils.timezone import (
 )
 from django.utils.translation import ugettext_lazy as _
 
+from shop.models import Order
 from . import settings as member_settings
 from .models import Profile
 from .widgets import DocumentClearableFileInput
@@ -264,6 +265,22 @@ class MemberDocumentForm(forms.ModelForm):
             'photo_id': DocumentClearableFileInput,
             'card': DocumentClearableFileInput,
         }
+
+    def clean(self):
+        cleaned_data = super(MemberDocumentForm, self).clean()
+
+        order_count = self.instance.user.shop_order_owned.count()
+
+        if order_count == 0:
+            raise forms.ValidationError(_('You have no orders.'))
+        elif order_count == 1:
+            orders = self.instance.user.shop_order_owned.all()
+            for order in orders:
+                if order.payment_method != Order.PAYMENT_METHOD_CHOICES.paypal \
+                        and order.status != Order.STATUS_CHOICES.shipped:
+                    raise forms.ValidationError(_('You have no orders.'))
+
+        return cleaned_data
 
 
 class MemberUnregisterForm(forms.Form):
