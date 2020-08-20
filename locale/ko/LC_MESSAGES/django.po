@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-18 03:31+0900\n"
+"POT-Creation-Date: 2020-08-20 16:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1201,7 +1201,7 @@ msgstr ""
 msgid "Credit Card"
 msgstr "신용카드"
 
-#: card/forms2_debug.py:46 shop/forms2_debug.py:50
+#: card/forms2_debug.py:46 member/forms2.py:260 shop/forms2_debug.py:50
 msgid "Empty cart! Please, put items in your cart."
 msgstr "주문하실 상품권을 장바구니에 담은 후 주문완료바랍니다."
 
@@ -2053,13 +2053,13 @@ msgstr "계정"
 msgid "member"
 msgstr "회원"
 
-#: member/forms.py:9 member/forms2.py:277
+#: member/forms.py:9 member/forms2.py:284
 #: rabop/templates/rabop/default/best_customers_report.html:34
 #: shop/models.py:951
 msgid "first name"
 msgstr "이름"
 
-#: member/forms.py:15 member/forms2.py:284
+#: member/forms.py:15 member/forms2.py:291
 #: rabop/templates/rabop/default/best_customers_report.html:31
 #: shop/models.py:946
 msgid "last name"
@@ -2089,11 +2089,11 @@ msgstr "로그인할 때 쓰는 이메일 주소입니다."
 msgid "Screen username"
 msgstr "사이트에서 사용되는 아이디입니다."
 
-#: member/forms.py:54 member/forms2.py:287
+#: member/forms.py:54 member/forms2.py:294
 msgid "Last name"
 msgstr "성(姓) - 남/녀를 구별하는 성별이 아닙니다. (예: 홍)"
 
-#: member/forms.py:55 member/forms2.py:280
+#: member/forms.py:55 member/forms2.py:287
 msgid "First name"
 msgstr "이름 - 성을 빼고 이름만 입력해주세요. (예: 길동)"
 
@@ -2156,11 +2156,11 @@ msgstr ""
 msgid "Document Submit"
 msgstr "서류 제출"
 
-#: member/forms2.py:271
+#: member/forms2.py:278
 msgid "I really would like to unregister."
 msgstr "핀코인 사이트 회원을 탈퇴합니다."
 
-#: member/forms2.py:302 member/templates/member/account/name_change.html:25
+#: member/forms2.py:309 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
 #: member/templates/member/account/profile.html:244 member/views.py:399
 msgid "Change Your Name"
@@ -2815,27 +2815,31 @@ msgstr "비밀번호 설정"
 msgid "Document Verification {} {} {}"
 msgstr "서류인증 {} {} {}"
 
-#: member/views.py:498
-msgid "You can verify your account 24 hour after joined."
-msgstr "알뜰폰 이용자는 가입 후 24시간 이후 휴대폰인증 가능합니다."
+#: member/views.py:502
+msgid "MVNO user can verify your account 24 hour after joined."
+msgstr "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 24시간 이후 휴대폰인증 가능합니다."
 
-#: member/views.py:518
+#: member/views.py:512
+msgid "Person aged over 50 can verify your account 6 hour after joined."
+msgstr "금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 6시간 이후 휴대폰인증 가능합니다."
+
+#: member/views.py:532
 msgid "Phone Verification {}"
 msgstr "휴대폰인증 {}"
 
-#: member/views.py:525
+#: member/views.py:539
 msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
-#: member/views.py:531
+#: member/views.py:545
 msgid "Your phone number is banned."
 msgstr "차단된 전화번호입니다."
 
-#: member/views.py:537
+#: member/views.py:551
 msgid "You have verified within 48 hours."
 msgstr "48시간 이후 휴대폰인증 완료바랍니다."
 
-#: member/views.py:544
+#: member/views.py:558
 msgid "Illegal access: no record"
 msgstr "잘못된 접근: 인증 실패"
 
