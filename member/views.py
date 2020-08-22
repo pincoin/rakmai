@@ -513,6 +513,16 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
+                        # < 25 years old + women + joined within 1 hour
+                        if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                < timedelta(days=365 * 25) \
+                                and now() - profile.user.date_joined < timedelta(hours=1):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(_('Person aged under 25 can verify your account 1 hour after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
                         if not banned:
                             profile.phone = log.cellphone
 

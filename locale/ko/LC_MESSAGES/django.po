@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 22:41+0900\n"
+"POT-Creation-Date: 2020-08-22 22:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1175,20 +1175,20 @@ msgstr "미확인 입금"
 msgid "Card mall"
 msgstr "카드몰"
 
-#: card/forms2_debug.py:10 shop/forms2_debug.py:14
+#: card/forms2_debug.py:10 shop/forms2.py:26 shop/forms2_debug.py:14
 msgid "I agree to Commercial Law."
 msgstr "구매를 동의합니다. (전자상거래법 제 8조 제2항)"
 
-#: card/forms2_debug.py:11 shop/forms2_debug.py:15
+#: card/forms2_debug.py:11 shop/forms2.py:27 shop/forms2_debug.py:15
 msgid "Do you agree to buy items in your cart?"
 msgstr ""
 "주문하실 상품, 가격, 배송정보, 할인정보 등을 확인하였으며, 구매에 동의합니다."
 
-#: card/forms2_debug.py:15 shop/forms2_debug.py:19
+#: card/forms2_debug.py:15 shop/forms2.py:31 shop/forms2_debug.py:19
 msgid "I purchase by myself on my own purpose."
 msgstr "본인 사용 목적으로 상품권을 구매합니다."
 
-#: card/forms2_debug.py:16 shop/forms2_debug.py:20
+#: card/forms2_debug.py:16 shop/forms2.py:32 shop/forms2_debug.py:20
 msgid "It is 100 percent fraud if you are asked to buy the codes."
 msgstr ""
 "대리구매 알바 또는 상품권 할인(페이백)을 미끼로 다른 사람이 상품권 구매를 요"
@@ -1201,18 +1201,18 @@ msgstr ""
 msgid "Credit Card"
 msgstr "신용카드"
 
-#: card/forms2_debug.py:46 shop/forms2_debug.py:50
+#: card/forms2_debug.py:46 shop/forms2.py:62 shop/forms2_debug.py:50
 msgid "Empty cart! Please, put items in your cart."
 msgstr "주문하실 상품권을 장바구니에 담은 후 주문완료바랍니다."
 
 #: card/forms2_debug.py:56
 #: rabop/templates/rabop/default/naver_order_detail.html:90
-#: rabop/templates/rabop/default/order_detail.html:385 shop/forms2_debug.py:60
-#: shop/models.py:506 shop/models.py:1118
+#: rabop/templates/rabop/default/order_detail.html:385 shop/forms2.py:477
+#: shop/forms2_debug.py:60 shop/models.py:506 shop/models.py:1118
 msgid "order message"
 msgstr "주문 메시지"
 
-#: card/forms2_debug.py:57 shop/forms2_debug.py:61
+#: card/forms2_debug.py:57 shop/forms2.py:478 shop/forms2_debug.py:61
 msgid "Your bank account and your full name"
 msgstr "환불 받으실 은행 이름과 계좌번호, 입금주를 적어주세요."
 
@@ -2158,7 +2158,9 @@ msgstr "서류 제출"
 
 #: member/forms2.py:275 member/forms2.py:281
 msgid "You have no orders."
-msgstr "금융거래사기 방지를 위하여 서류인증 이전에 소액 결제 주문 완료 건이 있어야 합니다."
+msgstr ""
+"금융거래사기 방지를 위하여 서류인증 이전에 소액 결제 주문 완료 건이 있어야 합"
+"니다."
 
 #: member/forms2.py:288
 msgid "I really would like to unregister."
@@ -2831,23 +2833,31 @@ msgstr ""
 "금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 6시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:532
+#: member/views.py:522
+#, fuzzy
+#| msgid "Person aged over 50 can verify your account 6 hour after joined."
+msgid "Person aged under 25 can verify your account 1 hour after joined."
+msgstr ""
+"금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 6시간 이후 휴대폰인증 가"
+"능합니다."
+
+#: member/views.py:542
 msgid "Phone Verification {}"
 msgstr "휴대폰인증 {}"
 
-#: member/views.py:539
+#: member/views.py:549
 msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
-#: member/views.py:545
+#: member/views.py:555
 msgid "Your phone number is banned."
 msgstr "차단된 전화번호입니다."
 
-#: member/views.py:551
+#: member/views.py:561
 msgid "You have verified within 48 hours."
 msgstr "48시간 이후 휴대폰인증 완료바랍니다."
 
-#: member/views.py:558
+#: member/views.py:568
 msgid "Illegal access: no record"
 msgstr "잘못된 접근: 인증 실패"
 
@@ -3292,22 +3302,22 @@ msgstr "가입 고객 없음"
 
 #: rabop/templates/rabop/default/daily_payments_report.html:13
 #: rabop/templates/rabop/default/daily_payments_report.html:122
-#: shop/forms2_debug.py:26 shop/models.py:387 shop/models.py:1049
-#: shop/templates/shop/default/order_detail.html:128
+#: shop/forms2.py:38 shop/forms2_debug.py:26 shop/models.py:387
+#: shop/models.py:1049 shop/templates/shop/default/order_detail.html:128
 msgid "Bank Transfer"
 msgstr "계좌이체 / 무통장입금"
 
 #: rabop/templates/rabop/default/daily_payments_report.html:14
 #: rabop/templates/rabop/default/daily_payments_report.html:124
-#: shop/forms2_debug.py:27 shop/models.py:388
+#: shop/forms2.py:39 shop/forms2_debug.py:27 shop/models.py:388
 #: shop/templates/shop/default/order_detail.html:201
 msgid "Escrow (KB)"
 msgstr "에스크로 (KB)"
 
 #: rabop/templates/rabop/default/daily_payments_report.html:15
 #: rabop/templates/rabop/default/daily_payments_report.html:126
-#: shop/forms2_debug.py:28 shop/models.py:389 shop/models.py:541
-#: shop/templates/shop/default/order_detail.html:223
+#: shop/forms2.py:40 shop/forms2_debug.py:28 shop/models.py:389
+#: shop/models.py:541 shop/templates/shop/default/order_detail.html:223
 msgid "PayPal"
 msgstr "페이팔 (PayPal)"
 
@@ -3688,7 +3698,136 @@ msgstr "상점"
 msgid "discount rate"
 msgstr "할인율"
 
-#: shop/forms2_debug.py:102
+#: shop/forms2.py:95
+msgid "You have to buy more than {} KRW."
+msgstr "페이팔 결제 시 {}원 이상 결제해야 합니다."
+
+#: shop/forms2.py:105
+msgid "PayPal is not allowed in Korea."
+msgstr "페이팔은 해외 거주 고객만 이용 가능합니다."
+
+#: shop/forms2.py:112
+msgid "You cannot buy more than 150,000 KRW."
+msgstr "한화 15만원까지만 주문 가능합니다."
+
+#: shop/forms2.py:128
+msgid "Complete document verification with Korean Photo ID."
+msgstr ""
+"마이페이지에서 \"한국 신분증\"으로 서류본인인증 먼저 완료해주세요. (관리자 확"
+"인 시간: 오전10시~익일새벽1시)"
+
+#: shop/forms2.py:140
+msgid "You have access log within {} hrs."
+msgstr "{}시간 이내에 동일 IP 주소 접속으로 주문할 수 없습니다."
+
+#: shop/forms2.py:151
+msgid "Delete order first before the new order."
+msgstr ""
+"입금확인중 주문을 먼저 취소하시고 새로운 주문을 완료해주세요. 중복주문으로 자"
+"동발송 오류가 발생할 수 있습니다."
+
+#: shop/forms2.py:170
+msgid "Under 18, You cannot buy more than 150,000 KRW."
+msgstr "만18세 미만은 한달에 15만원까지만 주문 가능합니다."
+
+#: shop/forms2.py:202
+msgid "Complete cellphone verification."
+msgstr "마이페이지에서 휴대폰본인인증 먼저 완료해주세요."
+
+#: shop/forms2.py:208
+msgid "You cannot buy culture more than {} KRW."
+msgstr ""
+"신규고객은 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화상품"
+"권 주문 가능합니다."
+
+#: shop/forms2.py:215 shop/forms2.py:229 shop/forms2.py:243 shop/forms2.py:291
+#: shop/forms2.py:298 shop/forms2.py:343 shop/forms2.py:350 shop/forms2.py:396
+#: shop/forms2.py:403
+msgid "Complete document verification."
+msgstr ""
+"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전10시~익"
+"일새벽1시)"
+
+#: shop/forms2.py:222
+msgid "You cannot buy google more than {} KRW."
+msgstr "신규고객은 구글기프트카드 30만원까지만 주문 가능합니다."
+
+#: shop/forms2.py:236
+msgid "You cannot buy more than {} KRW."
+msgstr "신규고객은 30만원까지만 주문 가능합니다."
+
+#: shop/forms2.py:272
+msgid "Activate your account by cellphone verification."
+msgstr ""
+"휴면계정 활성화를 위해 마이페이지에서 다시 휴대폰본인인증 완료해주세요."
+
+#: shop/forms2.py:281
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"첫 구매 후 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화상품"
+"권 주문 가능합니다."
+
+#: shop/forms2.py:305
+msgid ""
+"You cannot buy culture more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 20만원까"
+"지만 문화상품권, 해피머니, 도서문화상품권 주문 가능합니다."
+
+#: shop/forms2.py:315 shop/forms2.py:369 shop/forms2.py:422
+msgid "You may order 1 hour after last purchase."
+msgstr ""
+"금융사고 방지를 위해 마지막 주문으로부터 1시간 경과 후 재주문 가능합니다."
+
+#: shop/forms2.py:323 shop/forms2.py:377 shop/forms2.py:440
+msgid "Complete document verification at night."
+msgstr ""
+"기존 고객님도 새벽시간 자동발권은 마이페이지에서 서류본인인증을 완료해야 합니"
+"다. (관리자 확인 시간: 오전10시)"
+
+#: shop/forms2.py:333
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs from the first order "
+"date."
+msgstr ""
+"첫 구매 후 48시간 동안 하루에 30만원까지만 구글기프트카드 주문 가능합니다."
+
+#: shop/forms2.py:358
+msgid ""
+"You cannot buy google more than {} KRW within 48 hrs because you have not "
+"purchased for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만원까"
+"지만 구글기프트카드 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니"
+"다.)"
+
+#: shop/forms2.py:386
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs from the first order date."
+msgstr "첫 구매 후 48시간 동안 하루에 30만원까지만 주문 가능합니다."
+
+#: shop/forms2.py:411
+msgid ""
+"You cannot buy more than {} KRW within 48 hrs because you have not purchased "
+"for 2 months."
+msgstr ""
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만원까"
+"지만 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니다.)"
+
+#: shop/forms2.py:432
+msgid "You cannot buy more than the maximum of your past order amount."
+msgstr "영업시간 외에 과거 최대구매액을 초과하여 구매할 수 없습니다."
+
+#: shop/forms2.py:455
+msgid "Over amount for auto-send during night time"
+msgstr ""
+"영업시간 외에 20만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 14"
+"일 초과, 마지막 구매 30일 미만"
+
+#: shop/forms2.py:519 shop/forms2_debug.py:102
 msgid "You cannot refund at night."
 msgstr "환불요청은 오전10시 이후 가능합니다."
 
@@ -4323,109 +4462,5 @@ msgstr "[핀코인] 주문무효: {}"
 msgid "Game ranking"
 msgstr "인기 게임 순위"
 
-#~ msgid "You have access log within {} hrs."
-#~ msgstr "{}시간 이내에 동일 IP 주소 접속으로 주문할 수 없습니다."
-
-#~ msgid "Delete order first before the new order."
-#~ msgstr ""
-#~ "입금확인중 주문을 먼저 취소하시고 새로운 주문을 완료해주세요. 중복주문으"
-#~ "로 자동발송 오류가 발생할 수 있습니다."
-
 #~ msgid "Under 20, You cannot buy more than 150,000 KRW."
 #~ msgstr "만20세 미만은 한달에 15만원까지만 주문 가능합니다."
-
-#~ msgid "Complete cellphone verification."
-#~ msgstr "마이페이지에서 휴대폰본인인증 먼저 완료해주세요."
-
-#~ msgid "You cannot buy culture more than {} KRW."
-#~ msgstr ""
-#~ "신규고객은 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화"
-#~ "상품권 주문 가능합니다."
-
-#~ msgid "Complete document verification."
-#~ msgstr ""
-#~ "마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전10시"
-#~ "~익일새벽1시)"
-
-#~ msgid "You cannot buy google more than {} KRW."
-#~ msgstr "신규고객은 구글기프트카드 30만원까지만 주문 가능합니다."
-
-#~ msgid "You cannot buy more than {} KRW."
-#~ msgstr "신규고객은 30만원까지만 주문 가능합니다."
-
-#~ msgid "Activate your account by cellphone verification."
-#~ msgstr ""
-#~ "휴면계정 활성화를 위해 마이페이지에서 다시 휴대폰본인인증 완료해주세요."
-
-#~ msgid ""
-#~ "You cannot buy culture more than {} KRW within 48 hrs from the first "
-#~ "order date."
-#~ msgstr ""
-#~ "첫 구매 후 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화"
-#~ "상품권 주문 가능합니다."
-
-#~ msgid ""
-#~ "You cannot buy culture more than {} KRW within 48 hrs because you have "
-#~ "not purchased for 2 months."
-#~ msgstr ""
-#~ "60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 20만"
-#~ "원까지만 문화상품권, 해피머니, 도서문화상품권 주문 가능합니다."
-
-#~ msgid "You may order 1 hour after last purchase."
-#~ msgstr ""
-#~ "금융사고 방지를 위해 마지막 주문으로부터 1시간 경과 후 재주문 가능합니다."
-
-#~ msgid "Complete document verification at night."
-#~ msgstr ""
-#~ "기존 고객님도 새벽시간 자동발권은 마이페이지에서 서류본인인증을 완료해야 "
-#~ "합니다. (관리자 확인 시간: 오전10시)"
-
-#~ msgid ""
-#~ "You cannot buy google more than {} KRW within 48 hrs from the first order "
-#~ "date."
-#~ msgstr ""
-#~ "첫 구매 후 48시간 동안 하루에 30만원까지만 구글기프트카드 주문 가능합니다."
-
-#~ msgid ""
-#~ "You cannot buy google more than {} KRW within 48 hrs because you have not "
-#~ "purchased for 2 months."
-#~ msgstr ""
-#~ "60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만"
-#~ "원까지만 구글기프트카드 주문 가능합니다. (한도 상향 조정은 고객센터로 문의"
-#~ "바랍니다.)"
-
-#~ msgid ""
-#~ "You cannot buy more than {} KRW within 48 hrs from the first order date."
-#~ msgstr "첫 구매 후 48시간 동안 하루에 30만원까지만 주문 가능합니다."
-
-#~ msgid ""
-#~ "You cannot buy more than {} KRW within 48 hrs because you have not "
-#~ "purchased for 2 months."
-#~ msgstr ""
-#~ "60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 30만"
-#~ "원까지만 주문 가능합니다. (한도 상향 조정은 고객센터로 문의바랍니다.)"
-
-#~ msgid "You cannot buy more than the maximum of your past order amount."
-#~ msgstr "영업시간 외에 과거 최대구매액을 초과하여 구매할 수 없습니다."
-
-#~ msgid "Over amount for auto-send during night time"
-#~ msgstr ""
-#~ "영업시간 외에 20만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 "
-#~ "14일 초과, 마지막 구매 30일 미만"
-
-#~ msgid "You have to buy more than {} KRW."
-#~ msgstr "페이팔 결제 시 {}원 이상 결제해야 합니다."
-
-#~ msgid "PayPal is not allowed in Korea."
-#~ msgstr "페이팔은 해외 거주 고객만 이용 가능합니다."
-
-#~ msgid "You cannot buy more than 150,000 KRW."
-#~ msgstr "한화 15만원까지만 주문 가능합니다."
-
-#~ msgid "Complete document verification with Korean Photo ID."
-#~ msgstr ""
-#~ "마이페이지에서 \"한국 신분증\"으로 서류본인인증 먼저 완료해주세요. (관리"
-#~ "자 확인 시간: 오전10시~익일새벽1시)"
-
-#~ msgid "Under 18, You cannot buy more than 150,000 KRW."
-#~ msgstr "만18세 미만은 한달에 15만원까지만 주문 가능합니다."
