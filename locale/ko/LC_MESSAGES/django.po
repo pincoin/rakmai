@@ -2834,11 +2834,9 @@ msgstr ""
 "능합니다."
 
 #: member/views.py:522
-#, fuzzy
-#| msgid "Person aged over 50 can verify your account 6 hour after joined."
 msgid "Person aged under 25 can verify your account 1 hour after joined."
 msgstr ""
-"금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 6시간 이후 휴대폰인증 가"
+"금융거래사기 방지를 위하여 25세 이하 고객은 가입 후 1시간 이후 휴대폰인증 가"
 "능합니다."
 
 #: member/views.py:542
