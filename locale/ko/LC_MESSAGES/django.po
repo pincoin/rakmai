@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 22:18+0900\n"
+"POT-Creation-Date: 2020-08-28 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2822,40 +2822,49 @@ msgid "Document Verification {} {} {}"
 msgstr "서류인증 {} {} {}"
 
 #: member/views.py:502
-msgid "MVNO user can verify your account 24 hour after joined."
+msgid "MVNO user can verify your account during 24 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 24시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:512
-msgid "Person aged over 50 can verify your account 6 hour after joined."
+#: member/views.py:513
+msgid ""
+"Person aged over 50 can verify your account during 6 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 6시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:522
-msgid "Person aged under 25 can verify your account 1 hour after joined."
+#: member/views.py:525
+msgid ""
+"Person aged under 25 can verify your account during 90 minutes after joined."
 msgstr ""
-"금융거래사기 방지를 위하여 25세 이하 고객은 가입 후 1시간 이후 휴대폰인증 가"
+"금융거래사기 방지를 위하여 25세 이하 고객은 가입 후 90분 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:542
+#: member/views.py:537
+msgid ""
+"Person aged over 45 can verify your account during 90 minutes after joined."
+msgstr ""
+"금융거래사기 방지를 위하여 45세 이상 고객은 가입 후 90분 이후 휴대폰인증 가"
+"능합니다."
+
+#: member/views.py:557
 msgid "Phone Verification {}"
 msgstr "휴대폰인증 {}"
 
-#: member/views.py:549
+#: member/views.py:564
 msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
-#: member/views.py:555
+#: member/views.py:570
 msgid "Your phone number is banned."
 msgstr "차단된 전화번호입니다."
 
-#: member/views.py:561
+#: member/views.py:576
 msgid "You have verified within 48 hours."
 msgstr "48시간 이후 휴대폰인증 완료바랍니다."
 
-#: member/views.py:568
+#: member/views.py:583
 msgid "Illegal access: no record"
 msgstr "잘못된 접근: 인증 실패"
 

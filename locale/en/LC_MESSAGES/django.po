@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 22:18+0900\n"
+"POT-Creation-Date: 2020-08-28 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2825,36 +2825,43 @@ msgid "Document Verification {} {} {}"
 msgstr "Document Verification {} {} {}"
 
 #: member/views.py:502
-msgid "MVNO user can verify your account 24 hour after joined."
+msgid "MVNO user can verify your account during 24 hours after joined."
 msgstr ""
 
-#: member/views.py:512
-msgid "Person aged over 50 can verify your account 6 hour after joined."
+#: member/views.py:513
+msgid ""
+"Person aged over 50 can verify your account during 6 hours after joined."
 msgstr ""
 
-#: member/views.py:522
-msgid "Person aged under 25 can verify your account 1 hour after joined."
+#: member/views.py:525
+msgid ""
+"Person aged under 25 can verify your account during 90 minutes after joined."
 msgstr ""
 
-#: member/views.py:542
+#: member/views.py:537
+msgid ""
+"Person aged over 45 can verify your account during 90 minutes after joined."
+msgstr ""
+
+#: member/views.py:557
 msgid "Phone Verification {}"
 msgstr "Phone Verification {}"
 
-#: member/views.py:549
+#: member/views.py:564
 msgid "Your name does not match the phone owner."
 msgstr "Your name does not match the phone owner"
 
-#: member/views.py:555
+#: member/views.py:570
 #, fuzzy
 #| msgid "Your email is banned."
 msgid "Your phone number is banned."
 msgstr "Your email address is banned."
 
-#: member/views.py:561
+#: member/views.py:576
 msgid "You have verified within 48 hours."
 msgstr "You have verified within 48 hours."
 
-#: member/views.py:568
+#: member/views.py:583
 msgid "Illegal access: no record"
 msgstr "Illegal access: no record"
 

@@ -499,7 +499,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                                 and now() - profile.user.date_joined < timedelta(hours=24):
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('MVNO user can verify your account 24 hour after joined.'))
+                                'message': str(_('MVNO user can verify your account during 24 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
@@ -509,18 +509,32 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                                 and now() - profile.user.date_joined < timedelta(hours=6):
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('Person aged over 50 can verify your account 6 hour after joined.'))
+                                'message': str(
+                                    _('Person aged over 50 can verify your account during 6 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # < 23 years old + women + joined within 1 hour
+                        # < 23 years old + women + joined within 90 minutes
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 < timedelta(days=365 * 23) \
                                 and log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=1):
+                                and now() - profile.user.date_joined < timedelta(minutes=90):
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('Person aged under 25 can verify your account 1 hour after joined.'))
+                                'message': str(
+                                    _('Person aged under 25 can verify your account during 90 minutes after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
+                        # > 45 years old + women + joined within 90 minutes
+                        if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                > timedelta(days=365 * 45) \
+                                and log.gender == 0 \
+                                and now() - profile.user.date_joined < timedelta(minutes=90):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _('Person aged over 45 can verify your account during 90 minutes after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
