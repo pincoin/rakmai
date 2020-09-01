@@ -514,12 +514,12 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # < 23 years old + women + joined within 90 minutes + 11:00~16:00
+                        # < 23 years old + women + joined within 90 minutes + 10:00~16:00
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 < timedelta(days=365 * 23) \
                                 and log.gender == 0 \
                                 and now() - profile.user.date_joined < timedelta(minutes=90) \
-                                and datetime.strptime('11:00', '%H:%M').time() < localtime().time() \
+                                and datetime.strptime('10:00', '%H:%M').time() < localtime().time() \
                                 < datetime.strptime('16:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
