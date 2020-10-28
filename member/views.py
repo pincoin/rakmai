@@ -492,7 +492,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     banned = PhoneBanned.objects.filter(phone=log.cellphone).exists()
 
                     if not logs:
-                        # 50 years old + joined within 6 hours
+                        # 60 years old + joined within 72 hours
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 60) \
                                 and now() - profile.user.date_joined < timedelta(hours=72):
