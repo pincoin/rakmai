@@ -492,6 +492,17 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     banned = PhoneBanned.objects.filter(phone=log.cellphone).exists()
 
                     if not logs:
+                        # 50 years old + joined within 6 hours
+                        if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                > timedelta(days=365 * 60) \
+                                and now() - profile.user.date_joined < timedelta(hours=72):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _('Person aged over 60 can verify your account during 72 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
                         # > 50 years old + women + joined within 90 days
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 50) \
