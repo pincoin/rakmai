@@ -22,7 +22,7 @@ class Command(BaseCommand):
         i = 0
         for customer in customers:
             if not customer.shop_order_owned.filter(is_removed=False):
-                i += i + 1
+                i = i + 1
                 print(customer.email, customer)
                 # customer.delete()
             if i == 10:
