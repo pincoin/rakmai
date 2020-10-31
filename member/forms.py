@@ -46,7 +46,7 @@ class MemberSignupForm(forms.Form):
         del self.fields['email'].widget.attrs['placeholder']
         del self.fields['username'].widget.attrs['placeholder']
         # 0.43.0
-        if 'autofocus' in self.fields['login'].widget.attrs:
+        if 'autofocus' in self.fields['username'].widget.attrs:
             del self.fields['username'].widget.attrs['autofocus']
 
         self.fields['username'].label = _('User ID')
