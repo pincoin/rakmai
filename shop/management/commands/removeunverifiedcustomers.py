@@ -18,11 +18,8 @@ class Command(BaseCommand):
                     is_staff=False,
                     is_superuser=False)
 
-        i = 0
         for customer in customers:
-            i = i + 1
             if not customer.shop_order_owned.filter(is_removed=False):
-                print(i, customer.email, customer)
                 customer.delete()
 
         self.stdout.write(self.style.SUCCESS('Successfully unverified customers'))
