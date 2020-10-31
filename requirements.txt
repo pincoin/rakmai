@@ -12,8 +12,8 @@ bleach==3.2.1
 Markdown==3.3.3
 Pygments==2.7.2
 easy-thumbnails==2.7
-django-import-export==2.2.0
-celery==4.4.4
+django-import-export==2.4.0
+celery==5.0.1
 python-memcached==1.59
 django-otp==0.9.1
 qrcode==6.1
