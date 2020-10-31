@@ -1,5 +1,5 @@
 Django==2.2.13
-django-allauth==0.42.0
+django-allauth==0.43.0
 djangorestframework==3.12.1
 django-model-utils==4.0.0
 django-mptt==0.11.0

@@ -35,7 +35,9 @@ class MemberLoginForm(LoginForm):
 
         super(MemberLoginForm, self).__init__(*args, **kwargs)
 
-        del self.fields['login'].widget.attrs['autofocus']
+        # 0.43.0
+        if 'autofocus' in self.fields['login'].widget.attrs:
+            del self.fields['login'].widget.attrs['autofocus']
 
     def clean(self):
         cleaned_data = super(MemberLoginForm, self).clean()
