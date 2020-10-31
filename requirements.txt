@@ -15,10 +15,10 @@ easy-thumbnails==2.7
 django-import-export==2.4.0
 celery==5.0.1
 python-memcached==1.59
-django-otp==0.9.1
+django-otp==1.0.2
 qrcode==6.1
 django-disqus==0.5
 WeasyPrint==52
-Pillow==7.1.2
+Pillow==8.0.1
 django-redis==4.12.1
 future==0.18.2
