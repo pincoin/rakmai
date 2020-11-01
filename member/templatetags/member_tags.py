@@ -24,7 +24,7 @@ def get_login_logs(user, count):
             try:
                 if log.ip_address not in ['127.0.0.1']:
                     country = GeoIP2().country(log.ip_address)
-                    log.country_code = country['country_code'].lower()
+                    log.country_code = country['country_code'].lower() if country['country_code'] else ''
             except AddressNotFoundError:
                 pass
 
