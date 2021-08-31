@@ -565,25 +565,23 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO
-                        if 'MVNO' in log.telecom \
-                                and now() - profile.user.date_joined < timedelta(hours=6):
-                            return Response(data=json.dumps({
-                                'code': 400,
-                                'message': str(
-                                    _(
-                                        'MVNO user can verify your account during 6 hours after joined.'))
-                            }),
-                                status=status.HTTP_400_BAD_REQUEST)
-
                         # MVNO + women
                         if 'MVNO' in log.telecom and log.gender == 0 \
                                 and now() - profile.user.date_joined < timedelta(hours=48):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _(
-                                        'MVNO user can verify your account during 48 hours after joined.'))
+                                    _('MVNO user can verify your account during 48 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
+                        # MVNO
+                        if 'MVNO' in log.telecom \
+                                and now() - profile.user.date_joined < timedelta(hours=4):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _('MVNO user can verify your account during 4 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
