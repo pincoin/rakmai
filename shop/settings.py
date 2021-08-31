@@ -10,7 +10,7 @@ CARD_CART_SESSION_KEY = getattr(settings, 'CARD_CART_SESSION_KEY', 'CARD_CART')
 
 OPENING_TIME = getattr(settings, 'OPENING_TIME', 10)
 
-CLOSING_TIME = getattr(settings, 'CLOSING_TIME', 1)
+CLOSING_TIME = getattr(settings, 'CLOSING_TIME', 23)
 
 RECENT_ACCUMULATIVE_DAYS = getattr(settings, 'RECENT_ACCUMULATIVE_DAYS', 30)
 

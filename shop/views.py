@@ -92,7 +92,7 @@ class ProductListView(PageableMixin, StoreContextMixin, HostRestrict, generic.Li
 
         queryset = queryset.order_by('position')
 
-        if shop_settings.OPENING_TIME > localtime().now().hour >= shop_settings.CLOSING_TIME:
+        if not (shop_settings.OPENING_TIME <= localtime().now().hour < shop_settings.CLOSING_TIME):
             for p in queryset:
                 if p.name in shop_settings.UNAVAILABLE_NIGHT_PRODUCTS:
                     p.stock = models.Product.STOCK_CHOICES.sold_out
@@ -131,7 +131,7 @@ class ProductDetailView(StoreContextMixin, HostRestrict, generic.DetailView):
             .select_related('category', 'store') \
             .store(self.kwargs['store'])
 
-        if shop_settings.OPENING_TIME > localtime().now().hour >= shop_settings.CLOSING_TIME:
+        if not (shop_settings.OPENING_TIME <= localtime().now().hour < shop_settings.CLOSING_TIME):
             queryset = queryset.exclude(name__in=shop_settings.UNAVAILABLE_NIGHT_PRODUCTS)
 
         return queryset
@@ -188,7 +188,7 @@ class ProductCategoryView(StoreContextMixin, HostRestrict, generic.ListView):
 
         queryset = queryset.order_by('position')
 
-        if shop_settings.OPENING_TIME > localtime().now().hour >= shop_settings.CLOSING_TIME \
+        if not (shop_settings.OPENING_TIME <= localtime().now().hour < shop_settings.CLOSING_TIME) \
                 and self.category.title in shop_settings.UNAVAILABLE_NIGHT_PRODUCTS:
             for p in queryset:
                 p.stock = models.Product.STOCK_CHOICES.sold_out
@@ -201,7 +201,7 @@ class ProductCategoryView(StoreContextMixin, HostRestrict, generic.ListView):
         context['category'] = self.category
         context['og_image'] = self.category.thumbnail.url if self.category.thumbnail else None
         context['night_order'] = True \
-            if shop_settings.OPENING_TIME > localtime().now().hour >= shop_settings.CLOSING_TIME \
+            if not (shop_settings.OPENING_TIME <= localtime().now().hour < shop_settings.CLOSING_TIME) \
                and self.category.title in shop_settings.UNAVAILABLE_NIGHT_PRODUCTS \
             else False
         return context
