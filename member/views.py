@@ -33,7 +33,7 @@ from django.views.generic import (
     TemplateView, UpdateView, DetailView, FormView
 )
 from geoip2.errors import AddressNotFoundError
-from ipware.ip import get_ip
+from ipware import get_client_ip
 from rest_framework import (
     status, views
 )
@@ -71,7 +71,7 @@ class MemberLoginView(HostContextMixin, StoreContextMixin, LoginView):
             kwargs['recaptcha'] = True
 
         try:
-            ip_address = get_ip(self.request)
+            ip_address = get_client_ip(self.request)[0]
             if ip_address not in ['127.0.0.1']:
                 country = GeoIP2().country(ip_address)
                 if country['country_code'] and country['country_code'].upper() not in settings.WHITE_COUNTRY_CODES:

@@ -7,7 +7,7 @@ from django.core.cache import cache
 from django.http import HttpResponseForbidden
 from django.utils.deprecation import MiddlewareMixin
 from geoip2.errors import AddressNotFoundError
-from ipware.ip import get_ip
+from ipware import get_client_ip
 
 
 class UserRestrict(MiddlewareMixin):
@@ -37,9 +37,10 @@ class GeoIPRestrict(MiddlewareMixin):
 
     def process_request(self, request):
         try:
-            ip_address = get_ip(request)
-            if ip_address not in ['127.0.0.1']:
-                country = GeoIP2().country(ip_address)
+            client_ip, is_routable = get_client_ip(request)
+
+            if client_ip and is_routable and client_ip not in ['127.0.0.1']:
+                country = GeoIP2().country(client_ip)
 
                 if country['country_code'] and country['country_code'].upper() in settings.BLOCK_COUNTRY_CODES:
                     return HttpResponseForbidden("")

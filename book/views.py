@@ -10,7 +10,7 @@ from django.views.generic import (
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
-from ipware.ip import get_ip
+from ipware import get_client_ip
 
 from rakmai.viewmixins import (
     SuperuserRequiredMixin, OwnerRequiredMixin, PageableMixin
@@ -303,7 +303,7 @@ class PageCreateView(SearchContextMixin, SuperuserRequiredMixin, BookContextMixi
         form.instance.owner = self.request.user
         form.instance.view_count = 0
         form.instance.updated = now()
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
 
         response = super(PageCreateView, self).form_valid(form)
 
@@ -356,7 +356,7 @@ class PageUpdateView(SearchContextMixin, OwnerRequiredMixin, SuperuserRequiredMi
         form.instance.book.updated = now()
         form.instance.book.save()
         form.instance.updated = now()
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
 
         response = super(PageUpdateView, self).form_valid(form)
 

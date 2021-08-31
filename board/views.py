@@ -9,7 +9,7 @@ from django.views.generic import (
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
-from ipware.ip import get_ip
+from ipware import get_client_ip
 
 from rakmai.viewmixins import (
     PageableMixin, OwnerRequiredMixin
@@ -149,7 +149,7 @@ class MessageCreateView(LoginRequiredMixin, BoardContextMixin, CreateView):
         # These must be set before `form_valid()` which saves Message model instance.
         # Then, `self.object` is available in order to save attachments.
         form.instance.board = self.board
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
         form.instance.owner = self.request.user
 
         # The fields such as created, updated, status, view_count are filled by default.

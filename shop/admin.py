@@ -25,7 +25,7 @@ from geoip2.errors import AddressNotFoundError
 from import_export import resources
 from import_export.admin import ImportMixin
 from import_export.formats import base_formats
-from ipware.ip import get_ip
+from ipware import get_client_ip
 from mptt.admin import DraggableMPTTAdmin
 
 from member import settings as member_settings
@@ -383,7 +383,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if not obj.id:
-            obj.ip_address = get_ip(request)
+            obj.ip_address = get_client_ip(request)[0]
 
         if not obj.user:
             obj.user = request.user

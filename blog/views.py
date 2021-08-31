@@ -13,7 +13,7 @@ from django.views.generic.dates import (
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
-from ipware.ip import get_ip
+from ipware import get_client_ip
 
 from rakmai.viewmixins import (
     SuperuserRequiredMixin, PageableMixin, OwnerRequiredMixin
@@ -163,7 +163,7 @@ class PostCreateView(SearchContextMixin, SuperuserRequiredMixin, BlogContextMixi
     def form_valid(self, form):
         # These must be set before `form_valid()` which saves Post model instance.
         # Then, `self.object` is available in order to save attachments.
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
         form.instance.owner = self.request.user
         form.instance.blog = self.blog
 
@@ -218,7 +218,7 @@ class PostUpdateView(SearchContextMixin, OwnerRequiredMixin, SuperuserRequiredMi
     def form_valid(self, form):
         # These must be set before `form_valid()` which saves Post model instance.
         # Then, `self.object` is available in order to save attachments.
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
         form.instance.owner = self.request.user
         form.instance.blog = self.blog
 

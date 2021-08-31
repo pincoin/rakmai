@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin.filters import SimpleListFilter
 from django.utils.translation import gettext_lazy as _
-from ipware.ip import get_ip
+from ipware import get_client_ip
 from mptt.admin import DraggableMPTTAdmin
 
 from .forms import PostAdminForm
@@ -51,7 +51,7 @@ class PostAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if obj.id is None:
-            obj.ip_address = get_ip(request)
+            obj.ip_address = get_client_ip(request)[0]
 
         super(PostAdmin, self).save_model(request, obj, form, change)
 

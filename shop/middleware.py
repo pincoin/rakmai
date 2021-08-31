@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from ipware.ip import get_ip
+from ipware import get_client_ip
 
 from .models import NaverAdvertisementLog
 
@@ -33,7 +33,7 @@ class AdvertisementLogMiddleware:
                     'n_keyword')):
                 log = NaverAdvertisementLog()
 
-                log.ip_address = get_ip(request)
+                log.ip_address = get_client_ip(request)[0]
                 log.user_agent = request.META['HTTP_USER_AGENT']
 
                 log.campaign_type = request.GET['n_campaign_type'] if request.GET['n_campaign_type'].isdigit() else 1

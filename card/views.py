@@ -19,7 +19,7 @@ from django.utils.timezone import (
 )
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
-from ipware.ip import get_ip
+from ipware import get_client_ip
 from rest_framework import (
     status, views
 )
@@ -254,7 +254,7 @@ class CartView(LoginRequiredMixin, StoreContextMixin, HostRestrict, generic.Crea
             total_selling_price += item.product.pg_selling_price * item.quantity
 
         # 2. Setup order meta information
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
         form.instance.user = self.request.user
 
         pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
@@ -729,7 +729,7 @@ class OrderRefundCreateView(LoginRequiredMixin, StoreContextMixin, HostRestrict,
         form.instance.total_selling_price = total_revoke_selling_price if shipped else self.order.total_selling_price
         form.instance.message = form.cleaned_data['message']
 
-        form.instance.ip_address = get_ip(self.request)
+        form.instance.ip_address = get_client_ip(self.request)[0]
         form.instance.user = self.request.user
 
         pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
