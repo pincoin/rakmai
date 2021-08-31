@@ -567,12 +567,12 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
 
                         # MVNO
                         if 'MVNO' in log.telecom \
-                                and now() - profile.user.date_joined < timedelta(hours=8):
+                                and now() - profile.user.date_joined < timedelta(hours=6):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
                                     _(
-                                        'MVNO user can verify your account during 8 hours after joined.'))
+                                        'MVNO user can verify your account during 6 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
