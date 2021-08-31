@@ -575,13 +575,25 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO
-                        if 'MVNO' in log.telecom \
-                                and now() - profile.user.date_joined < timedelta(hours=4):
+                        # MVNO + men + > 45 years old
+                        if 'MVNO' in log.telecom and log.gender == 1 \
+                                and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                > timedelta(days=365 * 45) \
+                                and now() - profile.user.date_joined < timedelta(hours=48):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _('MVNO user can verify your account during 4 hours after joined.'))
+                                    _('MVNO user can verify your account during 48 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
+                        # MVNO
+                        if 'MVNO' in log.telecom \
+                                and now() - profile.user.date_joined < timedelta(hours=3):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _('MVNO user can verify your account during 3 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
