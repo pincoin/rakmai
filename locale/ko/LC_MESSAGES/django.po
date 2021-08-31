@@ -3721,7 +3721,7 @@ msgstr "한화 15만원까지만 주문 가능합니다."
 msgid "Complete document verification with Korean Photo ID."
 msgstr ""
 "마이페이지에서 \"한국 신분증\"으로 서류본인인증 먼저 완료해주세요. (관리자 확"
-"인 시간: 오전10시~익일새벽1시)"
+"인 시간: 오전10시~밤11시)"
 
 #: shop/forms2.py:140
 msgid "You have access log within {} hrs."
@@ -3752,8 +3752,8 @@ msgstr ""
 #: shop/forms2.py:403
 msgid "Complete document verification."
 msgstr ""
-"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전10시~익"
-"일새벽1시)"
+"마이페이지에서 서류본인인증 먼저 완료해주세요. (관리자 확인 시간: 오전10시~"
+"밤11시)"
 
 #: shop/forms2.py:222
 msgid "You cannot buy google more than {} KRW."

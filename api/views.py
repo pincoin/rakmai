@@ -410,7 +410,7 @@ class NaverChatBot(views.APIView):
                    "홈페이지 '주문/발송' 페이지에서 확인합니다.\n\n"
                    "핀코인 대표몰(www.pincoin.co.kr)은 계좌이체/페이팔로 상품권 구매할 수 있습니다.\n\n"
                    "핀코인 카드몰(card.pincoin.co.kr)은 신용카드로 상품권 구매할 수 있습니다.\n\n"
-                   "답변 가능시간은 오전10시부터 익일 새벽1시까지입니다. 무엇을 도와드릴까요?"
+                   "답변 가능시간은 오전10시부터 밤11시까지입니다. 무엇을 도와드릴까요?"
                    )
 
         return Response(response, status=status.HTTP_200_OK)
