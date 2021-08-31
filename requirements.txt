@@ -1,6 +1,6 @@
 Django==2.2.24
 django-allauth==0.45.0
-djangorestframework==3.12.1
+djangorestframework==3.12.4
 django-model-utils==4.1.1
 django-mptt==0.13.2
 django-crispy-forms==1.12.0
