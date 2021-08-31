@@ -16,14 +16,6 @@
     <script src="{% static "js/rakmai/csrf-cookie.js" %}"></script>
     <script src="{% static "js/shop/cart.js" %}"></script>
     <script src="//partner.talk.naver.com/banners/script"></script>
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script>
-        Kakao.init('5baf9689e5b9c6ca3bed558546c13931');
-        Kakao.PlusFriend.createAddFriendButton({
-            container: '#plusfriend-addfriend-button',
-            plusFriendId: '_gPEET'
-        });
-    </script>
 {% endblock %}
 
 {% block content %}
@@ -322,7 +314,7 @@
                         <strong>{{ store.phone }}</strong>
                     </div>
                     <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left text-md-center font-weight-bold">
-                        <div id="plusfriend-addfriend-button"></div>
+
                     </div>
                     <div class="offset-2 col-10 offset-md-0 col-md-4 mb-1 text-left">
                         <div class="talk_banner_div" data-id="66778"></div>
