@@ -540,17 +540,6 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + 40 years old + joined within 24 hours
-                        if 'MVNO' in log.telecom \
-                                and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
-                                > timedelta(days=365 * 40) \
-                                and now() - profile.user.date_joined < timedelta(hours=24):
-                            return Response(data=json.dumps({
-                                'code': 400,
-                                'message': str(_('MVNO user can verify your account during 24 hours after joined.'))
-                            }),
-                                status=status.HTTP_400_BAD_REQUEST)
-
                         # < 23 years old + women + joined within 90 minutes + 10:00~16:00
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 < timedelta(days=365 * 23) \
@@ -565,7 +554,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + women
+                        # MVNO + women + joined within 48 hours
                         if 'MVNO' in log.telecom and log.gender == 0 \
                                 and now() - profile.user.date_joined < timedelta(hours=48):
                             return Response(data=json.dumps({
@@ -575,7 +564,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + men + > 45 years old
+                        # MVNO + men + > 45 years old + joined within 48 hours
                         if 'MVNO' in log.telecom and log.gender == 1 \
                                 and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 45) \
@@ -587,13 +576,26 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
+                        # MVNO + 40 years old + joined within 24 hours
+                        if 'MVNO' in log.telecom \
+                                and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                > timedelta(days=365 * 40) \
+                                and now() - profile.user.date_joined < timedelta(hours=24):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(_('MVNO user can verify your account during 24 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
                         # MVNO
                         if 'MVNO' in log.telecom \
-                                and now() - profile.user.date_joined < timedelta(hours=3):
+                                and now() - profile.user.date_joined < timedelta(hours=8) \
+                                and datetime.strptime('09:00', '%H:%M').time() < localtime().time() \
+                                < datetime.strptime('19:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _('MVNO user can verify your account during 3 hours after joined.'))
+                                    _('MVNO user can verify your account during 8 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
