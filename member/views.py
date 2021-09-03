@@ -554,13 +554,13 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + women + joined within 48 hours
+                        # MVNO + women + joined within 72 hours
                         if 'MVNO' in log.telecom and log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=48):
+                                and now() - profile.user.date_joined < timedelta(hours=72):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _('MVNO user can verify your account during 48 hours after joined.'))
+                                    _('MVNO user can verify your account during 72 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
@@ -580,22 +580,22 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                         if 'MVNO' in log.telecom \
                                 and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 40) \
-                                and now() - profile.user.date_joined < timedelta(hours=24):
+                                and now() - profile.user.date_joined < timedelta(hours=48):
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('MVNO user can verify your account during 24 hours after joined.'))
+                                'message': str(_('MVNO user can verify your account during 48 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
                         # MVNO
                         if 'MVNO' in log.telecom \
-                                and now() - profile.user.date_joined < timedelta(hours=8) \
+                                and now() - profile.user.date_joined < timedelta(hours=24) \
                                 and datetime.strptime('09:00', '%H:%M').time() < localtime().time() \
                                 < datetime.strptime('19:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _('MVNO user can verify your account during 8 hours after joined.'))
+                                    _('MVNO user can verify your account during 24 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
