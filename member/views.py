@@ -527,16 +527,16 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # > 45 years old + women + joined within 90 minutes
+                        # > 45 years old + women + joined within 3 hours
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 45) \
                                 and log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(minutes=90):
+                                and now() - profile.user.date_joined < timedelta(hours=3):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
                                     _(
-                                        'Person aged over 45 can verify your account during 90 minutes after joined.'))
+                                        'Person aged over 45 can verify your account during 3 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
