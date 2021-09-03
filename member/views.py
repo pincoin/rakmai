@@ -542,14 +542,14 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
 
                         # women + joined within 6 hours + 08:00~19:00
                         if log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=6) \
+                                and now() - profile.user.date_joined < timedelta(hours=2) \
                                 and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
                                 < datetime.strptime('19:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
                                     _(
-                                        'You can verify your account during 6 hours after joined.'))
+                                        'You can verify your account during 2 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
@@ -589,7 +589,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                         # MVNO
                         if 'MVNO' in log.telecom \
                                 and now() - profile.user.date_joined < timedelta(hours=24) \
-                                and datetime.strptime('09:00', '%H:%M').time() < localtime().time() \
+                                and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
                                 < datetime.strptime('19:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
