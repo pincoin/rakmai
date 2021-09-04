@@ -540,16 +540,16 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # women + joined within 6 hours + 08:00~19:00
+                        # women + joined within 3 hours + 08:00~19:00
                         if log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=2) \
+                                and now() - profile.user.date_joined < timedelta(hours=3) \
                                 and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
                                 < datetime.strptime('19:00', '%H:%M').time():
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
                                     _(
-                                        'You can verify your account during 2 hours after joined.'))
+                                        'You can verify your account during 3 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
