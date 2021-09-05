@@ -492,18 +492,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                     banned = PhoneBanned.objects.filter(phone=log.cellphone).exists()
 
                     if not logs:
-                        # 60 years old + joined within 72 hours
-                        if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
-                                > timedelta(days=365 * 60) \
-                                and now() - profile.user.date_joined < timedelta(hours=72):
-                            return Response(data=json.dumps({
-                                'code': 400,
-                                'message': str(
-                                    _('Person aged over 60 can verify your account during 72 hours after joined.'))
-                            }),
-                                status=status.HTTP_400_BAD_REQUEST)
-
-                        # > 50 years old + women + joined within 90 days
+                        # 1. 50세 이상 여자 90일
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 50) \
                                 and log.gender == 0 \
@@ -516,44 +505,42 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # 50 years old + joined within 6 hours
+                        # 2. 60세 이상 15일
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
-                                > timedelta(days=365 * 50) \
-                                and now() - profile.user.date_joined < timedelta(hours=6):
+                                > timedelta(days=365 * 60) \
+                                and now() - profile.user.date_joined < timedelta(days=15):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
-                                    _('Person aged over 50 can verify your account during 6 hours after joined.'))
+                                    _('Person aged over 60 can verify your account during 15 days after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # > 45 years old + women + joined within 3 hours
+                        # 3. 50세 이상 남자 72시간
+                        if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
+                                > timedelta(days=365 * 50) \
+                                and now() - profile.user.date_joined < timedelta(hours=72):
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _('Person aged over 50 can verify your account during 72 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
+                        # 4. 45세 이상 여자 72시간
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 45) \
                                 and log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=3):
+                                and now() - profile.user.date_joined < timedelta(hours=72):
                             return Response(data=json.dumps({
                                 'code': 400,
                                 'message': str(
                                     _(
-                                        'Person aged over 45 can verify your account during 3 hours after joined.'))
+                                        'Person aged over 45 can verify your account during 72 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # women + joined within 3 hours + 08:00~19:00
-                        if log.gender == 0 \
-                                and now() - profile.user.date_joined < timedelta(hours=3) \
-                                and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
-                                < datetime.strptime('19:00', '%H:%M').time():
-                            return Response(data=json.dumps({
-                                'code': 400,
-                                'message': str(
-                                    _(
-                                        'You can verify your account during 3 hours after joined.'))
-                            }),
-                                status=status.HTTP_400_BAD_REQUEST)
-
-                        # MVNO + women + joined within 72 hours
+                        # 5. 여자 알뜰폰 72시간
                         if 'MVNO' in log.telecom and log.gender == 0 \
                                 and now() - profile.user.date_joined < timedelta(hours=72):
                             return Response(data=json.dumps({
@@ -563,7 +550,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + men + > 45 years old + joined within 48 hours
+                        # 6. 45세 이상 남자 알뜰폰 48시간
                         if 'MVNO' in log.telecom and log.gender == 1 \
                                 and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 45) \
@@ -575,18 +562,18 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + 40 years old + joined within 24 hours
+                        # 7. 40세 이상 알뜰폰 24시간
                         if 'MVNO' in log.telecom \
                                 and now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 40) \
-                                and now() - profile.user.date_joined < timedelta(hours=48):
+                                and now() - profile.user.date_joined < timedelta(hours=24):
                             return Response(data=json.dumps({
                                 'code': 400,
-                                'message': str(_('MVNO user can verify your account during 48 hours after joined.'))
+                                'message': str(_('MVNO user can verify your account during 24 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # MVNO + joined within 8 hours + 08:00~19:00
+                        # 알뜰폰 영업시간 8시간
                         if 'MVNO' in log.telecom \
                                 and now() - profile.user.date_joined < timedelta(hours=8) \
                                 and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
@@ -595,6 +582,19 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                                 'code': 400,
                                 'message': str(
                                     _('MVNO user can verify your account during 8 hours after joined.'))
+                            }),
+                                status=status.HTTP_400_BAD_REQUEST)
+
+                        # 여자 영업시간 8시간
+                        if log.gender == 0 \
+                                and now() - profile.user.date_joined < timedelta(hours=8) \
+                                and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
+                                < datetime.strptime('19:00', '%H:%M').time():
+                            return Response(data=json.dumps({
+                                'code': 400,
+                                'message': str(
+                                    _(
+                                        'You can verify your account during 8 hours after joined.'))
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
