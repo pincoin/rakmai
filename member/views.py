@@ -519,6 +519,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                         # 3. 50세 이상 남자 72시간
                         if now().date() - datetime.strptime(log.date_of_birth, '%Y%m%d').date() \
                                 > timedelta(days=365 * 50) \
+                                and log.gender == 1 \
                                 and now() - profile.user.date_joined < timedelta(hours=72):
                             return Response(data=json.dumps({
                                 'code': 400,
@@ -573,7 +574,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # 알뜰폰 영업시간 8시간
+                        # 8. 알뜰폰 영업시간 8시간
                         if 'MVNO' in log.telecom \
                                 and now() - profile.user.date_joined < timedelta(hours=8) \
                                 and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
@@ -585,7 +586,7 @@ class IamportSmsCallbackView(StoreContextMixin, HostContextMixin, views.APIView)
                             }),
                                 status=status.HTTP_400_BAD_REQUEST)
 
-                        # 여자 영업시간 8시간
+                        # 9. 여자 영업시간 8시간
                         if log.gender == 0 \
                                 and now() - profile.user.date_joined < timedelta(hours=8) \
                                 and datetime.strptime('08:00', '%H:%M').time() < localtime().time() \
