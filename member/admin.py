@@ -75,6 +75,7 @@ class PhoneVerificationLogAdmin(admin.ModelAdmin):
     fields = (
         'owner', 'fullname', 'cellphone', 'telecom', 'date_of_birth', 'gender', 'domestic', 'token',
     )
+    list_filter = ('telecom', 'gender'),
     search_fields = ('fullname', 'cellphone')
     readonly_fields = (
         'owner', 'fullname', 'date_of_birth', 'gender', 'domestic', 'telecom', 'cellphone',
