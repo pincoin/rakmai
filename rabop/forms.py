@@ -449,7 +449,7 @@ class VoucherFilterForm(forms.Form):
             ('11', _('Happy Money'),),
             ('10', _('Egg Money'),),
             ('22', _('Afreeca TV'),),
-            ('13', _('Oncash'),),
+            ('23', _('Hangame'),),
             ('6', _('Smart Munhwa'),),
             ('4', _('Funny Card'),),
             ('14', _('Teencash'),),
@@ -457,6 +457,7 @@ class VoucherFilterForm(forms.Form):
             ('17', _('WoW Cash'),),
             ('18', _('Itemmania'),),
             ('19', _('itemBay'),),
+            ('13', _('Oncash'),),
         ),
         widget=forms.Select(
             attrs={
