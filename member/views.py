@@ -109,6 +109,7 @@ class MemberLogoutView(HostContextMixin, StoreContextMixin, LogoutView):
 
 class MemberSignupView(HostContextMixin, StoreContextMixin, SignupView):
     template_name = 'member/account/signup.html'
+    template_name_signup_closed = 'member/account/signup_closed.html'
 
     def get_context_data(self, **kwargs):
         context = super(MemberSignupView, self).get_context_data(**kwargs)
