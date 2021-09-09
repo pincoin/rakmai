@@ -496,7 +496,7 @@
                                     <div class="col-12 col-md-8">
                                         <a href="{% url 'admin:shop_voucher_change' voucher.voucher.id|unlocalize %}"
                                            class="text-monospace">
-                                            {{ voucher.code|truncatechars:8 }} {{ voucher.remarks }}
+                                            {{ voucher.code }} {{ voucher.remarks }}
                                         </a>
                                         {% if forloop.counter > product.quantity %}
                                             {% trans "[Error] Revoke Now" %}
