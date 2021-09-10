@@ -3903,6 +3903,7 @@ msgid ""
 "Currently, new customers cannot purchase giftcards. We apologize for any "
 "inconvenience."
 msgstr ""
+"현재 신규고객은 상품권을 구매하실 수 없습니다. 불편을 드려 대단히 죄송합니다."
 
 #: shop/forms2.py:217
 msgid "You cannot buy culture using MVNO."
