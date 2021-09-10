@@ -88,6 +88,11 @@ class Store(model_utils_models.TimeStampedModel):
         default=10,
     )
 
+    signup_open = models.BooleanField(
+        verbose_name=_('signup closed'),
+        default=True,
+    )
+
     class Meta:
         verbose_name = _('store')
         verbose_name_plural = _('stores')
