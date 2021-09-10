@@ -45,8 +45,5 @@ class MyAccountAdapter(DefaultAccountAdapter):
             return reverse('shop:home', args=('default',))
 
     def is_open_for_signup(self, request):
-        '''
         store = Store.objects.get(id=1)
         return store.signup_open
-        '''
-        return True
