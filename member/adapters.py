@@ -8,6 +8,7 @@ from rakmai.helpers import get_sub_domain
 from shop.tasks import send_notification_email
 from .models import EmailBanned
 from . import settings as member_settings
+from shop.models import Store
 
 
 class MyAccountAdapter(DefaultAccountAdapter):
@@ -44,10 +45,8 @@ class MyAccountAdapter(DefaultAccountAdapter):
             return reverse('shop:home', args=('default',))
 
     def is_open_for_signup(self, request):
-        """
-        Checks whether or not the site is open for signups.
-
-        Next to simply returning True/False you can also intervene the
-        regular flow by raising an ImmediateHttpResponse
-        """
-        return False
+        '''
+        store = Store.objects.get(id=1)
+        return store.signup_open
+        '''
+        return True
