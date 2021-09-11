@@ -3168,7 +3168,7 @@ msgstr "아프리카TV"
 
 #: rabop/forms.py:452
 msgid "Hangame"
-msgstr ""
+msgstr "한게임상품권"
 
 #: rabop/forms.py:453
 msgid "Smart Munhwa"
