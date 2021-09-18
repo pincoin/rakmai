@@ -93,6 +93,11 @@ class Store(model_utils_models.TimeStampedModel):
         default=True,
     )
 
+    under_attack = models.BooleanField(
+        verbose_name=_('under attack'),
+        default=False,
+    )
+
     class Meta:
         verbose_name = _('store')
         verbose_name_plural = _('stores')
