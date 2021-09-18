@@ -231,7 +231,7 @@ class CartView(LoginRequiredMixin, StoreContextMixin, HostRestrict, generic.Crea
         self.cart = Cart(self.request.session, shop_settings.CART_SESSION_KEY)
         kwargs['cart'] = self.cart
         kwargs['request'] = self.request
-        kwargs['store'] = self.store
+        # kwargs['store'] = self.store
         return kwargs
 
     def get_template_names(self):
