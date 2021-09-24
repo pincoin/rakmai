@@ -90,7 +90,7 @@ $(document).ready(function () {
 
                     break;
                 case 7: // 도서문화상품권 (code + remarks)
-                    results = content.match(/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}[ \t\n-]+[0-9]{4}/mg);
+                    results = content.match(/[0-9]{4}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}[ \t\n-]+[0-9]{4}/mg);
                     break;
                 case 22: // 아프리카 TV (code + remarks)
                     results = content.match(/[A-Z0-9]{16}[ \t\n-]+[0-9]{6}/mg);
