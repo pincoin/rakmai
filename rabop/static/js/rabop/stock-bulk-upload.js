@@ -98,7 +98,7 @@ $(document).ready(function () {
                                 results[x] = results[x].substr(0, 4) + '-'
                                     + results[x].substr(4, 4) + '-'
                                     + results[x].substr(8, 4) + '-'
-                                    + results[x].substr(12, 4);
+                                    + results[x].substr(12, 9);
                             }
                         }
                     }
