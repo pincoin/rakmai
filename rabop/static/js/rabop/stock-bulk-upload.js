@@ -91,6 +91,18 @@ $(document).ready(function () {
                     break;
                 case 7: // 도서문화상품권 (code + remarks)
                     results = content.match(/[0-9]{4}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}[ \t\n-]+[0-9]{4}/mg);
+
+                    if (results !== null) {
+                        for (let x = 0; x < results.length; x++) {
+                            if (results[x].length === 21) {
+                                results[x] = results[x].substr(0, 4) + '-'
+                                    + results[x].substr(4, 4) + '-'
+                                    + results[x].substr(8, 4) + '-'
+                                    + results[x].substr(12, 4);
+                            }
+                        }
+                    }
+
                     break;
                 case 22: // 아프리카 TV (code + remarks)
                     results = content.match(/[A-Z0-9]{16}[ \t\n-]+[0-9]{6}/mg);
