@@ -456,6 +456,7 @@ class VoucherFilterForm(forms.Form):
             ('14', _('Teencash'),),
             ('16', _('N Coin'),),
             ('17', _('WoW Cash'),),
+            ('24', _('PlayStation'),),
             ('18', _('Itemmania'),),
             ('19', _('itemBay'),),
             ('13', _('Oncash'),),
