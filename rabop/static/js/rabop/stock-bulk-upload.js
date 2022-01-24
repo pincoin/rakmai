@@ -107,6 +107,9 @@ $(document).ready(function () {
                 case 22: // 아프리카 TV (code + remarks)
                     results = content.match(/[A-Z0-9]{16}[ \t\n-]+[0-9]{6}/mg);
                     break;
+                case 24: // 플레이스테이션
+                    results = content.match(/[A-Z0-9]{12}/mg);
+                    break;
                 case 14: // 틴캐시
                 case 18: // 매니아선불쿠폰
                 case 19: // 아이템베이
