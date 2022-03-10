@@ -10,7 +10,12 @@ from django.conf import settings
 from django.contrib.auth.mixins import (
     AccessMixin, LoginRequiredMixin
 )
-from django.contrib.staticfiles.templatetags.staticfiles import static
+try:
+    # Django 2
+    from django.contrib.staticfiles.templatetags.staticfiles import static
+except ModuleNotFoundError:
+    # Django 3
+    from django.templatetags.static import static
 from django.core.cache import cache
 from django.db.models import (
     Q, Min
