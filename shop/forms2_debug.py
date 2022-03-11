@@ -33,6 +33,7 @@ class OrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.cart = kwargs.pop('cart', None)
         self.request = kwargs.pop('request', None)
+        self.store = kwargs.pop('store', None)
 
         super(OrderForm, self).__init__(*args, **kwargs)
 
