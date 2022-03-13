@@ -2065,7 +2065,7 @@ msgstr "신용카드 결제 발송 실패"
 
 #: card/views.py:874 card/views.py:955
 msgid "Failure: credit card 2"
-msgstr "신용카드 결제 금애 불일치"
+msgstr "신용카드 결제 금액 불일치"
 
 #: card/views.py:879 card/views.py:960
 msgid "Failure: credit card 3"

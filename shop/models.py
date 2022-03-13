@@ -400,6 +400,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         (3, 'credit_card', _('Credit Card')),
         (4, 'bank_transfer_pg', _('Bank Transfer (PG)')),
         (5, 'virtual_account', _('Virtual Account')),
+        (6, 'phone_bill', _('Phone Bill')),
     )
 
     # TODO: order status != payment status
