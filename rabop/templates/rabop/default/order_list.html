@@ -107,6 +107,8 @@
                     <span class="paypal-text"><i class="fab fa-cc-paypal fa-fw"></i>
                 {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}
                     <span class="danal-text"><i class="far fa-credit-card fa-fw"></i>
+                {% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.phone_bill %}
+                    <span class="text-info"><i class="fas fa-tablet-alt fa-fw"></i>
                 {% endif %}
                 {{ order.get_payment_method_display }}
                 </span>
