@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-13 22:50+0900\n"
+"POT-Creation-Date: 2022-03-15 12:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1205,7 +1205,7 @@ msgstr ""
 msgid "Credit Card"
 msgstr "신용카드"
 
-#: card/forms2.py:61 card/forms2_debug.py:46 shop/forms2.py:64
+#: card/forms2.py:61 card/forms2_debug.py:48 shop/forms2.py:64
 #: shop/forms2_debug.py:51
 msgid "Empty cart! Please, put items in your cart."
 msgstr "주문하실 상품권을 장바구니에 담은 후 주문완료바랍니다."
@@ -1325,14 +1325,14 @@ msgstr ""
 "영업시간 외에 20만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 14"
 "일 초과, 마지막 구매 30일 미만"
 
-#: card/forms2.py:415 card/forms2_debug.py:56
+#: card/forms2.py:415 card/forms2_debug.py:58
 #: rabop/templates/rabop/default/naver_order_detail.html:90
 #: rabop/templates/rabop/default/order_detail.html:385 shop/forms2.py:541
 #: shop/forms2_debug.py:61 shop/models.py:517 shop/models.py:1129
 msgid "order message"
 msgstr "주문 메시지"
 
-#: card/forms2.py:416 card/forms2_debug.py:57 shop/forms2.py:542
+#: card/forms2.py:416 card/forms2_debug.py:59 shop/forms2.py:542
 #: shop/forms2_debug.py:62
 msgid "Your bank account and your full name"
 msgstr "환불 받으실 은행 이름과 계좌번호, 입금주를 적어주세요."
@@ -1344,6 +1344,10 @@ msgstr "환불요청은 오전10시 이후 가능합니다."
 #: card/forms2.py:459 shop/forms2.py:585
 msgid "Refund is disabled."
 msgstr "죄송합니다. 환불이 불가합니다."
+
+#: card/forms2_debug.py:25
+msgid "Phone Bill (+ Service charge 9%)"
+msgstr "휴대폰결제 (+ 통신사 서비스 이용료 = 합계금액의 9%)"
 
 #: card/templates/card/default/base.html:97
 #: card/templates/card/default/base.html:163
@@ -1386,8 +1390,8 @@ msgstr "고객센터"
 
 #: card/templates/card/default/base.html:137
 #: card/templates/card/default/base.html:176
-#: card/templates/card/default/cart.html:183
-#: card/templates/card/default/cart.html:235
+#: card/templates/card/default/cart.html:203
+#: card/templates/card/default/cart.html:255
 #: card/templates/card/default/order_list.html:18
 #: card/templates/card/default/product_detail.html:212
 #: shop/templates/shop/default/base.html:137
@@ -1415,7 +1419,7 @@ msgid "PINCOIN CARD"
 msgstr "핀코인 카드몰"
 
 #: card/templates/card/default/base.html:213
-#: card/templates/card/default/order_detail.html:181
+#: card/templates/card/default/order_detail.html:197
 #: rabop/templates/rabop/default/best_sellers_by_category_report.html:31
 #: rabop/templates/rabop/default/best_sellers_report.html:31
 #: shop/templates/shop/default/base.html:213
@@ -1439,16 +1443,28 @@ msgid "Empty Cart"
 msgstr "비우기"
 
 #: card/templates/card/default/cart.html:86
+#: card/templates/card/default/order_detail.html:114
 #: shop/templates/shop/default/cart.html:86
 msgid "Total Amount"
 msgstr "합계 금액"
 
-#: card/templates/card/default/cart.html:93
+#: card/templates/card/default/cart.html:91
+#: card/templates/card/default/order_detail.html:122
+msgid "Service Charge"
+msgstr "통신사 서비스 이용료"
+
+#: card/templates/card/default/cart.html:97
+#: card/templates/card/default/order_detail.html:130
+#: card/templates/card/default/order_list.html:65
+msgid "Payment Total Amount"
+msgstr "결제 금액"
+
+#: card/templates/card/default/cart.html:104
 #: shop/templates/shop/default/cart.html:93
 msgid "No Items in cart"
 msgstr "장바구니가 비었습니다."
 
-#: card/templates/card/default/cart.html:105
+#: card/templates/card/default/cart.html:116
 #: rabop/templates/rabop/default/daily_payments_report.html:43
 #: rabop/templates/rabop/default/daily_payments_report.html:80
 #: rabop/templates/rabop/default/daily_payments_report.html:106
@@ -1456,17 +1472,17 @@ msgstr "장바구니가 비었습니다."
 msgid "Payment Method"
 msgstr "입금 / 결제수단"
 
-#: card/templates/card/default/cart.html:179
+#: card/templates/card/default/cart.html:199
 #: shop/templates/shop/default/cart.html:176
 msgid "Attention in cart"
 msgstr "첫 주문 시 주의사항"
 
-#: card/templates/card/default/cart.html:223
+#: card/templates/card/default/cart.html:243
 #: shop/templates/shop/default/cart.html:229
 msgid "Checkout"
 msgstr "주문완료"
 
-#: card/templates/card/default/cart.html:231
+#: card/templates/card/default/cart.html:251
 #: shop/templates/shop/default/cart.html:237
 #: shop/templates/shop/default/order_detail.html:285
 msgid "Attention"
@@ -1664,8 +1680,6 @@ msgstr "부분합계"
 #: card/templates/card/default/email/order_sent.html:37
 #: card/templates/card/default/order_confirm_delete.html:85
 #: card/templates/card/default/order_confirm_hide.html:86
-#: card/templates/card/default/order_detail.html:114
-#: card/templates/card/default/order_list.html:65
 #: card/templates/card/default/refund_create.html:99
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:85
 #: rabop/templates/rabop/default/naver_order_detail.html:81
@@ -1803,7 +1817,7 @@ msgstr "주문상태"
 
 #: card/templates/card/default/order_confirm_delete.html:97
 #: card/templates/card/default/order_confirm_hide.html:98
-#: card/templates/card/default/order_detail.html:236
+#: card/templates/card/default/order_detail.html:252
 #: rabop/templates/rabop/default/customer_detail.html:330
 #: rabop/templates/rabop/default/naver_order_confirm_delete.html:97
 #: rabop/templates/rabop/default/order_detail.html:23
@@ -1824,12 +1838,12 @@ msgstr "반드시 상품권 사용을 완료하신 경우에만 주문을 삭제
 msgid "related order"
 msgstr "관련주문"
 
-#: card/templates/card/default/order_detail.html:163
+#: card/templates/card/default/order_detail.html:179
 #: shop/templates/shop/default/order_detail.html:273
 msgid "Pay Now"
 msgstr "결제하기"
 
-#: card/templates/card/default/order_detail.html:174
+#: card/templates/card/default/order_detail.html:190
 #: card/templates/card/default/refund_create.html:140
 #: rabop/templates/rabop/default/naver_order_detail.html:142
 #: rabop/templates/rabop/default/order_detail.html:472
@@ -1838,33 +1852,33 @@ msgstr "결제하기"
 msgid "Voucher Code List"
 msgstr "상품권 발송 내역"
 
-#: card/templates/card/default/order_detail.html:184
+#: card/templates/card/default/order_detail.html:200
 #: shop/templates/shop/default/order_detail.html:364
 msgid "Voucher Code"
 msgstr "상품권 핀번호"
 
-#: card/templates/card/default/order_detail.html:205
+#: card/templates/card/default/order_detail.html:221
 #: rabop/templates/rabop/default/naver_order_detail.html:215
 #: shop/templates/shop/default/order_detail.html:385
 msgid "Revoked"
 msgstr "발권취소"
 
-#: card/templates/card/default/order_detail.html:217
+#: card/templates/card/default/order_detail.html:233
 #: shop/templates/shop/default/order_detail.html:397
 msgid "Charge"
 msgstr "간편충전"
 
-#: card/templates/card/default/order_detail.html:247
+#: card/templates/card/default/order_detail.html:263
 #: shop/templates/shop/default/order_detail.html:428
 msgid "Confirm Order"
 msgstr "주문 문의"
 
-#: card/templates/card/default/order_detail.html:258
+#: card/templates/card/default/order_detail.html:274
 #: shop/templates/shop/default/order_detail.html:439
 msgid "Order Again"
 msgstr "그대로 재주문"
 
-#: card/templates/card/default/order_detail.html:269
+#: card/templates/card/default/order_detail.html:285
 #: card/templates/card/default/refund_create.html:210
 #: shop/templates/shop/default/order_detail.html:308
 #: shop/templates/shop/default/order_detail.html:450
@@ -1872,14 +1886,14 @@ msgstr "그대로 재주문"
 msgid "Refund Payment"
 msgstr "환불요청"
 
-#: card/templates/card/default/order_detail.html:279
+#: card/templates/card/default/order_detail.html:295
 #: rabop/templates/rabop/default/naver_order_detail.html:198
 #: shop/templates/shop/default/order_detail.html:325
 #: shop/templates/shop/default/order_detail.html:460
 msgid "Delete Order"
 msgstr "주문취소"
 
-#: card/templates/card/default/order_detail.html:289
+#: card/templates/card/default/order_detail.html:305
 #: card/templates/card/default/order_receipt.html:71
 #: card/templates/card/default/order_receipt.html:77
 #: shop/templates/shop/default/order_detail.html:470
@@ -1888,12 +1902,12 @@ msgstr "주문취소"
 msgid "Transaction Detail Report"
 msgstr "거래명세서"
 
-#: card/templates/card/default/order_detail.html:297
+#: card/templates/card/default/order_detail.html:313
 #: shop/templates/shop/default/order_detail.html:478
 msgid "Hide Order"
 msgstr "주문삭제"
 
-#: card/templates/card/default/order_list.html:47 card/views.py:431
+#: card/templates/card/default/order_list.html:47 card/views.py:456
 #: shop/templates/shop/default/order_list.html:53
 #: shop/templates/shop/default/paypal_success.html:24 shop/views.py:429
 msgid "Order History"
@@ -1906,7 +1920,7 @@ msgstr "카드몰"
 
 #: card/templates/card/default/order_list.html:103
 #: rabop/templates/rabop/default/naver_order_list.html:107
-#: rabop/templates/rabop/default/order_list.html:124
+#: rabop/templates/rabop/default/order_list.html:126
 #: rabop/templates/rabop/default/question_detail.html:121
 #: shop/templates/shop/default/order_list.html:109
 msgid "No Orders Yet"
@@ -2042,32 +2056,32 @@ msgstr "{}"
 msgid "Products"
 msgstr "상품"
 
-#: card/views.py:268 card/views.py:743 shop/admin.py:393 shop/views.py:278
+#: card/views.py:269 card/views.py:775 shop/admin.py:393 shop/views.py:278
 #: shop/views.py:729
 msgid "No language set"
 msgstr "브라우저 언어 지정 안함"
 
-#: card/views.py:292 shop/views.py:308
+#: card/views.py:297 shop/views.py:308
 msgid "[site] Order complete: {}"
 msgstr "[핀코인] 주문완료: {}"
 
-#: card/views.py:460 shop/views.py:456
+#: card/views.py:485 shop/views.py:456
 msgid "Order Details - {}"
 msgstr "주문 - {}"
 
-#: card/views.py:676 shop/views.py:668
+#: card/views.py:708 shop/views.py:668
 msgid "Refund Payment - {}"
 msgstr "환불요청 - {}"
 
-#: card/views.py:868 card/views.py:950
+#: card/views.py:900 card/views.py:982
 msgid "Failure: credit card 1"
 msgstr "신용카드 결제 발송 실패"
 
-#: card/views.py:874 card/views.py:955
+#: card/views.py:906 card/views.py:987
 msgid "Failure: credit card 2"
 msgstr "신용카드 결제 금액 불일치"
 
-#: card/views.py:879 card/views.py:960
+#: card/views.py:911 card/views.py:992
 msgid "Failure: credit card 3"
 msgstr "신용카드 결제 명의 불일치"
 
@@ -4109,7 +4123,7 @@ msgstr "가상계좌"
 
 #: shop/models.py:403
 msgid "Phone Bill"
-msgstr "휴대폰결제"
+msgstr "휴대폰소액결제"
 
 #: shop/models.py:412 shop/models.py:1065
 #: shop/templates/shop/default/order_detail.html:314
