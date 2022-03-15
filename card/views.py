@@ -268,7 +268,11 @@ class CartView(LoginRequiredMixin, StoreContextMixin, HostRestrict, generic.Crea
             if 'HTTP_ACCEPT_LANGUAGE' in self.request.META.keys() else _('No language set')
         form.instance.user_agent = self.request.META['HTTP_USER_AGENT']
         form.instance.total_list_price = total_list_price
-        form.instance.total_selling_price = total_selling_price
+
+        if form.instance.payment_method == models.Order.PAYMENT_METHOD_CHOICES.phone_bill:
+            form.instance.total_selling_price = total_selling_price * Decimal(1.09)
+        else:
+            form.instance.total_selling_price = total_selling_price
 
         # Restrict currency according to payment method
         form.instance.currency = 'KRW'
@@ -412,6 +416,25 @@ class CartSetQuantityView(HostRestrict, generic.FormView):
         }, status=400)
 
 
+class CartItemsView(HostRestrict, generic.FormView):
+    logger = logging.getLogger(__name__)
+
+    sub_domain = 'card'
+    form_class = forms.DummyForm
+
+    def form_valid(self, form):
+        cart = Cart(self.request.session, shop_settings.CARD_CART_SESSION_KEY)
+        data = cart.items_json
+
+        return JsonResponse(data)
+
+    def form_invalid(self, form):
+        return JsonResponse({
+            'status': 'false',
+            'message': 'Bad Request'
+        }, status=400)
+
+
 class OrderListView(PageableMixin, LoginRequiredMixin, StoreContextMixin, HostRestrict, generic.ListView):
     logger = logging.getLogger(__name__)
 
@@ -423,7 +446,8 @@ class OrderListView(PageableMixin, LoginRequiredMixin, StoreContextMixin, HostRe
             .valid(self.request.user) \
             .filter(payment_method__in=[models.Order.PAYMENT_METHOD_CHOICES.credit_card,
                                         models.Order.PAYMENT_METHOD_CHOICES.bank_transfer_pg,
-                                        models.Order.PAYMENT_METHOD_CHOICES.virtual_account]) \
+                                        models.Order.PAYMENT_METHOD_CHOICES.virtual_account,
+                                        models.Order.PAYMENT_METHOD_CHOICES.phone_bill]) \
             .order_by('-created')
 
     def get_context_data(self, **kwargs):
@@ -524,6 +548,17 @@ class OrderDetailView(LoginRequiredMixin, StoreContextMixin, HostRestrict, gener
             reverse(settings.IAMPORT['callback_url'], args=(self.store.code,)))
 
         context['bootpay_user_code'] = settings.BOOTPAY['user_code']
+
+        context['billgate_service_id'] = settings.BILLGATE['service_id']
+        context['billgate_callback_url'] = self.request.build_absolute_uri(
+            reverse(settings.BILLGATE['callback_url'], args=(self.store.code,)))
+
+        context['total_amount'] = self.object.total_selling_price / Decimal(1.09) \
+            if self.object.payment_method == models.Order.PAYMENT_METHOD_CHOICES.phone_bill \
+            else self.object.total_selling_price
+        context['service_charge'] = context['total_amount'] * Decimal(0.09) \
+            if self.object.payment_method == models.Order.PAYMENT_METHOD_CHOICES.phone_bill \
+            else 0
 
         return context
 
@@ -958,5 +993,47 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
                     order.status = models.Order.STATUS_CHOICES.voided
                     order.save()
                     send_notification_line.delay(_('Failure: credit card 3'))
+
+        return HttpResponse('OK')
+
+
+class BillgateCallbackView(StoreContextMixin, HostRestrict, views.APIView):
+    logger = logging.getLogger(__name__)
+    sub_domain = 'card'
+
+    def get(self, request, store, format=None):
+        return Response(None)
+
+    def post(self, request, store, format=None):
+        print(request.data)
+
+        data = json.dumps({
+            'SERVICE_CODE': request.data['SERVICE_CODE'],
+            'SERVICE_ID': request.data['SERVICE_ID'],
+            'ORDER_ID': request.data['ORDER_ID'],
+            'ORDER_DATE': request.data['ORDER_DATE'],
+            'PAY_MESSAGE': request.data['PAY_MESSAGE'],
+        })
+        print(data)
+
+        response = requests.post(
+            'https://twebapi.billgate.net:10443/webapi/approve.jsp',
+            data=json.dumps({
+                'SERVICE_CODE': request.data['SERVICE_CODE'],
+                'SERVICE_ID': request.data['SERVICE_ID'],
+                'ORDER_ID': request.data['ORDER_ID'],
+                'ORDER_DATE': request.data['ORDER_DATE'],
+                'PAY_MESSAGE': request.data['PAY_MESSAGE'],
+            }),
+            headers={
+                'Accept': 'application/x-www-form-urlencoded xml',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=EUC-KR',
+                'Accept-language': 'gx',
+                'Cache-Control': 'no-cache',
+            })
+
+        if response.status_code == requests.codes.ok:
+            result = response.json()
+            print(result)
 
         return HttpResponse('OK')

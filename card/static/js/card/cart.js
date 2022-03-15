@@ -4,7 +4,10 @@ $(document).ready(function () {
     }
 
     function update_cart(data) {
-        var total = 0;
+        let total = 0;
+        let percent = 0;
+        let charge = 0;
+        let payment_total = 0;
 
         $.each(data, function (key, item) {
             $('#id-quantity-' + key).val(item.quantity);
@@ -14,7 +17,20 @@ $(document).ready(function () {
             $('#id-subtotal-' + key).text('₩ ' + intcomma(subtotal));
         });
 
+        if (parseInt($('input[name="payment_method"]:checked').val()) === 6) {
+            percent = 9;
+            charge = total * percent / 100;
+            payment_total = total + charge;
+        } else {
+            percent = 0;
+            charge = 0;
+            payment_total = total;
+        }
+
+        $('#id-charge-percent').text(percent);
         $('#id-total').text('₩ ' + intcomma(total));
+        $('#id-service-charge').text('₩ ' + intcomma(charge));
+        $('#id-payment-total').text('₩ ' + intcomma(payment_total));
     }
 
     function empty_cart() {
@@ -242,6 +258,33 @@ $(document).ready(function () {
             $('#cart-badge').text(0);
         }).fail(function (jqXHR, textStatus, errorThrown) {
             console.error('Failed to empty cart');
+        });
+    });
+
+    $('input[type=radio][name=payment_method]').change(function () {
+
+        console.log(this.value);
+
+        if (parseInt(this.value) === 6) {
+            $('#service-charge-row').removeClass('d-none');
+        } else {
+            $('#service-charge-row').addClass('d-none');
+        }
+
+        $.ajax({
+            url: '/card/default/cart/items/',
+            type: 'post',
+            dataType: 'json',
+            data: {},
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        }).done(function (data, textStatus, jqXHR) {
+            update_cart(data);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Failed to retrieve cart');
         });
     });
 

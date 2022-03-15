@@ -87,6 +87,17 @@
                                         <span id="id-total">{{ cart.total|currency:currency_code }}</span>
                                     </h6>
                                 </li>
+                                <li class="list-group-item text-right d-none" id="service-charge-row">
+                                    <h6 class="mb-0">{% trans "Service Charge" %}
+                                        <span id="id-charge-percent" class="text-danger">0</span><span class="text-danger">%</span>:
+                                        <span id="id-service-charge">{{ 0|currency:currency_code }}</span>
+                                    </h6>
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <h6 class="mb-0">{% trans "Payment Total Amount" %}:
+                                        <span id="id-payment-total">{{ cart.total|currency:currency_code }}</span>
+                                    </h6>
+                                </li>
                             {% endif %}
                         {% empty %}
                             <li class="list-group-item">
@@ -134,9 +145,18 @@
                                 <a href="//www.{{ domains.domain }}{% url 'shop:home' store.code %}">
                                     <i class="fas fa-wallet fa-fw"></i>대표몰</a>을 이용해주시기 바랍니다.
                             </p>
-                            <p class="mb-0 text-danger font-weight-bold">
-                                카드사별 월한도 100만원, 법인카드 불가, 할부거래 불가, 소득공제 제외
-                            </p>
+                            <ul class="my-2">
+                                <li class="my-2 text-danger">
+                                    카드사별 월한도 100만원, 법인카드 불가, 할부거래 불가, 소득공제 제외
+                                </li>
+                                <li class="my-2 text-danger">
+                                    휴대폰결제 한도는 개인신용에 따라 상이하며 미납이력, 고액사용 등으로 결제불가한 경우
+                                    통신사에 직접 문의
+                                </li>
+                                <li class="my-2 text-danger">
+                                    휴대폰결제는 통신사에서 합계금액의 9% 서비스 이용료 부과
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="form-group">

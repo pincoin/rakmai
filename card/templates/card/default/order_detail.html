@@ -109,11 +109,29 @@
                                         </div>
                                     </li>
                                 {% endfor %}
+                                {% if service_charge > 0 %}
+                                    <li class="row mb-2">
+                                        <div class="offset-3 col-4 offset-md-5 col-md-4 text-right">
+                                            {% trans "Total Amount" %}
+                                        </div>
+                                        <div class="col-5 col-md-3 text-monospace text-right">
+                                            <strong>{{ total_amount|currency:order.currency }}</strong>
+                                        </div>
+                                    </li>
+                                    <li class="row mb-2">
+                                        <div class="offset-3 col-4 offset-md-5 col-md-4 text-right text-info">
+                                            {% trans "Service Charge" %}
+                                        </div>
+                                        <div class="col-5 col-md-3 text-monospace text-right text-info">
+                                            <strong>{{ service_charge|currency:order.currency }}</strong>
+                                        </div>
+                                    </li>
+                                {% endif %}
                                 <li class="row mb-2">
-                                    <div class="offset-3 col-4 offset-md-7 col-md-2 text-right">
-                                        {% trans "total price" %}
+                                    <div class="offset-3 col-4 offset-md-5 col-md-4 text-right text-danger font-weight-bold">
+                                        {% trans "Payment Total Amount" %}
                                     </div>
-                                    <div class="col-5 col-md-3 text-monospace text-right">
+                                    <div class="col-5 col-md-3 text-monospace text-right text-danger">
                                         <strong>{{ order.total_selling_price|currency:order.currency }}</strong>
                                     </div>
                                 </li>
@@ -156,6 +174,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if order.payment_method != order.PAYMENT_METHOD_CHOICES.phone_bill or request.user.email == 'dev@pincoin.co.kr' %}
                             <div class="row">
                                 <div class="col">
                                     <button class="btn btn-block btn-lg btn-primary" onclick="requestPay();">
@@ -164,6 +183,7 @@
                                     </button>
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endif %}
@@ -335,47 +355,37 @@
 {% block javascript %}
     {% if order.status == order.STATUS_CHOICES.payment_pending %}
         {% if request.user.email == 'dev@pincoin.co.kr' %}
-            <script type="text/javascript" src="//cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+            <script type="application/javascript" src="//tpay.billgate.net/paygate/plugin/gx_web_client.js"></script>
             <script>
-                IMP.init("{{ iamport_user_code }}");
-
                 function requestPay() {
-                    IMP.request_pay({
-                        pg: "danal_tpay",
-                        pay_method: "card",
-                        merchant_uid: "{{ order.order_no }}",
-                        name: "상품권구매",
-                        amount: {{ order.total_selling_price|stringformat:'d' }},
-                        tax_free: {{ order.total_selling_price|stringformat:'d' }},
-                        buyer_email: "{{ order.user.email }}",
-                        buyer_name: "{{ order.fullname }}",
-                        buyer_tel: "{{ order.user.profile.phone }}"
-                    }, function (rsp) {
-                        if (rsp.success) {
-                            $.ajax({
-                                url: "{{ iamport_callback_url }}",
-                                type: 'post',
-                                dataType: 'json',
-                                data: {
-                                    imp_uid: rsp.imp_uid,
-                                    merchant_uid: rsp.merchant_uid,
-                                    paid_amount: rsp.paid_amount,
-                                    apply_num: rsp.apply_num
-                                }
-                            }).done(function (data, textStatus, jqXHR) {
-                                if (textStatus === 'success') {
-                                    alert('약 1분 후 이 페이지를 새로고침하시면 상품권을 확인할 수 있습니다.');
-                                    location.reload();
-                                }
-                            }).fail(function (jqXHR, textStatus, errorThrown) {
-                                alert("결제에 실패하였습니다.");
-                            });
-                        } else {
-                            alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
-                        }
-                    });
+                    GX_pay('payment', 'layerpopup', 'http_tpay');
+                }
+
+                function layer_close() {
+                    GX_payClose();
                 }
             </script>
+            <form name="payment" method="post">
+                <input type="hidden" name="SERVICE_ID" value="{{ billgate_service_id }}">
+                <input type="hidden" name="SERVICE_CODE"
+                       value="{% if order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}0900{% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.phone_bill %}1100{% endif %}">
+                <input type="hidden" name="SERVICE_TYPE" value="0000">
+                <input type="hidden" name="ORDER_ID" value="{{ order.order_no }}">
+                <input type="hidden" name="ORDER_DATE" value="{{ order.created|date:'YmdHis' }}">
+                <input type="hidden" name="AMOUNT" value="{{ order.total_selling_price|stringformat:'d' }}">
+                <input type="hidden" name="RETURN_URL" value="{{ billgate_callback_url }}">
+                <input type="hidden" name="ITEM_CODE" value="PINCOIN">
+                <input type="hidden" name="ITEM_NAME" value="상품권 구매">
+                <input type="hidden" name="USER_ID" value="{{ order.user.email }}">
+                <input type="hidden" name="USER_NAME" value="{{ order.fullname }}">
+                <input type="hidden" name="USER_EMAIL" value="{{ order.user.email }}">
+                <input type="hidden" name="WEBAPI_FLAG" value="Y">
+                <input type="hidden" name="CANCEL_FLAG" value="N">
+
+                <!-- 휴대폰 결제 추가 필드 -->
+                <input type="hidden" name="READONLY_HP" value="Y">
+                <input type="hidden" name="MOBILE_NUMBER" value="{{ order.user.profile.phone }}">
+            </form>
         {% else %}
             <script type="application/javascript" src="//cdn.bootpay.co.kr/js/bootpay-3.0.5.min.js"></script>
             <script>

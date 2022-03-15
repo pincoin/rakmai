@@ -37,6 +37,9 @@ urlpatterns = [
     path('<str:store>/cart/set-quantity/',
          views.CartSetQuantityView.as_view(), name='cart-set-quantity'),
 
+    path('<str:store>/cart/items/',
+         views.CartItemsView.as_view(), name='cart-items'),
+
     path('<str:store>/orders/',
          views.OrderListView.as_view(), name='order-list'),
 
@@ -63,6 +66,9 @@ urlpatterns = [
 
     path('<str:store>/payment/iamport/callback/',
          views.IamportCallbackView.as_view(), name='iamport-callback'),
+
+    path('<str:store>/payment/billgate/callback/',
+         views.BillgateCallbackView.as_view(), name='billgate-callback'),
 
     path('<str:store>/payment/bootpay/callback/',
          views.BootpayCallbackView.as_view(), name='bootpay-callback'),
