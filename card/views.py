@@ -1021,15 +1021,40 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
             data=form_data,
             headers={
                 'Accept': 'application/x-www-form-urlencoded xml',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=EUC-KR',
+                'Content-Type': 'application/json; charset=EUC-KR',
                 'Accept-language': 'gx',
                 'Cache-Control': 'no-cache',
             })
 
         if response.status_code == requests.codes.ok:
             result = response.json()
-            print(response.encoding)
-            print(result)
+
+            if result['RESPONSE_CODE'] == '0000':
+                order = models.Order.objects \
+                    .select_related('user', 'user__profile') \
+                    .get(order_no=result['ORDER_ID'])
+
+                if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
+                        and order.user.profile.full_name == order.fullname:
+                    if order.total_selling_price == Decimal(result['AUTH_AMOUNT']):
+                        if order.user.email != 'dev@pincoin.co.kr':
+                            if send_vouchers(order):
+                                pass
+                            else:
+                                # failure
+                                order.status = models.Order.STATUS_CHOICES.payment_completed
+                                order.save()
+                                send_notification_line.delay(_('Failure: credit card 1'))
+                    else:
+                        # invalid paid amount
+                        order.status = models.Order.STATUS_CHOICES.voided
+                        order.save()
+                        send_notification_line.delay(_('Failure: credit card 2'))
+                else:
+                    # invalid user
+                    order.status = models.Order.STATUS_CHOICES.voided
+                    order.save()
+                    send_notification_line.delay(_('Failure: credit card 3'))
 
         return HttpResponse('<script>opener.location.reload(); self.close();</script>')
 
