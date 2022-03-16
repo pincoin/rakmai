@@ -45,3 +45,11 @@ class OrderChangeForm(forms.ModelForm):
 
 class CurrencyForm(forms.Form):
     currency_code = forms.CharField()
+
+
+class BillgateForm(forms.Form):
+    SERVICE_ID = forms.CharField(max_length=20)
+    SERVICE_CODE = forms.CharField(max_length=4)
+    ORDER_ID = forms.CharField(max_length=64)
+    ORDER_DATE = forms.CharField(max_length=14)
+    PAY_MESSAGE = forms.CharField()

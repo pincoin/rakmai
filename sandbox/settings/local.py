@@ -143,6 +143,12 @@ GAMEMECA_RSS_DIR = '/Users/mairoo/rss'
 
 SESSION_COOKIE_DOMAIN = '.pincoin.local'
 
+# Billgate
+# 크롬 브라우저의 80 이상 버전의 강화된 쿠키 정책으로 인해 결제 진행 시
+# 브라우저-서버 구간의 세션이 유지되지 않는 문제
+# 가맹점 측의 웹 서비스에서 쿠키 생성 시 설정을 SameSite=None; Secure 변경
+#SESSION_COOKIE_SAMESITE = 'None'
+
 """
 SESSION_COOKIE_SECURE = True
 CSRF_USE_SESSIONS=False

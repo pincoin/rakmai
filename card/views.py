@@ -14,11 +14,13 @@ from django.http import (
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.utils.timezone import (
     now, timedelta, localtime, make_aware
 )
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 from ipware import get_client_ip
 from rest_framework import (
     status, views
@@ -997,34 +999,26 @@ class BootpayCallbackView(StoreContextMixin, HostRestrict, views.APIView):
         return HttpResponse('OK')
 
 
-class BillgateCallbackView(StoreContextMixin, HostRestrict, views.APIView):
+@method_decorator(csrf_exempt, name='dispatch')
+class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
     logger = logging.getLogger(__name__)
     sub_domain = 'card'
+    form_class = forms.BillgateForm
 
-    def get(self, request, store, format=None):
-        return Response(None)
-
-    def post(self, request, store, format=None):
-        print(request.data)
-
-        data = json.dumps({
-            'SERVICE_CODE': request.data['SERVICE_CODE'],
-            'SERVICE_ID': request.data['SERVICE_ID'],
-            'ORDER_ID': request.data['ORDER_ID'],
-            'ORDER_DATE': request.data['ORDER_DATE'],
-            'PAY_MESSAGE': request.data['PAY_MESSAGE'],
+    def form_valid(self, form):
+        form_data = json.dumps({
+            'SERVICE_CODE': form.cleaned_data['SERVICE_CODE'],
+            'SERVICE_ID': form.cleaned_data['SERVICE_ID'],
+            'ORDER_ID': form.cleaned_data['ORDER_ID'],
+            'ORDER_DATE': form.cleaned_data['ORDER_DATE'],
+            'PAY_MESSAGE': form.cleaned_data['PAY_MESSAGE'],
         })
-        print(data)
+
+        print(form_data)
 
         response = requests.post(
             'https://twebapi.billgate.net:10443/webapi/approve.jsp',
-            data=json.dumps({
-                'SERVICE_CODE': request.data['SERVICE_CODE'],
-                'SERVICE_ID': request.data['SERVICE_ID'],
-                'ORDER_ID': request.data['ORDER_ID'],
-                'ORDER_DATE': request.data['ORDER_DATE'],
-                'PAY_MESSAGE': request.data['PAY_MESSAGE'],
-            }),
+            data=form_data,
             headers={
                 'Accept': 'application/x-www-form-urlencoded xml',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=EUC-KR',
@@ -1034,6 +1028,14 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, views.APIView):
 
         if response.status_code == requests.codes.ok:
             result = response.json()
+            print(response.encoding)
             print(result)
 
-        return HttpResponse('OK')
+        return HttpResponse('<script>opener.location.reload(); self.close();</script>')
+
+    def form_invalid(self, form):
+        self.logger.error(form.errors)
+        return JsonResponse({
+            'status': 'false',
+            'message': 'Bad Request'
+        }, status=400)
