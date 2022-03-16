@@ -262,9 +262,6 @@ $(document).ready(function () {
     });
 
     $('input[type=radio][name=payment_method]').change(function () {
-
-        console.log(this.value);
-
         if (parseInt(this.value) === 6) {
             $('#service-charge-row').removeClass('d-none');
         } else {
