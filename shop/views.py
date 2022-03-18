@@ -493,6 +493,8 @@ class OrderDetailView(LoginRequiredMixin, StoreContextMixin, HostRestrict, gener
                     context['show_refund_order_button'] = True
                 elif timedelta(hours=2) < delta < timedelta(days=shop_settings.REFUNDABLE_DAYS):
                     context['show_refund_order_button'] = True
+            else:
+                context['show_refund_order_button'] = False
 
         context['show_delete_order_button'] = self.object.status in [
             models.Order.STATUS_CHOICES.payment_pending,

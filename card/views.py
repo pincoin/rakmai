@@ -523,6 +523,8 @@ class OrderDetailView(LoginRequiredMixin, StoreContextMixin, HostRestrict, gener
                     context['show_refund_order_button'] = True
                 elif timedelta(hours=2) < delta < timedelta(days=shop_settings.REFUNDABLE_DAYS):
                     context['show_refund_order_button'] = True
+            else:
+                context['show_refund_order_button'] = False
 
         context['show_delete_order_button'] = self.object.status in [
             models.Order.STATUS_CHOICES.payment_pending,
@@ -1014,9 +1016,8 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
             'PAY_MESSAGE': form.cleaned_data['PAY_MESSAGE'],
         })
 
-        print(form_data)
-
         response = requests.post(
+            # TODO: 상용 주소 변경 https://webapi.billgate.net:8443/webapi/approve.jsp
             'https://twebapi.billgate.net:10443/webapi/approve.jsp',
             data=form_data,
             headers={
@@ -1037,7 +1038,7 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
                 if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
                         and order.user.profile.full_name == order.fullname:
                     if order.total_selling_price == Decimal(result['AUTH_AMOUNT']):
-                        # TODO: 삭제 시작
+                        # TODO: dev@pincoin.co.kr 체크 삭제 시작
                         if order.user.email == 'dev@pincoin.co.kr':
                             order.status = order.STATUS_CHOICES.shipped
                             order.save()
