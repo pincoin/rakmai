@@ -1017,8 +1017,7 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
         })
 
         response = requests.post(
-            # TODO: 상용 주소 변경 https://webapi.billgate.net:8443/webapi/approve.jsp
-            'https://twebapi.billgate.net:10443/webapi/approve.jsp',
+            'https://webapi.billgate.net:8443/webapi/approve.jsp',
             data=form_data,
             headers={
                 'Accept': 'application/x-www-form-urlencoded xml',
