@@ -360,6 +360,13 @@
             <script type="application/javascript" src="//pay.billgate.net/paygate/plugin/gx_web_client.js"></script>
             <script>
                 function requestPay() {
+                    document.payment.acceptCharset = 'euc-kr';
+
+                    let agent = navigator.userAgent.toLowerCase();
+                    if ((agent.indexOf("msie") !== -1) || navigator.userAgent.search('Trident') !== -1) {
+                        document.charset = 'euc-kr';
+                    }
+
                     GX_pay('payment', 'popup', 'https_pay');
                 }
 
