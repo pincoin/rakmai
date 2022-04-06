@@ -174,16 +174,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- TODO: dev@pincoin.co.kr 체크 삭제 + 무조건 결제하기 버튼 활성화 -->
-                            {% if order.payment_method != order.PAYMENT_METHOD_CHOICES.phone_bill or request.user.email == 'dev@pincoin.co.kr' %}
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn btn-block btn-lg btn-primary" onclick="requestPay();">
-                                        <i class="fas fa-credit-card"></i>
-                                        {% trans "Pay Now" %}
-                                    </button>
+                            <!-- TODO: dev@pincoin.co.kr 체크 삭제 했음 + 무조건 결제하기 버튼 활성화 -->
+                            {% if order.payment_method != order.PAYMENT_METHOD_CHOICES.phone_bill %}
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-block btn-lg btn-primary" onclick="requestPay();">
+                                            <i class="fas fa-credit-card"></i>
+                                            {% trans "Pay Now" %}
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                             {% endif %}
                         </div>
                     </div>
@@ -355,86 +355,43 @@
 
 {% block javascript %}
     {% if order.status == order.STATUS_CHOICES.payment_pending %}
-        <!-- TODO: dev@pincoin.co.kr 체크 삭제 - 부트페이 삭제 -->
-        {% if request.user.email == 'dev@pincoin.co.kr' %}
-            <script type="application/javascript" src="//pay.billgate.net/paygate/plugin/gx_web_client.js"></script>
-            <script>
-                function requestPay() {
-                    document.payment.acceptCharset = 'euc-kr';
+        <script type="application/javascript" src="//pay.billgate.net/paygate/plugin/gx_web_client.js"></script>
+        <script>
+            function requestPay() {
+                document.payment.acceptCharset = 'euc-kr';
 
-                    let agent = navigator.userAgent.toLowerCase();
-                    if ((agent.indexOf("msie") !== -1) || navigator.userAgent.search('Trident') !== -1) {
-                        document.charset = 'euc-kr';
-                    }
-
-                    GX_pay('payment', 'popup', 'https_pay');
+                let agent = navigator.userAgent.toLowerCase();
+                if (agent.indexOf("msie") !== -1 || agent.indexOf('trident') !== -1) {
+                    document.charset = 'euc-kr';
                 }
 
-                function layer_close() {
-                    GX_payClose();
-                }
-            </script>
-            <form name="payment" method="post" accept-charset="euc-kr">
-                <input type="hidden" name="SERVICE_ID" value="{{ billgate_service_id }}">
-                <input type="hidden" name="SERVICE_CODE"
-                       value="{% if order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}0900{% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.phone_bill %}1100{% endif %}">
-                <input type="hidden" name="SERVICE_TYPE" value="0000">
-                <input type="hidden" name="ORDER_ID" value="{{ order.order_no }}">
-                <input type="hidden" name="ORDER_DATE" value="{{ order.created|date:'YmdHis' }}">
-                <input type="hidden" name="AMOUNT" value="{{ order.total_selling_price|stringformat:'d' }}">
-                <input type="hidden" name="RETURN_URL" value="{{ billgate_callback_url }}">
-                <input type="hidden" name="ITEM_CODE" value="PINCOIN">
-                <input type="hidden" name="ITEM_NAME" value="상품권 구매">
-                <input type="hidden" name="USER_ID" value="{{ order.user.email }}">
-                <input type="hidden" name="USER_NAME" value="{{ order.fullname }}">
-                <input type="hidden" name="USER_EMAIL" value="{{ order.user.email }}">
-                <input type="hidden" name="WEBAPI_FLAG" value="Y">
-                <input type="hidden" name="CANCEL_FLAG" value="N">
+                GX_pay('payment', 'popup', 'https_pay');
+            }
 
-                <!-- 휴대폰 결제 추가 필드 -->
-                <input type="hidden" name="READONLY_HP" value="Y">
-                <input type="hidden" name="MOBILE_NUMBER" value="{{ order.user.profile.phone }}">
-            </form>
-        {% else %}
-            <script type="application/javascript" src="//cdn.bootpay.co.kr/js/bootpay-3.0.5.min.js"></script>
-            <script>
-                function requestPay() {
-                    BootPay.request({
-                        price: {{ order.total_selling_price|stringformat:'d' }},
-                        application_id: "{{ bootpay_user_code }}",
-                        name: '상품권구매',
-                        pg: 'danal',
-                        method: 'card',
-                        show_agree_window: 0,
-                        user_info: {
-                            username: "{{ order.fullname }}",
-                            email: "{{ order.user.email }}",
-                            addr: "",
-                            phone: "{{ order.user.profile.phone }}"
-                        },
-                        order_id: "{{ order.order_no }}"
-                    }).error(function (data) {
-                        console.log(data);
-                    }).cancel(function (data) {
-                        console.log(data);
-                    }).ready(function (data) {
-                        console.log(data);
-                    }).confirm(function (data) {
-                        console.log(data);
-                        var enable = true;
-                        if (enable) {
-                            BootPay.transactionConfirm(data);
-                        } else {
-                            BootPay.removePaymentWindow();
-                        }
-                    }).close(function (data) {
-                        console.log(data);
-                    }).done(function (data) {
-                        alert('약 1분 후 이 페이지를 새로고침하시면 상품권을 확인할 수 있습니다.');
-                        location.reload();
-                    });
-                }
-            </script>
-        {% endif %}
+            function layer_close() {
+                GX_payClose();
+            }
+        </script>
+        <form name="payment" method="post" accept-charset="euc-kr">
+            <input type="hidden" name="SERVICE_ID" value="{{ billgate_service_id }}">
+            <input type="hidden" name="SERVICE_CODE"
+                   value="{% if order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}0900{% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.phone_bill %}1100{% endif %}">
+            <input type="hidden" name="SERVICE_TYPE" value="0000">
+            <input type="hidden" name="ORDER_ID" value="{{ order.order_no }}">
+            <input type="hidden" name="ORDER_DATE" value="{{ order.created|date:'YmdHis' }}">
+            <input type="hidden" name="AMOUNT" value="{{ order.total_selling_price|stringformat:'d' }}">
+            <input type="hidden" name="RETURN_URL" value="{{ billgate_callback_url }}">
+            <input type="hidden" name="ITEM_CODE" value="PINCOIN">
+            <input type="hidden" name="ITEM_NAME" value="상품권 구매">
+            <input type="hidden" name="USER_ID" value="{{ order.user.email }}">
+            <input type="hidden" name="USER_NAME" value="{{ order.fullname }}">
+            <input type="hidden" name="USER_EMAIL" value="{{ order.user.email }}">
+            <input type="hidden" name="WEBAPI_FLAG" value="Y">
+            <input type="hidden" name="CANCEL_FLAG" value="N">
+
+            <!-- 휴대폰 결제 추가 필드 -->
+            <input type="hidden" name="READONLY_HP" value="Y">
+            <input type="hidden" name="MOBILE_NUMBER" value="{{ order.user.profile.phone }}">
+        </form>
     {% endif %}
 {% endblock %}
