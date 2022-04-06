@@ -367,7 +367,7 @@
                     GX_payClose();
                 }
             </script>
-            <form name="payment" method="post">
+            <form name="payment" method="post" accept-charset="euc-kr">
                 <input type="hidden" name="SERVICE_ID" value="{{ billgate_service_id }}">
                 <input type="hidden" name="SERVICE_CODE"
                        value="{% if order.payment_method == order.PAYMENT_METHOD_CHOICES.credit_card %}0900{% elif order.payment_method == order.PAYMENT_METHOD_CHOICES.phone_bill %}1100{% endif %}">
