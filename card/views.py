@@ -1037,12 +1037,10 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
                 if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
                         and order.user.profile.full_name == order.fullname:
                     if order.total_selling_price == Decimal(result['AUTH_AMOUNT']):
-                        # TODO: dev@pincoin.co.kr 체크 삭제 시작
-                        if order.user.email == 'dev@pincoin.co.kr':
+                        if order.user.email == 'dev@pincoin.co.kr':  # PG test account
                             order.status = order.STATUS_CHOICES.shipped
                             order.save()
                         else:
-                            # TODO: 삭제 끝
                             if send_vouchers(order):
                                 pass
                             else:
