@@ -126,6 +126,8 @@
                     {% trans 'PayPal' %}
                 {% elif payment.order__payment_method == 3 %}
                     {% trans 'Credit Card' %}
+                {% elif payment.order__payment_method == 6 %}
+                    {% trans 'Phone Bill' %}
                 {% endif %}
             </div>
             <div class="col-6 col-sm-6 col-md-2">
