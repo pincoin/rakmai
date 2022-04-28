@@ -1,4 +1,4 @@
-Django==2.2.24
+Django==3.2.12
 django-allauth==0.45.0
 djangorestframework==3.12.4
 django-model-utils==4.1.1
@@ -13,7 +13,7 @@ Markdown==3.3.4
 Pygments==2.10.0
 easy-thumbnails==2.7.1
 django-import-export==2.5.0
-celery==5.2.2
+celery==5.1.2
 python-memcached==1.59
 django-otp==1.0.6
 qrcode==7.3
