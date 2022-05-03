@@ -12,7 +12,7 @@ def send_notification_email(subject, message, from_email, recipient, html_messag
         subject,
         message,
         from_email,
-        [recipient],
+        recipient,
         fail_silently=True,
         html_message=html_message,
     )
