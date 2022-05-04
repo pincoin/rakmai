@@ -53,3 +53,5 @@ UNAVAILABLE_NIGHT_PRODUCTS = getattr(settings, '', ['엔코인',
                                                     '와우캐시',
                                                     '매니아선불쿠폰',
                                                     '아이템베이선불쿠폰'])
+
+NO_REFUND = getattr(settings, 'NO_REFUND', False)
