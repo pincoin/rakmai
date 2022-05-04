@@ -60,4 +60,5 @@ def get_customer_questions(context, store_code, count):
 def get_recent_orders(user_id, count):
     return Order.objects \
                .select_related('user', 'user__profile') \
-               .filter(is_removed=False, user__id=user_id)[:count]
+               .filter(is_removed=False, user__id=user_id) \
+               .order_by('-created')[:count]
