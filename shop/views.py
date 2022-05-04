@@ -10,6 +10,7 @@ from django.conf import settings
 from django.contrib.auth.mixins import (
     AccessMixin, LoginRequiredMixin
 )
+
 try:
     # Django 2
     from django.contrib.staticfiles.templatetags.staticfiles import static
@@ -890,7 +891,7 @@ class PaypalCallbackView(HostRestrict, generic.FormView):
                 _('[site] Order voided: {}').format(order.order_no),
                 'dummy',
                 settings.EMAIL_NO_REPLY,
-                [order.user.email],
+                [order.user.email, ],
                 html_message,
             )
 

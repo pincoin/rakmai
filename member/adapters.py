@@ -5,10 +5,10 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from rakmai.helpers import get_sub_domain
-from shop.tasks import send_notification_email
-from .models import EmailBanned
-from . import settings as member_settings
 from shop.models import Store
+from shop.tasks import send_notification_email
+from . import settings as member_settings
+from .models import EmailBanned
 
 
 class MyAccountAdapter(DefaultAccountAdapter):
@@ -25,7 +25,7 @@ class MyAccountAdapter(DefaultAccountAdapter):
         # bodies['txt'] = render_to_string(template_name, context).strip()
         bodies['html'] = render_to_string(template_name, context).strip()
 
-        send_notification_email.delay(subject, 'dummy', from_email, email, html_message=bodies['html'])
+        send_notification_email.delay(subject, 'dummy', from_email, [email, ], html_message=bodies['html'])
 
     def clean_email(self, email):
         if email.lower().split('@')[1] not in member_settings.ALLOWED_EMAIL_DOMAIN:

@@ -393,7 +393,7 @@ class OrderSendView(SuperuserRequiredMixin, StoreContextMixin, generic.FormView)
             _('[site] Order shipped: {}').format(order.order_no),
             'dummy',
             settings.EMAIL_NO_REPLY,
-            [order.user.email],
+            [order.user.email, ],
             html_message,
         )
 
@@ -439,7 +439,7 @@ class OrderRefundView(SuperuserRequiredMixin, StoreContextMixin, generic.FormVie
             _('[site] Order refunded: {}').format(order.order_no),
             'dummy',
             settings.EMAIL_NO_REPLY,
-            [order.user.email],
+            [order.user.email, ],
             html_message,
         )
 
@@ -844,7 +844,7 @@ class CustomerQuestionDetailView(SuperuserRequiredMixin, StoreContextMixin, gene
             _('[site] Question Answer'),
             'dummy',
             settings.EMAIL_NO_REPLY,
-            [self.object.owner.email],
+            [self.object.owner.email, ],
             html_message,
         )
 

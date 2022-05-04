@@ -128,7 +128,7 @@ def send_vouchers(order):
         _('[site] Order shipped: {}').format(order.order_no),
         'dummy',
         settings.EMAIL_NO_REPLY,
-        [order.user.email],
+        [order.user.email, ],
         html_message,
     )
 
