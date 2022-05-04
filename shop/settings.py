@@ -45,7 +45,7 @@ CURRENCY_RATE = getattr(settings, 'CURRENCY_RATE', {
     },
     'USD': {
         'locale': 'en_US.UTF-8',
-        'rate': Decimal(0.00101000),  # 0.00106000
+        'rate': Decimal(0.00105000),  # 0.00106000
     },
 })
 
