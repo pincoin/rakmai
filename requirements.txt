@@ -22,3 +22,5 @@ WeasyPrint==52.5
 Pillow==9.1.0
 django-redis==5.0.0
 future==0.18.2
+boto3==1.22.9
+django-storages==1.12.3
