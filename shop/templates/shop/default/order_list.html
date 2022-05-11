@@ -141,7 +141,7 @@
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 {% if log.country_code %}
-                                    <img src="/assets/images/shop/flag/{{ log.country_code }}.png"
+                                    <img src="{% static 'images/shop/flag/'|add:country_code|add:'.png' %}"
                                          alt="{{ log.ip_address }}">
                                 {% endif %}
                                 {{ log.ip_address }}

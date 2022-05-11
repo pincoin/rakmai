@@ -1,3 +1,5 @@
+import os
+
 from django.utils.translation import ugettext_lazy as _
 
 from .base import *
@@ -32,7 +34,13 @@ USE_TZ = True
 USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/assets/'
+
+# STATIC_URL = '/assets/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
+# STATICFILES_DIRS = []
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
 STATICFILES_DIRS = [
 ]

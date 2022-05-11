@@ -352,7 +352,7 @@
                 </div>
                 <div class="col-sm-9">
                     {% if country_code %}
-                        <img src="/assets/images/shop/flag/{{ country_code }}.png" alt="{{ order.ip_address }}">
+                        <img src="{% static 'images/shop/flag/'|add:country_code|add:'.png' %}" alt="{{ order.ip_address }}">
                         {{ country_name }}
                     {% else %}
                         {{ order.ip_address }}

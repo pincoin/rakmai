@@ -37,6 +37,16 @@ IAMPORT = Secret.IAMPORT
 BOOTPAY = Secret.BOOTPAY
 BILLGATE = Secret.BILLGATE
 
+AWS_ACCESS_KEY_ID = Secret.AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = Secret.AWS_SECRET_ACCESS_KEY
+
+AWS_STORAGE_BUCKET_NAME = Secret.AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -71,6 +81,7 @@ INSTALLED_APPS += [
     'django_otp.plugins.otp_totp',
     'debug_toolbar',
     'disqus',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -222,3 +233,5 @@ REST_FRAMEWORK = {
 
 REST_FRAMEWORK_TOKEN = Secret.REST_FRAMEWORK_TOKEN
 REST_FRAMEWORK_WHITELIST = Secret.REST_FRAMEWORK_WHITELIST
+
+# AWS S3
