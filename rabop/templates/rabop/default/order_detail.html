@@ -351,12 +351,7 @@
                     {% trans "country" %}
                 </div>
                 <div class="col-sm-9">
-                    {% if country_code %}
-                        <img src="{% static 'images/shop/flag/'|add:country_code|add:'.png' %}" alt="{{ order.ip_address }}">
-                        {{ country_name }}
-                    {% else %}
-                        {{ order.ip_address }}
-                    {% endif %}
+                    {{ order.ip_address }}
                 </div>
             </li>
             <li class="row mb-2">

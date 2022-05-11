@@ -140,11 +140,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-12 col-md-4">
-                                {% if log.country_code %}
-                                    <img src="{% static 'images/shop/flag/'|add:country_code|add:'.png' %}"
-                                         alt="{{ log.ip_address }}">
-                                {% endif %}
-                                {{ log.ip_address }}
+                                {{ order.ip_address }}
                             </div>
                             <div class="col-12 col-md-8">
                                 {{ log.created }}
