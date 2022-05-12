@@ -49,6 +49,8 @@ AWS_LOCATION = 'static'
 
 DEFAULT_FILE_STORAGE = 'sandbox.storage_backends.MediaStorage'
 
+THUMBNAIL_DEFAULT_STORAGE = 'sandbox.storage_backends.MediaStorage'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
