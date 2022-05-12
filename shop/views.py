@@ -934,7 +934,7 @@ class GamemecaRankingView(StoreContextMixin, HostRestrict, generic.TemplateView)
         context['games'] = []
 
         for data in root.findall('data'):
-            for field in data.getchildren():
+            for field in list(data):
                 game = {
                     'order': field.find('order').text,
                     'gm_id': field.find('gm_id').text,
