@@ -11,7 +11,7 @@ django-debug-toolbar==3.2.2
 bleach==4.1.0
 Markdown==3.3.4
 Pygments==2.10.0
-easy-thumbnails==2.7.1
+easy-thumbnails==2.8.1
 django-import-export==2.5.0
 celery==5.2.6
 python-memcached==1.59
