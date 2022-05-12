@@ -22,7 +22,7 @@ class Command(BaseCommand):
                 else:
                     if not Profile.objects.filter(Q(photo_id__contains=file) | Q(card__contains=file)).exists():
                         self.stdout.write(self.style.SUCCESS(os.path.join(root, file)))
-                        # os.unlink(os.path.join(root, file))
+                        os.unlink(os.path.join(root, file))
 
         # subdirectory: blog
 

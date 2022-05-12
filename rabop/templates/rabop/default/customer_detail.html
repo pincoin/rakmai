@@ -226,7 +226,7 @@
                             <div class="col-sm-9">
                                 {% if customer.photo_id %}
                                     <a href="{{ customer.photo_id.url }}">
-                                        <img src="{{ customer.photo_id|thumbnail_url:'photo' }}">
+                                        click
                                     </a>
                                 {% else %}
                                     {% trans "No Image" %}
@@ -240,7 +240,7 @@
                             <div class="col-sm-9">
                                 {% if customer.card %}
                                     <a href="{{ customer.card.url }}">
-                                        <img src="{{ customer.card|thumbnail_url:'photo' }}">
+                                        click
                                     </a>
                                 {% else %}
                                     {% trans "No Image" %}
