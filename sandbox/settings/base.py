@@ -47,6 +47,8 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 AWS_LOCATION = 'static'
 
+DEFAULT_FILE_STORAGE = 'sandbox.storage_backends.MediaStorage'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -234,4 +236,3 @@ REST_FRAMEWORK = {
 REST_FRAMEWORK_TOKEN = Secret.REST_FRAMEWORK_TOKEN
 REST_FRAMEWORK_WHITELIST = Secret.REST_FRAMEWORK_WHITELIST
 
-# AWS S3
