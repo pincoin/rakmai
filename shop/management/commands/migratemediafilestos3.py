@@ -33,11 +33,11 @@ class Command(BaseCommand):
                     s3_client.upload_file(full_path,
                                           settings.AWS_STORAGE_BUCKET_NAME,
                                           upload_path,
-                                          ExtraArgs={'Metadata': {
+                                          ExtraArgs={
                                               'ContentType': mimetypes.types_map[
                                                   str(os.path.splitext(upload_path)[1]).lower()
                                               ],
-                                          }})
+                                          })
                     self.stdout.write(self.style.SUCCESS(upload_path))
                 except ClientError as e:
                     self.stdout.write(self.style.ERROR(upload_path))
