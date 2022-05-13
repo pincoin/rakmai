@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 import boto3
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -10,6 +12,8 @@ class Command(BaseCommand):
     help = 'Delete s3 orphan files'
 
     def handle(self, *args, **options):
+        yesterday = datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d')
+
         session = boto3.session.Session()
         s3_client = session.client(
             service_name='s3',
@@ -17,7 +21,7 @@ class Command(BaseCommand):
             aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
         )
         paginator = s3_client.get_paginator('list_objects_v2')
-        pages = paginator.paginate(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Prefix='media/member')
+        pages = paginator.paginate(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Prefix=f'media/member/{yesterday}')
 
         orphans = []
         for page in pages:
