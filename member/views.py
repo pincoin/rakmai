@@ -4,6 +4,7 @@ import re
 import uuid
 from datetime import datetime
 
+import boto3
 import requests
 from allauth.account.models import EmailAddress
 from allauth.account.views import (
@@ -364,6 +365,33 @@ class MemberUnregisterView(AccessMixin, HostContextMixin, StoreContextMixin, For
 
     def form_valid(self, form):
         response = super(MemberUnregisterView, self).form_valid(form)
+
+        session = boto3.session.Session()
+        s3_client = session.client(
+            service_name='s3',
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+        )
+
+        try:
+            if self.member.profile:
+                dirty = False
+                if self.member.profile.photo_id:
+                    s3_client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                                            Key='media/' + self.member.profile.photo_id.name)
+                    self.member.profile.photo_id = ''
+                    dirty = True
+                if self.member.profile.card:
+                    s3_client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                                            Key='media/' + self.member.profile.card.name)
+                    self.member.profile.card = ''
+                    dirty = True
+
+                if dirty:
+                    self.member.profile.save()
+
+        except Profile.DoesNotExist:
+            pass
 
         self.member.email = self.member.email + '_' + str(uuid.uuid4())
         self.member.username = self.member.username + '_' + str(uuid.uuid4())
