@@ -1,10 +1,10 @@
 Django==3.2.13
-django-allauth==0.45.0
+django-allauth==0.50.0
 djangorestframework==3.13.1
 django-model-utils==4.2.0
 django-mptt==0.13.4
 django-crispy-forms==1.14.0
-django-ipware==3.0.1
+django-ipware==4.0.2
 geoip2==4.5.0
 django-taggit==3.0.0
 django-debug-toolbar==3.4.0
@@ -20,7 +20,7 @@ qrcode==7.3.1
 django-disqus==0.5
 WeasyPrint==55
 Pillow==9.1.0
-django-redis==5.0.0
+django-redis==5.2.0
 future==0.18.2
 boto3==1.22.13
 django-storages==1.12.3
