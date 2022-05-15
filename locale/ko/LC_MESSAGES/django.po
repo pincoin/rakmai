@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 17:07+0900\n"
+"POT-Creation-Date: 2022-05-15 18:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -641,7 +641,7 @@ msgstr "문의하기"
 #: card/templates/card/default/base.html:331
 #: member/templates/member/account/signup.html:14
 #: member/templates/member/account/terms.html:11
-#: member/templates/member/socialaccount/signup.html:23 member/views.py:257
+#: member/templates/member/socialaccount/signup.html:23 member/views.py:258
 #: shop/templates/shop/default/base.html:370
 msgid "Terms and Conditions"
 msgstr "이용약관"
@@ -651,7 +651,7 @@ msgstr "이용약관"
 #: card/templates/card/default/base.html:336
 #: member/templates/member/account/privacy.html:11
 #: member/templates/member/account/signup.html:31
-#: member/templates/member/socialaccount/signup.html:40 member/views.py:266
+#: member/templates/member/socialaccount/signup.html:40 member/views.py:267
 #: shop/templates/shop/default/base.html:375
 msgid "Privacy Policy"
 msgstr "개인정보 처리방침"
@@ -1360,8 +1360,8 @@ msgstr "로그인"
 #: card/templates/card/default/base.html:169
 #: member/templates/member/account/login.html:120
 #: member/templates/member/account/signup.html:172
-#: member/templates/member/socialaccount/signup.html:158 member/views.py:116
-#: member/views.py:238 shop/templates/shop/default/base.html:103
+#: member/templates/member/socialaccount/signup.html:158 member/views.py:117
+#: member/views.py:239 shop/templates/shop/default/base.html:103
 #: shop/templates/shop/default/base.html:169
 msgid "Sign up"
 msgstr "회원가입"
@@ -2092,7 +2092,7 @@ msgstr "답변없음"
 #: help/admin.py:81 member/admin.py:31
 #: member/templates/member/account/profile.html:154
 #: member/templates/member/account/signup.html:103
-#: member/templates/member/socialaccount/signup.html:89 member/views.py:282
+#: member/templates/member/socialaccount/signup.html:89 member/views.py:283
 #: rabop/templates/rabop/default/customer_detail.html:14
 msgid "Profile"
 msgstr "회원 개인정보"
@@ -2311,7 +2311,7 @@ msgstr "핀코인 사이트 회원을 탈퇴합니다."
 
 #: member/forms2.py:321 member/templates/member/account/name_change.html:25
 #: member/templates/member/account/profile.html:71
-#: member/templates/member/account/profile.html:244 member/views.py:400
+#: member/templates/member/account/profile.html:244 member/views.py:428
 msgid "Change Your Name"
 msgstr "이름 변경"
 
@@ -2566,7 +2566,7 @@ msgstr "차단 휴대전화 번호"
 msgid "Banned Phone Numbers"
 msgstr "차단 휴대전화 번호"
 
-#: member/templates/member/account/account_inactive.html:10 member/views.py:191
+#: member/templates/member/account/account_inactive.html:10 member/views.py:192
 msgid "Account Inactive"
 msgstr "비활성화 계정"
 
@@ -2575,7 +2575,7 @@ msgid "This account is inactive."
 msgstr "비활성화된 계정입니다."
 
 #: member/templates/member/account/document_confirm.html:19
-#: member/templates/member/account/profile.html:98 member/views.py:339
+#: member/templates/member/account/profile.html:98 member/views.py:340
 #: rabop/templates/rabop/default/customer_detail.html:161
 #: rabop/templates/rabop/default/order_detail.html:134
 msgid "Document Verification"
@@ -2704,6 +2704,26 @@ msgstr "비밀번호 초기화 안내 이메일"
 msgid "Phone has been verified"
 msgstr "휴대폰 인증 완료"
 
+#: member/templates/member/account/email/unknown_account_message.txt:4
+msgid ""
+"You are receiving this e-mail because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a "
+"user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
+msgstr ""
+"\n"
+"    <p>안녕하세요. 핀코인입니다.</p>\n"
+"    <p>\n"
+"        비밀번호 초기화 요청하신 %(email)s 이메일 주소가 존재하지 않습니다.\n"
+"        만약 고객님께서 직접 비밀번호 초기화를 요청하지 않은 경우 이 메일은 "
+"무시하셔도 좋습니다. 단, 해킹 위험으로 고객님의 기본 이메일 주소 변경을 부탁"
+"드립니다.\n"
+"    </p>\n"
+
 #: member/templates/member/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
 msgstr "이메일 주소를 인증합니다."
@@ -2770,7 +2790,7 @@ msgid ""
 msgstr "가입하신 이메일 주소로 비밀번호 초기화를 위한 이메일을 발송합니다."
 
 #: member/templates/member/account/password_reset_done.html:15
-#: member/views.py:126 member/views.py:145
+#: member/views.py:127 member/views.py:146
 msgid "Password Reset"
 msgstr "비밀번호 초기화"
 
@@ -2825,7 +2845,7 @@ msgstr "언어"
 msgid "Currency"
 msgstr "통화"
 
-#: member/templates/member/account/profile.html:228 member/views.py:248
+#: member/templates/member/account/profile.html:228 member/views.py:249
 msgid "Connect with SNS accounts"
 msgstr "SNS 계정 연동"
 
@@ -2835,7 +2855,7 @@ msgstr "이메일 변경"
 
 #: member/templates/member/account/profile.html:252
 #: member/templates/member/account/unregister.html:11
-#: member/templates/member/account/unregister.html:42 member/views.py:361
+#: member/templates/member/account/unregister.html:42 member/views.py:362
 msgid "Unregister"
 msgstr "회원탈퇴"
 
@@ -2874,7 +2894,7 @@ msgid "Follow the link provided to finalize the signup process."
 msgstr "받으신 이메일 안에 링크를 클릭해 회원가입을 완료바랍니다."
 
 #: member/templates/member/socialaccount/authentication_error.html:11
-#: member/views.py:229
+#: member/views.py:230
 msgid "Social Network Login Failure"
 msgstr "SNS 로그인 실패"
 
@@ -2912,7 +2932,7 @@ msgid "Add a 3rd Party Account"
 msgstr "SNS 계정 연동 추가"
 
 #: member/templates/member/socialaccount/login_cancelled.html:5
-#: member/views.py:220
+#: member/views.py:221
 msgid "Login Cancelled"
 msgstr "로그인 취소됨"
 
@@ -2936,115 +2956,115 @@ msgstr ""
 "%(provider_name)s을 통해 핀코인에 로그인합니다.\n"
 "                        "
 
-#: member/views.py:96
+#: member/views.py:97
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:106
+#: member/views.py:107
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:135 member/views.py:154
+#: member/views.py:136 member/views.py:155
 msgid "Password Reset Done"
 msgstr "비밀번호 설정 완료"
 
-#: member/views.py:163
+#: member/views.py:164
 msgid "Email Verification Sent"
 msgstr "인증 이메일 발송"
 
-#: member/views.py:172
+#: member/views.py:173
 msgid "Confirm Email Request"
 msgstr "인증 이메일 요청"
 
-#: member/views.py:182
+#: member/views.py:183
 msgid "Email Management"
 msgstr "이메일 관리"
 
-#: member/views.py:201
+#: member/views.py:202
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:211
+#: member/views.py:212
 msgid "Password Set"
 msgstr "비밀번호 설정"
 
-#: member/views.py:329
+#: member/views.py:330
 msgid "Document Verification {} {} {}"
 msgstr "서류인증 {} {} {}"
 
-#: member/views.py:505
+#: member/views.py:533
 msgid ""
 "Person aged over 50 can verify your account during 90 days after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 90일 이후 휴대폰인증 가능"
 "합니다."
 
-#: member/views.py:516
+#: member/views.py:544
 msgid ""
 "Person aged over 60 can verify your account during 15 days after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 60세 이상 고객은 가입 후 15일 이후 휴대폰인증 가능"
 "합니다."
 
-#: member/views.py:528
+#: member/views.py:556
 msgid ""
 "Person aged over 50 can verify your account during 72 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 50세 이상 고객은 가입 후 72시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:541
+#: member/views.py:569
 msgid ""
 "Person aged over 45 can verify your account during 72 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 45세 이상 고객은 가입 후 72시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:551
+#: member/views.py:579
 msgid "MVNO user can verify your account during 72 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 72시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:563
+#: member/views.py:591
 msgid "MVNO user can verify your account during 48 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 48시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:574
+#: member/views.py:602
 msgid "MVNO user can verify your account during 24 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 24시간 이후 휴대폰인증 가"
 "능합니다."
 
-#: member/views.py:586
+#: member/views.py:614
 msgid "MVNO user can verify your account during 8 hours after joined."
 msgstr ""
 "금융거래사기 방지를 위하여 알뜰폰 이용자는 가입 후 8시간 이후 휴대폰인증 가능"
 "합니다."
 
-#: member/views.py:599
+#: member/views.py:627
 msgid "You can verify your account during 8 hours after joined."
 msgstr "금융거래사기 방지를 위하여 8시간 이후 휴대폰인증 가능합니다."
 
-#: member/views.py:619
+#: member/views.py:647
 msgid "Phone Verification {}"
 msgstr "휴대폰인증 {}"
 
-#: member/views.py:626
+#: member/views.py:654
 msgid "Your name does not match the phone owner."
 msgstr "회원 이름과 휴대전화 소유자 이름이 일치하지 않습니다."
 
-#: member/views.py:632
+#: member/views.py:660
 msgid "Your phone number is banned."
 msgstr "차단된 전화번호입니다."
 
-#: member/views.py:638
+#: member/views.py:666
 msgid "You have verified within 48 hours."
 msgstr "48시간 이후 휴대폰인증 완료바랍니다."
 
-#: member/views.py:645
+#: member/views.py:673
 msgid "Illegal access: no record"
 msgstr "잘못된 접근: 인증 실패"
 
