@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-15 19:48+0900\n"
+"POT-Creation-Date: 2022-05-15 19:57+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2697,6 +2697,7 @@ msgstr ""
 "    </p>\n"
 
 #: member/templates/member/account/email/password_reset_key_subject.txt:3
+#: member/templates/member/account/email/unknown_account_subject.txt:3
 msgid "Password Reset E-mail"
 msgstr "비밀번호 초기화 안내 이메일"
 
@@ -2705,6 +2706,7 @@ msgid "Phone has been verified"
 msgstr "휴대폰 인증 완료"
 
 #: member/templates/member/account/email/unknown_account_message.txt:4
+#, python-format
 msgid ""
 "You are receiving this e-mail because you or someone else has requested a\n"
 "password for your user account. However, we do not have any record of a "
@@ -2716,7 +2718,6 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "    <p>안녕하세요. 핀코인입니다.</p>\n"
-""
 "    <p>\n"
 "        비밀번호 초기화 요청하신 %(email)s 이메일 주소가 존재하지 않습니다.\n"
 "\n"
