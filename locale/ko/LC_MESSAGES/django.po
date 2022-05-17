@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-15 19:57+0900\n"
+"POT-Creation-Date: 2022-05-17 11:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2073,17 +2073,21 @@ msgstr "주문 - {}"
 msgid "Refund Payment - {}"
 msgstr "환불요청 - {}"
 
-#: card/views.py:907 card/views.py:989 card/views.py:1050
+#: card/views.py:907 card/views.py:989 card/views.py:1051
 msgid "Failure: credit card 1"
 msgstr "신용카드 결제 발송 실패"
 
-#: card/views.py:913 card/views.py:994 card/views.py:1055
+#: card/views.py:913 card/views.py:994 card/views.py:1056
 msgid "Failure: credit card 2"
 msgstr "신용카드 결제 금액 불일치"
 
-#: card/views.py:918 card/views.py:999 card/views.py:1060
+#: card/views.py:918 card/views.py:999 card/views.py:1061
 msgid "Failure: credit card 3"
 msgstr "신용카드 결제 명의 불일치"
+
+#: card/views.py:1064
+msgid "Failure: credit card 4"
+msgstr "신용카드 결제 주문 없음"
 
 #: help/admin.py:14 help/admin.py:19
 msgid "No Answer"

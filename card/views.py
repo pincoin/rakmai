@@ -1030,34 +1030,38 @@ class BillgateCallbackView(StoreContextMixin, HostRestrict, generic.FormView):
             result = response.json()
 
             if result['RESPONSE_CODE'] == '0000':
-                order = models.Order.objects \
-                    .select_related('user', 'user__profile') \
-                    .get(order_no=result['ORDER_ID'])
+                try:
+                    order = models.Order.objects \
+                        .select_related('user', 'user__profile') \
+                        .get(order_no=result['ORDER_ID'])
 
-                if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
-                        and order.user.profile.full_name == order.fullname:
-                    if order.total_selling_price == Decimal(result['AUTH_AMOUNT']):
-                        if order.user.email == 'dev@pincoin.co.kr':  # PG test account
-                            order.status = order.STATUS_CHOICES.shipped
-                            order.save()
-                        else:
-                            if send_vouchers(order):
-                                pass
-                            else:
-                                # failure
-                                order.status = models.Order.STATUS_CHOICES.payment_completed
+                    if order.user.profile.phone_verified_status == Profile.PHONE_VERIFIED_STATUS_CHOICES.verified \
+                            and order.user.profile.full_name == order.fullname:
+                        if order.total_selling_price == Decimal(result['AUTH_AMOUNT']):
+                            if order.user.email == 'dev@pincoin.co.kr':  # PG test account
+                                order.status = order.STATUS_CHOICES.shipped
                                 order.save()
-                                send_notification_line.delay(_('Failure: credit card 1'))
+                            else:
+                                if send_vouchers(order):
+                                    pass
+                                else:
+                                    # failure
+                                    order.status = models.Order.STATUS_CHOICES.payment_completed
+                                    order.save()
+                                    send_notification_line.delay(_('Failure: credit card 1'))
+                        else:
+                            # invalid paid amount
+                            order.status = models.Order.STATUS_CHOICES.voided
+                            order.save()
+                            send_notification_line.delay(_('Failure: credit card 2'))
                     else:
-                        # invalid paid amount
+                        # invalid user
                         order.status = models.Order.STATUS_CHOICES.voided
                         order.save()
-                        send_notification_line.delay(_('Failure: credit card 2'))
-                else:
-                    # invalid user
-                    order.status = models.Order.STATUS_CHOICES.voided
-                    order.save()
-                    send_notification_line.delay(_('Failure: credit card 3'))
+                        send_notification_line.delay(_('Failure: credit card 3'))
+
+                except models.Order.DoesNotExist:
+                    send_notification_line.delay(_('Failure: credit card 4'))
 
         return HttpResponse('<script>opener.location.reload(); self.close();</script>')
 
