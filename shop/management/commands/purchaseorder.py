@@ -50,10 +50,15 @@ class Command(BaseCommand):
                                                 int(math.ceil(
                                                     (item.maximum_stock_level - item.stock_quantity) / 100.0) * 100)))
                 else:
-                    email_string.append('{} {} {}매\n'
-                                        .format(item.name, item.subtitle,
-                                                int(math.ceil(
-                                                    (item.maximum_stock_level - item.stock_quantity) / 10.0) * 10)))
+                    if item.maximum_stock_level - item.stock_quantity < 10:
+                        email_string.append('{} {} {}매\n'
+                                            .format(item.name, item.subtitle,
+                                                    item.maximum_stock_level - item.stock_quantity))
+                    else:
+                        email_string.append('{} {} {}매\n'
+                                            .format(item.name, item.subtitle,
+                                                    int(math.ceil(
+                                                        (item.maximum_stock_level - item.stock_quantity) / 10.0) * 10)))
 
         if count:
             title = '[핀코인] {} 주문'.format(_date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d H:i'))
