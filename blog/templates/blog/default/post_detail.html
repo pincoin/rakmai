@@ -39,8 +39,7 @@
         <hr/>
 
         {% if post.thumbnail %}
-            {% thumbnail post.thumbnail 900x300 crop="smart" as im %}
-            <img class="img-fluid rounded" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            <img class="img-fluid rounded" src="{{ post.thumbnail.url }}" width="900" height="300">
         {% else %}
             <img class="img-fluid rounded" src="{% static 'images/shop/default/900x300.png' %}" alt="no thumbnail">
         {% endif %}
@@ -72,9 +71,7 @@
                 <div class="col-sm-4 my-4">
                     <div class="card h-100">
                         {% if similar_post.thumbnail %}
-                            {% thumbnail similar_post.thumbnail 222x145 crop="smart" as im %}
-                            <img class="card-img-top" src="{{ im.url }}" width="{{ im.width }}"
-                                 height="{{ im.height }}">
+                            <img class="card-img-top" src="{{ similar_post.thumbnail.url }}" width="222" height="145">
                         {% else %}
                             <img class="card-img-top"
                                  src="{% static 'images/shop/default/222x145.png' %}"
