@@ -138,6 +138,9 @@ $(document).ready(function () {
                 case 17: // 와우캐시
                     results = content.match(/[A-Z][0-9]{3}-[0-9]{4}-[0-9]{4}/mg);
                     break;
+                case 26: // 요기요
+                    results = content.match(/[0-9]{5}[A-Z][0-9]{9}/mg);
+                    break;
             }
 
             if (results != null) {
