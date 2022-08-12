@@ -1322,7 +1322,7 @@ msgstr "영업시간 외에 과거 최대구매액을 초과하여 구매할 수
 #: card/forms2.py:404 shop/forms2.py:519
 msgid "Over amount for auto-send during night time"
 msgstr ""
-"영업시간 외에 20만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 14"
+"영업시간 외에 10만원 초과 주문 자동발송 조건: 구매횟수 5회 초과, 첫 구매 14"
 "일 초과, 마지막 구매 30일 미만"
 
 #: card/forms2.py:415 card/forms2_debug.py:57
