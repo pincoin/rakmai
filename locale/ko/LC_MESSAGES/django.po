@@ -1262,7 +1262,7 @@ msgid ""
 "You cannot buy culture more than {} KRW within 48 hrs from the first order "
 "date."
 msgstr ""
-"첫 구매 후 48시간 동안 하루에 20만원까지만 문화상품권, 해피머니, 도서문화상품"
+"첫 구매 후 48시간 동안 하루에 10만원까지만 문화상품권, 해피머니, 도서문화상품"
 "권 주문 가능합니다."
 
 #: card/forms2.py:262 shop/forms2.py:354
@@ -1270,7 +1270,7 @@ msgid ""
 "You cannot buy culture more than {} KRW within 48 hrs because you have not "
 "purchased for 2 months."
 msgstr ""
-"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 20만원까"
+"60일 이상 구매하지 않은 경우 금융사기 방지를 위해 48시간 동안 하루에 10만원까"
 "지만 문화상품권, 해피머니, 도서문화상품권 주문 가능합니다."
 
 #: card/forms2.py:272 card/forms2.py:323 card/forms2.py:373 shop/forms2.py:364
