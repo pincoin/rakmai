@@ -445,7 +445,8 @@ class VoucherFilterForm(forms.Form):
         choices=(
             ('2', _('Google Card'),),
             ('3', _('Nexon Card'),),
-            ('8', _('Munhwa Card'),),
+            ('8', '컬쳐랜드',),
+            ('27', _('Munhwa Card'),),
             ('7', _('Book and Life'),),
             ('11', _('Happy Money'),),
             ('10', _('Egg Money'),),
@@ -457,6 +458,7 @@ class VoucherFilterForm(forms.Form):
             ('16', _('N Coin'),),
             ('17', _('WoW Cash'),),
             ('24', _('PlayStation'),),
+            ('26', '요기요',),
             ('18', _('Itemmania'),),
             ('19', _('itemBay'),),
             ('13', _('Oncash'),),
