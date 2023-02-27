@@ -77,9 +77,10 @@ $(document).ready(function () {
                         remarks = voucher_remarks;
                     }
                     break;
-                case 8: // 문화상품권
+                case 8: // 컬쳐랜드
                 case 6: // 스마트문화상품권
                 case 23: // 한게임상품권
+		case 27: // 문화상품권
                     results = content.match(/[0-9]{4}[- ][0-9]{4}[- ][0-9]{4}[- ][0-9]{4,6}/mg);
 
                     if (results !== null) {
